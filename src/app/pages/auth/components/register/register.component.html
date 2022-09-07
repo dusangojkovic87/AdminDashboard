@@ -3,25 +3,30 @@
     <div class="register-img-wrp">
       <img src="/assets/register/registerMain.jpg" alt="registerMain.jpg" />
     </div>
-    <form id="registerForm" action="/" method="post">
+    <form
+      [formGroup]="registerForm"
+      id="registerForm"
+      method="post"
+      (ngSubmit)="submitRegisterForm()"
+    >
       <div>
         <label for="name">Name</label>
       </div>
 
-      <input type="text" name="email" />
+      <input formControlName="name" form type="text" name="name" />
       <div>
         <label for="email">Email</label>
       </div>
 
-      <input type="text" name="email" />
+      <input formControlName="email" type="text" name="email" />
       <div>
         <label for="password">Password</label>
       </div>
-      <input type="password" name="password" />
+      <input formControlName="password" type="password" name="password" />
       <div>
         <label for="role">Staff Role</label>
       </div>
-      <select name="role" id="role">
+      <select name="role" id="role" formControlName="role">
         <option value="admin">Admin</option>
         <option value="ceo">CEO</option>
         <option value="manager">Manager</option>
