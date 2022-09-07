@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  font-family: "Roboto";
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-light-black: #1d1f26;
+  --primary-black: #121317;
+  --primary-purple: #763df2;
+  --primary-blue: #0487d9;
+  --primary-green: #0fa66e;
+  --primary-grey: #aab1ae;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/fonts/Roboto-Regular.ttf");
+}

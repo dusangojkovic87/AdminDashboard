@@ -1,0 +1,51 @@
+<div class="register-container">
+  <div class="register-form-wrp">
+    <div class="register-img-wrp">
+      <img src="/assets/register/registerMain.jpg" alt="registerMain.jpg" />
+    </div>
+    <form id="registerForm" action="/" method="post">
+      <div>
+        <label for="name">Name</label>
+      </div>
+
+      <input type="text" name="email" />
+      <div>
+        <label for="email">Email</label>
+      </div>
+
+      <input type="text" name="email" />
+      <div>
+        <label for="password">Password</label>
+      </div>
+      <input type="password" name="password" />
+      <div>
+        <label for="role">Staff Role</label>
+      </div>
+      <select name="role" id="role">
+        <option value="admin">Admin</option>
+        <option value="ceo">CEO</option>
+        <option value="manager">Manager</option>
+        <option value="accountant">Accountant</option>
+        <option value="driver">Driver</option>
+        <option value="guard">Security Guard</option>
+        <option value="delivery">Delivery Person</option>
+      </select>
+      <div class="policy-wrp">
+        <label for="policy"
+          >I agree to the
+          <a class="policy__link" href="policy">privacy policy</a></label
+        >
+        <input type="checkbox" name="policy" />
+      </div>
+      <button form="registerForm" type="submit">Create account</button>
+      <hr />
+      <button class="single__sign__btn">
+        <span class="facebook__btn"></span>Login with Facebook
+      </button>
+      <button class="single__sign__btn">
+        <span class="google__btn"></span>Login with Google
+      </button>
+      <a routerLink="/auth/login">already have account?Login</a>
+    </form>
+  </div>
+</div>
