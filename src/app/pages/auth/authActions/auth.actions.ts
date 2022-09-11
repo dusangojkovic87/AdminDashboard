@@ -6,3 +6,13 @@ export const registerAction = createAction(
   AuthActionTypes.REGISTER,
   props<{ user: User }>()
 );
+
+export const registerSuccess = createAction(
+  AuthActionTypes.REGISTER_SUCCESS,
+  props<{ user: User }>()
+);
+
+export const registerFailure = createAction(
+  AuthActionTypes.REGISTER_FAILURE,
+  props<{ error: any }>()
+);
