@@ -46,7 +46,7 @@ export class RegisterEffect {
       this.actions$.pipe(
         ofType(registerSuccess),
         tap(() => {
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('');
         })
       ),
     { dispatch: false }
