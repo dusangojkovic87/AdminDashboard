@@ -11,9 +11,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { HomeComponent } from './pages/home/components/home/home.component';
 import { HomeModule } from './pages/home/home.module';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { HeaderComponent } from './Shared/components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
