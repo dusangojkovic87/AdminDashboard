@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { toggleProfileModalAction } from '../../sharedActions/header.actions';
+import { logOutAction } from '../../../pages/auth/authActions/auth.actions';
+import { HeaderInterfaceState } from '../../types/headerInterfaceState';
 
 @Component({
   selector: 'app-header',
@@ -23,5 +25,11 @@ export class HeaderComponent implements OnInit {
 
   toggleModal() {
     this.store.dispatch(toggleProfileModalAction());
+  }
+
+  logOut() {
+    console.log('log out');
+
+    this.store.dispatch(logOutAction());
   }
 }

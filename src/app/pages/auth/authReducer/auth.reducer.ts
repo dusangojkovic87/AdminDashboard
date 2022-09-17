@@ -3,6 +3,7 @@ import { createReducer, on, Action } from '@ngrx/store';
 import { Actions } from '@ngrx/store-devtools/src/reducer';
 import {
   loginSuccess,
+  logOutAction,
   registerAction,
   registerSuccess,
 } from '../authActions/auth.actions';
@@ -26,6 +27,10 @@ export const authReducer = createReducer(
     ...state,
     isAuthenticated: true,
     currentUser: action.user,
+  })),
+  on(logOutAction, (state: AuthStateInterface) => ({
+    ...state,
+    isAuthenticated: false,
   }))
 );
 

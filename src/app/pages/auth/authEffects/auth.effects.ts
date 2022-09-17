@@ -10,6 +10,8 @@ import {
   loginAction,
   loginFailure,
   loginSuccess,
+  logOutAction,
+  logOutSuccess,
   registerAction,
   registerFailure,
   registerSuccess,
@@ -50,7 +52,6 @@ export class RegisterEffect {
         return this.authServise.LoginUser(loginRequest).pipe(
           map((user: User) => {
             this.persistanceService.set('token', user.token);
-
             return loginSuccess({ user });
           })
         );
@@ -67,6 +68,27 @@ export class RegisterEffect {
         ofType(loginSuccess, registerSuccess),
         tap(() => {
           this.router.navigateByUrl('');
+        })
+      ),
+    { dispatch: false }
+  );
+
+  logOut$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(logOutAction),
+      map(() => {
+        this.persistanceService.clearToken('token');
+        return logOutSuccess();
+      })
+    )
+  );
+
+  logOutSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(logOutSuccess),
+        tap(() => {
+          this.router.navigateByUrl('/auth/login');
         })
       ),
     { dispatch: false }

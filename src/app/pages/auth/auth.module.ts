@@ -5,8 +5,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { reducers } from './authReducer/auth.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './authEffects/auth.effects';
@@ -24,7 +22,6 @@ const routes = [
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    StoreModule.forFeature('auth', reducers),
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     EffectsModule.forFeature([RegisterEffect]),

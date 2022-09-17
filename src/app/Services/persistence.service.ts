@@ -27,4 +27,12 @@ export class PersistenceService {
       return null;
     }
   }
+
+  clearToken(key: string) {
+    try {
+      localStorage.removeItem('token');
+    } catch (error) {
+      console.log('error deleting token from local storage!');
+    }
+  }
 }

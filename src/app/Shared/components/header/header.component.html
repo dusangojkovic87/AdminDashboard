@@ -7,7 +7,9 @@
     <img src="/assets/images/user/user.jpg" alt="user.jpg" />
     <div *ngIf="isModalOpen" class="profile-modal">
       <ul>
-        <li>log out</li>
+        <li>Dashboard</li>
+        <li>Edit profile</li>
+        <li (click)="logOut()">log out</li>
       </ul>
     </div>
   </div>
