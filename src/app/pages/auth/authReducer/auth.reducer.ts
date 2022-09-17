@@ -15,7 +15,7 @@ const initialState: AuthStateInterface = {
 };
 
 //reducer
-const authReducer = createReducer(
+export const authReducer = createReducer(
   initialState,
   on(registerSuccess, (state: AuthStateInterface, action) => ({
     ...state,

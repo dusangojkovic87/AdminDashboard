@@ -12,6 +12,8 @@ import { HomeComponent } from './pages/home/components/home/home.component';
 import { HomeModule } from './pages/home/home.module';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HeaderComponent } from './Shared/components/header/header.component';
+import { SharedModule } from './Shared/shared.module';
+import { appReducer } from './appReducer/appReducer';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent],
@@ -20,7 +22,8 @@ import { HeaderComponent } from './Shared/components/header/header.component';
     AppRoutingModule,
     AuthModule,
     HomeModule,
-    StoreModule.forRoot({}, {}),
+    SharedModule,
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

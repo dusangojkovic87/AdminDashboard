@@ -3,4 +3,12 @@
     <span class="dashboard-icon"></span>
     <h6 routerLink="">AdminDash</h6>
   </div>
+  <div (click)="toggleModal()" class="current-user-img-wrp">
+    <img src="/assets/images/user/user.jpg" alt="user.jpg" />
+    <div *ngIf="isModalOpen" class="profile-modal">
+      <ul>
+        <li>log out</li>
+      </ul>
+    </div>
+  </div>
 </div>
