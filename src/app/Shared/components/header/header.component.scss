@@ -63,12 +63,32 @@
           color: var(--primary-grey);
           display: flex;
           justify-content: flex-start;
+          align-items: center;
           padding-left: 1rem;
           margin: 4px;
         }
 
         li:hover {
           cursor: pointer;
+          color: white;
+        }
+
+        .dashboard__list__item:hover {
+          .dashboard-grey-icon::after {
+            content: url("/assets/icons/dashboard-white.svg");
+          }
+        }
+
+        .settings__list__item:hover {
+          .settings-grey-icon {
+            content: url("/assets/icons/settings-white.svg");
+          }
+        }
+
+        .logout__list__item:hover {
+          .logout-icon::after {
+            content: url("/assets/icons/logout-white.svg");
+          }
         }
       }
     }

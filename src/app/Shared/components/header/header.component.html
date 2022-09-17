@@ -7,9 +7,15 @@
     <img src="/assets/images/user/user.jpg" alt="user.jpg" />
     <div *ngIf="isModalOpen" class="profile-modal">
       <ul>
-        <li>Dashboard</li>
-        <li>Edit profile</li>
-        <li (click)="logOut()">log out</li>
+        <li class="dashboard__list__item">
+          <span class="dashboard-grey-icon"></span>Dashboard
+        </li>
+        <li class="settings__list__item">
+          <span class="settings-grey-icon"></span>Edit profile
+        </li>
+        <li class="logout__list__item" (click)="logOut()">
+          <span class="logout-icon"></span>log out
+        </li>
       </ul>
     </div>
   </div>

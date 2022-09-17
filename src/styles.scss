@@ -38,3 +38,33 @@ body {
   display: block;
   padding-left: 1rem;
 }
+
+.dashboard-grey-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/dashboard-grey.svg");
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
+
+.settings-grey-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/settings-grey.svg");
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
+
+.logout-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/logout.svg");
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
