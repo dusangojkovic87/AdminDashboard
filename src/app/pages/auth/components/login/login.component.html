@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="login-form-wrp">
+    <div class="login-img-wrp">
+      <img src="/assets/register/registerMain.jpg" alt="registerMain.jpg" />
+    </div>
+    <form action="">
+      <div class="login-text-wrp">
+        <h1>Login</h1>
+      </div>
+      <div class="login-input-wrp">
+        <label for="email">Email</label>
+        <input type="text" name="email" />
+      </div>
+      <div class="login-input-wrp">
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+      </div>
+      <button class="login__btn">Login</button>
+      <hr />
+      <button class="single__sign__btn">
+        <span class="facebook__btn"></span>Login with Facebook
+      </button>
+      <button class="single__sign__btn">
+        <span class="google__btn"></span>Login with Google
+      </button>
+      <div class="create-acount-link-wrp">
+        <a href="#">Forgot you password?</a>
+        <a routerLink="/auth/register">Create account</a>
+      </div>
+    </form>
+  </div>
+</div>

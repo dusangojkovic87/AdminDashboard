@@ -19,3 +19,22 @@ body {
   font-family: "Roboto";
   src: url("/assets/fonts/Roboto-Regular.ttf");
 }
+
+//icons
+.facebook__btn {
+  background: url("/assets/icons/facebook.svg");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  display: block;
+  padding-left: 1rem;
+}
+
+.google__btn {
+  background: url("/assets/icons/google.svg");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  display: block;
+  padding-left: 1rem;
+}
