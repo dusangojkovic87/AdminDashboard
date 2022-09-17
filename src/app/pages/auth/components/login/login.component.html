@@ -3,17 +3,17 @@
     <div class="login-img-wrp">
       <img src="/assets/register/registerMain.jpg" alt="registerMain.jpg" />
     </div>
-    <form action="">
+    <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
       <div class="login-text-wrp">
         <h1>Login</h1>
       </div>
       <div class="login-input-wrp">
         <label for="email">Email</label>
-        <input type="text" name="email" />
+        <input formControlName="email" type="text" name="email" />
       </div>
       <div class="login-input-wrp">
         <label for="password">Password</label>
-        <input type="password" name="password" />
+        <input formControlName="password" type="password" name="password" />
       </div>
       <button class="login__btn">Login</button>
       <hr />
@@ -24,7 +24,7 @@
         <span class="google__btn"></span>Login with Google
       </button>
       <div class="create-acount-link-wrp">
-        <a href="#">Forgot you password?</a>
+        <a routerLink="/auth/forgot-password">Forgot you password?</a>
         <a routerLink="/auth/register">Create account</a>
       </div>
     </form>

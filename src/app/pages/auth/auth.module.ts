@@ -10,14 +10,16 @@ import { reducers } from './authReducer/auth.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './authEffects/auth.effects';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 const routes = [
   { path: 'auth/register', component: RegisterComponent },
   { path: 'auth/login', component: LoginComponent },
+  { path: 'auth/forgot-password', component: ForgotPasswordComponent },
 ];
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent],
+  declarations: [RegisterComponent, LoginComponent, ForgotPasswordComponent],
   imports: [
     BrowserModule,
     CommonModule,

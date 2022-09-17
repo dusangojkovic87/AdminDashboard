@@ -7,6 +7,9 @@ import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { User } from 'src/app/interfaces/User';
 import { PersistenceService } from 'src/app/Services/persistence.service';
 import {
+  loginAction,
+  loginFailure,
+  loginSuccess,
   registerAction,
   registerFailure,
   registerSuccess,
@@ -26,7 +29,6 @@ export class RegisterEffect {
     this.actions$.pipe(
       ofType(registerAction),
       switchMap(({ user }) => {
-        console.log('register effect');
         return this.authServise.RegisterUser(user).pipe(
           map((user: User) => {
             this.persistanceService.set('token', user.token);
@@ -41,10 +43,28 @@ export class RegisterEffect {
     )
   );
 
-  redirectAfterRegister$ = createEffect(
+  login$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loginAction),
+      switchMap(({ loginRequest }) => {
+        return this.authServise.LoginUser(loginRequest).pipe(
+          map((user: User) => {
+            this.persistanceService.set('token', user.token);
+
+            return loginSuccess({ user });
+          })
+        );
+      }),
+      catchError((errorResponce: HttpErrorResponse) => {
+        return of(loginFailure(errorResponce));
+      })
+    )
+  );
+
+  redirectAfterAuth$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(registerSuccess),
+        ofType(loginSuccess, registerSuccess),
         tap(() => {
           this.router.navigateByUrl('');
         })

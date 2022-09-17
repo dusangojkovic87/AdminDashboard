@@ -1,7 +1,11 @@
 import { state } from '@angular/animations';
 import { createReducer, on, Action } from '@ngrx/store';
 import { Actions } from '@ngrx/store-devtools/src/reducer';
-import { registerAction, registerSuccess } from '../authActions/auth.actions';
+import {
+  loginSuccess,
+  registerAction,
+  registerSuccess,
+} from '../authActions/auth.actions';
 import { AuthStateInterface } from '../types/AuthStateInterface';
 
 //init state
@@ -14,6 +18,11 @@ const initialState: AuthStateInterface = {
 const authReducer = createReducer(
   initialState,
   on(registerSuccess, (state: AuthStateInterface, action) => ({
+    ...state,
+    isAuthenticated: true,
+    currentUser: action.user,
+  })),
+  on(loginSuccess, (state: AuthStateInterface, action) => ({
     ...state,
     isAuthenticated: true,
     currentUser: action.user,
