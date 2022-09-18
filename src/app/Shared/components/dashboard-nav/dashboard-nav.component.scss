@@ -1,0 +1,85 @@
+.dashboard-nav-container {
+  position: fixed;
+  top: 40px;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--primary-light-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logOut__btn {
+    position: relative;
+    width: 80%;
+    height: 30px;
+    background-color: var(--primary-green);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: "Roboto";
+    font-size: 1rem;
+  }
+
+  ul {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    padding: 0;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      list-style: none;
+      width: 200px;
+      color: grey;
+      margin: 7px;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    li:hover {
+      cursor: pointer;
+      color: white;
+    }
+
+    .dash__link:hover .dash-grey-icon::after {
+      content: url("/assets/icons/dashboard/dash-white.svg");
+    }
+
+    .products__link:hover .products-grey-icon {
+      content: url("/assets/icons/dashboard/bag-white.svg");
+    }
+
+    .category__link:hover .category-grey-icon {
+      content: url("/assets/icons/dashboard/category-white.svg");
+    }
+
+    .customers__link:hover .customers-grey-icon {
+      content: url("/assets/icons/dashboard/customers-white.svg");
+    }
+
+    .orders__link:hover .orders-grey-icon {
+      content: url("/assets/icons/dashboard/orders-white.svg");
+    }
+
+    .coupon__link:hover .coupons-grey-icon {
+      content: url("/assets/icons/dashboard/coupon-white.svg");
+    }
+
+    .staff__link:hover .staff-grey-icon {
+      content: url("/assets/icons/dashboard/staff-white.svg");
+    }
+
+    .settings__link:hover .settings-grey-icon {
+      content: url("/assets/icons/dashboard/settings-white.svg");
+    }
+
+    .pages__link:hover .pages-grey-icon {
+      content: url("/assets/icons/dashboard/pages-white.svg");
+    }
+  }
+}

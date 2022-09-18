@@ -5,12 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
-import { AuthGuard } from 'src/app/Shared/guards/auth.guard';
-import { HomeComponent } from './components/home/home.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
-const routes = [
-  { path: '', component: HomeComponent /*canActivate: [AuthGuard] */ },
-];
+const routes = [{ path: 'edit-profile', component: EditProfileComponent }];
 
 @NgModule({
   declarations: [],
@@ -18,11 +15,10 @@ const routes = [
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     EffectsModule.forFeature([]),
   ],
   providers: [],
 })
-export class HomeModule {}
+export class EditProfileModule {}

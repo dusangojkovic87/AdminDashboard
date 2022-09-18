@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,13 +14,21 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HeaderComponent } from './Shared/components/header/header.component';
 import { SharedModule } from './Shared/shared.module';
 import { appReducer } from './appReducer/appReducer';
+import { EditProfileComponent } from './pages/editProfile/components/edit-profile/edit-profile.component';
+import { EditProfileModule } from './pages/editProfile/editProfile.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    EditProfileComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    EditProfileModule,
     HomeModule,
     SharedModule,
     StoreModule.forRoot(appReducer),
@@ -34,6 +42,7 @@ import { appReducer } from './appReducer/appReducer';
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

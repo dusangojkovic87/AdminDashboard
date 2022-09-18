@@ -3,9 +3,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
+import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [DashboardNavComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -13,5 +14,6 @@ import { EffectsModule } from '@ngrx/effects';
     EffectsModule.forFeature([]),
   ],
   providers: [],
+  exports: [DashboardNavComponent],
 })
 export class SharedModule {}

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { toggleProfileModalAction } from '../../sharedActions/header.actions';
+import {
+  closeProfileModalAction,
+  toggleProfileModalAction,
+} from '../../sharedActions/header.actions';
 import { logOutAction } from '../../../pages/auth/authActions/auth.actions';
 import { HeaderInterfaceState } from '../../types/headerInterfaceState';
 
@@ -10,7 +13,7 @@ import { HeaderInterfaceState } from '../../types/headerInterfaceState';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isModalOpen: boolean = false;
 
   constructor(private store: Store<AppState>) {}
@@ -28,8 +31,10 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut() {
-    console.log('log out');
-
     this.store.dispatch(logOutAction());
+  }
+
+  ngOnDestroy(): void {
+    this.store.dispatch(closeProfileModalAction());
   }
 }
