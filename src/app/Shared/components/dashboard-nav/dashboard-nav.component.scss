@@ -1,12 +1,13 @@
 .dashboard-nav-container {
   position: fixed;
   top: 40px;
-  width: 250px;
+  width: 20%;
   height: 100vh;
   background-color: var(--primary-light-black);
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 1rem;
 
   .logOut__btn {
     position: relative;

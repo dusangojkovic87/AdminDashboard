@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
 
@@ -11,6 +12,7 @@ import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.
     BrowserModule,
     CommonModule,
     HttpClientModule,
+    RouterModule,
     EffectsModule.forFeature([]),
   ],
   providers: [],
