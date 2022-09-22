@@ -15,12 +15,14 @@ import { CouponsComponent } from './components/coupons/coupons.component';
 import { StaffComponent } from './components/staff/staff.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PagesComponent } from './components/pages/pages.component';
+import { OverviewComponent } from './components/overview/overview.component';
 
 const routes = [
   {
     path: '',
     component: HomeComponent /*canActivate: [AuthGuard] */,
     children: [
+      { path: '', component: OverviewComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'category', component: CategoryComponent },
       { path: 'customers', component: CustomersComponent },
@@ -43,6 +45,7 @@ const routes = [
     StaffComponent,
     SettingsComponent,
     PagesComponent,
+    OverviewComponent,
   ],
   imports: [
     BrowserModule,

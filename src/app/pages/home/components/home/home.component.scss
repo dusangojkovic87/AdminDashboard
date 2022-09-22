@@ -7,8 +7,9 @@ main {
 
   .home-main-wrp {
     position: relative;
-    width: 80%;
+    width: calc(100% - 250px);
     height: 100%;
     padding-top: 40px;
+    background-color: var(--primary-black);
   }
 }
