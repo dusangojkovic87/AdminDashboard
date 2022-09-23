@@ -186,3 +186,39 @@ body {
   height: 30px;
   background-repeat: no-repeat;
 }
+
+.cart-icon-orders {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/orders-count/cart.svg");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+
+.loop-icon-orders {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/orders-count/loop.svg");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+
+.checkMark-icon-orders {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/orders-count/checkMark.svg");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+
+.truck-icon-orders {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/orders-count/truck.svg");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}

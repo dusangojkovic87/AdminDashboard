@@ -1,0 +1,71 @@
+.orders-count-info-container {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .orders-count-info-item {
+    position: relative;
+    width: 20%;
+    height: 100px;
+    background-color: var(--primary-light-black);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .bg--orange {
+      background-color: orange;
+    }
+
+    .bg--light--blue {
+      background-color: var(--primary-light-blue);
+    }
+
+    .bg--purple {
+      background-color: var(--primary-purple);
+    }
+
+    .bg--green {
+      background-color: var(--primary-green);
+    }
+
+    .orders-icon-wrp {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orders-count-details-wrp {
+      position: relative;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      margin-left: 1rem;
+
+      p {
+        font-family: "Roboto";
+        margin: 2px;
+      }
+
+      p:nth-child(1) {
+        color: grey;
+        font-size: 0.9rem;
+      }
+
+      p:nth-child(2) {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

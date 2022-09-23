@@ -1,0 +1,38 @@
+<div *ngIf="orderCountDetails" class="orders-count-info-container">
+  <div class="orders-count-info-item">
+    <div class="orders-icon-wrp bg--orange">
+      <span class="cart-icon-orders"></span>
+    </div>
+    <div class="orders-count-details-wrp">
+      <p>Total order</p>
+      <p>{{ orderCountDetails.totalOrder }}</p>
+    </div>
+  </div>
+  <div class="orders-count-info-item">
+    <div class="orders-icon-wrp bg--light--blue">
+      <span class="loop-icon-orders"></span>
+    </div>
+    <div class="orders-count-details-wrp">
+      <p>Orders pending</p>
+      <p>{{ orderCountDetails.ordersPending }}</p>
+    </div>
+  </div>
+  <div class="orders-count-info-item">
+    <div class="orders-icon-wrp bg--purple">
+      <span class="truck-icon-orders"></span>
+    </div>
+    <div class="orders-count-details-wrp">
+      <p>Orders processing</p>
+      <p>{{ orderCountDetails.ordersProcessing }}</p>
+    </div>
+  </div>
+  <div class="orders-count-info-item">
+    <div class="orders-icon-wrp bg--green">
+      <span class="checkMark-icon-orders"></span>
+    </div>
+    <div class="orders-count-details-wrp">
+      <p>Orders delivered</p>
+      <p>{{ orderCountDetails.ordersDelivered }}</p>
+    </div>
+  </div>
+</div>

@@ -18,6 +18,8 @@ import { PagesComponent } from './components/pages/pages.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { OrdersAmountOverviewComponent } from './components/overview/orders-amount-overview/orders-amount-overview.component';
 import { AmountDetailsEffect } from './components/overview/overviewEffects/amountDetailsEffect';
+import { OrdersCountInfoComponent } from './components/overview/orders-count-info/orders-count-info.component';
+import { OrdersCountEffect } from './components/overview/overviewEffects/ordersCount';
 
 const routes: Routes = [
   {
@@ -50,6 +52,7 @@ const routes: Routes = [
     PagesComponent,
     OverviewComponent,
     OrdersAmountOverviewComponent,
+    OrdersCountInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ const routes: Routes = [
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    EffectsModule.forFeature([AmountDetailsEffect]),
+    EffectsModule.forFeature([AmountDetailsEffect, OrdersCountEffect]),
   ],
   providers: [],
 })
