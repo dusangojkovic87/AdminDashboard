@@ -17,6 +17,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { OrdersAmountOverviewComponent } from './components/overview/orders-amount-overview/orders-amount-overview.component';
+import { AmountDetailsEffect } from './components/overview/overviewEffects/amountDetailsEffect';
 
 const routes: Routes = [
   {
@@ -57,7 +58,7 @@ const routes: Routes = [
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    EffectsModule.forFeature([]),
+    EffectsModule.forFeature([AmountDetailsEffect]),
   ],
   providers: [],
 })

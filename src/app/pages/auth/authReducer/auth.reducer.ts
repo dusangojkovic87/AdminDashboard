@@ -1,10 +1,7 @@
-import { state } from '@angular/animations';
 import { createReducer, on, Action } from '@ngrx/store';
-import { Actions } from '@ngrx/store-devtools/src/reducer';
 import {
   loginSuccess,
   logOutAction,
-  registerAction,
   registerSuccess,
 } from '../authActions/auth.actions';
 import { AuthStateInterface } from '../types/AuthStateInterface';

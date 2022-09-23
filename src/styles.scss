@@ -13,6 +13,8 @@ body {
   --primary-blue: #0487d9;
   --primary-green: #0fa66e;
   --primary-grey: #aab1ae;
+  --primary-light-blue: #056faf;
+  --primary-light-blue1: #1bbbee;
 }
 
 @font-face {
@@ -156,4 +158,31 @@ body {
   height: 20px;
   background-repeat: no-repeat;
   margin-right: 4px;
+}
+
+.stacks-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/orders-amount/stacks.svg");
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+
+.cart-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/orders-amount/cart.svg");
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+
+.card-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/orders-amount/card.svg");
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
 }

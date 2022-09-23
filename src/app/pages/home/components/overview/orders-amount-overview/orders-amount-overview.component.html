@@ -1,1 +1,20 @@
-<p>orders-amount-overview works!</p>
+<h1>Dashboard overview</h1>
+<div *ngIf="amountDetails" class="orders-amount-overview-container">
+  <div class="orders-amount-wrp">
+    <span class="stacks-icon"></span>
+    <p>Today order</p>
+    <p class="amount">{{ amountDetails.todayOrderAmount | currency: "EUR" }}</p>
+  </div>
+  <div class="orders-amount-wrp">
+    <span class="cart-icon"></span>
+    <p>This month</p>
+    <p class="amount">
+      {{ amountDetails.monthlyOrderAmount | currency: "EUR" }}
+    </p>
+  </div>
+  <div class="orders-amount-wrp">
+    <span class="card-icon"></span>
+    <p>Total order</p>
+    <p class="amount">{{ amountDetails.totalOrder | currency: "EUR" }}</p>
+  </div>
+</div>

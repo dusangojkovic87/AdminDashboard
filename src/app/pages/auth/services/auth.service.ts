@@ -17,7 +17,7 @@ export class AuthService {
     );
   }
 
-  LoginUser(loginRequest: LoginRequest) {
+  LoginUser(loginRequest: LoginRequest): Observable<User> {
     //get fake db data
     return this.http.get<User>(
       'http://localhost:4200/assets/fakeBackend/register.json'
