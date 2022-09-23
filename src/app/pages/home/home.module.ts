@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthGuard } from 'src/app/Shared/guards/auth.guard';
 import { HomeComponent } from './components/home/home.component';
@@ -16,13 +16,15 @@ import { StaffComponent } from './components/staff/staff.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { OverviewComponent } from './components/overview/overview.component';
+import { OrdersAmountOverviewComponent } from './components/overview/orders-amount-overview/orders-amount-overview.component';
 
-const routes = [
+const routes: Routes = [
   {
     path: '',
     component: HomeComponent /*canActivate: [AuthGuard] */,
     children: [
-      { path: '', component: OverviewComponent },
+      { path: '', redirectTo: 'overview', pathMatch: 'full' },
+      { path: 'overview', component: OverviewComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'category', component: CategoryComponent },
       { path: 'customers', component: CustomersComponent },
@@ -46,6 +48,7 @@ const routes = [
     SettingsComponent,
     PagesComponent,
     OverviewComponent,
+    OrdersAmountOverviewComponent,
   ],
   imports: [
     BrowserModule,

@@ -42,6 +42,64 @@
       justify-content: flex-start;
     }
 
+    .activeDashLink {
+      color: white;
+    }
+
+    .dashboardLink {
+      .dash-grey-icon::after {
+        content: url("/assets/icons/dashboard/dash-white.svg");
+      }
+    }
+
+    .productsLink {
+      .products-grey-icon {
+        content: url("/assets/icons/dashboard/bag-white.svg");
+      }
+    }
+
+    .categoryLink {
+      .category-grey-icon {
+        content: url("/assets/icons/dashboard/category-white.svg");
+      }
+    }
+
+    .customersLink {
+      .customers-grey-icon {
+        content: url("/assets/icons/dashboard/customers-white.svg");
+      }
+    }
+
+    .ordersLink {
+      .orders-grey-icon {
+        content: url("/assets/icons/dashboard/orders-white.svg");
+      }
+    }
+
+    .couponsLink {
+      .coupons-grey-icon {
+        content: url("/assets/icons/dashboard/coupon-white.svg");
+      }
+    }
+
+    .staffLink {
+      .staff-grey-icon {
+        content: url("/assets/icons/dashboard/staff-white.svg");
+      }
+    }
+
+    .settingsLink {
+      .settings-grey-icon {
+        content: url("/assets/icons/dashboard/settings-white.svg");
+      }
+    }
+
+    .pagesLink {
+      .pages-grey-icon {
+        content: url("/assets/icons/dashboard/pages-white.svg");
+      }
+    }
+
     li:hover {
       cursor: pointer;
       color: white;
