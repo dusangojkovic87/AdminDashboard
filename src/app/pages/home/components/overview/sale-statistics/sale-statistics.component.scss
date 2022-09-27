@@ -1,0 +1,19 @@
+.sale-statistics-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+
+  .weekly-sales-container {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  .best-sales-container {
+    position: relative;
+    width: 50%;
+    height: 100%;
+  }
+}

@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { getOrderCountDetails } from '../overviewActions/overviewActions';
 import { AmountCountDetails } from '../types/AmountCountDetails';
-import { OrdersCountDetailsState } from '../types/OrdersCountDetailsState';
 
 @Component({
   selector: 'app-orders-count-info',

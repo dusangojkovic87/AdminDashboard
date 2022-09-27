@@ -16,6 +16,7 @@ import { SharedModule } from './Shared/shared.module';
 import { appReducer } from './appReducer/appReducer';
 import { EditProfileComponent } from './pages/editProfile/components/edit-profile/edit-profile.component';
 import { EditProfileModule } from './pages/editProfile/editProfile.module';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EditProfileModule } from './pages/editProfile/editProfile.module';
     EditProfileComponent,
   ],
   imports: [
+    NgChartsModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,

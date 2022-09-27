@@ -1,0 +1,24 @@
+<div class="sale-statistics-container">
+  <div class="weekly-sales-container">
+    <canvas
+      baseChart
+      [labels]="doughnutChartLabels"
+      [datasets]="weeklySaleLabels"
+      [options]="weeklySalesOptions"
+      [legend]="true"
+      [type]="'line'"
+    >
+    </canvas>
+  </div>
+  <div class="best-sales-container">
+    <canvas
+      baseChart
+      [labels]="bestSellingProductLabels"
+      [datasets]="bestSellingProductsData"
+      [options]="bestSellingProductOptions"
+      [legend]="true"
+      [type]="'doughnut'"
+    >
+    </canvas>
+  </div>
+</div>

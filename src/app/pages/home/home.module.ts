@@ -20,6 +20,8 @@ import { OrdersAmountOverviewComponent } from './components/overview/orders-amou
 import { AmountDetailsEffect } from './components/overview/overviewEffects/amountDetailsEffect';
 import { OrdersCountInfoComponent } from './components/overview/orders-count-info/orders-count-info.component';
 import { OrdersCountEffect } from './components/overview/overviewEffects/ordersCount';
+import { SaleStatisticsComponent } from './components/overview/sale-statistics/sale-statistics.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
   {
@@ -53,8 +55,10 @@ const routes: Routes = [
     OverviewComponent,
     OrdersAmountOverviewComponent,
     OrdersCountInfoComponent,
+    SaleStatisticsComponent,
   ],
   imports: [
+    NgChartsModule,
     BrowserModule,
     CommonModule,
     HttpClientModule,
