@@ -1,0 +1,43 @@
+:host ::ng-deep .ngx-table__header-title {
+  font-family: "Roboto";
+  color: white;
+}
+
+:host ::ng-deep #table > tbody > tr > td {
+  font-family: "Roboto";
+  color: grey;
+}
+
+:host ::ng-deep #pagination-controls {
+  li.current {
+    background-color: var(--primary-green);
+  }
+}
+
+.recent-orders-list-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: var(--primary-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 1.2rem;
+    color: white;
+    display: flex;
+    justify-self: flex-start;
+    width: 100%;
+    margin-left: 1rem;
+  }
+
+  .recent-orders-wrp {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    background-color: var(--primary-light-black);
+    border-radius: 5px;
+    padding: 1rem;
+  }
+}

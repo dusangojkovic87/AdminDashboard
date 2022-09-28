@@ -17,6 +17,7 @@ import { appReducer } from './appReducer/appReducer';
 import { EditProfileComponent } from './pages/editProfile/components/edit-profile/edit-profile.component';
 import { EditProfileModule } from './pages/editProfile/editProfile.module';
 import { NgChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NgChartsModule } from 'ng2-charts';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

@@ -45,8 +45,6 @@ export class SaleStatisticsComponent implements OnInit {
       },
     ];
 
-  public doughnutChartType = 'doughnut';
-
   public bestSellingProductOptions: ChartConfiguration<'doughnut'>['options'] =
     {
       responsive: true,

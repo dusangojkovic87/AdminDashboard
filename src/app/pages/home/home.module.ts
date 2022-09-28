@@ -22,6 +22,9 @@ import { OrdersCountInfoComponent } from './components/overview/orders-count-inf
 import { OrdersCountEffect } from './components/overview/overviewEffects/ordersCount';
 import { SaleStatisticsComponent } from './components/overview/sale-statistics/sale-statistics.component';
 import { NgChartsModule } from 'ng2-charts';
+import { RecentOrdersListComponent } from './components/overview/recent-orders-list/recent-orders-list.component';
+import { TableModule } from 'ngx-easy-table';
+import { RecentOrdersEffect } from './components/overview/overviewEffects/recentOrdersEffects';
 
 const routes: Routes = [
   {
@@ -56,8 +59,10 @@ const routes: Routes = [
     OrdersAmountOverviewComponent,
     OrdersCountInfoComponent,
     SaleStatisticsComponent,
+    RecentOrdersListComponent,
   ],
   imports: [
+    TableModule,
     NgChartsModule,
     BrowserModule,
     CommonModule,
@@ -65,7 +70,11 @@ const routes: Routes = [
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    EffectsModule.forFeature([AmountDetailsEffect, OrdersCountEffect]),
+    EffectsModule.forFeature([
+      AmountDetailsEffect,
+      OrdersCountEffect,
+      RecentOrdersEffect,
+    ]),
   ],
   providers: [],
 })
