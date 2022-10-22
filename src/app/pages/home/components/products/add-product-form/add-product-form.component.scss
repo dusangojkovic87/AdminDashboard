@@ -1,0 +1,67 @@
+.add-product-form-container {
+  position: relative;
+  max-width: 100%;
+  height: 40px;
+  background-color: var(--primary-light-black);
+  margin: 1rem;
+  border-radius: 5px;
+
+  form {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+    .upload__btn__wrp {
+      position: relative;
+      width: 60%;
+      height: 30px;
+
+      .add__csv__btn {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background-color: transparent;
+        color: grey;
+        border: 1px dashed var(--primary-green);
+        border-radius: 5px;
+      }
+
+      input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+
+    .upload__btn {
+      height: 30px;
+      width: 15%;
+      color: grey;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+    }
+
+    .download__btn {
+      height: 30px;
+      width: 15%;
+      color: white;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background-color: var(--primary-green);
+      border-radius: 5px;
+      outline: none;
+      border: none;
+    }
+  }
+}

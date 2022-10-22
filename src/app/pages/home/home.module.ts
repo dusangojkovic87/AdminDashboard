@@ -25,6 +25,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { RecentOrdersListComponent } from './components/overview/recent-orders-list/recent-orders-list.component';
 import { TableModule } from 'ngx-easy-table';
 import { RecentOrdersEffect } from './components/overview/overviewEffects/recentOrdersEffects';
+import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
+import { AddProductFormComponent } from './components/products/add-product-form/add-product-form.component';
 
 const routes: Routes = [
   {
@@ -60,6 +62,8 @@ const routes: Routes = [
     OrdersCountInfoComponent,
     SaleStatisticsComponent,
     RecentOrdersListComponent,
+    ProductFilterComponent,
+    AddProductFormComponent,
   ],
   imports: [
     TableModule,
