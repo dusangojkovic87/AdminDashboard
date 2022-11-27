@@ -1,0 +1,49 @@
+@import "../../../../../../styles.scss";
+.product-list-container {
+  margin: 1rem;
+  background-color: var(--primary-light-black);
+  overflow-x: auto;
+
+  .product-header-container {
+    width: 100%;
+    height: 30px;
+
+    ul {
+      @include light-grey-border;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      height: 30px;
+      width: 100%;
+
+      li {
+        width: 10%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        color: var(--primary-grey);
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.product-list-pagination ::ng-deep .ngx-pagination {
+  margin-left: 1rem;
+}
+
+.product-list-pagination ::ng-deep .ngx-pagination .current {
+  background: var(--primary-green);
+}
+
+.product-list-pagination ::ng-deep .ngx-pagination {
+  li {
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+  }
+}

@@ -27,6 +27,9 @@ import { TableModule } from 'ngx-easy-table';
 import { RecentOrdersEffect } from './components/overview/overviewEffects/recentOrdersEffects';
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 import { AddProductFormComponent } from './components/products/add-product-form/add-product-form.component';
+import { ProductListComponent } from './components/products/product-list/product-list.component';
+import { ProductListItemComponent } from './components/products/product-list/product-list-item/product-list-item.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const routes: Routes = [
   {
@@ -64,6 +67,8 @@ const routes: Routes = [
     RecentOrdersListComponent,
     ProductFilterComponent,
     AddProductFormComponent,
+    ProductListComponent,
+    ProductListItemComponent,
   ],
   imports: [
     TableModule,
@@ -71,6 +76,7 @@ const routes: Routes = [
     BrowserModule,
     CommonModule,
     HttpClientModule,
+    NgxPaginationModule,
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,

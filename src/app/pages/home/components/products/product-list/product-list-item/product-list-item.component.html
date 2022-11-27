@@ -1,0 +1,20 @@
+<div class="product-item-container">
+  <ul>
+    <li>{{ product?.id }}</li>
+    <li>{{ product?.productName }}</li>
+    <li>{{ product?.category }}</li>
+    <li>{{ product?.price | currency: "EUR" }}</li>
+    <li>{{ product?.stock }}</li>
+    <li>{{ product?.status }}</li>
+    <li>{{ product?.discount }}</li>
+    <li>
+      <input
+        type="checkbox"
+        value="{{ product?.published }}"
+        checked="{{ product?.published }}"
+      />
+    </li>
+    <li><span class="details-icon"></span></li>
+    <li><span class="edit-icon"></span></li>
+  </ul>
+</div>

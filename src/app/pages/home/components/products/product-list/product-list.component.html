@@ -1,0 +1,28 @@
+<div class="product-list-container">
+  <div class="product-header-container">
+    <ul>
+      <li>id</li>
+      <li>Product Name</li>
+      <li>Category</li>
+      <li>Price</li>
+      <li>Stock</li>
+      <li>Status</li>
+      <li>Discount</li>
+      <li>Published</li>
+      <li>Details</li>
+      <li>Action</li>
+    </ul>
+  </div>
+  <div
+    *ngFor="
+      let p of productList | paginate: { itemsPerPage: 10, currentPage: p }
+    "
+  >
+    <app-product-list-item [product]="p"></app-product-list-item>
+  </div>
+</div>
+<pagination-controls
+  class="product-list-pagination"
+  [responsive]="true"
+  (pageChange)="p = $event"
+></pagination-controls>

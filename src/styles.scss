@@ -14,6 +14,7 @@ body {
   --primary-blue: #0487d9;
   --primary-green: #0fa66e;
   --primary-grey: #aab1ae;
+  --primary-light-grey: #ededed;
   --primary-light-blue: #056faf;
   --primary-light-blue1: #1bbbee;
 }
@@ -224,6 +225,26 @@ body {
   background-repeat: no-repeat;
 }
 
+.details-icon {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("/assets/icons/products/details.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.edit-icon {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("/assets/icons/products/edit.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
 html,
 body {
   height: 100%;
@@ -231,4 +252,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@mixin light-grey-border {
+  border: 1px solid rgba($color: #f1efef, $alpha: 0.1);
 }

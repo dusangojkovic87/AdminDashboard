@@ -21,18 +21,6 @@ export class RecentOrdersListComponent implements OnInit, OnDestroy {
     { key: 'orderStatus', title: 'Status' },
   ];
 
-  /* public data = [
-    {
-      orderTime: '12/12/2021',
-      deliveryAdress: 'St.Jorge street',
-      phone: '1324646678',
-      paymentMethod: 'COD',
-      orderAmount: 123,
-      orderStatus: 'pending',
-    },
-  ];
-  */
-
   public data: any;
   recentOrdersSub?: Subscription;
 
