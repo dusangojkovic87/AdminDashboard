@@ -22,6 +22,18 @@ export class ProductListComponent implements OnInit {
       details: 'some text',
       published: true,
     },
+    {
+      id: 2,
+      image: '/images/products/apple.jpg',
+      productName: 'product2',
+      category: 'vegetable',
+      price: 25,
+      stock: 24,
+      status: 'pending',
+      discount: 10,
+      details: 'some text',
+      published: false,
+    },
   ];
 
   constructor() {}

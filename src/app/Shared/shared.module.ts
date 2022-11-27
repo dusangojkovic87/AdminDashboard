@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
+
 import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
 
 @NgModule({

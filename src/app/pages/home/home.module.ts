@@ -30,6 +30,7 @@ import { AddProductFormComponent } from './components/products/add-product-form/
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { ProductListItemComponent } from './components/products/product-list/product-list-item/product-list-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CustomPipesModule } from 'src/app/pipes/custom-pipes.module';
 
 const routes: Routes = [
   {
@@ -77,6 +78,7 @@ const routes: Routes = [
     CommonModule,
     HttpClientModule,
     NgxPaginationModule,
+    CustomPipesModule,
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
