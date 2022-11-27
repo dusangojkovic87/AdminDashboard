@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/appReducer/appReducer';
+import { getProducts } from '../productActions/productActions';
 import { Product } from '../types/Product';
 
 @Component({
@@ -6,37 +10,24 @@ import { Product } from '../types/Product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   p: number = 0;
+  productSub?: Subscription;
 
-  public productList: Array<Product> = [
-    {
-      id: 1,
-      image: '/images/products/apple.jpg',
-      productName: 'product1',
-      category: 'fruits',
-      price: 25,
-      stock: 24,
-      status: 'pending',
-      discount: 10,
-      details: 'some text',
-      published: true,
-    },
-    {
-      id: 2,
-      image: '/images/products/apple.jpg',
-      productName: 'product2',
-      category: 'vegetable',
-      price: 25,
-      stock: 24,
-      status: 'pending',
-      discount: 10,
-      details: 'some text',
-      published: false,
-    },
-  ];
+  productList: Array<Product> = [];
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(getProducts());
+    this.productSub = this.store
+      .select((state) => state.productsState.products)
+      .subscribe((data: Product[]) => {
+        this.productList = data;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.productSub?.unsubscribe();
+  }
 }

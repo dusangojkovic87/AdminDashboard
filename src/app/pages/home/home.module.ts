@@ -31,6 +31,8 @@ import { ProductListComponent } from './components/products/product-list/product
 import { ProductListItemComponent } from './components/products/product-list/product-list-item/product-list-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomPipesModule } from 'src/app/pipes/custom-pipes.module';
+import { ProductsService } from './components/products/services/products.service';
+import { ProductsEffect } from './components/products/productEffects/productsEffect';
 
 const routes: Routes = [
   {
@@ -86,8 +88,9 @@ const routes: Routes = [
       AmountDetailsEffect,
       OrdersCountEffect,
       RecentOrdersEffect,
+      ProductsEffect,
     ]),
   ],
-  providers: [],
+  providers: [ProductsService],
 })
 export class HomeModule {}

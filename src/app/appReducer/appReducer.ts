@@ -6,6 +6,8 @@ import { recentOrdersReducer } from '../pages/home/components/overview/overviewR
 import { AmountDetailsState } from '../pages/home/components/overview/types/AmountDetailsState';
 import { OrdersCountDetailsState } from '../pages/home/components/overview/types/OrdersCountDetailsState';
 import { RecentOrdersState } from '../pages/home/components/overview/types/RecentOrdersState';
+import { productsReducer } from '../pages/home/components/products/productReducer/productsReducer';
+import { ProductListState } from '../pages/home/components/products/types/ProductsListState';
 import { headerReducer } from '../Shared/sharedReducer/headerReducer';
 import { HeaderInterfaceState } from '../Shared/types/headerInterfaceState';
 
@@ -15,6 +17,7 @@ export interface AppState {
   amountDetailsState: AmountDetailsState;
   ordersCountState: OrdersCountDetailsState;
   recentOrdersState: RecentOrdersState;
+  productsState: ProductListState;
 }
 
 export const appReducer = {
@@ -23,4 +26,5 @@ export const appReducer = {
   amountDetailsState: overviewReducer,
   ordersCountState: ordersCountReducer,
   recentOrdersState: recentOrdersReducer,
+  productsState: productsReducer,
 };

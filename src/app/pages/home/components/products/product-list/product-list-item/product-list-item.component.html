@@ -1,7 +1,14 @@
 <div class="product-item-container">
   <ul>
     <li>{{ product?.id }}</li>
-    <li>{{ product?.productName }}</li>
+    <li class="flex-between">
+      <img
+        class="product__image"
+        src="{{ product?.image }}"
+        alt="{{ product?.image }}"
+      />
+      {{ product?.productName }}
+    </li>
     <li>{{ product?.category }}</li>
     <li>{{ product?.price | currency: "EUR" }}</li>
     <li>{{ product?.stock }}</li>

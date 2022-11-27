@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "image": "assets/images/products/apple.jpg",
+    "productName": "Apple",
+    "category": "fruits",
+    "price": 25,
+    "stock": 24,
+    "status": "pending",
+    "discount": 10,
+    "details": "some text",
+    "published": true
+  },
+  {
+    "id": 2,
+    "image": "assets/images/products/cabbage.jpg",
+    "productName": "Cabbage",
+    "category": "vegetable",
+    "price": 25,
+    "stock": 24,
+    "status": "pending",
+    "discount": 10,
+    "details": "some text",
+    "published": false
+  }
+]
