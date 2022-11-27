@@ -33,6 +33,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomPipesModule } from 'src/app/pipes/custom-pipes.module';
 import { ProductsService } from './components/products/services/products.service';
 import { ProductsEffect } from './components/products/productEffects/productsEffect';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent },
       { path: 'products', component: ProductsComponent },
+      { path: 'products/:id', component: ProductDetailsComponent },
       { path: 'category', component: CategoryComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'orders', component: OrdersComponent },
@@ -72,6 +74,7 @@ const routes: Routes = [
     AddProductFormComponent,
     ProductListComponent,
     ProductListItemComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     TableModule,

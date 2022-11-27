@@ -21,7 +21,12 @@
         checked="{{ product?.published | isChecked }}"
       />
     </li>
-    <li><span class="details-icon"></span></li>
+    <li>
+      <span
+        routerLink="/products/{{ product?.id }}"
+        class="details-icon"
+      ></span>
+    </li>
     <li><span class="edit-icon"></span></li>
   </ul>
 </div>
