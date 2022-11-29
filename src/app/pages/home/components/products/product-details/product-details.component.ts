@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { filter, map } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { getProducts } from '../productActions/productActions';
 import { Product } from '../types/Product';

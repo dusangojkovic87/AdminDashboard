@@ -3,6 +3,8 @@
   margin: 1rem;
   background-color: var(--primary-light-black);
   overflow-x: auto;
+  overflow-y: hidden;
+  height: 350px;
 
   .product-header-container {
     width: 100%;
@@ -32,8 +34,13 @@
   }
 }
 
+.product-list-pagination ::ng-deep pagination-template nav {
+  background-color: var(--primary-black);
+}
+
 .product-list-pagination ::ng-deep .ngx-pagination {
   margin-left: 1rem;
+  background-color: var(--primary-light-black);
 }
 
 .product-list-pagination ::ng-deep .ngx-pagination .current {
@@ -45,5 +52,9 @@
     font-size: 0.9rem;
     cursor: pointer;
     border: none;
+
+    a {
+      color: white;
+    }
   }
 }

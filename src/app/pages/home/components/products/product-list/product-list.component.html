@@ -15,7 +15,7 @@
   </div>
   <div
     *ngFor="
-      let p of productList | paginate: { itemsPerPage: 10, currentPage: p }
+      let p of productList | paginate: { itemsPerPage: 6, currentPage: p }
     "
   >
     <app-product-list-item [product]="p"></app-product-list-item>
