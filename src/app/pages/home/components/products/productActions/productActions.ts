@@ -13,3 +13,10 @@ export const getProductsFail = createAction(
   productActionTypes.GET_PRODUCTS_FAIL,
   props<{ error: any }>()
 );
+
+export const openProductsModal = createAction(
+  productActionTypes.OPEN_PRODUCT_MODAL
+);
+export const closeProductsModal = createAction(
+  productActionTypes.CLOSE_PRODUCT_MODAL
+);

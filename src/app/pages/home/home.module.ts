@@ -34,6 +34,7 @@ import { CustomPipesModule } from 'src/app/pipes/custom-pipes.module';
 import { ProductsService } from './components/products/services/products.service';
 import { ProductsEffect } from './components/products/productEffects/productsEffect';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { AddProductModalComponent } from './components/products/add-product-modal/add-product-modal.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,7 @@ const routes: Routes = [
     ProductListComponent,
     ProductListItemComponent,
     ProductDetailsComponent,
+    AddProductModalComponent,
   ],
   imports: [
     TableModule,
