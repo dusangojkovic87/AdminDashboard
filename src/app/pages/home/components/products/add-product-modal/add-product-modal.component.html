@@ -13,15 +13,24 @@
         </div>
       </div>
       <div class="add-product-wrp">
-        <form id="addProductForm" action="#">
+        <form
+          id="addProductForm"
+          [formGroup]="addProductForm"
+          (ngSubmit)="AddProduct()"
+        >
           <div class="add-product-column-wrp height-100px">
             <div class="label-wrp">
               <p>Product image:</p>
             </div>
             <div>
               <div class="product-img-wrp">
+                <span class="upload-icon"></span>
                 <p>drop image here</p>
-                <input type="file" name="productImage" />
+                <input
+                  type="file"
+                  name="productImage"
+                  formControlName="productImage"
+                />
               </div>
             </div>
           </div>
@@ -30,7 +39,11 @@
               <p>Product Title/Name::</p>
             </div>
             <div>
-              <input type="text" name="productName" />
+              <input
+                type="text"
+                name="productName"
+                formControlName="productName"
+              />
             </div>
           </div>
           <div class="add-product-column-wrp">
@@ -43,6 +56,7 @@
                 name="productDetails"
                 cols="30"
                 rows="10"
+                formControlName="productDetails"
               ></textarea>
             </div>
           </div>
@@ -51,7 +65,7 @@
               <p>Product category:</p>
             </div>
             <div>
-              <input type="text" name="category" />
+              <input type="text" name="category" formControlName="category" />
             </div>
           </div>
           <div class="add-product-column-wrp">
@@ -59,7 +73,7 @@
               <p>Unit (kg/pc/lb/ml/g...etc):</p>
             </div>
             <div>
-              <input type="text" name="unit" />
+              <input type="text" name="unit" formControlName="unit" />
             </div>
           </div>
           <div class="add-product-column-wrp">
@@ -67,7 +81,7 @@
               <p>Product quantity:</p>
             </div>
             <div>
-              <input type="text" name="quantity" />
+              <input type="text" name="quantity" formControlName="quantity" />
             </div>
           </div>
           <div class="add-product-column-wrp">
@@ -75,14 +89,21 @@
               <p>Product price:</p>
             </div>
             <div>
-              <input type="text" name="price" />
+              <input type="text" name="price" formControlName="price" />
             </div>
           </div>
         </form>
       </div>
       <div class="modal-btn-wrp">
         <button>cancel</button>
-        <button class="add__product__btn">add product</button>
+        <button
+          form="addProductForm"
+          type="submit"
+          class="add__product__btn"
+          [disabled]="!addProductForm.valid"
+        >
+          add product
+        </button>
       </div>
     </div>
   </div>

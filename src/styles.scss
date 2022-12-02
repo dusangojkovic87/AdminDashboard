@@ -255,6 +255,16 @@ body {
   cursor: pointer;
 }
 
+.upload-icon {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("/assets/icons/products/upload.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
 html,
 body {
   height: 100%;

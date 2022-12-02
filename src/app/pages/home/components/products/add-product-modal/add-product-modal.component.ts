@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { closeProductsModal } from '../productActions/productActions';
@@ -10,7 +11,10 @@ import { closeProductsModal } from '../productActions/productActions';
 })
 export class AddProductModalComponent implements OnInit {
   public isProductModalOpen: boolean = false;
-  constructor(private store: Store<AppState>) {
+
+  addProductForm!: FormGroup;
+
+  constructor(private store: Store<AppState>, private fb: FormBuilder) {
     this.store
       .select((state) => state.productsState.isAddProductModalOpen)
       .subscribe((data) => {
@@ -18,7 +22,24 @@ export class AddProductModalComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.addProductForm = this.fb.group({
+      productImage: [''],
+      productName: ['', Validators.required],
+      productDetails: ['', Validators.required],
+      category: ['', Validators.required],
+      unit: ['', Validators.required],
+      quantity: ['', Validators.required],
+      price: ['', Validators.required],
+    });
+  }
+
+  AddProduct() {
+    if (this.addProductForm.valid) {
+      console.log(this.addProductForm.value);
+    }
+    this.addProductForm.reset();
+  }
 
   closeAddProductModal() {
     this.store.dispatch(closeProductsModal());
