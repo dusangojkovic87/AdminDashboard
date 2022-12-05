@@ -18,6 +18,7 @@ import { EditProfileComponent } from './pages/editProfile/components/edit-profil
 import { EditProfileModule } from './pages/editProfile/editProfile.module';
 import { NgChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DirectivesModule } from './directives/directivesModule/directives.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditProfileComponent,
   ],
   imports: [
+    DirectivesModule,
     NgChartsModule,
     BrowserModule,
     AppRoutingModule,

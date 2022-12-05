@@ -35,6 +35,7 @@ import { ProductsService } from './components/products/services/products.service
 import { ProductsEffect } from './components/products/productEffects/productsEffect';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { AddProductModalComponent } from './components/products/add-product-modal/add-product-modal.component';
+import { DirectivesModule } from 'src/app/directives/directivesModule/directives.module';
 
 const routes: Routes = [
   {
@@ -89,6 +90,7 @@ const routes: Routes = [
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    DirectivesModule,
     EffectsModule.forFeature([
       AmountDetailsEffect,
       OrdersCountEffect,

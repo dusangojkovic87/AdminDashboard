@@ -1,4 +1,4 @@
-<div class="product-item-container">
+<div class="product-item-container" appDropProductImage>
   <ul>
     <li>{{ product?.id }}</li>
     <li class="flex-between">
@@ -10,7 +10,7 @@
       {{ product?.productName }}
     </li>
     <li>{{ product?.category }}</li>
-    <li>{{ product?.price | currency: "EUR" }}</li>
+    <li>{{ product?.price | currency : "EUR" }}</li>
     <li>{{ product?.stock }}</li>
     <li>{{ product?.status }}</li>
     <li>{{ product?.discount }}</li>

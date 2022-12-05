@@ -13,6 +13,9 @@ export class AddProductModalComponent implements OnInit {
   public isProductModalOpen: boolean = false;
 
   addProductForm!: FormGroup;
+  public productImageName: string | null = null;
+  public fileNotSupported: boolean | null = null;
+  public isImageOverInput: boolean = false;
 
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     this.store
@@ -24,7 +27,7 @@ export class AddProductModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.addProductForm = this.fb.group({
-      productImage: [''],
+      productImage: [null],
       productName: ['', Validators.required],
       productDetails: ['', Validators.required],
       category: ['', Validators.required],
@@ -36,9 +39,24 @@ export class AddProductModalComponent implements OnInit {
 
   AddProduct() {
     if (this.addProductForm.valid) {
+      //dispatch store action to post product here
       console.log(this.addProductForm.value);
+      this.addProductForm.reset();
     }
-    this.addProductForm.reset();
+  }
+
+  productImageDropped($event: { file: File | null; fileSupported: boolean }) {
+    if ($event.file != null && $event.fileSupported) {
+      this.fileNotSupported = false;
+      this.productImageName = $event.file.name;
+      this.addProductForm.patchValue({ productImage: $event });
+    } else {
+      this.fileNotSupported = true;
+    }
+  }
+
+  imageOverInput($event: boolean) {
+    this.isImageOverInput = $event;
   }
 
   closeAddProductModal() {

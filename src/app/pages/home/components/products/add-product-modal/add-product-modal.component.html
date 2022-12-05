@@ -23,13 +23,33 @@
               <p>Product image:</p>
             </div>
             <div>
-              <div class="product-img-wrp">
+              <div
+                [ngClass]="
+                  isImageOverInput === true
+                    ? 'product-img-wrp green--border'
+                    : 'product-img-wrp'
+                "
+              >
                 <span class="upload-icon"></span>
-                <p>drop image here</p>
+                <p *ngIf="!this.addProductForm.controls['productImage'].value">
+                  drop image here
+                </p>
+                <p
+                  *ngIf="
+                    this.addProductForm.controls['productImage'].value != null
+                  "
+                >
+                  {{ productImageName }}
+                </p>
+                <p class="upload__err" *ngIf="fileNotSupported">
+                  File type not supported
+                </p>
                 <input
                   type="file"
                   name="productImage"
-                  formControlName="productImage"
+                  (onImageDropped)="productImageDropped($event)"
+                  (onFileOverEvent)="imageOverInput($event)"
+                  appDropUploadImage
                 />
               </div>
             </div>
