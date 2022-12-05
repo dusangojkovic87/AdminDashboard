@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ofType } from '@ngrx/effects';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { addProduct } from '../types/addProduct';
 import { Product } from '../types/Product';
 
 @Injectable()
@@ -12,5 +14,10 @@ export class ProductsService {
     return this.http.get<Product[]>(
       environment.baseUrl + '/assets/fakeBackend/products/getProducts.json'
     );
+  }
+
+  addProduct(product: addProduct): Observable<addProduct> {
+    //fake post to server
+    return of(product);
   }
 }

@@ -15,21 +15,18 @@ export class DropUploadImageDirective {
     $event.preventDefault();
     $event.stopPropagation();
     this.onFileOverEvent.emit(true);
-    console.log('over');
   }
 
   @HostListener('dragleave', ['$event']) dragLeaveHandler($event: Event) {
     $event.preventDefault();
     $event.stopPropagation();
     this.onFileOverEvent.emit(false);
-    console.log('leave');
   }
 
   @HostListener('drop', ['$event']) dropLeaveHandler($event: DragEvent) {
     $event.preventDefault();
     $event.stopPropagation();
-    console.log($event);
-    console.log('drop');
+
     const fileList = $event.dataTransfer?.files;
     if (fileList && fileList.length > 0) {
       const file: File = fileList[0];

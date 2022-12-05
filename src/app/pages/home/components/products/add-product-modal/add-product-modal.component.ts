@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { closeProductsModal } from '../productActions/productActions';
+import {
+  addProductModal,
+  closeProductsModal,
+} from '../productActions/productActions';
 
 @Component({
   selector: 'app-add-product-modal',
@@ -40,7 +43,9 @@ export class AddProductModalComponent implements OnInit {
   AddProduct() {
     if (this.addProductForm.valid) {
       //dispatch store action to post product here
-      console.log(this.addProductForm.value);
+      this.store.dispatch(
+        addProductModal({ product: this.addProductForm.value })
+      );
       this.addProductForm.reset();
     }
   }

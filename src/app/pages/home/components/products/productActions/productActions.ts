@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { productActionTypes } from '../productActionTypes/productActionTypes';
+import { addProduct } from '../types/addProduct';
 import { Product } from '../types/Product';
 
 export const getProducts = createAction(productActionTypes.GET_PRODUCTS);
@@ -19,4 +20,18 @@ export const openProductsModal = createAction(
 );
 export const closeProductsModal = createAction(
   productActionTypes.CLOSE_PRODUCT_MODAL
+);
+
+export const addProductModal = createAction(
+  productActionTypes.ADD_PRODUCT,
+  props<{ product: addProduct }>()
+);
+export const addProductSuccess = createAction(
+  productActionTypes.ADD_PRODUCT_SUCCESS,
+  props<{ product: addProduct }>()
+);
+
+export const addProductFail = createAction(
+  productActionTypes.ADD_PRODUC_FAIL,
+  props<{ error: any }>()
 );
