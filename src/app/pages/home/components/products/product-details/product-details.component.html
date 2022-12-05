@@ -1,1 +1,13 @@
-<p>product-details works!</p>
+<h1>Product Details</h1>
+<div class="product-details-container">
+  <div class="product-img-wrp">
+    <img [src]="product?.image" [alt]="product?.image" />
+  </div>
+  <div class="details-info-wrp">
+    <p>
+      This product is published:
+      <span class="green--text">{{ product?.published }}</span>
+    </p>
+    <p class="product__name">{{ product?.productName }}</p>
+  </div>
+</div>
