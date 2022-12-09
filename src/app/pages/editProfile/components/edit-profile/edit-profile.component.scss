@@ -1,0 +1,105 @@
+h1 {
+  color: white;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.edit-profile-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  .profile-form-wrp {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    background-color: var(--primary-light-black);
+    border-radius: 20px;
+
+    form {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 1rem;
+
+      .form-el-wrp {
+        position: relative;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        margin-bottom: 1rem;
+        justify-content: space-around;
+
+        .preview-img-wrp {
+          position: relative;
+          width: 100px;
+          height: 90px;
+          border: 2px solid white;
+          border-radius: 5px;
+
+          img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        div {
+          position: relative;
+          width: 50%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          padding: 5px;
+
+          input {
+            width: 100%;
+            height: 30px;
+            background-color: transparent;
+            border: 1px solid var(--primary-grey);
+            border-radius: 5px;
+            color: var(--primary-grey);
+          }
+
+          label {
+            color: var(--primary-grey);
+            font-size: 1rem;
+          }
+
+          .file-drop-zone {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 1px dashed var(--primary-grey);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            span {
+              color: var(--primary-grey);
+            }
+          }
+
+          #profileImage {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.height--100px {
+  position: relative;
+  height: 100px !important;
+}
