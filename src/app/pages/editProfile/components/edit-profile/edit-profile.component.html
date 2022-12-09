@@ -1,7 +1,7 @@
 <h1>Edit profile</h1>
 <div class="edit-profile-container">
   <div class="profile-form-wrp">
-    <form action="#">
+    <form action="#" id="updateProfileForm">
       <div class="form-el-wrp height--100px">
         <div>
           <label for="image">Profile image:</label>
@@ -15,16 +15,44 @@
         </div>
       </div>
       <div class="form-el-wrp height--100px">
+        <div></div>
         <div>
           <div class="preview-img-wrp">
             <img src="/assets/images/user/user.jpg" alt="" />
           </div>
         </div>
-        <div></div>
       </div>
       <div class="form-el-wrp">
         <div><label for="name">Name:</label></div>
         <div><input type="text" name="name" /></div>
+      </div>
+      <div class="form-el-wrp">
+        <div><label for="email">Email:</label></div>
+        <div><input type="text" name="email" /></div>
+      </div>
+      <div class="form-el-wrp">
+        <div><label for="email">Contact number:</label></div>
+        <div><input type="text" name="contact" /></div>
+      </div>
+      <div class="form-el-wrp">
+        <div><label for="email">Contact number:</label></div>
+        <div>
+          <select name="role" id="staffRole">
+            <option value="admin">Admin</option>
+            <option value="ceo">CEO</option>
+            <option value="manager">Manager</option>
+            <option value="accountant">Accountant</option>
+            <option value="driver">driver</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-el-wrp">
+        <div></div>
+        <div class="d--flex--start">
+          <button form="updateProfileForm" class="update__profile__btn">
+            Update
+          </button>
+        </div>
       </div>
     </form>
   </div>
