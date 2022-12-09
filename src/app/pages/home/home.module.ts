@@ -36,6 +36,7 @@ import { ProductsEffect } from './components/products/productEffects/productsEff
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { AddProductModalComponent } from './components/products/add-product-modal/add-product-modal.component';
 import { DirectivesModule } from 'src/app/directives/directivesModule/directives.module';
+import { EditProductModalComponent } from './components/products/edit-product-modal/edit-product-modal.component';
 
 const routes: Routes = [
   {
@@ -78,6 +79,7 @@ const routes: Routes = [
     ProductListItemComponent,
     ProductDetailsComponent,
     AddProductModalComponent,
+    EditProductModalComponent,
   ],
   imports: [
     TableModule,

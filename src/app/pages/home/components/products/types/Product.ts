@@ -9,4 +9,6 @@ export interface Product {
   discount: number;
   details: string;
   published: boolean;
+  quantity: number;
+  inStock: boolean;
 }

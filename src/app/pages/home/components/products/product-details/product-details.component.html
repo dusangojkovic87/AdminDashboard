@@ -1,3 +1,4 @@
+<app-edit-product-modal></app-edit-product-modal>
 <h1>Product Details</h1>
 <div class="product-details-container">
   <div class="product-img-wrp">
@@ -5,9 +6,26 @@
   </div>
   <div class="details-info-wrp">
     <p>
-      This product is published:
-      <span class="green--text">{{ product?.published }}</span>
+      Status:
+      <span class="green--text">{{
+        product?.published | isProductPublished
+      }}</span>
     </p>
     <p class="product__name">{{ product?.productName }}</p>
+    <p class="stock__number">stock number: {{ product?.stock }}</p>
+    <p class="product__price">{{ product?.price | currency : "EUR" }}</p>
+    <div class="qt-wrp">
+      <p [ngClass]="product?.inStock ? 'bg--green' : 'bg--red'">
+        {{ product?.inStock | inStock }}
+      </p>
+      <p class="qt__text">Quantity: {{ product?.quantity }}</p>
+    </div>
+    <div class="details-text-wrp">
+      <p class="details__text">{{ product?.details }}</p>
+    </div>
+    <div class="category-text-wrp">
+      <p>Category: {{ product?.category }}</p>
+    </div>
+    <button (click)="openEditProductModal()">Edit product</button>
   </div>
 </div>

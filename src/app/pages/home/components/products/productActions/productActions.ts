@@ -35,3 +35,11 @@ export const addProductFail = createAction(
   productActionTypes.ADD_PRODUC_FAIL,
   props<{ error: any }>()
 );
+
+export const openEditProductModal = createAction(
+  productActionTypes.OPEN_EDIT_PRODUCT_MODAL
+);
+
+export const closeEditProductModal = createAction(
+  productActionTypes.CLOSE_EDIT_PRODUCT_MODAL
+);

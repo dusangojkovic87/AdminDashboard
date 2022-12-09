@@ -3,7 +3,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, map } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { getProducts } from '../productActions/productActions';
+import {
+  getProducts,
+  openEditProductModal,
+} from '../productActions/productActions';
 import { Product } from '../types/Product';
 
 @Component({
@@ -23,9 +26,17 @@ export class ProductDetailsComponent implements OnInit {
       this.store
         .select((state) => state.productsState.products)
         .subscribe((data: Product[]) => {
+          console.log(data);
+
           let productDetails = data.filter((p) => p.id === +params['id']);
+
           this.product = productDetails[0];
+          console.log(this.product);
         });
     });
+  }
+
+  openEditProductModal() {
+    this.store.dispatch(openEditProductModal());
   }
 }

@@ -1,7 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  closeEditProductModal,
   closeProductsModal,
   getProductsSuccess,
+  openEditProductModal,
   openProductsModal,
 } from '../productActions/productActions';
 import { ProductListState } from '../types/ProductsListState';
@@ -9,6 +11,7 @@ import { ProductListState } from '../types/ProductsListState';
 const ProductState: ProductListState = {
   products: [],
   isAddProductModalOpen: false,
+  isEditProductModalOpen: false,
 };
 
 export const productsReducer = createReducer(
@@ -24,5 +27,13 @@ export const productsReducer = createReducer(
   on(closeProductsModal, (state: ProductListState, action) => ({
     ...state,
     isAddProductModalOpen: false,
+  })),
+  on(openEditProductModal, (state: ProductListState, action) => ({
+    ...state,
+    isEditProductModalOpen: true,
+  })),
+  on(closeEditProductModal, (state: ProductListState, action) => ({
+    ...state,
+    isEditProductModalOpen: false,
   }))
 );
