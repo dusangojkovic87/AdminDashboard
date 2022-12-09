@@ -26,12 +26,8 @@ export class ProductDetailsComponent implements OnInit {
       this.store
         .select((state) => state.productsState.products)
         .subscribe((data: Product[]) => {
-          console.log(data);
-
           let productDetails = data.filter((p) => p.id === +params['id']);
-
           this.product = productDetails[0];
-          console.log(this.product);
         });
     });
   }

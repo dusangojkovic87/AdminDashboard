@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
   closeEditProductModal,
+  editProduct,
   openEditProductModal,
 } from '../productActions/productActions';
+import { Product } from '../types/Product';
 
 @Component({
   selector: 'app-edit-product-modal',
@@ -15,6 +17,7 @@ import {
 export class EditProductModalComponent implements OnInit {
   editProductForm!: FormGroup;
   public isEditProductModalOpen: boolean = false;
+  @Input() product?: Product;
 
   public productImageName: string | null = null;
   public fileNotSupported: boolean | null = null;
@@ -31,20 +34,18 @@ export class EditProductModalComponent implements OnInit {
   ngOnInit(): void {
     this.editProductForm = this.fb.group({
       productImage: [null],
-      productName: ['', Validators.required],
-      productDetails: ['', Validators.required],
-      category: ['', Validators.required],
-      unit: ['', Validators.required],
-      quantity: ['', Validators.required],
-      price: ['', Validators.required],
+      productName: [this.product?.productName, Validators.required],
+      productDetails: [this.product?.details, Validators.required],
+      category: [this.product?.category, Validators.required],
+      unit: [this.product?.unit, Validators.required],
+      quantity: [this.product?.quantity, Validators.required],
+      price: [this.product?.price, Validators.required],
     });
   }
 
   EditProduct() {
     if (this.editProductForm.valid) {
-      //edit product action here
-      console.log(this.editProductForm.value);
-
+      this.store.dispatch(editProduct());
       this.editProductForm.reset();
     }
   }

@@ -6,6 +6,8 @@ import {
   addProductFail,
   addProductModal,
   addProductSuccess,
+  editProductFail,
+  editProductSuccess,
   getProducts,
   getProductsFail,
   getProductsSuccess,
@@ -48,6 +50,21 @@ export class ProductsEffect {
       }),
       catchError((err) => {
         return of(addProductFail({ error: err }));
+      })
+    )
+  );
+
+  $editProduct = createEffect(() =>
+    this.actions.pipe(
+      ofType(productActionTypes.EDIT_PRODUCT),
+      switchMap((product: addProduct) => {
+        return this.productService.editProduct(product);
+      }),
+      map((product: addProduct) => {
+        return editProductSuccess({ product: product });
+      }),
+      catchError((err) => {
+        return of(editProductFail({ error: err }));
       })
     )
   );

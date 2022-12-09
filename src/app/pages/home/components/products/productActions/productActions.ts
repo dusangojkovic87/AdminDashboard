@@ -43,3 +43,15 @@ export const openEditProductModal = createAction(
 export const closeEditProductModal = createAction(
   productActionTypes.CLOSE_EDIT_PRODUCT_MODAL
 );
+
+export const editProduct = createAction(productActionTypes.EDIT_PRODUCT);
+
+export const editProductSuccess = createAction(
+  productActionTypes.EDIT_PRODUCT_SUCCESS,
+  props<{ product: addProduct }>()
+);
+
+export const editProductFail = createAction(
+  productActionTypes.EDIT_PRODUCT_FAIL,
+  props<{ error: any }>()
+);

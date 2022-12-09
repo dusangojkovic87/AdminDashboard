@@ -9,4 +9,7 @@ export enum productActionTypes {
   ADD_PRODUCT = '[Products] Add Product',
   ADD_PRODUCT_SUCCESS = '[Products] Add product success',
   ADD_PRODUC_FAIL = '[Products] Add product fail',
+  EDIT_PRODUCT = '[Products] Edit product',
+  EDIT_PRODUCT_SUCCESS = '[Products] Edit product success',
+  EDIT_PRODUCT_FAIL = '[Products] Edit product fail',
 }

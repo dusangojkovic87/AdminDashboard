@@ -1,4 +1,7 @@
-<app-edit-product-modal></app-edit-product-modal>
+<app-edit-product-modal
+  *ngIf="product"
+  [product]="product"
+></app-edit-product-modal>
 <h1>Product Details</h1>
 <div class="product-details-container">
   <div class="product-img-wrp">

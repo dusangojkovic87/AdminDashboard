@@ -20,4 +20,9 @@ export class ProductsService {
     //fake post to server
     return of(product);
   }
+
+  editProduct(product: addProduct): Observable<addProduct> {
+    //fake edit product
+    return of(product);
+  }
 }
