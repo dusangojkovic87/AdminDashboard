@@ -19,6 +19,7 @@ import { EditProfileModule } from './pages/editProfile/editProfile.module';
 import { NgChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DirectivesModule } from './directives/directivesModule/directives.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { DirectivesModule } from './directives/directivesModule/directives.modul
     EditProfileModule,
     HomeModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -1,16 +1,42 @@
 <h1>Edit profile</h1>
 <div class="edit-profile-container">
   <div class="profile-form-wrp">
-    <form action="#" id="updateProfileForm">
+    <form
+      [formGroup]="updateUserForm"
+      id="updateProfileForm"
+      (ngSubmit)="updateUser()"
+    >
       <div class="form-el-wrp height--100px">
         <div>
           <label for="image">Profile image:</label>
         </div>
         <div>
-          <div class="file-drop-zone">
-            <span class="upload-icon"></span>
-            <span>drop image here</span>
-            <input id="profileImage" type="file" name="image" />
+          <div
+            [ngClass]="
+              isFileOverInput
+                ? 'file-drop-zone green--border'
+                : 'file-drop-zone grey--border'
+            "
+          >
+            <span
+              *ngIf="this.updateUserForm.controls['image'].value === null"
+              class="upload-icon"
+            ></span>
+            <span *ngIf="this.updateUserForm.controls['image'].value === null"
+              >drop image here</span
+            >
+            <p class="image__name" *ngIf="this.imageName">{{ imageName }}</p>
+            <p class="upload__err" *ngIf="fileNotSupported">
+              File type not supported!
+            </p>
+            <input
+              id="profileImage"
+              type="file"
+              name="image"
+              appDropUploadImage
+              (onImageDropped)="imageDroped($event)"
+              (onFileOverEvent)="onFileOver($event)"
+            />
           </div>
         </div>
       </div>
@@ -24,20 +50,22 @@
       </div>
       <div class="form-el-wrp">
         <div><label for="name">Name:</label></div>
-        <div><input type="text" name="name" /></div>
+        <div><input formControlName="name" type="text" name="name" /></div>
       </div>
       <div class="form-el-wrp">
         <div><label for="email">Email:</label></div>
-        <div><input type="text" name="email" /></div>
-      </div>
-      <div class="form-el-wrp">
-        <div><label for="email">Contact number:</label></div>
-        <div><input type="text" name="contact" /></div>
+        <div><input formControlName="email" type="text" name="email" /></div>
       </div>
       <div class="form-el-wrp">
         <div><label for="email">Contact number:</label></div>
         <div>
-          <select name="role" id="staffRole">
+          <input formControlName="contact" type="text" name="contact" />
+        </div>
+      </div>
+      <div class="form-el-wrp">
+        <div><label for="email">Your role:</label></div>
+        <div>
+          <select name="role" id="staffRole" formControlName="role">
             <option value="admin">Admin</option>
             <option value="ceo">CEO</option>
             <option value="manager">Manager</option>
