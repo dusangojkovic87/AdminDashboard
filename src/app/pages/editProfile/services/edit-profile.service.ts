@@ -10,6 +10,13 @@ import { environment } from 'src/environments/environment';
 export class EditProfileService {
   constructor(private http: HttpClient) {}
 
+  getCurrentUser(): Observable<User> {
+    const baseUrl = environment.baseUrl;
+    return this.http.get<User>(
+      baseUrl + '/assets/fakeBackend/profile/user.json'
+    );
+  }
+
   updateUser(user: User): Observable<User> {
     //fake post update
     return of(user);

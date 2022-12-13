@@ -18,13 +18,8 @@
                 : 'file-drop-zone grey--border'
             "
           >
-            <span
-              *ngIf="this.updateUserForm.controls['image'].value === null"
-              class="upload-icon"
-            ></span>
-            <span *ngIf="this.updateUserForm.controls['image'].value === null"
-              >drop image here</span
-            >
+            <span class="upload-icon"></span>
+            <span>drop image here</span>
             <p class="image__name" *ngIf="this.imageName">{{ imageName }}</p>
             <p class="upload__err" *ngIf="fileNotSupported">
               File type not supported!
@@ -44,7 +39,10 @@
         <div></div>
         <div>
           <div class="preview-img-wrp">
-            <img src="/assets/images/user/user.jpg" alt="" />
+            <img
+              [src]="this.currentUser?.image"
+              [alt]="this.currentUser?.image"
+            />
           </div>
         </div>
       </div>

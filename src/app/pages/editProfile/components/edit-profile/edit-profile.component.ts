@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -15,7 +16,7 @@ export class EditProfileComponent implements OnInit {
   public isFileOverInput: boolean = false;
   public fileNotSupported: boolean = false;
   public imageName: string | undefined | null = null;
-  currentUser: User | undefined;
+  public currentUser: User | undefined;
 
   constructor(private fb: FormBuilder, private store: Store<AppState>) {}
 
@@ -29,7 +30,7 @@ export class EditProfileComponent implements OnInit {
       });
 
     this.updateUserForm = this.fb.group({
-      image: null,
+      image: this.currentUser?.image,
       name: [this.currentUser?.name, Validators.required],
       email: [this.currentUser?.email, [Validators.required, Validators.email]],
       contact: [this.currentUser?.contact, Validators.required],
@@ -38,8 +39,6 @@ export class EditProfileComponent implements OnInit {
   }
 
   updateUser() {
-    console.log('dugme');
-
     this.store.dispatch(updateUserProfile({ user: this.updateUserForm.value }));
   }
 

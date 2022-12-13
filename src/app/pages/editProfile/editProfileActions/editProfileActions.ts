@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { User } from 'src/app/interfaces/User';
+import { EditProductModalComponent } from '../../home/components/products/edit-product-modal/edit-product-modal.component';
 import { editProfileActionTypes } from '../editProfileActionTypes/editProfileActionTypes';
 
 export const updateUserProfile = createAction(
