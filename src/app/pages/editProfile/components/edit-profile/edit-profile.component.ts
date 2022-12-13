@@ -1,7 +1,8 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { User } from 'src/app/interfaces/User';
 import { updateUserProfile } from '../../editProfileActions/editProfileActions';
@@ -11,17 +12,18 @@ import { updateUserProfile } from '../../editProfileActions/editProfileActions';
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
 })
-export class EditProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit, OnDestroy {
   updateUserForm!: FormGroup;
   public isFileOverInput: boolean = false;
   public fileNotSupported: boolean = false;
   public imageName: string | undefined | null = null;
   public currentUser: User | undefined;
+  $userSub?: Subscription;
 
   constructor(private fb: FormBuilder, private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.store
+    this.$userSub = this.store
       .select((state) => state.authState.currentUser)
       .subscribe((user) => {
         if (user) {
@@ -53,5 +55,9 @@ export class EditProfileComponent implements OnInit {
 
   onFileOver($event: any) {
     this.isFileOverInput = $event;
+  }
+
+  ngOnDestroy() {
+    this.$userSub?.unsubscribe();
   }
 }
