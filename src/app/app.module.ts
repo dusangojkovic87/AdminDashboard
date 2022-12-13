@@ -14,31 +14,22 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HeaderComponent } from './Shared/components/header/header.component';
 import { SharedModule } from './Shared/shared.module';
 import { appReducer } from './appReducer/appReducer';
-import { EditProfileComponent } from './pages/editProfile/components/edit-profile/edit-profile.component';
-import { EditProfileModule } from './pages/editProfile/editProfile.module';
 import { NgChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DirectivesModule } from './directives/directivesModule/directives.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditProfileModule } from './pages/editProfile/editProfile.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    EditProfileComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, HeaderComponent],
   imports: [
     DirectivesModule,
     NgChartsModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    EditProfileModule,
     HomeModule,
     SharedModule,
-    ReactiveFormsModule,
-    FormsModule,
+    EditProfileModule,
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

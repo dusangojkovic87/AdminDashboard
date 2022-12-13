@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "John Doe",
+  "password": "fdhdbndfuzr#",
+  "image": "/user/user.jpg",
+  "contact": "436457647",
+  "role": "admin",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
