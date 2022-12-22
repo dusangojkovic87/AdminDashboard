@@ -18,7 +18,7 @@ export class AddProductModalComponent implements OnInit {
   addProductForm!: FormGroup;
   public productImageName: string | null = null;
   public fileNotSupported: boolean | null = null;
-  public isImageOverInput: boolean = false;
+  public isImageOverInput?: boolean;
 
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     this.store
