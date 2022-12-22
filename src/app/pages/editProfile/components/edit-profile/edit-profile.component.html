@@ -40,8 +40,16 @@
         <div>
           <div class="preview-img-wrp">
             <img
-              [src]="this.currentUser?.image"
-              [alt]="this.currentUser?.image"
+              [src]="
+                this.currentUser?.image === null
+                  ? '/assets/images/default.jpg'
+                  : this.currentUser?.image
+              "
+              [alt]="
+                this.currentUser?.image === null
+                  ? 'default.jpg'
+                  : this.currentUser?.image
+              "
             />
           </div>
         </div>
