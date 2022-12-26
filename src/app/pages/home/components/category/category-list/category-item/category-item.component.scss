@@ -1,0 +1,73 @@
+@import "../../../../../../../styles.scss";
+
+.category-item-container {
+  position: relative;
+  max-width: 100%;
+  height: 40px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: var(--primary-light-black);
+  @include light-grey-border;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    li {
+      position: relative;
+      width: 20%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary-grey);
+
+      img {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        padding: 4px;
+      }
+    }
+
+    .icon-list-item {
+      width: 70px !important;
+    }
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--primary-green);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+}
+
+.trash-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/categories/trash.svg");
+  width: 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  margin-left: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.edit-icon {
+  position: relative;
+  display: block;
+  background: url("/assets/icons/categories/edit.svg");
+  width: 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  margin-left: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}

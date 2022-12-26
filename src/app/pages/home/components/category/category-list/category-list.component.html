@@ -1,0 +1,27 @@
+<div class="category-list-container">
+  <div class="category-list-header">
+    <ul>
+      <li>Id</li>
+      <li class="icon-list-item">Icon</li>
+      <li>Category</li>
+      <li>Product Type</li>
+      <li>Published</li>
+      <li>Actions</li>
+    </ul>
+  </div>
+  <div class="category-items">
+    <div
+      *ngFor="
+        let category of categories
+          | paginate : { itemsPerPage: 6, currentPage: p }
+      "
+    >
+      <app-category-item [category]="category"></app-category-item>
+    </div>
+    <pagination-controls
+      class="product-list-pagination"
+      [responsive]="true"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+  </div>
+</div>

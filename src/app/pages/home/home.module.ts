@@ -39,6 +39,9 @@ import { DirectivesModule } from 'src/app/directives/directivesModule/directives
 import { EditProductModalComponent } from './components/products/edit-product-modal/edit-product-modal.component';
 import { AddCategoryFormComponent } from './components/category/add-category-form/add-category-form.component';
 import { AddCategoryModalComponent } from './components/category/add-category-modal/add-category-modal.component';
+import { CategoryListComponent } from './components/category/category-list/category-list.component';
+import { CategoryItemComponent } from './components/category/category-list/category-item/category-item.component';
+import { CategoryEffect } from './components/category/categoryEffects/categoryEffect';
 
 const routes: Routes = [
   {
@@ -84,6 +87,8 @@ const routes: Routes = [
     EditProductModalComponent,
     AddCategoryFormComponent,
     AddCategoryModalComponent,
+    CategoryListComponent,
+    CategoryItemComponent,
   ],
   imports: [
     TableModule,
@@ -104,6 +109,7 @@ const routes: Routes = [
       OrdersCountEffect,
       RecentOrdersEffect,
       ProductsEffect,
+      CategoryEffect,
     ]),
   ],
   providers: [ProductsService],

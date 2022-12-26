@@ -1,0 +1,20 @@
+<div class="category-item-container">
+  <ul>
+    <li>{{ category.id }}</li>
+    <li class="icon-list-item">
+      <img src="{{ category.image }}" alt="{{ category.image }}" />
+    </li>
+    <li>{{ category.productType }}</li>
+    <li>{{ category.parentCategory }}</li>
+    <li>
+      <input
+        type="checkbox"
+        value="{{ category.published }}"
+        checked="checked"
+      />
+    </li>
+    <li class="actions-wrp">
+      <span class="edit-icon"></span> <span class="trash-icon"></span>
+    </li>
+  </ul>
+</div>

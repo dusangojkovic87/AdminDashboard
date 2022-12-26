@@ -1,0 +1,74 @@
+@import "../../../../../../styles.scss";
+
+.category-list-container {
+  position: relative;
+  height: 100%;
+  .category-list-header {
+    @include light-grey-border;
+    position: relative;
+    max-width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 40px;
+    background-color: var(--primary-light-black);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+      li {
+        list-style: none;
+        width: 20%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-grey);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .icon-list-item {
+        width: 70px !important;
+      }
+    }
+  }
+}
+
+.product-list-pagination ::ng-deep pagination-template nav {
+  background-color: var(--primary-black);
+}
+
+.product-list-pagination ::ng-deep .ngx-pagination {
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  background-color: var(--primary-light-black);
+  padding: 10px;
+  @include light-grey-border;
+}
+
+.product-list-pagination ::ng-deep .ngx-pagination .current {
+  background: var(--primary-green);
+}
+
+.product-list-pagination ::ng-deep .ngx-pagination {
+  li {
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+
+    a {
+      color: white;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
