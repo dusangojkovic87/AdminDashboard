@@ -42,6 +42,7 @@ import { AddCategoryModalComponent } from './components/category/add-category-mo
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
 import { CategoryItemComponent } from './components/category/category-list/category-item/category-item.component';
 import { CategoryEffect } from './components/category/categoryEffects/categoryEffect';
+import { DeleteCategoryModalComponent } from './components/category/delete-category-modal/delete-category-modal.component';
 
 const routes: Routes = [
   {
@@ -89,6 +90,7 @@ const routes: Routes = [
     AddCategoryModalComponent,
     CategoryListComponent,
     CategoryItemComponent,
+    DeleteCategoryModalComponent,
   ],
   imports: [
     TableModule,

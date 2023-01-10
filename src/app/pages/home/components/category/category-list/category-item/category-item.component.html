@@ -14,7 +14,8 @@
       />
     </li>
     <li class="actions-wrp">
-      <span class="edit-icon"></span> <span class="trash-icon"></span>
+      <span class="edit-icon"></span>
+      <span class="trash-icon" (click)="openDeleteModal(category.id)"></span>
     </li>
   </ul>
 </div>

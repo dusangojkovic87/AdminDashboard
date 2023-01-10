@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CategoryData } from '../types/CategoryData';
 
@@ -16,5 +16,11 @@ export class CategoryService {
     return this.http.get<CategoryData[]>(
       baseUrl + '/assets/fakeBackend/categories/categories.json'
     );
+  }
+
+  deleteCategoryById(id: number): Observable<number> {
+    //fake delete to server
+    console.log(`category with ${id} deleted! `);
+    return of(id);
   }
 }

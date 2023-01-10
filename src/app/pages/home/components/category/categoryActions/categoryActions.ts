@@ -20,3 +20,26 @@ export const getCategoriesFail = createAction(
   categoryActionTypes.GET_CATEGORIES_FAIL,
   props<{ errors: any }>()
 );
+
+export const openDeleteCategoryModal = createAction(
+  categoryActionTypes.OPEN_DELETE_CATEGORY_MODAL,
+  props<{ id: number }>()
+);
+
+export const closeDeleteCategoryModal = createAction(
+  categoryActionTypes.CLOSE_DELETE_CATEGORY_MODAL
+);
+
+export const deleteCategory = createAction(
+  categoryActionTypes.DELETE_CATEGORY,
+  props<{ id: number }>()
+);
+
+export const deleteCategorySuccess = createAction(
+  categoryActionTypes.DELETE_CATEGORY_SUCCESS
+);
+
+export const deleteCategoryFail = createAction(
+  categoryActionTypes.DELETE_CATEGORY_FAIL,
+  props<{ error: any }>()
+);

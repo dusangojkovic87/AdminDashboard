@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { catchError, map, of, switchMap } from 'rxjs';
+import { AppState } from 'src/app/appReducer/appReducer';
 import {
+  deleteCategory,
+  deleteCategoryFail,
+  deleteCategorySuccess,
   getCategories,
   getCategoriesFail,
   getCategoriesSucces,
@@ -14,7 +19,8 @@ import { CategoryData } from '../types/CategoryData';
 export class CategoryEffect {
   constructor(
     private actions: Actions,
-    private categoriesServise: CategoryService
+    private categoriesServise: CategoryService,
+    private store: Store<AppState>
   ) {}
 
   $getCategories = createEffect(() =>
@@ -28,6 +34,21 @@ export class CategoryEffect {
       }),
       catchError((err) => {
         return of(getCategoriesFail({ errors: err }));
+      })
+    )
+  );
+
+  $deleteCategory = createEffect(() =>
+    this.actions.pipe(
+      ofType(categoryActionTypes.DELETE_CATEGORY),
+      switchMap(({ id }) => {
+        return this.categoriesServise.deleteCategoryById(id);
+      }),
+      map(() => {
+        return deleteCategorySuccess();
+      }),
+      catchError((error) => {
+        return of(deleteCategoryFail({ error: error }));
       })
     )
   );
