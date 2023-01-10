@@ -3,6 +3,7 @@ import { createReducer, on } from '@ngrx/store';
 import {
   closeAddCategoryModal,
   closeDeleteCategoryModal,
+  deleteCategory,
   deleteCategorySuccess,
   getCategoriesFail,
   getCategoriesSucces,

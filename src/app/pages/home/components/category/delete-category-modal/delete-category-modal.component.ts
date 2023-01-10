@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
   closeDeleteCategoryModal,
@@ -11,8 +12,9 @@ import {
   templateUrl: './delete-category-modal.component.html',
   styleUrls: ['./delete-category-modal.component.scss'],
 })
-export class DeleteCategoryModalComponent implements OnInit {
+export class DeleteCategoryModalComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>) {}
+  sub!: Subscription;
 
   ngOnInit(): void {}
 
@@ -29,13 +31,16 @@ export class DeleteCategoryModalComponent implements OnInit {
   }
 
   deleteCategory() {
-    this.store
+    this.sub = this.store
       .select((state) => state.categoryState.categoryToDelete)
       .subscribe((id) => {
         if (id != null || id != undefined) {
           this.store.dispatch(deleteCategory({ id: id }));
-          this.store.dispatch(closeDeleteCategoryModal());
         }
       });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

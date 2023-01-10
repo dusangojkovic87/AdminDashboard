@@ -4,10 +4,8 @@ import { Store } from '@ngrx/store';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
-  deleteCategory,
   deleteCategoryFail,
   deleteCategorySuccess,
-  getCategories,
   getCategoriesFail,
   getCategoriesSucces,
 } from '../categoryActions/categoryActions';
