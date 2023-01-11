@@ -15,6 +15,10 @@ export class CategoryListComponent implements OnInit {
   p: number = 1;
 
   ngOnInit(): void {
+    this.getCategoriesFromStore();
+  }
+
+  getCategoriesFromStore() {
     this.store.dispatch(getCategories());
     this.store
       .select((state) => state.categoryState.categories)

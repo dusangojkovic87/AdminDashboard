@@ -47,6 +47,7 @@ import { EditCategoryComponent } from './components/category/edit-category/edit-
 import { SearchCustomersComponent } from './components/customers/search-customers/search-customers.component';
 import { CustomersListComponent } from './components/customers/customers-list/customers-list.component';
 import { CustomerComponent } from './components/customers/customers-list/customer/customer.component';
+import { CustomersEffect } from './components/customers/customersEffects/customersEffect';
 
 const routes: Routes = [
   {
@@ -120,6 +121,7 @@ const routes: Routes = [
       RecentOrdersEffect,
       ProductsEffect,
       CategoryEffect,
+      CustomersEffect,
     ]),
   ],
   providers: [ProductsService],

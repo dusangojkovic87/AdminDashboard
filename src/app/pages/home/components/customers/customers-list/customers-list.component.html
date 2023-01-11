@@ -9,5 +9,8 @@
       <li class="actions">ACTIONS</li>
     </ul>
   </div>
-  <app-customer></app-customer>
+  <app-customer
+    *ngFor="let customer of customers"
+    [customer]="customer"
+  ></app-customer>
 </div>

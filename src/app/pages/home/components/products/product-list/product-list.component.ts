@@ -19,15 +19,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+    this.getProductsFromStore();
+  }
+
+  ngOnDestroy(): void {
+    this.productSub?.unsubscribe();
+  }
+
+  getProductsFromStore() {
     this.store.dispatch(getProducts());
     this.productSub = this.store
       .select((state) => state.productsState.products)
       .subscribe((data: Product[]) => {
         this.productList = data;
       });
-  }
-
-  ngOnDestroy(): void {
-    this.productSub?.unsubscribe();
   }
 }

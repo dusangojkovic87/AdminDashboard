@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "joiningDate": "Jan 21,2022",
+    "name": "John Doe",
+    "email": "doe@gmail.com",
+    "phone": 3678878979
+  },
+  {
+    "id": 2,
+    "joiningDate": "Feb 15,2022",
+    "name": "Sandra Johnes",
+    "email": "sandrajohnes@gmail.com",
+    "phone": 5746784678
+  },
+  {
+    "id": 3,
+    "joiningDate": "Apr 01,2022",
+    "name": "James Smith",
+    "email": "smithjames@gmail.com",
+    "phone": 4564645776
+  },
+  {
+    "id": 4,
+    "joiningDate": "Dec 11,2022",
+    "name": "Fredie Gibbs",
+    "email": "gibbs@gmail.com",
+    "phone": 56756785856
+  },
+  {
+    "id": 5,
+    "joiningDate": "Jun 18,2022",
+    "name": "Monicca Stevens",
+    "email": "stevensm@gmail.com",
+    "phone": 54745846846
+  },
+  {
+    "id": 6,
+    "joiningDate": "Jan 05,2022",
+    "name": "Laura Williams",
+    "email": "lauraw@gmail.com",
+    "phone": 456456436547
+  },
+  {
+    "id": 7,
+    "joiningDate": "Oct 15,2022",
+    "name": "Tommy Mase",
+    "email": "tommym@gmail.com",
+    "phone": 6745858795
+  }
+]
