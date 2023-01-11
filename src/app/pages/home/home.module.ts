@@ -44,6 +44,9 @@ import { CategoryItemComponent } from './components/category/category-list/categ
 import { CategoryEffect } from './components/category/categoryEffects/categoryEffect';
 import { DeleteCategoryModalComponent } from './components/category/delete-category-modal/delete-category-modal.component';
 import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
+import { SearchCustomersComponent } from './components/customers/search-customers/search-customers.component';
+import { CustomersListComponent } from './components/customers/customers-list/customers-list.component';
+import { CustomerComponent } from './components/customers/customers-list/customer/customer.component';
 
 const routes: Routes = [
   {
@@ -93,6 +96,9 @@ const routes: Routes = [
     CategoryItemComponent,
     DeleteCategoryModalComponent,
     EditCategoryComponent,
+    SearchCustomersComponent,
+    CustomersListComponent,
+    CustomerComponent,
   ],
   imports: [
     TableModule,
