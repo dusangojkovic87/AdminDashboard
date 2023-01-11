@@ -43,6 +43,7 @@ import { CategoryListComponent } from './components/category/category-list/categ
 import { CategoryItemComponent } from './components/category/category-list/category-item/category-item.component';
 import { CategoryEffect } from './components/category/categoryEffects/categoryEffect';
 import { DeleteCategoryModalComponent } from './components/category/delete-category-modal/delete-category-modal.component';
+import { EditCategoryComponent } from './components/category/edit-category/edit-category.component';
 
 const routes: Routes = [
   {
@@ -91,6 +92,7 @@ const routes: Routes = [
     CategoryListComponent,
     CategoryItemComponent,
     DeleteCategoryModalComponent,
+    EditCategoryComponent,
   ],
   imports: [
     TableModule,

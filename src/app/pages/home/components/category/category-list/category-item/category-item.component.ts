@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { openDeleteCategoryModal } from '../../categoryActions/categoryActions';
+import {
+  openDeleteCategoryModal,
+  openEditCategoryModal,
+} from '../../categoryActions/categoryActions';
 import { CategoryData } from '../../types/CategoryData';
 
 @Component({
@@ -18,5 +21,9 @@ export class CategoryItemComponent implements OnInit {
 
   openDeleteModal(id: number) {
     this.store.dispatch(openDeleteCategoryModal({ id: id }));
+  }
+
+  openEditCategoryModal(category: CategoryData) {
+    this.store.dispatch(openEditCategoryModal({ category: category }));
   }
 }

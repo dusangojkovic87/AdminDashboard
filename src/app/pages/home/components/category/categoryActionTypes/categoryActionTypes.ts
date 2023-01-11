@@ -9,4 +9,6 @@ export enum categoryActionTypes {
   DELETE_CATEGORY = '[Delete Category Modal] Delete category',
   DELETE_CATEGORY_SUCCESS = '[Delete Category Modal] Delete category success',
   DELETE_CATEGORY_FAIL = '[Delete Category Modal] Delete category fail',
+  OPEN_EDIT_CATEGORY_MODAL = '[Edit Category Modal] Open edit category modal',
+  CLOSE_EDIT_CATEGORY_MODAL = '[Edit Category Modal] Close edit category modal',
 }

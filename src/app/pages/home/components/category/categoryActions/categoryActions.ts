@@ -43,3 +43,12 @@ export const deleteCategoryFail = createAction(
   categoryActionTypes.DELETE_CATEGORY_FAIL,
   props<{ error: any }>()
 );
+
+export const openEditCategoryModal = createAction(
+  categoryActionTypes.OPEN_EDIT_CATEGORY_MODAL,
+  props<{ category: CategoryData }>()
+);
+
+export const closeEditCategoryModal = createAction(
+  categoryActionTypes.CLOSE_EDIT_CATEGORY_MODAL
+);

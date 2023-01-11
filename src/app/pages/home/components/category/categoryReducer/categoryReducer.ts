@@ -1,22 +1,25 @@
-import { act } from '@ngrx/effects';
 import { createReducer, on } from '@ngrx/store';
 import {
   closeAddCategoryModal,
   closeDeleteCategoryModal,
+  closeEditCategoryModal,
   deleteCategory,
   deleteCategorySuccess,
   getCategoriesFail,
   getCategoriesSucces,
   openAddCategoryModal,
   openDeleteCategoryModal,
+  openEditCategoryModal,
 } from '../categoryActions/categoryActions';
 import { CategoryState } from '../types/CategoryState';
 
 const CategoryState: CategoryState = {
   categories: null,
   isModalOpen: false,
+  isEditCategoryModalOpen: false,
   isDeleteModalOpen: false,
   categoryToDelete: null,
+  categoryToEdit: null,
   errors: null,
 };
 
@@ -52,5 +55,15 @@ export const categoryReducer = createReducer(
     ...state,
     isDeleteModalOpen: false,
     categoryToDelete: null,
+  })),
+  on(openEditCategoryModal, (state: CategoryState, action) => ({
+    ...state,
+    isEditCategoryModalOpen: true,
+    categoryToEdit: action.category,
+  })),
+  on(closeEditCategoryModal, (state: CategoryState, action) => ({
+    ...state,
+    isEditCategoryModalOpen: false,
+    categoryToEdit: null,
   }))
 );
