@@ -6,7 +6,11 @@
     <li>{{ customer?.email }}</li>
     <li>{{ customer?.phone }}</li>
     <li class="actions">
-      <span class="details-icon"></span> <span class="trash-icon"></span>
+      <span
+        class="details-icon"
+        routerLink="customer-order-list/{{ customer?.id }}"
+      ></span>
+      <span class="trash-icon"></span>
     </li>
   </ul>
 </div>

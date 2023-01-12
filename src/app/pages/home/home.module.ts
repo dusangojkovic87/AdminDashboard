@@ -48,6 +48,8 @@ import { SearchCustomersComponent } from './components/customers/search-customer
 import { CustomersListComponent } from './components/customers/customers-list/customers-list.component';
 import { CustomerComponent } from './components/customers/customers-list/customer/customer.component';
 import { CustomersEffect } from './components/customers/customersEffects/customersEffect';
+import { CustomerOrderListComponent } from './components/customer-order-list/customer-order-list.component';
+import { CustomerOrderEffect } from './components/customer-order-list/customerOrderEffects/customerOrderEffect';
 
 const routes: Routes = [
   {
@@ -60,6 +62,10 @@ const routes: Routes = [
       { path: 'products/:id', component: ProductDetailsComponent },
       { path: 'category', component: CategoryComponent },
       { path: 'customers', component: CustomersComponent },
+      {
+        path: 'customers/customer-order-list/:id',
+        component: CustomerOrderListComponent,
+      },
       { path: 'orders', component: OrdersComponent },
       { path: 'coupons', component: CouponsComponent },
       { path: 'staff', component: StaffComponent },
@@ -100,6 +106,7 @@ const routes: Routes = [
     SearchCustomersComponent,
     CustomersListComponent,
     CustomerComponent,
+    CustomerOrderListComponent,
   ],
   imports: [
     TableModule,
@@ -122,6 +129,7 @@ const routes: Routes = [
       ProductsEffect,
       CategoryEffect,
       CustomersEffect,
+      CustomerOrderEffect,
     ]),
   ],
   providers: [ProductsService],
