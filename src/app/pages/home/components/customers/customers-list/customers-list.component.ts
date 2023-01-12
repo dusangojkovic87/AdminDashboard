@@ -10,7 +10,8 @@ import { CustomersData } from '../types/CustomersData';
   styleUrls: ['./customers-list.component.scss'],
 })
 export class CustomersListComponent implements OnInit {
-  customers?: CustomersData[];
+  customers: CustomersData[] = [];
+  p: number = 1;
 
   constructor(private store: Store<AppState>) {}
 

@@ -10,7 +10,15 @@
     </ul>
   </div>
   <app-customer
-    *ngFor="let customer of customers"
+    *ngFor="
+      let customer of customers
+        | paginate : { itemsPerPage: 10, currentPage: p }
+    "
     [customer]="customer"
   ></app-customer>
+  <pagination-controls
+    class="pagination"
+    [responsive]="true"
+    (pageChange)="p = $event"
+  ></pagination-controls>
 </div>

@@ -34,27 +34,4 @@
   }
 }
 
-.product-list-pagination ::ng-deep pagination-template nav {
-  background-color: var(--primary-black);
-}
-
-.product-list-pagination ::ng-deep .ngx-pagination {
-  margin-left: 1rem;
-  background-color: var(--primary-light-black);
-}
-
-.product-list-pagination ::ng-deep .ngx-pagination .current {
-  background: var(--primary-green);
-}
-
-.product-list-pagination ::ng-deep .ngx-pagination {
-  li {
-    font-size: 0.9rem;
-    cursor: pointer;
-    border: none;
-
-    a {
-      color: white;
-    }
-  }
-}
+@include pagination-style;

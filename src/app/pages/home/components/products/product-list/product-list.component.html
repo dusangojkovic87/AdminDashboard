@@ -15,14 +15,14 @@
   </div>
   <div
     *ngFor="
-      let p of productList | paginate: { itemsPerPage: 6, currentPage: p }
+      let p of productList | paginate : { itemsPerPage: 6, currentPage: p }
     "
   >
     <app-product-list-item [product]="p"></app-product-list-item>
   </div>
 </div>
 <pagination-controls
-  class="product-list-pagination"
+  class="pagination"
   [responsive]="true"
   (pageChange)="p = $event"
 ></pagination-controls>

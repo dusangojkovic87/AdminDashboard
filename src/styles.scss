@@ -285,3 +285,34 @@ body {
 @mixin light-grey-border {
   border: 1px solid rgba($color: #f1efef, $alpha: 0.1);
 }
+
+@mixin pagination-style {
+  .pagination ::ng-deep pagination-template nav {
+    background-color: var(--primary-black);
+    padding-top: 10px;
+  }
+
+  .pagination ::ng-deep .ngx-pagination {
+    margin-left: 1rem;
+    background-color: var(--primary-light-black);
+  }
+
+  .pagination ::ng-deep .ngx-pagination .current {
+    background: var(--primary-green);
+  }
+
+  .pagination ::ng-deep .ngx-pagination {
+    li {
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+
+      a {
+        color: white;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}

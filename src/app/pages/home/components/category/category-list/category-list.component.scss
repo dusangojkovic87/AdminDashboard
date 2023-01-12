@@ -41,34 +41,4 @@
   }
 }
 
-.product-list-pagination ::ng-deep pagination-template nav {
-  background-color: var(--primary-black);
-}
-
-.product-list-pagination ::ng-deep .ngx-pagination {
-  width: calc(100% - 2rem);
-  margin-left: 1rem;
-  background-color: var(--primary-light-black);
-  padding: 10px;
-  @include light-grey-border;
-}
-
-.product-list-pagination ::ng-deep .ngx-pagination .current {
-  background: var(--primary-green);
-}
-
-.product-list-pagination ::ng-deep .ngx-pagination {
-  li {
-    font-size: 0.9rem;
-    cursor: pointer;
-    border: none;
-
-    a {
-      color: white;
-
-      &:hover {
-        color: black;
-      }
-    }
-  }
-}
+@include pagination-style;
