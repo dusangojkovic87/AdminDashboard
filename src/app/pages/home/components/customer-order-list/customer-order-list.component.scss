@@ -1,0 +1,50 @@
+@import "../../../../../styles.scss";
+h1 {
+  font-size: 1.2rem;
+  color: white;
+  padding-left: 1rem;
+}
+
+.customer-orders-list-container {
+  position: relative;
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  .customer-orders-list-wrp {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 1rem;
+
+    .customer-orders-list-header {
+      position: relative;
+      width: 100%;
+      height: 30px;
+      background-color: var(--primary-light-black);
+      @include light-grey-border;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 30px;
+      display: flex;
+
+      li {
+        list-style: none;
+        width: 20%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--primary-grey);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+  }
+}

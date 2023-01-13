@@ -1,5 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { getCustomerOrderSuccess } from '../customerOrderActions/customerOrderActions';
+import {
+  clearCustomerOrdersFromStore,
+  getCustomerOrderFail,
+  getCustomerOrderSuccess,
+} from '../customerOrderActions/customerOrderActions';
 import { CustomerOrdersState } from '../types/CustomerOrdersState';
 
 const CustomerOrdersState: CustomerOrdersState = {
@@ -12,5 +16,13 @@ export const customerOrdersReducer = createReducer(
   on(getCustomerOrderSuccess, (state: CustomerOrdersState, action) => ({
     ...state,
     orders: action.orders,
+  })),
+  on(clearCustomerOrdersFromStore, (state: CustomerOrdersState, action) => ({
+    ...state,
+    orders: null,
+  })),
+  on(getCustomerOrderFail, (state: CustomerOrdersState, action) => ({
+    ...state,
+    errors: action.error,
   }))
 );

@@ -50,6 +50,7 @@ import { CustomerComponent } from './components/customers/customers-list/custome
 import { CustomersEffect } from './components/customers/customersEffects/customersEffect';
 import { CustomerOrderListComponent } from './components/customer-order-list/customer-order-list.component';
 import { CustomerOrderEffect } from './components/customer-order-list/customerOrderEffects/customerOrderEffect';
+import { CustomerOrderItemComponent } from './components/customer-order-list/customer-order-item/customer-order-item.component';
 
 const routes: Routes = [
   {
@@ -107,6 +108,7 @@ const routes: Routes = [
     CustomersListComponent,
     CustomerComponent,
     CustomerOrderListComponent,
+    CustomerOrderItemComponent,
   ],
   imports: [
     TableModule,

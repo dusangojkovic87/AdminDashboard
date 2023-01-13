@@ -16,3 +16,7 @@ export const getCustomerOrderFail = createAction(
   customerOrderActionTypes.GET_CUSTOMER_ORDERS_FAIL,
   props<{ error: any }>()
 );
+
+export const clearCustomerOrdersFromStore = createAction(
+  customerOrderActionTypes.CLEAR_CUSTOMER_ORDERS_FROM_STORE
+);

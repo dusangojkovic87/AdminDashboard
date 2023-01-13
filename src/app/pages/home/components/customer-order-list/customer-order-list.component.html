@@ -1,1 +1,21 @@
-<div class="customer-orders-list-container"></div>
+<h1>Customer Order List</h1>
+<div class="customer-orders-list-container">
+  <div class="customer-orders-list-wrp">
+    <div class="customer-orders-list-header">
+      <ul>
+        <li>order id</li>
+        <li>time</li>
+        <li>shipping address</li>
+        <li>phone</li>
+        <li>method</li>
+        <li>total</li>
+        <li>status</li>
+        <li>actions</li>
+      </ul>
+    </div>
+    <app-customer-order-item
+      *ngFor="let order of orders"
+      [order]="order"
+    ></app-customer-order-item>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="customer-order-item-container" *ngIf="order">
+  <ul>
+    <li>{{ order.id }}</li>
+    <li>{{ order.time }}</li>
+    <li>{{ order.shippAddress }}</li>
+    <li>{{ order.phone }}</li>
+    <li>{{ order.paymentMethod }}</li>
+    <li>{{ order.total | currency : "EUR" }}</li>
+    <li class="status">{{ order.status }}</li>
+    <li>
+      <form>
+        <select name="status">
+          <option value="delivered">delivered</option>
+          <option value="proccessing">proccessing</option>
+          <option value="pending">pending</option>
+          <option value="cancel">cancel</option>
+        </select>
+      </form>
+    </li>
+  </ul>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { getCustomers } from '../customersActions/customersActions';
 import { CustomersData } from '../types/CustomersData';
@@ -12,6 +13,7 @@ import { CustomersData } from '../types/CustomersData';
 export class CustomersListComponent implements OnInit {
   customers: CustomersData[] = [];
   p: number = 1;
+  storeSub?: Subscription;
 
   constructor(private store: Store<AppState>) {}
 
@@ -21,14 +23,16 @@ export class CustomersListComponent implements OnInit {
 
   getCustomersFromStore() {
     this.store.dispatch(getCustomers());
-    this.store
+    this.storeSub = this.store
       .select((state) => state.customersState.customers)
       .subscribe((data) => {
-        console.log(data);
-
         if (data != null) {
           this.customers = data;
         }
       });
+  }
+
+  ngOnDestroy() {
+    if (this.storeSub) this.storeSub?.unsubscribe();
   }
 }

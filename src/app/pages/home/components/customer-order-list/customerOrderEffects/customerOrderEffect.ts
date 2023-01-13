@@ -29,7 +29,7 @@ export class CustomerOrderEffect {
           })
         );
       }),
-      map((data) => {
+      map((data: CustomerOrder[]) => {
         return getCustomerOrderSuccess({ orders: data });
       }),
       catchError((error) => {
