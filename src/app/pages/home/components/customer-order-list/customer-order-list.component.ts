@@ -16,6 +16,7 @@ import { CustomerOrder } from './types/CustomerOrder';
 export class CustomerOrderListComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
   orders: CustomerOrder[] = [];
+  p: number = 1;
 
   ngOnInit(): void {
     this.getCustomerOrderByIdAction();
