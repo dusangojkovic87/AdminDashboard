@@ -1,0 +1,49 @@
+.tooltip-hover-zone {
+  position: relative;
+  width: auto;
+  height: 100%;
+  &:hover {
+    .message-tooltip-container {
+      opacity: 1;
+    }
+  }
+
+  .message-tooltip-container {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: 2;
+
+    .tooltip-content {
+      position: absolute;
+      width: auto;
+      margin-left: -60px;
+      margin-top: -30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      padding: 5px;
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 75%,
+        75% 75%,
+        75% 100%,
+        50% 75%,
+        0% 75%
+      );
+
+      p {
+        color: white;
+        top: -10px;
+        margin-top: 3px;
+        word-wrap: break-word;
+      }
+    }
+  }
+}

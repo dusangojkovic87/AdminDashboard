@@ -22,11 +22,14 @@
       />
     </li>
     <li>
-      <span
-        routerLink="/products/{{ product?.id }}"
-        class="details-icon"
-      ></span>
+      <span routerLink="/products/{{ product?.id }}" class="details-icon">
+        <app-message-tooltip [tooltipText]="'details'"></app-message-tooltip>
+      </span>
     </li>
-    <li><span class="edit-icon"></span></li>
+    <li>
+      <span class="edit-icon">
+        <app-message-tooltip [tooltipText]="'edit'"></app-message-tooltip>
+      </span>
+    </li>
   </ul>
 </div>

@@ -10,9 +10,14 @@
         class="details-icon"
         routerLink="customer-order-list/{{ customer?.id }}"
       >
-        <app-tooltip></app-tooltip>
+        <app-message-tooltip [tooltipText]="'details'"></app-message-tooltip>
       </span>
-      <span class="trash-icon"></span>
+      <span class="trash-icon">
+        <app-message-tooltip
+          [tooltipColor]="'#df4759'"
+          [tooltipText]="'delete'"
+        ></app-message-tooltip>
+      </span>
     </li>
   </ul>
 </div>

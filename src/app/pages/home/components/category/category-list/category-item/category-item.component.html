@@ -14,8 +14,15 @@
       />
     </li>
     <li class="actions-wrp">
-      <span class="edit-icon" (click)="openEditCategoryModal(category)"></span>
-      <span class="trash-icon" (click)="openDeleteModal(category.id)"></span>
+      <span class="edit-icon" (click)="openEditCategoryModal(category)">
+        <app-message-tooltip [tooltipText]="'edit'"></app-message-tooltip>
+      </span>
+      <span class="trash-icon" (click)="openDeleteModal(category.id)">
+        <app-message-tooltip
+          [tooltipColor]="'#df4759'"
+          [tooltipText]="'delete'"
+        ></app-message-tooltip>
+      </span>
     </li>
   </ul>
 </div>

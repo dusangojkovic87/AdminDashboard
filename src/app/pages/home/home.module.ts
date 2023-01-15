@@ -51,6 +51,7 @@ import { CustomersEffect } from './components/customers/customersEffects/custome
 import { CustomerOrderListComponent } from './components/customer-order-list/customer-order-list.component';
 import { CustomerOrderEffect } from './components/customer-order-list/customerOrderEffects/customerOrderEffect';
 import { CustomerOrderItemComponent } from './components/customer-order-list/customer-order-item/customer-order-item.component';
+import { SharedModule } from 'src/app/Shared/shared.module';
 
 const routes: Routes = [
   {
@@ -120,6 +121,7 @@ const routes: Routes = [
     CustomPipesModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
