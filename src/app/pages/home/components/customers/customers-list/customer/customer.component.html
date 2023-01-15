@@ -9,8 +9,11 @@
       <span
         class="details-icon"
         routerLink="customer-order-list/{{ customer?.id }}"
-      ></span>
-      <span class="trash-icon"></span>
+        appTooltipBaloon
+        [tooltipText]="'details'"
+      >
+      </span>
+      <span class="trash-icon" appTooltipBaloon [tooltipText]="'delete'"></span>
     </li>
   </ul>
 </div>

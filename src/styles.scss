@@ -316,3 +316,39 @@ body {
     }
   }
 }
+
+//tooltip
+/* .tooltip {
+  position: absolute !important;
+  display: flex;
+  border-bottom: 1px dotted green;
+  z-index: 12;
+  justify-content: center;
+  align-items: center;
+
+  .tooltiptext {
+    position: absolute !important;
+    width: 70px;
+    word-wrap: break-word;
+    background-color: green;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -50px;
+
+    &::after {
+      content: "";
+      position: absolute !important;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: green transparent transparent transparent;
+    }
+  }
+} */

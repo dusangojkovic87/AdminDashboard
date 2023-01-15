@@ -37,7 +37,7 @@
 }
 
 .trash-icon {
-  position: relative;
+  position: relative !important;
   width: 25px;
   height: 25px;
   background: url("/assets/icons/customers/trash.svg");
@@ -47,11 +47,12 @@
 }
 
 .details-icon {
-  position: relative;
+  position: relative !important;
   width: 25px;
   height: 25px;
   background: url("/assets/icons/customers/details.svg");
   display: block;
   background-repeat: no-repeat;
   cursor: pointer;
+  z-index: 1;
 }
