@@ -7,13 +7,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { EditProfileComponent } from '../pages/editProfile/components/edit-profile/edit-profile.component';
 
 import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
-import { TooltipComponent } from './components/tooltip/tooltip.component';
 const routes: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
 ];
 
 @NgModule({
-  declarations: [DashboardNavComponent, TooltipComponent],
+  declarations: [DashboardNavComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -22,6 +21,6 @@ const routes: Routes = [
     EffectsModule.forFeature([]),
   ],
   providers: [],
-  exports: [DashboardNavComponent, TooltipComponent],
+  exports: [DashboardNavComponent],
 })
 export class SharedModule {}
