@@ -25,6 +25,7 @@ body {
   --primary-light-blue: #056faf;
   --primary-light-blue1: #1bbbee;
   --primary-warning: #df4759;
+  --primary-orange: #a56514;
 }
 
 @font-face {
@@ -317,38 +318,24 @@ body {
   }
 }
 
-//tooltip
-/* .tooltip {
-  position: absolute !important;
-  display: flex;
-  border-bottom: 1px dotted green;
-  z-index: 12;
-  justify-content: center;
-  align-items: center;
+//statusStyle directive
+@mixin common--status--props {
+  color: white !important;
+  border-radius: 20px;
+  height: 1.3rem !important;
+}
 
-  .tooltiptext {
-    position: absolute !important;
-    width: 70px;
-    word-wrap: break-word;
-    background-color: green;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    z-index: 1;
-    bottom: 150%;
-    left: 50%;
-    margin-left: -50px;
+.green--bg--status {
+  background-color: var(--primary-green) !important;
+  @include common--status--props();
+}
 
-    &::after {
-      content: "";
-      position: absolute !important;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: green transparent transparent transparent;
-    }
-  }
-} */
+.orange--bg--status {
+  background-color: var(--primary-orange) !important;
+  @include common--status--props();
+}
+
+.red--bg--status {
+  background-color: var(--primary-warning) !important;
+  @include common--status--props();
+}
