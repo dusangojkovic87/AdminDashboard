@@ -8,12 +8,17 @@ import { EditProfileComponent } from '../pages/editProfile/components/edit-profi
 
 import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
 import { MessageTooltipComponent } from './components/message-tooltip/message-tooltip.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 const routes: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
 ];
 
 @NgModule({
-  declarations: [DashboardNavComponent, MessageTooltipComponent],
+  declarations: [
+    DashboardNavComponent,
+    MessageTooltipComponent,
+    LoadingSpinnerComponent,
+  ],
   imports: [
     BrowserModule,
     CommonModule,
@@ -22,6 +27,10 @@ const routes: Routes = [
     EffectsModule.forFeature([]),
   ],
   providers: [],
-  exports: [DashboardNavComponent, MessageTooltipComponent],
+  exports: [
+    DashboardNavComponent,
+    MessageTooltipComponent,
+    LoadingSpinnerComponent,
+  ],
 })
 export class SharedModule {}

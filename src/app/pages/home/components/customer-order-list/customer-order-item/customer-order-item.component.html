@@ -6,7 +6,9 @@
     <li>{{ order.phone }}</li>
     <li>{{ order.paymentMethod }}</li>
     <li>{{ order.total | currency : "EUR" }}</li>
-    <li class="status">{{ order.status }}</li>
+    <li class="status" appStatusStyle [text]="order.status">
+      {{ order.status }}
+    </li>
     <li>
       <form>
         <select name="status">
