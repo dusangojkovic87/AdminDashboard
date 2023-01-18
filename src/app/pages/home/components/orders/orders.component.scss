@@ -1,0 +1,39 @@
+@import "../../../../../styles.scss";
+h1 {
+  color: white;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+}
+
+.orders-header-container {
+  position: relative;
+  width: auto;
+  height: 40px;
+  background-color: var(--primary-light-black);
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  ul {
+    position: relative;
+    padding: 0;
+    width: auto;
+    height: 100%;
+    display: flex;
+    margin: 0;
+    @include light-grey-border;
+
+    li {
+      list-style: none;
+      width: 20%;
+      height: 100%;
+      color: var(--primary-grey);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
+
+@include pagination-style;

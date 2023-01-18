@@ -52,6 +52,9 @@ import { CustomerOrderListComponent } from './components/customer-order-list/cus
 import { CustomerOrderEffect } from './components/customer-order-list/customerOrderEffects/customerOrderEffect';
 import { CustomerOrderItemComponent } from './components/customer-order-list/customer-order-item/customer-order-item.component';
 import { SharedModule } from 'src/app/Shared/shared.module';
+import { OrdersFilterSearchComponent } from './components/orders/orders-filter-search/orders-filter-search.component';
+import { OrderItemComponent } from './components/orders/order-item/order-item.component';
+import { OrdersEffect } from './components/orders/ordersEffects/ordersEffect';
 
 const routes: Routes = [
   {
@@ -110,6 +113,8 @@ const routes: Routes = [
     CustomerComponent,
     CustomerOrderListComponent,
     CustomerOrderItemComponent,
+    OrdersFilterSearchComponent,
+    OrderItemComponent,
   ],
   imports: [
     TableModule,
@@ -134,6 +139,7 @@ const routes: Routes = [
       CategoryEffect,
       CustomersEffect,
       CustomerOrderEffect,
+      OrdersEffect,
     ]),
   ],
   providers: [ProductsService],

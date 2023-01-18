@@ -1,1 +1,24 @@
-<p>orders works!</p>
+<h1>Orders</h1>
+<app-orders-filter-search></app-orders-filter-search>
+<div class="orders-header-container">
+  <ul>
+    <li>Id</li>
+    <li>Time</li>
+    <li>Shipping address</li>
+    <li>phone</li>
+    <li>method</li>
+    <li>total</li>
+    <li>status</li>
+    <li>action</li>
+    <li>invoice</li>
+  </ul>
+</div>
+<app-order-item
+  *ngFor="let order of orders | paginate : { itemsPerPage: 6, currentPage: p }"
+  [order]="order"
+></app-order-item>
+<pagination-controls
+  class="pagination"
+  [responsive]="true"
+  (pageChange)="p = $event"
+></pagination-controls>

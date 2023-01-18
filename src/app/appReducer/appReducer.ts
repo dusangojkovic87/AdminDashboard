@@ -6,6 +6,8 @@ import { customerOrdersReducer } from '../pages/home/components/customer-order-l
 import { CustomerOrdersState } from '../pages/home/components/customer-order-list/types/CustomerOrdersState';
 import { customersReducer } from '../pages/home/components/customers/customersReducer/customersReducer';
 import { CustomersState } from '../pages/home/components/customers/types/CustomersState';
+import { ordersReducer } from '../pages/home/components/orders/ordersReducer/ordersReducer';
+import { OrdersState } from '../pages/home/components/orders/types/OrdersState';
 import { ordersCountReducer } from '../pages/home/components/overview/overviewReducer/ordersCountReducer';
 import { overviewReducer } from '../pages/home/components/overview/overviewReducer/overviewReducer';
 import { recentOrdersReducer } from '../pages/home/components/overview/overviewReducer/recentOrdersReducer';
@@ -27,6 +29,7 @@ export interface AppState {
   categoryState: CategoryState;
   customersState: CustomersState;
   customerOrdersState: CustomerOrdersState;
+  ordersState: OrdersState;
 }
 
 export const appReducer = {
@@ -39,4 +42,5 @@ export const appReducer = {
   categoryState: categoryReducer,
   customersState: customersReducer,
   customerOrdersState: customerOrdersReducer,
+  ordersState: ordersReducer,
 };

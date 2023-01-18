@@ -1,0 +1,30 @@
+<div class="order-item-container" *ngIf="order">
+  <ul>
+    <li>{{ order.id }}</li>
+    <li>{{ order.time }}</li>
+    <li>{{ order.shippAddress }}</li>
+    <li>{{ order.phone }}</li>
+    <li>{{ order.paymentMethod }}</li>
+    <li>{{ order.total }}</li>
+    <li>
+      <span class="status__text" appStatusStyle [text]="order.status">
+        {{ order.status }}</span
+      >
+    </li>
+    <li class="action">
+      <form>
+        <select name="status" id="status">
+          <option value="pending">pending</option>
+          <option value="delivered">delivered</option>
+          <option value="processing">processing</option>
+          <option value="cancel">cancel</option>
+        </select>
+      </form>
+    </li>
+    <li class="invoice">
+      <span class="invoices-icon">
+        <app-message-tooltip [tooltipText]="'invoices'"> </app-message-tooltip>
+      </span>
+    </li>
+  </ul>
+</div>
