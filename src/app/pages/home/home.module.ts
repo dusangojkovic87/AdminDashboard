@@ -55,6 +55,9 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { OrdersFilterSearchComponent } from './components/orders/orders-filter-search/orders-filter-search.component';
 import { OrderItemComponent } from './components/orders/order-item/order-item.component';
 import { OrdersEffect } from './components/orders/ordersEffects/ordersEffect';
+import { AddAndSearchCouponsComponent } from './components/coupons/add-and-search-coupons/add-and-search-coupons.component';
+import { CouponsEffect } from './components/coupons/couponsEffects/couponsEffect';
+import { CouponComponent } from './components/coupons/coupon/coupon.component';
 
 const routes: Routes = [
   {
@@ -115,6 +118,8 @@ const routes: Routes = [
     CustomerOrderItemComponent,
     OrdersFilterSearchComponent,
     OrderItemComponent,
+    AddAndSearchCouponsComponent,
+    CouponComponent,
   ],
   imports: [
     TableModule,
@@ -140,6 +145,7 @@ const routes: Routes = [
       CustomersEffect,
       CustomerOrderEffect,
       OrdersEffect,
+      CouponsEffect,
     ]),
   ],
   providers: [ProductsService],

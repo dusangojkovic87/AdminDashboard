@@ -18,7 +18,8 @@ export class StatusStyleDirective {
       );
     } else if (
       this.text.toLocaleLowerCase() === 'delivered' ||
-      this.text.toLocaleLowerCase() === 'selling'
+      this.text.toLocaleLowerCase() === 'selling' ||
+      this.text.toLocaleLowerCase() === 'active'
     ) {
       this.renderer.addClass(
         this.elementRef.nativeElement,
@@ -26,7 +27,8 @@ export class StatusStyleDirective {
       );
     } else if (
       this.text.toLocaleLowerCase() === 'cancel' ||
-      this.text.toLocaleLowerCase() === 'sold out'
+      this.text.toLocaleLowerCase() === 'sold out' ||
+      this.text.toLocaleLowerCase() === 'expired'
     ) {
       this.renderer.addClass(this.elementRef.nativeElement, 'red--bg--status');
     }

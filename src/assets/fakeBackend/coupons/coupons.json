@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "startDate": "Sep 25, 2022",
+    "endDate": "Jan 31, 2023",
+    "campaignsName": "October Gift Voucher",
+    "code": "October21",
+    "percentage": 20,
+    "productType": "Grocery",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "startDate": "Sep 25, 2022",
+    "endDate": "Feb 28, 2023",
+    "campaignsName": "Winter Gift Voucher",
+    "code": "WINTER21",
+    "percentage": 15,
+    "productType": "Grocery",
+    "status": "expired"
+  }
+]

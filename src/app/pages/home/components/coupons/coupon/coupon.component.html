@@ -1,0 +1,27 @@
+<div class="coupon-container" *ngIf="coupon">
+  <ul>
+    <li>{{ coupon.id }}</li>
+    <li>{{ coupon.startDate }}</li>
+    <li>{{ coupon.endDate }}</li>
+    <li>{{ coupon.campaignsName }}</li>
+    <li>{{ coupon.code }}</li>
+    <li>{{ coupon.percentage }}</li>
+    <li>{{ coupon.productType }}</li>
+    <li>
+      <span class="status" appStatusStyle [text]="coupon.status">
+        {{ coupon.status }}</span
+      >
+    </li>
+    <li class="actions">
+      <span class="edit-icon">
+        <app-message-tooltip [tooltipText]="'edit'"></app-message-tooltip>
+      </span>
+      <span class="delete-icon">
+        <app-message-tooltip
+          [tooltipText]="'delete'"
+          [tooltipColor]="'#df4759'"
+        ></app-message-tooltip>
+      </span>
+    </li>
+  </ul>
+</div>

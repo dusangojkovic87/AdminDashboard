@@ -1,1 +1,26 @@
-<p>coupons works!</p>
+<h1>Coupons</h1>
+<app-add-and-search-coupons></app-add-and-search-coupons>
+<div class="coupons-header-container">
+  <ul>
+    <li>Id</li>
+    <li>start date</li>
+    <li>end date</li>
+    <li>campaigns name</li>
+    <li>code</li>
+    <li>percentage</li>
+    <li>product type</li>
+    <li>status</li>
+    <li>actions</li>
+  </ul>
+</div>
+<app-coupon
+  *ngFor="
+    let coupon of coupons | paginate : { itemsPerPage: 6, currentPage: p }
+  "
+  [coupon]="coupon"
+></app-coupon>
+<pagination-controls
+  class="pagination"
+  [responsive]="true"
+  (pageChange)="p = $event"
+></pagination-controls>

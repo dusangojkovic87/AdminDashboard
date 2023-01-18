@@ -2,6 +2,8 @@ import { authReducer } from '../pages/auth/authReducer/auth.reducer';
 import { AuthStateInterface } from '../pages/auth/types/AuthStateInterface';
 import { categoryReducer } from '../pages/home/components/category/categoryReducer/categoryReducer';
 import { CategoryState } from '../pages/home/components/category/types/CategoryState';
+import { couponsReducer } from '../pages/home/components/coupons/couponsReducer/couponsReducer';
+import { CouponsState } from '../pages/home/components/coupons/types/CouponsState';
 import { customerOrdersReducer } from '../pages/home/components/customer-order-list/customerOrderReducer/customerOrderReducer';
 import { CustomerOrdersState } from '../pages/home/components/customer-order-list/types/CustomerOrdersState';
 import { customersReducer } from '../pages/home/components/customers/customersReducer/customersReducer';
@@ -30,6 +32,7 @@ export interface AppState {
   customersState: CustomersState;
   customerOrdersState: CustomerOrdersState;
   ordersState: OrdersState;
+  couponsState: CouponsState;
 }
 
 export const appReducer = {
@@ -43,4 +46,5 @@ export const appReducer = {
   customersState: customersReducer,
   customerOrdersState: customerOrdersReducer,
   ordersState: ordersReducer,
+  couponsState: couponsReducer,
 };
