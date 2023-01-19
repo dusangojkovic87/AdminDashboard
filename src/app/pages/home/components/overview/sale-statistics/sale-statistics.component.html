@@ -6,7 +6,7 @@
     <h6>best selling products</h6>
   </div>
 </div>
-<div class="sale-statistics-container">
+<div class="sale-statistics-container" *ngIf="isChartDataReady">
   <div class="weekly-sales-container">
     <canvas
       baseChart

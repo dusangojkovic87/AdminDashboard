@@ -16,6 +16,7 @@ export class SaleStatisticsComponent implements OnInit, OnDestroy {
   saleOrdersData?: SaleOrdersData;
   storeSub?: Subscription;
   storeAction?: Subscription;
+  isChartDataReady: boolean = false;
   constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit(): void {
@@ -77,6 +78,7 @@ export class SaleStatisticsComponent implements OnInit, OnDestroy {
       .subscribe((data: any) => {
         if (data) {
           this.setSaleAndOrdersData(data);
+          this.isChartDataReady = true;
         }
       });
   }
