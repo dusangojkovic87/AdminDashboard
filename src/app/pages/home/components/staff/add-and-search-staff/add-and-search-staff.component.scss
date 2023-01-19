@@ -1,0 +1,46 @@
+.add-and-search-staff-container {
+  position: relative;
+  width: auto;
+  height: 80px;
+  margin-top: 2rem;
+  background-color: var(--primary-light-black);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+
+  form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    input,
+    select,
+    button {
+      height: 40px;
+      background-color: var(--primary-light-black);
+      border-radius: 5px;
+    }
+
+    input,
+    select {
+      border: 1px solid var(--primary-grey);
+      color: var(--primary-grey);
+      width: 35%;
+    }
+
+    button {
+      background-color: var(--primary-green);
+      color: white;
+      width: 20%;
+      cursor: pointer;
+      border: none;
+    }
+  }
+}
+
+::placeholder {
+  padding-left: 1rem;
+}

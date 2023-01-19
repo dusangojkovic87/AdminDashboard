@@ -58,6 +58,7 @@ import { OrdersEffect } from './components/orders/ordersEffects/ordersEffect';
 import { AddAndSearchCouponsComponent } from './components/coupons/add-and-search-coupons/add-and-search-coupons.component';
 import { CouponsEffect } from './components/coupons/couponsEffects/couponsEffect';
 import { CouponComponent } from './components/coupons/coupon/coupon.component';
+import { AddAndSearchStaffComponent } from './components/staff/add-and-search-staff/add-and-search-staff.component';
 
 const routes: Routes = [
   {
@@ -120,6 +121,7 @@ const routes: Routes = [
     OrderItemComponent,
     AddAndSearchCouponsComponent,
     CouponComponent,
+    AddAndSearchStaffComponent,
   ],
   imports: [
     TableModule,
