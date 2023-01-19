@@ -59,6 +59,9 @@ import { AddAndSearchCouponsComponent } from './components/coupons/add-and-searc
 import { CouponsEffect } from './components/coupons/couponsEffects/couponsEffect';
 import { CouponComponent } from './components/coupons/coupon/coupon.component';
 import { AddAndSearchStaffComponent } from './components/staff/add-and-search-staff/add-and-search-staff.component';
+import { StaffMemberComponent } from './components/staff/staff-member/staff-member.component';
+import { StaffEffect } from './components/staff/staffEffects/staffEffect';
+import { EditProfileModule } from '../editProfile/editProfile.module';
 
 const routes: Routes = [
   {
@@ -122,6 +125,7 @@ const routes: Routes = [
     AddAndSearchCouponsComponent,
     CouponComponent,
     AddAndSearchStaffComponent,
+    StaffMemberComponent,
   ],
   imports: [
     TableModule,
@@ -134,6 +138,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    EditProfileModule,
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,
@@ -148,6 +153,7 @@ const routes: Routes = [
       CustomerOrderEffect,
       OrdersEffect,
       CouponsEffect,
+      StaffEffect,
     ]),
   ],
   providers: [ProductsService],

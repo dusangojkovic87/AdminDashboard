@@ -18,6 +18,8 @@ import { OrdersCountDetailsState } from '../pages/home/components/overview/types
 import { RecentOrdersState } from '../pages/home/components/overview/types/RecentOrdersState';
 import { productsReducer } from '../pages/home/components/products/productReducer/productsReducer';
 import { ProductListState } from '../pages/home/components/products/types/ProductsListState';
+import { staffReducer } from '../pages/home/components/staff/staffReducer/staffReducer';
+import { StaffState } from '../pages/home/components/staff/types/StaffState';
 import { headerReducer } from '../Shared/sharedReducer/headerReducer';
 import { HeaderInterfaceState } from '../Shared/types/headerInterfaceState';
 
@@ -33,6 +35,7 @@ export interface AppState {
   customerOrdersState: CustomerOrdersState;
   ordersState: OrdersState;
   couponsState: CouponsState;
+  staffState: StaffState;
 }
 
 export const appReducer = {
@@ -47,4 +50,5 @@ export const appReducer = {
   customerOrdersState: customerOrdersReducer,
   ordersState: ordersReducer,
   couponsState: couponsReducer,
+  staffState: staffReducer,
 };

@@ -1,2 +1,22 @@
 <h1>All staff</h1>
 <app-add-and-search-staff></app-add-and-search-staff>
+<div class="staff-header-container">
+  <ul>
+    <li>Id</li>
+    <li>Name</li>
+    <li>Email</li>
+    <li>Contact</li>
+    <li>Joining Date</li>
+    <li>Role</li>
+    <li class="actions">Actions</li>
+  </ul>
+</div>
+<app-staff-member
+  *ngFor="let member of staff | paginate : { itemsPerPage: 6, currentPage: p }"
+  [staffMember]="member"
+></app-staff-member>
+<pagination-controls
+  class="pagination"
+  [responsive]="true"
+  (pageChange)="p = $event"
+></pagination-controls>

@@ -1,0 +1,26 @@
+<div class="staff-member-container" *ngIf="staffMember">
+  <ul>
+    <li>1</li>
+    <li class="staff__member__name">
+      <div class="image-wrp">
+        <img src="{{ staffMember.image }}" alt="{{ staffMember.image }}" />
+      </div>
+      {{ staffMember.name }}
+    </li>
+    <li>{{ staffMember.email }}</li>
+    <li>{{ staffMember.contact }}</li>
+    <li>{{ staffMember.joiningDate }}</li>
+    <li>{{ staffMember.role }}</li>
+    <li class="actions">
+      <span class="edit-icon">
+        <app-message-tooltip [tooltipText]="'edit'"></app-message-tooltip>
+      </span>
+      <span class="delete-icon">
+        <app-message-tooltip
+          [tooltipText]="'delete'"
+          [tooltipColor]="'#df4759'"
+        ></app-message-tooltip>
+      </span>
+    </li>
+  </ul>
+</div>

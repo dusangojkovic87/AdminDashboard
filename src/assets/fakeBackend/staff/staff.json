@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "John Wick",
+    "image": "/assets/images/staff/john.jpg",
+    "email": "john@gmail.com",
+    "contact": 568765858,
+    "joiningDate": "Jan 21,2022",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "name": "Sandra James",
+    "image": "/assets/images/staff/sandra.jpg",
+    "email": "sandra@gmail.com",
+    "contact": 436476457,
+    "joiningDate": "Feb 12,2022",
+    "role": "admin"
+  }
+]

@@ -22,7 +22,7 @@ const routes = [{ path: 'edit-profile', component: EditProfileComponent }];
     ReactiveFormsModule,
     EffectsModule.forFeature([EditProfileEffect]),
   ],
-  exports: [ReactiveFormsModule, FormsModule],
+  exports: [ReactiveFormsModule, FormsModule, EditProfileComponent],
   providers: [],
 })
 export class EditProfileModule {}
