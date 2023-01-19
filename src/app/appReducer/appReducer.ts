@@ -13,9 +13,11 @@ import { OrdersState } from '../pages/home/components/orders/types/OrdersState';
 import { ordersCountReducer } from '../pages/home/components/overview/overviewReducer/ordersCountReducer';
 import { overviewReducer } from '../pages/home/components/overview/overviewReducer/overviewReducer';
 import { recentOrdersReducer } from '../pages/home/components/overview/overviewReducer/recentOrdersReducer';
+import { saleOrdersReducer } from '../pages/home/components/overview/overviewReducer/saleStatsReducer';
 import { AmountDetailsState } from '../pages/home/components/overview/types/AmountDetailsState';
 import { OrdersCountDetailsState } from '../pages/home/components/overview/types/OrdersCountDetailsState';
 import { RecentOrdersState } from '../pages/home/components/overview/types/RecentOrdersState';
+import { SaleOrdersState } from '../pages/home/components/overview/types/SaleOrdersState';
 import { productsReducer } from '../pages/home/components/products/productReducer/productsReducer';
 import { ProductListState } from '../pages/home/components/products/types/ProductsListState';
 import { staffReducer } from '../pages/home/components/staff/staffReducer/staffReducer';
@@ -36,6 +38,7 @@ export interface AppState {
   ordersState: OrdersState;
   couponsState: CouponsState;
   staffState: StaffState;
+  saleOrdersStatState: SaleOrdersState;
 }
 
 export const appReducer = {
@@ -51,4 +54,5 @@ export const appReducer = {
   ordersState: ordersReducer,
   couponsState: couponsReducer,
   staffState: staffReducer,
+  saleOrdersStatState: saleOrdersReducer,
 };

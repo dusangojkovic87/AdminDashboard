@@ -62,6 +62,7 @@ import { AddAndSearchStaffComponent } from './components/staff/add-and-search-st
 import { StaffMemberComponent } from './components/staff/staff-member/staff-member.component';
 import { StaffEffect } from './components/staff/staffEffects/staffEffect';
 import { EditProfileModule } from '../editProfile/editProfile.module';
+import { SaleOrdersStatEffect } from './components/overview/overviewEffects/saleOrdersStatEffect';
 
 const routes: Routes = [
   {
@@ -154,6 +155,7 @@ const routes: Routes = [
       OrdersEffect,
       CouponsEffect,
       StaffEffect,
+      SaleOrdersStatEffect,
     ]),
   ],
   providers: [ProductsService],
