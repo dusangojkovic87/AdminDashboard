@@ -36,14 +36,18 @@
       list-style: none;
       width: 200px;
       color: grey;
-      margin: 7px;
+      padding: 8px;
+      padding-left: 14px;
+
       font-size: 1.1rem;
       display: flex;
       justify-content: flex-start;
+      border-left: 4px solid transparent;
     }
 
     .activeDashLink {
       color: white;
+      border-left: 4px solid var(--primary-green);
     }
 
     .dashboardLink {
