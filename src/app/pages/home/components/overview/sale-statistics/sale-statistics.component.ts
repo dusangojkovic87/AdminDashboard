@@ -2,9 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ChartConfiguration } from 'chart.js';
-import { BehaviorSubject, filter, map, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { getSaleStats } from '../overviewActions/saleStatisticsActions';
+import {
+  getBestSellingProductStat,
+  getSaleStats,
+} from '../overviewActions/saleStatisticsActions';
+import { BestSellingData } from '../types/BestSellingData';
 import { SaleOrdersData } from '../types/SaleOrdersData';
 
 @Component({
@@ -16,12 +20,15 @@ export class SaleStatisticsComponent implements OnInit, OnDestroy {
   saleOrdersData?: SaleOrdersData;
   storeSub?: Subscription;
   storeAction?: Subscription;
-  isChartDataReady: boolean = false;
+  isWeeklySaleChartDataReady: boolean = false;
+  isBestSellingChartDataReady: boolean = false;
   constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit(): void {
     this.getSaleOrdersStatAction();
     this.getSaleOrderFromStore();
+    this.getBestSellingStatisticsAction();
+    this.getBestSellingStatisticsFromStore();
   }
 
   // line chart
@@ -48,11 +55,7 @@ export class SaleStatisticsComponent implements OnInit, OnDestroy {
 
   //dougnout chart
 
-  public bestSellingProductLabels: string[] = [
-    'Cabbage',
-    'Clementine',
-    'Aloe Vera Leaf',
-  ];
+  public bestSellingProductLabels: string[] = ['', '', ''];
 
   public bestSellingProductsData: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [
@@ -78,7 +81,22 @@ export class SaleStatisticsComponent implements OnInit, OnDestroy {
       .subscribe((data: any) => {
         if (data) {
           this.setSaleAndOrdersData(data);
-          this.isChartDataReady = true;
+          this.isWeeklySaleChartDataReady = true;
+        }
+      });
+  }
+
+  getBestSellingStatisticsAction() {
+    this.store.dispatch(getBestSellingProductStat());
+  }
+
+  getBestSellingStatisticsFromStore() {
+    this.storeSub = this.store
+      .select((state) => state.bestSellingStatState.bestSellingStat)
+      .subscribe((data: any) => {
+        if (data) {
+          this.setBestSellingData(data);
+          this.isBestSellingChartDataReady = true;
         }
       });
   }
@@ -86,6 +104,11 @@ export class SaleStatisticsComponent implements OnInit, OnDestroy {
   setSaleAndOrdersData(data: any) {
     this.weeklySaleLabels[0].data = data[0].sales;
     this.weeklySaleLabels[1].data = data[0].orders;
+  }
+
+  setBestSellingData(data: any) {
+    this.bestSellingProductsData[0].data = data[0].bestSsellingProductsData;
+    this.bestSellingProductLabels = data[0].bestSellingListNames;
   }
 
   ngOnDestroy() {

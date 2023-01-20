@@ -63,6 +63,7 @@ import { StaffMemberComponent } from './components/staff/staff-member/staff-memb
 import { StaffEffect } from './components/staff/staffEffects/staffEffect';
 import { EditProfileModule } from '../editProfile/editProfile.module';
 import { SaleOrdersStatEffect } from './components/overview/overviewEffects/saleOrdersStatEffect';
+import { BestSellingStatEffect } from './components/overview/overviewEffects/bestSellinStatEffect';
 
 const routes: Routes = [
   {
@@ -156,6 +157,7 @@ const routes: Routes = [
       CouponsEffect,
       StaffEffect,
       SaleOrdersStatEffect,
+      BestSellingStatEffect,
     ]),
   ],
   providers: [ProductsService],
