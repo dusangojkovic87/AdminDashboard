@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter, map } from 'rxjs';
+import { filter, map, Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
+  closeEditProductModal,
   getProducts,
   openEditProductModal,
 } from '../productActions/productActions';
@@ -14,8 +15,9 @@ import { Product } from '../types/Product';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
   product?: Product;
+  storeSub!: Subscription;
 
   constructor(private route: ActivatedRoute, private store: Store<AppState>) {
     this.store.dispatch(getProducts());
@@ -23,7 +25,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.store
+      this.storeSub = this.store
         .select((state) => state.productsState.products)
         .subscribe((data: Product[]) => {
           let productDetails = data.filter((p) => p.id === +params['id']);
@@ -32,7 +34,12 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  openEditProductModal() {
-    this.store.dispatch(openEditProductModal());
+  openEditProductModal(product: Product) {
+    this.store.dispatch(openEditProductModal({ product: product }));
+  }
+
+  ngOnDestroy(): void {
+    this.store.dispatch(closeEditProductModal());
+    if (this.storeSub) this.storeSub.unsubscribe();
   }
 }

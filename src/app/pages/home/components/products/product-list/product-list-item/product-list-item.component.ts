@@ -1,4 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/appReducer/appReducer';
+import { openEditProductModal } from '../../productActions/productActions';
 import { Product } from '../../types/Product';
 
 @Component({
@@ -9,7 +13,11 @@ import { Product } from '../../types/Product';
 export class ProductListItemComponent implements OnInit {
   @Input('product') product?: Product;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {}
+
+  openEditProductModal(product: Product) {
+    this.store.dispatch(openEditProductModal({ product: product }));
+  }
 }

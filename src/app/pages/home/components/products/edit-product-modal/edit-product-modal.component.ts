@@ -17,29 +17,26 @@ import { Product } from '../types/Product';
 export class EditProductModalComponent implements OnInit {
   editProductForm!: FormGroup;
   public isEditProductModalOpen: boolean = false;
-  @Input() product?: Product;
 
   public productImageName: string | null = null;
   public fileNotSupported: boolean | null = null;
   public isImageOverInput: boolean = false;
 
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
-    this.store
-      .select((state) => state.productsState.isEditProductModalOpen)
-      .subscribe((data) => {
-        this.isEditProductModalOpen = data;
-      });
+    this.isModalOpened();
+    this.getEditProductFromStore();
   }
 
   ngOnInit(): void {
+    this.isModalOpened();
     this.editProductForm = this.fb.group({
       productImage: [null],
-      productName: [this.product?.productName, Validators.required],
-      productDetails: [this.product?.details, Validators.required],
-      category: [this.product?.category, Validators.required],
-      unit: [this.product?.unit, Validators.required],
-      quantity: [this.product?.quantity, Validators.required],
-      price: [this.product?.price, Validators.required],
+      productName: ['', Validators.required],
+      productDetails: ['', Validators.required],
+      category: ['', Validators.required],
+      unit: ['', Validators.required],
+      quantity: ['', Validators.required],
+      price: ['', Validators.required],
     });
   }
 
@@ -66,5 +63,33 @@ export class EditProductModalComponent implements OnInit {
 
   closeEditProductModal() {
     this.store.dispatch(closeEditProductModal());
+  }
+
+  isModalOpened() {
+    this.store
+      .select((state) => state.productsState.isEditProductModalOpen)
+      .subscribe((data) => {
+        this.isEditProductModalOpen = data;
+      });
+  }
+
+  getEditProductFromStore() {
+    this.store
+      .select((state) => state.productsState.productToEdit)
+      .subscribe((data: Product | null) => {
+        if (data) {
+          this.setEditFormProductValues(data);
+        }
+      });
+  }
+
+  setEditFormProductValues(product: Product) {
+    this.editProductForm.patchValue({ productImage: product.image });
+    this.editProductForm.patchValue({ productName: product.productName });
+    this.editProductForm.patchValue({ productDetails: product.details });
+    this.editProductForm.patchValue({ category: product.category });
+    this.editProductForm.patchValue({ unit: product.unit });
+    this.editProductForm.patchValue({ quantity: product.quantity });
+    this.editProductForm.patchValue({ price: product.price });
   }
 }

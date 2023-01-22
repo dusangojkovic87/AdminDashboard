@@ -37,7 +37,8 @@ export const addProductFail = createAction(
 );
 
 export const openEditProductModal = createAction(
-  productActionTypes.OPEN_EDIT_PRODUCT_MODAL
+  productActionTypes.OPEN_EDIT_PRODUCT_MODAL,
+  props<{ product: Product }>()
 );
 
 export const closeEditProductModal = createAction(

@@ -12,6 +12,7 @@ const ProductState: ProductListState = {
   products: [],
   isAddProductModalOpen: false,
   isEditProductModalOpen: false,
+  productToEdit: null,
 };
 
 export const productsReducer = createReducer(
@@ -31,9 +32,11 @@ export const productsReducer = createReducer(
   on(openEditProductModal, (state: ProductListState, action) => ({
     ...state,
     isEditProductModalOpen: true,
+    productToEdit: action.product,
   })),
   on(closeEditProductModal, (state: ProductListState, action) => ({
     ...state,
     isEditProductModalOpen: false,
+    productToEdit: null,
   }))
 );
