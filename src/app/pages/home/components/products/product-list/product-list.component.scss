@@ -6,6 +6,20 @@
   overflow-y: hidden;
   height: 350px;
 
+  .empty-product-list-wrp {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      color: white;
+      font-size: 1.1rem;
+      margin-top: 2rem;
+    }
+  }
+
   .product-header-container {
     width: 100%;
     height: 30px;

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { distinct, filter, map, switchMap } from 'rxjs';
+import { distinct, Subscription, switchMap } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
   filterProductsByCategory,
@@ -8,15 +8,14 @@ import {
   filterProductsByOrder,
   openProductsModal,
 } from '../productActions/productActions';
-import { FilterProductTerms } from '../types/FilterProductTerms';
-import { Product } from '../types/Product';
 
 @Component({
   selector: 'app-product-filter',
   templateUrl: './product-filter.component.html',
   styleUrls: ['./product-filter.component.scss'],
 })
-export class ProductFilterComponent implements OnInit {
+export class ProductFilterComponent implements OnInit, OnDestroy {
+  storeSub!: Subscription;
   constructor(private store: Store<AppState>) {}
   categories: string[] = [];
 
@@ -43,15 +42,13 @@ export class ProductFilterComponent implements OnInit {
   }
 
   filterProductsByOrder() {
-    console.log('radi');
-
     this.store.dispatch(
       filterProductsByOrder({ productOrder: this.productOrder })
     );
   }
 
   getCategoriesFromStore() {
-    this.store
+    this.storeSub = this.store
       .select((state) => state.productsState.products)
       .pipe(
         switchMap((p) => p.map((x) => x.category)),
@@ -60,5 +57,9 @@ export class ProductFilterComponent implements OnInit {
       .subscribe((data) => {
         this.categories.push(data);
       });
+  }
+
+  ngOnDestroy() {
+    if (this.storeSub) this.storeSub.unsubscribe();
   }
 }

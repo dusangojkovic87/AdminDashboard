@@ -1,5 +1,5 @@
 <div class="product-list-container">
-  <div class="product-header-container">
+  <div class="product-header-container" *ngIf="productList.length > 0">
     <ul>
       <li>id</li>
       <li>Product Name</li>
@@ -13,13 +13,20 @@
       <li>Action</li>
     </ul>
   </div>
-  <div
-    *ngFor="
-      let p of productList | paginate : { itemsPerPage: 6, currentPage: p }
-    "
-  >
-    <app-product-list-item [product]="p"></app-product-list-item>
-  </div>
+  <ng-container *ngIf="productList.length > 0; else emptyProductList">
+    <div
+      *ngFor="
+        let p of productList | paginate : { itemsPerPage: 6, currentPage: p }
+      "
+    >
+      <app-product-list-item [product]="p"></app-product-list-item>
+    </div>
+  </ng-container>
+  <ng-template #emptyProductList>
+    <div class="empty-product-list-wrp">
+      <h1>Product list empty!</h1>
+    </div>
+  </ng-template>
 </div>
 <pagination-controls
   class="pagination"
