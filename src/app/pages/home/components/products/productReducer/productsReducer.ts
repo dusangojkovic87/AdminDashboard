@@ -6,6 +6,7 @@ import {
   closeProductsModal,
   filterProductsByCategory,
   filterProductsByName,
+  filterProductsByOrder,
   getProductsSuccess,
   openEditProductModal,
   openProductsModal,
@@ -54,6 +55,10 @@ export const productsReducer = createReducer(
   on(filterProductsByCategory, (state: ProductListState, action) => ({
     ...state,
     filteredProducts: SortByCategory(state, action.category),
+  })),
+  on(filterProductsByOrder, (state: ProductListState, action) => ({
+    ...state,
+    filteredProducts: SortByOrder(state, action.productOrder),
   }))
 );
 
@@ -70,9 +75,19 @@ function SortProductsByProductName(state: ProductListState, action: string) {
 }
 
 function SortByCategory(state: ProductListState, action: string) {
-  if (action === 'all') {
+  if (action.toLocaleLowerCase() === 'all') {
     return state.products;
   } else {
-    return state.products.filter((p) => p.category === action);
+    return state.products.filter(
+      (p) => p.category === action.toLocaleLowerCase()
+    );
   }
+}
+
+function SortByOrder(state: ProductListState, action: string) {
+  if (action.toLocaleLowerCase() === 'asc') {
+    return state.products.slice().sort((a, b) => a.price - b.price);
+  }
+
+  return state.products.slice().sort((a, b) => b.price - a.price);
 }

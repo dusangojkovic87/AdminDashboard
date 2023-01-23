@@ -24,8 +24,9 @@
       id="price__filter"
       name="productOrder"
       [(ngModel)]="productOrder"
+      (change)="filterProductsByOrder()"
     >
-      <option value="asc">low to high</option>
+      <option value="asc" selected>low to high</option>
       <option value="desc">high to low</option>
     </select>
     <button

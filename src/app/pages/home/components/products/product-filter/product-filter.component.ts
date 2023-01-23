@@ -5,6 +5,7 @@ import { AppState } from 'src/app/appReducer/appReducer';
 import {
   filterProductsByCategory,
   filterProductsByName,
+  filterProductsByOrder,
   openProductsModal,
 } from '../productActions/productActions';
 import { FilterProductTerms } from '../types/FilterProductTerms';
@@ -38,9 +39,15 @@ export class ProductFilterComponent implements OnInit {
   }
 
   filterProductsByCategory() {
+    this.store.dispatch(filterProductsByCategory({ category: this.category }));
+  }
+
+  filterProductsByOrder() {
     console.log('radi');
 
-    this.store.dispatch(filterProductsByCategory({ category: this.category }));
+    this.store.dispatch(
+      filterProductsByOrder({ productOrder: this.productOrder })
+    );
   }
 
   getCategoriesFromStore() {

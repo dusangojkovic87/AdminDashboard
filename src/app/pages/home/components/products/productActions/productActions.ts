@@ -67,3 +67,8 @@ export const filterProductsByCategory = createAction(
   productActionTypes.FILTER_PRODUCTS_BY_CATEGORY,
   props<{ category: string }>()
 );
+
+export const filterProductsByOrder = createAction(
+  productActionTypes.FILTER_BY_ORDER,
+  props<{ productOrder: string }>()
+);

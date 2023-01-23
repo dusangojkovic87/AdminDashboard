@@ -14,4 +14,5 @@ export enum productActionTypes {
   EDIT_PRODUCT_FAIL = '[Products] Edit product fail',
   FILTER_PRODUCTS_BY_NAME = '[Products] Filter products by name',
   FILTER_PRODUCTS_BY_CATEGORY = '[Products] Filter products by category',
+  FILTER_BY_ORDER = '[Products]Filter products by order',
 }
