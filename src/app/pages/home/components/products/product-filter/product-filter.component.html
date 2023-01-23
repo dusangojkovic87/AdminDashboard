@@ -1,26 +1,39 @@
 <div class="product-filter-container">
-  <input
-    id="search__product"
-    class="product-filter__item"
-    type="text"
-    placeholder="search by product name"
-  />
-  <select
-    class="product-filter__item"
-    name="category__filter"
-    id="category__filter"
-  >
-    <option value="Category" selected>Category</option>
-  </select>
-  <select class="product-filter__item" name="price__filter" id="price__filter">
-    <option value="asc">low to high</option>
-    <option value="desc">high to low</option>
-  </select>
-  <button
-    (click)="openAddProductModal()"
-    id="add__product"
-    class="product-filter__item"
-  >
-    add product
-  </button>
+  <form>
+    <input
+      id="search__product"
+      class="product-filter__item"
+      type="text"
+      placeholder="search by product name"
+      name="productName"
+      [(ngModel)]="productName"
+      (input)="filterProductsByName()"
+    />
+    <select
+      class="product-filter__item"
+      id="category__filter"
+      name="category"
+      [(ngModel)]="category"
+      (change)="filterProductsByCategory()"
+    >
+      <option value="all">All</option>
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+    <select
+      class="product-filter__item"
+      id="price__filter"
+      name="productOrder"
+      [(ngModel)]="productOrder"
+    >
+      <option value="asc">low to high</option>
+      <option value="desc">high to low</option>
+    </select>
+    <button
+      (click)="openAddProductModal()"
+      id="add__product"
+      class="product-filter__item"
+    >
+      add product
+    </button>
+  </form>
 </div>

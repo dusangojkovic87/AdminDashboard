@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { productActionTypes } from '../productActionTypes/productActionTypes';
 import { addProduct } from '../types/addProduct';
+import { FilterProductTerms } from '../types/FilterProductTerms';
 import { Product } from '../types/Product';
 
 export const getProducts = createAction(productActionTypes.GET_PRODUCTS);
@@ -55,4 +56,14 @@ export const editProductSuccess = createAction(
 export const editProductFail = createAction(
   productActionTypes.EDIT_PRODUCT_FAIL,
   props<{ error: any }>()
+);
+
+export const filterProductsByName = createAction(
+  productActionTypes.FILTER_PRODUCTS_BY_NAME,
+  props<{ productName: string }>()
+);
+
+export const filterProductsByCategory = createAction(
+  productActionTypes.FILTER_PRODUCTS_BY_CATEGORY,
+  props<{ category: string }>()
 );

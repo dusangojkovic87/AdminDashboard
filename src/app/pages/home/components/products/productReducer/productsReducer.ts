@@ -1,11 +1,17 @@
+import { state } from '@angular/animations';
+import { act } from '@ngrx/effects';
 import { createReducer, on } from '@ngrx/store';
 import {
   closeEditProductModal,
   closeProductsModal,
+  filterProductsByCategory,
+  filterProductsByName,
   getProductsSuccess,
   openEditProductModal,
   openProductsModal,
 } from '../productActions/productActions';
+import { FilterProductTerms } from '../types/FilterProductTerms';
+import { Product } from '../types/Product';
 import { ProductListState } from '../types/ProductsListState';
 
 const ProductState: ProductListState = {
@@ -13,6 +19,7 @@ const ProductState: ProductListState = {
   isAddProductModalOpen: false,
   isEditProductModalOpen: false,
   productToEdit: null,
+  filteredProducts: [],
 };
 
 export const productsReducer = createReducer(
@@ -20,6 +27,7 @@ export const productsReducer = createReducer(
   on(getProductsSuccess, (state: ProductListState, action) => ({
     ...state,
     products: action.data,
+    filteredProducts: action.data,
   })),
   on(openProductsModal, (state: ProductListState, action) => ({
     ...state,
@@ -38,5 +46,33 @@ export const productsReducer = createReducer(
     ...state,
     isEditProductModalOpen: false,
     productToEdit: null,
+  })),
+  on(filterProductsByName, (state: ProductListState, action) => ({
+    ...state,
+    filteredProducts: SortProductsByProductName(state, action.productName),
+  })),
+  on(filterProductsByCategory, (state: ProductListState, action) => ({
+    ...state,
+    filteredProducts: SortByCategory(state, action.category),
   }))
 );
+
+function SortProductsByProductName(state: ProductListState, action: string) {
+  if (action === '') {
+    return state.products;
+  } else {
+    return state.products.filter((product) =>
+      product.productName
+        .toLocaleLowerCase()
+        .includes(action.toLocaleLowerCase())
+    );
+  }
+}
+
+function SortByCategory(state: ProductListState, action: string) {
+  if (action === 'all') {
+    return state.products;
+  } else {
+    return state.products.filter((p) => p.category === action);
+  }
+}

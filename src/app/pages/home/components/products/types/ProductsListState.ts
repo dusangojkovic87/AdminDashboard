@@ -5,4 +5,5 @@ export interface ProductListState {
   isAddProductModalOpen: boolean;
   isEditProductModalOpen: boolean;
   productToEdit: Product | null;
+  filteredProducts: Product[];
 }

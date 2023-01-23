@@ -29,7 +29,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getProductsFromStore() {
     this.store.dispatch(getProducts());
     this.productSub = this.store
-      .select((state) => state.productsState.products)
+      .select((state) => state.productsState.filteredProducts)
       .subscribe((data: Product[]) => {
         this.productList = data;
       });
