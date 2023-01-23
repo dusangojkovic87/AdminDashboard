@@ -1,9 +1,20 @@
 <div class="add-category-form-container">
   <form>
-    <input type="text" name="category" placeholder="Search by Category type" />
-    <select name="categorySelect" id="categorySelect">
-      <option value="Fruits">Fruits</option>
-      <option value="Vegetables">Vegetables</option>
+    <input
+      type="text"
+      name="category"
+      placeholder="Search by Category type"
+      (input)="filterCategoryByInput()"
+      [(ngModel)]="productTypeInput"
+    />
+    <select
+      name="productType"
+      id="categorySelect"
+      [(ngModel)]="productType"
+      (change)="categorySelect()"
+    >
+      <option value="all" selected>All</option>
+      <option *ngFor="let p of productTypeList" [value]="p">{{ p }}</option>
     </select>
     <button (click)="openCategoryModal()">add category</button>
   </form>

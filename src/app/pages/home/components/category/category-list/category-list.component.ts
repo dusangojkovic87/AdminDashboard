@@ -21,7 +21,7 @@ export class CategoryListComponent implements OnInit {
   getCategoriesFromStore() {
     this.store.dispatch(getCategories());
     this.store
-      .select((state) => state.categoryState.categories)
+      .select((state) => state.categoryState.filteredCategories)
       .subscribe((data: CategoryData[] | null) => {
         if (data) {
           this.categories = data;

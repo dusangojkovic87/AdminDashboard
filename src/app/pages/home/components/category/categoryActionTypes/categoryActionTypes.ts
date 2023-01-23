@@ -11,4 +11,6 @@ export enum categoryActionTypes {
   DELETE_CATEGORY_FAIL = '[Delete Category Modal] Delete category fail',
   OPEN_EDIT_CATEGORY_MODAL = '[Edit Category Modal] Open edit category modal',
   CLOSE_EDIT_CATEGORY_MODAL = '[Edit Category Modal] Close edit category modal',
+  FILTER_BY_CATEGORY_FROM_INPUT = '[Add Category Form] Filter by category from input',
+  FILTER_BY_CATEGORY_FROM_SELECT = '[Add Category Form] Filter by category from select',
 }

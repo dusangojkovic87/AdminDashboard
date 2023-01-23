@@ -3,8 +3,9 @@ import {
   closeAddCategoryModal,
   closeDeleteCategoryModal,
   closeEditCategoryModal,
-  deleteCategory,
   deleteCategorySuccess,
+  filterByCategoryInput,
+  filterByCategorySelect,
   getCategoriesFail,
   getCategoriesSucces,
   openAddCategoryModal,
@@ -14,13 +15,14 @@ import {
 import { CategoryState } from '../types/CategoryState';
 
 const CategoryState: CategoryState = {
-  categories: null,
+  categories: [],
   isModalOpen: false,
   isEditCategoryModalOpen: false,
   isDeleteModalOpen: false,
   categoryToDelete: null,
   categoryToEdit: null,
   errors: null,
+  filteredCategories: [],
 };
 
 export const categoryReducer = createReducer(
@@ -36,6 +38,7 @@ export const categoryReducer = createReducer(
   on(getCategoriesSucces, (state: CategoryState, action) => ({
     ...state,
     categories: action.categories,
+    filteredCategories: action.categories,
   })),
   on(getCategoriesFail, (state: CategoryState, action) => ({
     ...state,
@@ -65,5 +68,29 @@ export const categoryReducer = createReducer(
     ...state,
     isEditCategoryModalOpen: false,
     categoryToEdit: null,
+  })),
+  on(filterByCategorySelect, (state: CategoryState, action) => ({
+    ...state,
+    filteredCategories: CategorySelectOrder(state, action.productType),
+  })),
+  on(filterByCategoryInput, (state: CategoryState, action) => ({
+    ...state,
+    filteredCategories: CategoryInputOrder(state, action.productType),
   }))
 );
+
+function CategorySelectOrder(state: CategoryState, action: string) {
+  return state.categories.filter(
+    (x) => x.productType.toLowerCase() === action.toLowerCase()
+  );
+}
+
+function CategoryInputOrder(state: CategoryState, action: string) {
+  if (action.toLowerCase() === '') {
+    return state.categories;
+  }
+
+  return state.categories.filter((x) =>
+    x.productType.toLowerCase().includes(action.toLowerCase())
+  );
+}

@@ -52,3 +52,12 @@ export const openEditCategoryModal = createAction(
 export const closeEditCategoryModal = createAction(
   categoryActionTypes.CLOSE_EDIT_CATEGORY_MODAL
 );
+
+export const filterByCategoryInput = createAction(
+  categoryActionTypes.FILTER_BY_CATEGORY_FROM_INPUT,
+  props<{ productType: string }>()
+);
+export const filterByCategorySelect = createAction(
+  categoryActionTypes.FILTER_BY_CATEGORY_FROM_SELECT,
+  props<{ productType: string }>()
+);
