@@ -18,3 +18,8 @@ export const filterStaffByName = createAction(
   staffActionTypes.FILTER_STAFF_BY_NAME,
   props<{ name: string }>()
 );
+
+export const filterStaffByRole = createAction(
+  staffActionTypes.FILTER_STAFF_BY_ROLE,
+  props<{ role: string }>()
+);

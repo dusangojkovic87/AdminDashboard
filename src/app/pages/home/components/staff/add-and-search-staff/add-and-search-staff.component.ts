@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { distinct, switchMap } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { filterStaffByName } from '../staffActions/staffActions';
+import {
+  filterStaffByName,
+  filterStaffByRole,
+} from '../staffActions/staffActions';
 
 @Component({
   selector: 'app-add-and-search-staff',
@@ -13,6 +16,7 @@ export class AddAndSearchStaffComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
   roles: string[] = [];
   name: string = '';
+  roleSelected: string = '';
 
   ngOnInit(): void {
     this.getRolesFromStore();
@@ -32,5 +36,9 @@ export class AddAndSearchStaffComponent implements OnInit {
 
   filterStaffByName() {
     this.store.dispatch(filterStaffByName({ name: this.name }));
+  }
+
+  filterStaffByRole() {
+    this.store.dispatch(filterStaffByRole({ role: this.roleSelected }));
   }
 }

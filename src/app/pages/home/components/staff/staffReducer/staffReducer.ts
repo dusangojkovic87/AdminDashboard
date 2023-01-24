@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import {
   filterStaffByName,
+  filterStaffByRole,
   getStaffFail,
   getStaffSuccess,
 } from '../staffActions/staffActions';
@@ -26,6 +27,10 @@ export const staffReducer = createReducer(
   on(filterStaffByName, (state: StaffState, action) => ({
     ...state,
     filteredStaff: FilterStaffByName(state, action.name),
+  })),
+  on(filterStaffByRole, (state: StaffState, action) => ({
+    ...state,
+    filteredStaff: FilterStaffByRole(state, action.role),
   }))
 );
 
@@ -36,5 +41,15 @@ function FilterStaffByName(state: StaffState, action: string) {
 
   return state.staff.filter((x) =>
     x.name.toLowerCase().includes(action.toLowerCase())
+  );
+}
+
+function FilterStaffByRole(state: StaffState, action: string) {
+  if (action.toLowerCase() === '') {
+    return state.staff;
+  }
+
+  return state.staff.filter(
+    (x) => x.role.toLowerCase() === action.toLowerCase()
   );
 }

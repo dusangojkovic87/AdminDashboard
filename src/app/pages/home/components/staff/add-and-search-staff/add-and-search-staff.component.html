@@ -7,7 +7,12 @@
       [(ngModel)]="name"
       (input)="filterStaffByName()"
     />
-    <select name="staffRole" id="staffRole">
+    <select
+      name="staffRole"
+      id="staffRole"
+      (change)="filterStaffByRole()"
+      [(ngModel)]="roleSelected"
+    >
       <option value="">Role</option>
       <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
     </select>
