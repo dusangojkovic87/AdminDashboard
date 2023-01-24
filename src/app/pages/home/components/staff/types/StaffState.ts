@@ -1,6 +1,7 @@
 import { StaffMember } from './StaffMember';
 
 export interface StaffState {
-  staff: StaffMember[] | null;
+  staff: StaffMember[];
   errors: string[] | null;
+  filteredStaff: StaffMember[];
 }

@@ -26,7 +26,7 @@ export class StaffComponent implements OnInit {
 
   getStaffFromStore() {
     this.store
-      .select((state) => state.staffState.staff)
+      .select((state) => state.staffState.filteredStaff)
       .subscribe((data) => {
         if (data) {
           this.staff = data;

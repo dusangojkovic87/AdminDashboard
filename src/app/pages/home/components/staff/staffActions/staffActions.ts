@@ -13,3 +13,8 @@ export const getStaffFail = createAction(
   staffActionTypes.GET_STAFF_FAIL,
   props<{ errors: any }>()
 );
+
+export const filterStaffByName = createAction(
+  staffActionTypes.FILTER_STAFF_BY_NAME,
+  props<{ name: string }>()
+);
