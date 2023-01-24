@@ -1,7 +1,7 @@
 <div class="order-item-container" *ngIf="order">
   <ul>
     <li>{{ order.id }}</li>
-    <li>{{ order.time }}</li>
+    <li>{{ order.time | date }}</li>
     <li>{{ order.shippAddress }}</li>
     <li>{{ order.phone }}</li>
     <li>{{ order.paymentMethod }}</li>

@@ -1,14 +1,25 @@
 <div class="orders-filter-search-container">
   <div class="inner-wrp">
     <form>
-      <input type="text" name="phone" placeholder="Search by phone" />
+      <input
+        type="text"
+        name="phone"
+        placeholder="Search by phone"
+        [(ngModel)]="phone"
+        (input)="filterOrdersByPhone()"
+      />
       <select name="status" id="status">
         <option value="pending">pending</option>
         <option value="delivered">delivered</option>
         <option value="processing">processing</option>
         <option value="cancel">cancel</option>
       </select>
-      <select name="orderLimits" id="orderLimits">
+      <select
+        name="orderLimits"
+        id="orderLimits"
+        [(ngModel)]="time"
+        (change)="filterOrdersByDate()"
+      >
         <option value="5">last 5 days</option>
         <option value="7">last 7 days</option>
         <option value="15">last 15 days</option>

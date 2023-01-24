@@ -26,7 +26,7 @@ export class OrdersComponent implements OnInit {
 
   getOrdersFromStore() {
     this.store
-      .select((state) => state.ordersState.orders)
+      .select((state) => state.ordersState.filteredOrders)
       .subscribe((data) => {
         if (data) {
           this.orders = data;

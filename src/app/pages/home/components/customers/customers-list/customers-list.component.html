@@ -1,5 +1,5 @@
 <div class="customer-list-container">
-  <div class="customer-list-header-container">
+  <div class="customer-list-header-container" *ngIf="customers.length > 0">
     <ul>
       <li>ID</li>
       <li>JOINING DATE</li>
@@ -9,16 +9,24 @@
       <li class="actions">ACTIONS</li>
     </ul>
   </div>
-  <app-customer
-    *ngFor="
-      let customer of customers
-        | paginate : { itemsPerPage: 10, currentPage: p }
-    "
-    [customer]="customer"
-  ></app-customer>
+  <ng-container *ngIf="customers.length > 0; else emptyList">
+    <app-customer
+      *ngFor="
+        let customer of customers
+          | paginate : { itemsPerPage: 10, currentPage: p }
+      "
+      [customer]="customer"
+    ></app-customer>
+  </ng-container>
+  <ng-template #emptyList>
+    <div class="empty-list-wrp">
+      <h1>Customers list empty!</h1>
+    </div>
+  </ng-template>
   <pagination-controls
     class="pagination"
     [responsive]="true"
     (pageChange)="p = $event"
+    *ngIf="customers.length > 0"
   ></pagination-controls>
 </div>

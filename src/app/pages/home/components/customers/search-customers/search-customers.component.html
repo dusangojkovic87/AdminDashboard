@@ -1,7 +1,13 @@
 <div class="search-customers-container">
   <div class="inner-wrp">
     <form>
-      <input type="text" placeholder="Search by name/email" />
+      <input
+        type="text"
+        placeholder="Search by name/email"
+        name="name"
+        [(ngModel)]="name"
+        (input)="filterCustomersByNameAction()"
+      />
     </form>
   </div>
 </div>

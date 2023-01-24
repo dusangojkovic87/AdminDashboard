@@ -24,7 +24,7 @@ export class CustomersListComponent implements OnInit {
   getCustomersFromStore() {
     this.store.dispatch(getCustomers());
     this.storeSub = this.store
-      .select((state) => state.customersState.customers)
+      .select((state) => state.customersState.filteredCustomers)
       .subscribe((data) => {
         if (data != null) {
           this.customers = data;

@@ -4,7 +4,7 @@ export interface CustomerOrder {
   id: number;
   time: string;
   shippAddress: string;
-  phone: number;
+  phone: string;
   status: string;
   invoices: InvoiceItem[] | null;
   customerId: number;

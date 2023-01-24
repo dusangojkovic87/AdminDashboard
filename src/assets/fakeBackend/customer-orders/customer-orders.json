@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "time": "Feb 21,2023",
+    "time": "2023/01/23",
     "shippAddress": "21st Washington street",
-    "phone": 4646477867,
+    "phone": "4646477867",
     "status": "pending",
     "customerId": 1,
     "paymentMethod": "Card",
@@ -22,9 +22,37 @@
   },
   {
     "id": 2,
-    "time": "Apr 12,2023",
+    "time": "2023/01/12",
     "shippAddress": "12st Miami Florida",
-    "phone": 564764778,
+    "phone": "564764778",
+    "status": "pending",
+    "customerId": 1,
+    "paymentMethod": "Card",
+    "discount": 0,
+    "shippingCost": 0,
+    "total": 60,
+    "invoices": [
+      {
+        "id": 1,
+        "productName": "Apples",
+        "quantity": 3,
+        "price": 10,
+        "amount": 30
+      },
+      {
+        "id": 2,
+        "productName": "Cabbage",
+        "quantity": 3,
+        "price": 10,
+        "amount": 30
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "time": "2023/01/05",
+    "shippAddress": "12st Miami Florida",
+    "phone": "564764778",
     "status": "pending",
     "customerId": 1,
     "paymentMethod": "Card",

@@ -12,3 +12,8 @@ export const getCustomersFail = createAction(
   customersActionTypes.GET_CUSTOMERS_FAIL,
   props<{ errors: any }>()
 );
+
+export const filterCustomersByName = createAction(
+  customersActionTypes.FILTER_CUSTOMERS_BY_NAME,
+  props<{ name: string }>()
+);

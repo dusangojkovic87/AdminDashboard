@@ -13,3 +13,13 @@ export const getOrdersFail = createAction(
   ordersActionTypes.GET_ORDERS_FAIL,
   props<{ errors: any }>()
 );
+
+export const filterOrdersByPhone = createAction(
+  ordersActionTypes.FILTER_ORDERS_BY_PHONE,
+  props<{ phone: string }>()
+);
+
+export const filterOrdersByDate = createAction(
+  ordersActionTypes.FILTER_ORDERS_BY_DATE,
+  props<{ time: string }>()
+);
