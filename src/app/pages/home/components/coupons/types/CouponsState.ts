@@ -1,6 +1,7 @@
 import { Coupon } from './Coupon';
 
 export interface CouponsState {
-  coupons: Coupon[] | null;
+  coupons: Coupon[];
   errors: string[] | null;
+  filteredCoupons: Coupon[];
 }

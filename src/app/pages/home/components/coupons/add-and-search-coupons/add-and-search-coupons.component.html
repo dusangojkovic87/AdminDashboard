@@ -1,7 +1,13 @@
 <div class="add-and-search-coupons-container">
   <div class="inner-wrp">
     <form>
-      <input type="text" name="coupon" placeholder="Search coupons" />
+      <input
+        type="text"
+        name="coupon"
+        placeholder="Search coupons"
+        [(ngModel)]="couponName"
+        (input)="filterCoupnsByName()"
+      />
       <button>Add coupon</button>
     </form>
   </div>

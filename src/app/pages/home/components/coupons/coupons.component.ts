@@ -25,7 +25,7 @@ export class CouponsComponent implements OnInit {
 
   getCouponsFromStore() {
     this.store
-      .select((state) => state.couponsState.coupons)
+      .select((state) => state.couponsState.filteredCoupons)
       .subscribe((data) => {
         if (data) {
           this.coupons = data;
