@@ -23,3 +23,8 @@ export const filterOrdersByDate = createAction(
   ordersActionTypes.FILTER_ORDERS_BY_DATE,
   props<{ time: string }>()
 );
+
+export const filterByOrderStatus = createAction(
+  ordersActionTypes.FILTER_BY_ORDER_STATUS,
+  props<{ status: string }>()
+);

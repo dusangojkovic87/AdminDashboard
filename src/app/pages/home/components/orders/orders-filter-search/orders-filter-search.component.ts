@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
+  filterByOrderStatus,
   filterOrdersByDate,
   filterOrdersByPhone,
 } from '../ordersActions/ordersActions';
@@ -13,7 +14,8 @@ import {
 })
 export class OrdersFilterSearchComponent implements OnInit {
   phone: string = '';
-  time: string = '5';
+  time: string = '';
+  status: string = '';
 
   constructor(private store: Store<AppState>) {}
 
@@ -25,5 +27,9 @@ export class OrdersFilterSearchComponent implements OnInit {
 
   filterOrdersByDate() {
     this.store.dispatch(filterOrdersByDate({ time: this.time }));
+  }
+
+  filterByOrderStatus() {
+    this.store.dispatch(filterByOrderStatus({ status: this.status }));
   }
 }
