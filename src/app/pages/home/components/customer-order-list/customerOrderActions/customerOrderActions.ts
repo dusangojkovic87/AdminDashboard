@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { productActionTypes } from '../../products/productActionTypes/productActionTypes';
 import { customerOrderActionTypes } from '../customerOrderActionTypes/customerOrderActionTypes';
 import { CustomerOrder } from '../types/CustomerOrder';
 

@@ -64,6 +64,9 @@ import { StaffEffect } from './components/staff/staffEffects/staffEffect';
 import { EditProfileModule } from '../editProfile/editProfile.module';
 import { SaleOrdersStatEffect } from './components/overview/overviewEffects/saleOrdersStatEffect';
 import { BestSellingStatEffect } from './components/overview/overviewEffects/bestSellinStatEffect';
+import { OrderInvoicesComponent } from './components/orders/order-invoices/order-invoices.component';
+import { InvoiceHeaderComponent } from './components/orders/order-invoices/invoice-header/invoice-header.component';
+import { InvoiceNumberDateComponent } from './components/orders/order-invoices/invoice-number-date/invoice-number-date.component';
 
 const routes: Routes = [
   {
@@ -81,6 +84,7 @@ const routes: Routes = [
         component: CustomerOrderListComponent,
       },
       { path: 'orders', component: OrdersComponent },
+      { path: 'orders/invoices/:id', component: OrderInvoicesComponent },
       { path: 'coupons', component: CouponsComponent },
       { path: 'staff', component: StaffComponent },
       { path: 'settings', component: SettingsComponent },
@@ -128,6 +132,9 @@ const routes: Routes = [
     CouponComponent,
     AddAndSearchStaffComponent,
     StaffMemberComponent,
+    OrderInvoicesComponent,
+    InvoiceHeaderComponent,
+    InvoiceNumberDateComponent,
   ],
   imports: [
     TableModule,

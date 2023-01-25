@@ -1,0 +1,44 @@
+.invoice-number-date-container {
+  position: relative;
+  width: auto;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-bottom: 1px solid rgba(83, 69, 69, 0.3);
+
+  .inner-wrp {
+    position: relative;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0;
+      padding: 5px;
+      color: var(--primary-grey);
+      font-size: 0.9rem;
+    }
+
+    .column__header {
+      font-weight: bold;
+      text-transform: uppercase;
+      padding-top: 10px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.flex--column--start {
+  align-items: flex-start;
+}
+
+.flex--column--center {
+  align-items: center;
+}
+
+.flex--column--end {
+  align-items: flex-end;
+}

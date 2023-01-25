@@ -1,0 +1,78 @@
+.invoice-header-container {
+  position: relative;
+  width: auto;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(83, 69, 69, 0.3);
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  .header-inner-wrp {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+
+    .status {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: bold;
+
+      span {
+        text-transform: lowercase;
+        background-color: var(--primary-orange);
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-radius: 20px;
+        color: white;
+        font-size: 0.8rem;
+      }
+    }
+
+    p {
+      color: var(--primary-grey);
+    }
+
+    .logo-wrp {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      span {
+        color: white;
+        padding-left: 7px;
+        font-weight: bold;
+      }
+    }
+
+    h6 {
+      color: white;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin: 0;
+      padding-left: 1rem;
+    }
+  }
+}
+
+.dashboard-icon {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background: url("/assets/icons/dashboard.svg");
+}
+
+.flex--column--end {
+  align-items: flex-end !important;
+}

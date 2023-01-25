@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerOrder } from '../../customer-order-list/types/CustomerOrder';
 
 @Component({
@@ -9,7 +10,11 @@ import { CustomerOrder } from '../../customer-order-list/types/CustomerOrder';
 export class OrderItemComponent implements OnInit {
   @Input('order') order?: CustomerOrder;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  redirectToInvoices(orderId: number) {
+    this.router.navigate(['/orders/invoices', orderId]);
+  }
 }

@@ -1,0 +1,15 @@
+h1 {
+  color: white;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.invoice-container {
+  position: relative;
+  width: auto;
+  height: 500px;
+  background-color: var(--primary-light-black);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+}
