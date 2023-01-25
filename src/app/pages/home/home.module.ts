@@ -70,6 +70,7 @@ import { InvoiceNumberDateComponent } from './components/orders/order-invoices/i
 import { InvoiceProductListComponent } from './components/orders/order-invoices/invoice-product-list/invoice-product-list.component';
 import { InvoiceProductItemComponent } from './components/orders/order-invoices/invoice-product-list/invoice-product-item/invoice-product-item.component';
 import { InvoicePaymentInfoComponent } from './components/orders/order-invoices/invoice-payment-info/invoice-payment-info.component';
+import { PrintDownloadInvoicesComponent } from './components/orders/order-invoices/print-download-invoices/print-download-invoices.component';
 
 const routes: Routes = [
   {
@@ -141,6 +142,7 @@ const routes: Routes = [
     InvoiceProductListComponent,
     InvoiceProductItemComponent,
     InvoicePaymentInfoComponent,
+    PrintDownloadInvoicesComponent,
   ],
   imports: [
     TableModule,

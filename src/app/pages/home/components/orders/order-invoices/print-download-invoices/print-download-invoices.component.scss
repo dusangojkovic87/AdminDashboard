@@ -1,0 +1,19 @@
+.print-download-invoices-container {
+  position: relative;
+  margin-top: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    background-color: var(--primary-green);
+    height: 40px;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
