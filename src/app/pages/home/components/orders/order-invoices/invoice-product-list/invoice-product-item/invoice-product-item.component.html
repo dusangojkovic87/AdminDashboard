@@ -1,9 +1,9 @@
-<div class="invoice-product-item-container">
+<div class="invoice-product-item-container" *ngIf="invoiceItem">
   <ul>
-    <li>1</li>
-    <li>John Doe</li>
-    <li>2</li>
-    <li>$45</li>
-    <li class="amount">$90</li>
+    <li>{{ invoiceItem.id }}</li>
+    <li>{{ invoiceItem.productName }}</li>
+    <li>{{ invoiceItem.quantity }}</li>
+    <li>{{ invoiceItem.price }}</li>
+    <li class="amount">{{ invoiceItem.amount }}</li>
   </ul>
 </div>

@@ -8,13 +8,8 @@
   </ul>
 </div>
 <div class="invoice-product-list-container">
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
-  <app-invoice-product-item></app-invoice-product-item>
+  <app-invoice-product-item
+    *ngFor="let invoiceItem of invoices"
+    [invoiceItem]="invoiceItem"
+  ></app-invoice-product-item>
 </div>

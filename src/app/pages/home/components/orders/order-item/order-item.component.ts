@@ -14,7 +14,7 @@ export class OrderItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  redirectToInvoices(orderId: number) {
-    this.router.navigate(['/orders/invoices', orderId]);
+  redirectToInvoices(order: CustomerOrder) {
+    this.router.navigate(['/orders/invoices', order.id]);
   }
 }
