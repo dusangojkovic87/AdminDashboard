@@ -1,0 +1,32 @@
+@import "~/src/styles.scss";
+.invoice-product-item-container {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  @include light-grey-border;
+  ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+
+    li {
+      list-style: none;
+      width: 20%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary-grey);
+      font-size: 1rem;
+    }
+
+    .amount {
+      color: var(--primary-green);
+      font-weight: bold;
+    }
+  }
+}

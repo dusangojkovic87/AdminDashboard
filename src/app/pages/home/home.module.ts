@@ -67,6 +67,9 @@ import { BestSellingStatEffect } from './components/overview/overviewEffects/bes
 import { OrderInvoicesComponent } from './components/orders/order-invoices/order-invoices.component';
 import { InvoiceHeaderComponent } from './components/orders/order-invoices/invoice-header/invoice-header.component';
 import { InvoiceNumberDateComponent } from './components/orders/order-invoices/invoice-number-date/invoice-number-date.component';
+import { InvoiceProductListComponent } from './components/orders/order-invoices/invoice-product-list/invoice-product-list.component';
+import { InvoiceProductItemComponent } from './components/orders/order-invoices/invoice-product-list/invoice-product-item/invoice-product-item.component';
+import { InvoicePaymentInfoComponent } from './components/orders/order-invoices/invoice-payment-info/invoice-payment-info.component';
 
 const routes: Routes = [
   {
@@ -135,6 +138,9 @@ const routes: Routes = [
     OrderInvoicesComponent,
     InvoiceHeaderComponent,
     InvoiceNumberDateComponent,
+    InvoiceProductListComponent,
+    InvoiceProductItemComponent,
+    InvoicePaymentInfoComponent,
   ],
   imports: [
     TableModule,
