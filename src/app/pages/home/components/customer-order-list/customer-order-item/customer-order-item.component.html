@@ -11,7 +11,11 @@
     </li>
     <li>
       <form>
-        <select name="status">
+        <select
+          name="status"
+          [(ngModel)]="status"
+          (change)="orderStatusChanged(order)"
+        >
           <option value="delivered">delivered</option>
           <option value="proccessing">proccessing</option>
           <option value="pending">pending</option>

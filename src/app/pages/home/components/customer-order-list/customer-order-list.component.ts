@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { skip, take } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
   clearCustomerOrdersFromStore,
   getCustomerOrder,
+  setOrderStatusMessageToDefault,
 } from './customerOrderActions/customerOrderActions';
 import { CustomerOrder } from './types/CustomerOrder';
 
@@ -17,10 +19,12 @@ export class CustomerOrderListComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
   orders: CustomerOrder[] = [];
   p: number = 1;
+  orderStatusChanged: boolean = false;
 
   ngOnInit(): void {
     this.getCustomerOrderByIdAction();
     this.getCustomerOrdersFromStore();
+    this.showOrderStatusChangeMessage();
   }
 
   getCustomerOrderByIdAction() {
@@ -42,5 +46,20 @@ export class CustomerOrderListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.store.dispatch(clearCustomerOrdersFromStore());
+  }
+
+  showOrderStatusChangeMessage() {
+    this.store
+      .select((state) => state.customerOrdersState.isStatusChanged)
+      .subscribe((isStatusChanged) => {
+        this.orderStatusChanged = isStatusChanged;
+
+        if (isStatusChanged) {
+          setTimeout(() => {
+            this.orderStatusChanged = false;
+            this.store.dispatch(setOrderStatusMessageToDefault());
+          }, 3000);
+        }
+      });
   }
 }

@@ -3,12 +3,17 @@ import {
   clearCustomerOrdersFromStore,
   getCustomerOrderFail,
   getCustomerOrderSuccess,
+  orderStatusChanged,
+  orderStatusChangedFail,
+  orderStatusChangedSuccess,
+  setOrderStatusMessageToDefault,
 } from '../customerOrderActions/customerOrderActions';
 import { CustomerOrdersState } from '../types/CustomerOrdersState';
 
 const CustomerOrdersState: CustomerOrdersState = {
   orders: null,
   errors: null,
+  isStatusChanged: false,
 };
 
 export const customerOrdersReducer = createReducer(
@@ -24,5 +29,17 @@ export const customerOrdersReducer = createReducer(
   on(getCustomerOrderFail, (state: CustomerOrdersState, action) => ({
     ...state,
     errors: action.error,
+  })),
+  on(orderStatusChangedSuccess, (state: CustomerOrdersState, action) => ({
+    ...state,
+    isStatusChanged: action.isStatusChanged,
+  })),
+  on(orderStatusChangedFail, (state: CustomerOrdersState, action) => ({
+    ...state,
+    errors: action.error,
+  })),
+  on(setOrderStatusMessageToDefault, (state: CustomerOrdersState, action) => ({
+    ...state,
+    isStatusChanged: false,
   }))
 );

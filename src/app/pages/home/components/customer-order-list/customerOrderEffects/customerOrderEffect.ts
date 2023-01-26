@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ActionType } from '@ngrx/store';
-import { catchError, filter, map, of, switchMap } from 'rxjs';
+import { catchError, filter, map, mergeMap, of, switchMap } from 'rxjs';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import {
   getCustomerOrder,
   getCustomerOrderFail,
   getCustomerOrderSuccess,
+  orderStatusChanged,
+  orderStatusChangedFail,
+  orderStatusChangedSuccess,
 } from '../customerOrderActions/customerOrderActions';
 import { customerOrderActionTypes } from '../customerOrderActionTypes/customerOrderActionTypes';
 import { CustomerOrdersService } from '../services/customer-orders.service';
@@ -34,6 +37,26 @@ export class CustomerOrderEffect {
       }),
       catchError((error) => {
         return of(getCustomerOrderFail({ error: error }));
+      })
+    )
+  );
+
+  $orderStatusChanged = createEffect(() =>
+    this.$actions.pipe(
+      ofType(orderStatusChanged),
+      mergeMap((data: { id: number; status: string }) => {
+        return this.customerOrdersService.changeOrderStatus(
+          data.id,
+          data.status
+        );
+      }),
+      map((data: { isStatusChanged: boolean }) => {
+        return orderStatusChangedSuccess({
+          isStatusChanged: data.isStatusChanged,
+        });
+      }),
+      catchError((error) => {
+        return of(orderStatusChangedFail({ error: error }));
       })
     )
   );
