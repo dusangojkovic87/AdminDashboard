@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { skip, take } from 'rxjs';
+import { NotifierService } from 'angular-notifier';
+import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
   clearCustomerOrdersFromStore,
@@ -16,10 +17,14 @@ import { CustomerOrder } from './types/CustomerOrder';
   styleUrls: ['./customer-order-list.component.scss'],
 })
 export class CustomerOrderListComponent implements OnInit, OnDestroy {
-  constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<AppState>,
+    private notifier: NotifierService
+  ) {}
   orders: CustomerOrder[] = [];
   p: number = 1;
-  orderStatusChanged: boolean = false;
+  storeSub!: Subscription;
 
   ngOnInit(): void {
     this.getCustomerOrderByIdAction();
@@ -46,19 +51,16 @@ export class CustomerOrderListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.store.dispatch(clearCustomerOrdersFromStore());
+    if (this.storeSub) this.storeSub.unsubscribe();
   }
 
   showOrderStatusChangeMessage() {
-    this.store
+    this.storeSub = this.store
       .select((state) => state.customerOrdersState.isStatusChanged)
       .subscribe((isStatusChanged) => {
-        this.orderStatusChanged = isStatusChanged;
-
         if (isStatusChanged) {
-          setTimeout(() => {
-            this.orderStatusChanged = false;
-            this.store.dispatch(setOrderStatusMessageToDefault());
-          }, 3000);
+          this.notifier.notify('success', 'status changed');
+          this.store.dispatch(setOrderStatusMessageToDefault());
         }
       });
   }
