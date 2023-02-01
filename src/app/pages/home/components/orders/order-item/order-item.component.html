@@ -12,8 +12,13 @@
       >
     </li>
     <li class="action">
-      <form>
-        <select name="status" id="status">
+      <form [formGroup]="orderStatusFormGroup">
+        <select
+          name="status"
+          id="status"
+          formControlName="status"
+          (change)="orderStatusChanged(order)"
+        >
           <option value="pending">pending</option>
           <option value="delivered">delivered</option>
           <option value="processing">processing</option>
