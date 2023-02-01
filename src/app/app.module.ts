@@ -18,6 +18,48 @@ import { NgChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DirectivesModule } from './directives/directivesModule/directives.module';
 import { EditProfileModule } from './pages/editProfile/editProfile.module';
+import { NotifierOptions, NotifierModule } from 'angular-notifier';
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'left',
+      distance: 12,
+    },
+    vertical: {
+      position: 'bottom',
+      distance: 12,
+      gap: 10,
+    },
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4,
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease',
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50,
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease',
+    },
+    overlap: 150,
+  },
+};
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent],
@@ -30,6 +72,7 @@ import { EditProfileModule } from './pages/editProfile/editProfile.module';
     HomeModule,
     SharedModule,
     EditProfileModule,
+    NotifierModule.withConfig(customNotifierOptions),
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
