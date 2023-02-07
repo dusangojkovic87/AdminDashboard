@@ -8,6 +8,9 @@ import {
   deleteCategorySuccess,
   getCategoriesFail,
   getCategoriesSucces,
+  toggleCategoryPublishedStatus,
+  toggleCategoryPublishedStatusFailed,
+  toggleCategoryPublishedStatusSuccess,
 } from '../categoryActions/categoryActions';
 import { categoryActionTypes } from '../categoryActionTypes/categoryActionTypes';
 import { CategoryService } from '../services/category.service';
@@ -47,6 +50,24 @@ export class CategoryEffect {
       }),
       catchError((error) => {
         return of(deleteCategoryFail({ error: error }));
+      })
+    )
+  );
+
+  $toggleCategoryPublish = createEffect(() =>
+    this.actions.pipe(
+      ofType(toggleCategoryPublishedStatus),
+      switchMap(({ categoryId, published }) => {
+        return this.categoriesServise.togglePublishCategory(
+          categoryId,
+          published
+        );
+      }),
+      map(() => {
+        return toggleCategoryPublishedStatusSuccess();
+      }),
+      catchError((error) => {
+        return of(toggleCategoryPublishedStatusFailed({ errors: error }));
       })
     )
   );

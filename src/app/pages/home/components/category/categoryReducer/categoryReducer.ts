@@ -11,6 +11,8 @@ import {
   openAddCategoryModal,
   openDeleteCategoryModal,
   openEditCategoryModal,
+  setPublishedStatusNotificationToDefault,
+  toggleCategoryPublishedStatusSuccess,
 } from '../categoryActions/categoryActions';
 import { CategoryState } from '../types/CategoryState';
 
@@ -23,6 +25,7 @@ const CategoryState: CategoryState = {
   categoryToEdit: null,
   errors: null,
   filteredCategories: [],
+  isCategoryPublishedStatusChanged: false,
 };
 
 export const categoryReducer = createReducer(
@@ -76,7 +79,18 @@ export const categoryReducer = createReducer(
   on(filterByCategoryInput, (state: CategoryState, action) => ({
     ...state,
     filteredCategories: CategoryInputOrder(state, action.productType),
-  }))
+  })),
+  on(toggleCategoryPublishedStatusSuccess, (state: CategoryState, action) => ({
+    ...state,
+    isCategoryPublishedStatusChanged: true,
+  })),
+  on(
+    setPublishedStatusNotificationToDefault,
+    (state: CategoryState, action) => ({
+      ...state,
+      isCategoryPublishedStatusChanged: false,
+    })
+  )
 );
 
 function CategorySelectOrder(state: CategoryState, action: string) {
