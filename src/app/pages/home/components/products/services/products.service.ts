@@ -25,4 +25,9 @@ export class ProductsService {
     //fake edit product
     return of(product);
   }
+
+  togglePublishProductStatus(productId: number, isPublished: boolean) {
+    //fake post to server
+    return of(true);
+  }
 }

@@ -1,8 +1,21 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { NotifierService } from 'angular-notifier';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { openEditProductModal } from '../../productActions/productActions';
+import {
+  openEditProductModal,
+  setPublishProductStatusToDefault,
+  togglePublishProduct,
+} from '../../productActions/productActions';
 import { Product } from '../../types/Product';
 
 @Component({
@@ -10,14 +23,35 @@ import { Product } from '../../types/Product';
   templateUrl: './product-list-item.component.html',
   styleUrls: ['./product-list-item.component.scss'],
 })
-export class ProductListItemComponent implements OnInit {
+export class ProductListItemComponent implements OnInit, OnDestroy {
   @Input('product') product?: Product;
+  publishProductFormGroup!: FormGroup;
+  storeSub!: Subscription;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.publishProductFormGroup = this.fb.group({
+      isPublished: [this.product?.published, Validators.required],
+    });
+  }
 
   openEditProductModal(product: Product) {
     this.store.dispatch(openEditProductModal({ product: product }));
+  }
+
+  togglePublishProduct(product: Product) {
+    this.store.dispatch(
+      togglePublishProduct({
+        productId: product.id,
+        isPublished: this.publishProductFormGroup.value,
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    if (this.storeSub) {
+      this.storeSub.unsubscribe();
+    }
   }
 }

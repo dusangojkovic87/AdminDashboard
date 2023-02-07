@@ -10,9 +10,10 @@ import {
   getProductsSuccess,
   openEditProductModal,
   openProductsModal,
+  setPublishProductStatusToDefault,
+  tooglePublishProductSuccess,
 } from '../productActions/productActions';
-import { FilterProductTerms } from '../types/FilterProductTerms';
-import { Product } from '../types/Product';
+
 import { ProductListState } from '../types/ProductsListState';
 
 const ProductState: ProductListState = {
@@ -21,6 +22,7 @@ const ProductState: ProductListState = {
   isEditProductModalOpen: false,
   productToEdit: null,
   filteredProducts: [],
+  isProductPublishingChanged: false,
 };
 
 export const productsReducer = createReducer(
@@ -59,6 +61,14 @@ export const productsReducer = createReducer(
   on(filterProductsByOrder, (state: ProductListState, action) => ({
     ...state,
     filteredProducts: SortByOrder(state, action.productOrder),
+  })),
+  on(tooglePublishProductSuccess, (state: ProductListState, action) => ({
+    ...state,
+    isProductPublishingChanged: action.isProductPublishingChanged,
+  })),
+  on(setPublishProductStatusToDefault, (state: ProductListState, action) => ({
+    ...state,
+    isProductPublishingChanged: false,
   }))
 );
 
