@@ -14,3 +14,9 @@ main {
     background-color: var(--primary-black);
   }
 }
+
+@media only screen and (max-width: 900px) {
+  .home-main-wrp {
+    width: 100% !important;
+  }
+}

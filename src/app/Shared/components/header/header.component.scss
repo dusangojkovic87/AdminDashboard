@@ -1,3 +1,5 @@
+@import "~/src/styles.scss";
+
 .header-container {
   position: fixed;
   width: 100%;
@@ -21,6 +23,16 @@
       font-size: 1.1rem;
       cursor: pointer;
     }
+  }
+
+  .mobile-bars-wrp {
+    position: relative;
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
   }
 
   .current-user-img-wrp {
@@ -105,4 +117,26 @@
   background-repeat: no-repeat;
   display: block;
   margin-left: 1rem;
+}
+
+.bars-icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: url("/assets/icons/header/bars.svg");
+  background-repeat: no-repeat;
+  display: block;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .header-container {
+    .logo-wrp {
+      display: none;
+    }
+
+    .mobile-bars-wrp {
+      display: flex;
+    }
+  }
 }
