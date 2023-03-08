@@ -6,8 +6,7 @@
   height: 40px;
   display: flex;
   align-items: center;
-  margin-left: 1rem;
-  margin-right: 1rem;
+
   @include light-grey-border;
   ul {
     position: relative;

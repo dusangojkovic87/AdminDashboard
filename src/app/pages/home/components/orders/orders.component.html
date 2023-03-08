@@ -1,31 +1,35 @@
 <h1>Orders</h1>
 <app-orders-filter-search></app-orders-filter-search>
-<div class="orders-header-container" *ngIf="orders.length > 0">
-  <ul>
-    <li>Id</li>
-    <li>Time</li>
-    <li>Shipping address</li>
-    <li>phone</li>
-    <li>method</li>
-    <li>total</li>
-    <li>status</li>
-    <li>action</li>
-    <li>invoice</li>
-  </ul>
-</div>
-<ng-container *ngIf="orders.length > 0; else emptyOrdersList">
-  <app-order-item
-    *ngFor="
-      let order of orders | paginate : { itemsPerPage: 6, currentPage: p }
-    "
-    [order]="order"
-  ></app-order-item>
-</ng-container>
-<ng-template #emptyOrdersList>
-  <div class="empty-orders-wrp">
-    <h1>No orders!</h1>
+<div class="orders-container">
+  <div class="inner-container">
+    <div class="orders-header-container" *ngIf="orders.length > 0">
+      <ul>
+        <li>Id</li>
+        <li>Time</li>
+        <li>Shipping address</li>
+        <li>phone</li>
+        <li>method</li>
+        <li>total</li>
+        <li>status</li>
+        <li>action</li>
+        <li>invoice</li>
+      </ul>
+    </div>
+    <ng-container *ngIf="orders.length > 0; else emptyOrdersList">
+      <app-order-item
+        *ngFor="
+          let order of orders | paginate : { itemsPerPage: 6, currentPage: p }
+        "
+        [order]="order"
+      ></app-order-item>
+    </ng-container>
+    <ng-template #emptyOrdersList>
+      <div class="empty-orders-wrp">
+        <h1>No orders!</h1>
+      </div>
+    </ng-template>
   </div>
-</ng-template>
+</div>
 <pagination-controls
   class="pagination"
   [responsive]="true"
