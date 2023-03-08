@@ -1,35 +1,39 @@
 <div class="category-list-container">
-  <div class="category-list-header" *ngIf="categories.length > 0">
-    <ul>
-      <li>Id</li>
-      <li class="icon-list-item">Icon</li>
-      <li>Category</li>
-      <li>Product Type</li>
-      <li>Published</li>
-      <li>Actions</li>
-    </ul>
-  </div>
-  <div class="category-items">
-    <ng-container *ngIf="categories.length > 0; else emptyCategoryList">
-      <div
-        *ngFor="
-          let category of categories
-            | paginate : { itemsPerPage: 6, currentPage: p }
-        "
-      >
-        <app-category-item [category]="category"></app-category-item>
-      </div>
-    </ng-container>
+  <div class="inner-container">
+    <div class="category-list-header" *ngIf="categories.length > 0">
+      <ul>
+        <li>Id</li>
+        <li class="icon-list-item">Icon</li>
+        <li>Category</li>
+        <li>Product Type</li>
+        <li>Published</li>
+        <li>Actions</li>
+      </ul>
+    </div>
+    <div class="category-items">
+      <ng-container *ngIf="categories.length > 0; else emptyCategoryList">
+        <div class="categories">
+          <app-category-item
+            *ngFor="
+              let category of categories
+                | paginate : { itemsPerPage: 6, currentPage: p }
+            "
+            [category]="category"
+          ></app-category-item>
+        </div>
+      </ng-container>
+    </div>
+
     <ng-template #emptyCategoryList>
       <div class="empty-category-list-wrp">
         <h1>Category list empty!</h1>
       </div>
     </ng-template>
-    <pagination-controls
-      *ngIf="categories.length > 0"
-      class="pagination"
-      [responsive]="true"
-      (pageChange)="p = $event"
-    ></pagination-controls>
   </div>
 </div>
+<pagination-controls
+  *ngIf="categories.length > 0"
+  class="pagination"
+  [responsive]="true"
+  (pageChange)="p = $event"
+></pagination-controls>

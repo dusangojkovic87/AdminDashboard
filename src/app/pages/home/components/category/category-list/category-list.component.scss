@@ -2,8 +2,16 @@
 
 .category-list-container {
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
+  overflow-x: hidden;
+  margin: 1rem;
+
+  .inner-container {
+    position: relative;
+    width: auto;
+  }
+
   .empty-category-list-wrp {
     position: relative;
     width: 100%;
@@ -53,6 +61,15 @@
       .icon-list-item {
         width: 70px !important;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .category-list-container {
+    overflow-x: scroll;
+    .inner-container {
+      width: 1200px;
     }
   }
 }
