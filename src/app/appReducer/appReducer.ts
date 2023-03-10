@@ -24,10 +24,13 @@ import { productsReducer } from '../pages/home/components/products/productReduce
 import { ProductListState } from '../pages/home/components/products/types/ProductsListState';
 import { staffReducer } from '../pages/home/components/staff/staffReducer/staffReducer';
 import { StaffState } from '../pages/home/components/staff/types/StaffState';
+import { dashboarReducer } from '../Shared/components/dashboard-nav/dashboardNavReducer/dashboardNavReducer';
+import { DashboardState } from '../Shared/components/dashboard-nav/types/DashboardState';
 import { headerReducer } from '../Shared/sharedReducer/headerReducer';
 import { HeaderInterfaceState } from '../Shared/types/headerInterfaceState';
 
 export interface AppState {
+  dashboardState: DashboardState;
   headerState: HeaderInterfaceState;
   authState: AuthStateInterface;
   amountDetailsState: AmountDetailsState;
@@ -45,6 +48,7 @@ export interface AppState {
 }
 
 export const appReducer = {
+  dashboardState: dashboarReducer,
   headerState: headerReducer,
   authState: authReducer,
   amountDetailsState: overviewReducer,

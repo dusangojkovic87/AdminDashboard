@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { logOutAction } from 'src/app/pages/auth/authActions/auth.actions';
+import { openDashboardNav } from './dashboardNavActions/dashboardNavActions';
 
 @Component({
   selector: 'app-dashboard-nav',
@@ -9,11 +10,25 @@ import { logOutAction } from 'src/app/pages/auth/authActions/auth.actions';
   styleUrls: ['./dashboard-nav.component.scss'],
 })
 export class DashboardNavComponent implements OnInit {
+  isDashboardOpen: boolean = true;
+
   constructor(private store: Store<AppState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store
+      .select((state) => state.dashboardState.dashboardOpen)
+      .subscribe((data) => {
+        this.isDashboardOpen = data;
+      });
+  }
 
   logOut() {
     this.store.dispatch(logOutAction());
+  }
+
+  @HostListener('window:resize', ['$event']) onResize(event: any) {
+    if (event.target.innerWidth >= 900) {
+      this.store.dispatch(openDashboardNav());
+    }
   }
 }
