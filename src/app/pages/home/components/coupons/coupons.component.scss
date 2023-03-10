@@ -6,14 +6,20 @@ h1 {
   padding-left: 1rem;
 }
 
-.coupons-header-container {
+.coupons-container {
   position: relative;
   width: auto;
-  height: 40px;
+  height: auto;
   margin-left: 1rem;
   margin-right: 1rem;
+  overflow-y: hidden;
   background-color: var(--primary-light-black);
   @include light-grey-border;
+
+  .inner-container {
+    position: relative;
+    width: auto;
+  }
 
   ul {
     position: relative;
@@ -47,6 +53,15 @@ h1 {
   h1 {
     color: white;
     font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .coupons-container {
+    overflow-x: scroll;
+    .inner-container {
+      width: 1200px;
+    }
   }
 }
 

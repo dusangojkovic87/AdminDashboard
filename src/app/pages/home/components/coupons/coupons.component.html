@@ -1,32 +1,33 @@
 <h1>Coupons</h1>
 <app-add-and-search-coupons></app-add-and-search-coupons>
-<div class="coupons-header-container" *ngIf="coupons.length > 0">
-  <ul>
-    <li>Id</li>
-    <li>start date</li>
-    <li>end date</li>
-    <li>campaigns name</li>
-    <li>code</li>
-    <li>percentage</li>
-    <li>product type</li>
-    <li>status</li>
-    <li>actions</li>
-  </ul>
-</div>
-<ng-container *ngIf="coupons.length > 0; else emptyCouponsList">
-  <app-coupon
-    *ngFor="
-      let coupon of coupons | paginate : { itemsPerPage: 6, currentPage: p }
-    "
-    [coupon]="coupon"
-  ></app-coupon>
-</ng-container>
-<ng-template #emptyCouponsList>
-  <div class="empty-coupons-wrp">
-    <h1>No coupons!</h1>
+<div class="coupons-container" *ngIf="coupons.length > 0">
+  <div class="inner-container">
+    <ul>
+      <li>Id</li>
+      <li>start date</li>
+      <li>end date</li>
+      <li>campaigns name</li>
+      <li>code</li>
+      <li>percentage</li>
+      <li>product type</li>
+      <li>status</li>
+      <li>actions</li>
+    </ul>
+    <ng-container *ngIf="coupons.length > 0; else emptyCouponsList">
+      <app-coupon
+        *ngFor="
+          let coupon of coupons | paginate : { itemsPerPage: 6, currentPage: p }
+        "
+        [coupon]="coupon"
+      ></app-coupon>
+    </ng-container>
+    <ng-template #emptyCouponsList>
+      <div class="empty-coupons-wrp">
+        <h1>No coupons!</h1>
+      </div>
+    </ng-template>
   </div>
-</ng-template>
-
+</div>
 <pagination-controls
   class="pagination"
   [responsive]="true"
