@@ -51,6 +51,7 @@ export class SaleStatisticsComponent implements OnInit, OnDestroy {
 
   public weeklySalesOptions: ChartConfiguration<'line'>['options'] = {
     responsive: true,
+    maintainAspectRatio: false,
   };
 
   //dougnout chart
