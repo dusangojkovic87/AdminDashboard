@@ -1,5 +1,5 @@
 <div class="dashboard-nav-container" *ngIf="isDashboardOpen">
-  <div class="overlay"></div>
+  <div class="overlay" (click)="closeDashboardNav()"></div>
   <ul>
     <li
       routerLink="overview"

@@ -2,7 +2,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { logOutAction } from 'src/app/pages/auth/authActions/auth.actions';
-import { openDashboardNav } from './dashboardNavActions/dashboardNavActions';
+import {
+  closeDashboardNav,
+  openDashboardNav,
+} from './dashboardNavActions/dashboardNavActions';
 
 @Component({
   selector: 'app-dashboard-nav',
@@ -20,6 +23,10 @@ export class DashboardNavComponent implements OnInit {
       .subscribe((data) => {
         this.isDashboardOpen = data;
       });
+  }
+
+  closeDashboardNav() {
+    this.store.dispatch(closeDashboardNav());
   }
 
   logOut() {

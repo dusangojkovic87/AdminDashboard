@@ -1,5 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  closeDashboardNav,
   openDashboardNav,
   toggleDashboardNav,
 } from '../dashboardNavActions/dashboardNavActions';
@@ -18,5 +19,9 @@ export const dashboarReducer = createReducer(
   on(openDashboardNav, (state, action) => ({
     ...state,
     dashboardOpen: true,
+  })),
+  on(closeDashboardNav, (state, action) => ({
+    ...state,
+    dashboardOpen: false,
   }))
 );
