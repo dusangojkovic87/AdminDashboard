@@ -1,29 +1,34 @@
 <h1>All staff</h1>
 <app-add-and-search-staff></app-add-and-search-staff>
-<div class="staff-header-container" *ngIf="staff.length > 0">
-  <ul>
-    <li>Id</li>
-    <li>Name</li>
-    <li>Email</li>
-    <li>Contact</li>
-    <li>Joining Date</li>
-    <li>Role</li>
-    <li class="actions">Actions</li>
-  </ul>
-</div>
-<ng-container *ngIf="staff.length > 0; else emptyStaffList">
-  <app-staff-member
-    *ngFor="
-      let member of staff | paginate : { itemsPerPage: 6, currentPage: p }
-    "
-    [staffMember]="member"
-  ></app-staff-member>
-</ng-container>
-<ng-template #emptyStaffList>
-  <div class="empty-staff-wrp">
-    <h1>Staff list empty!</h1>
+<div class="staff-container">
+  <div class="inner-container">
+    <div class="staff-header-container" *ngIf="staff.length > 0">
+      <ul>
+        <li>Id</li>
+        <li>Name</li>
+        <li>Email</li>
+        <li>Contact</li>
+        <li>Joining Date</li>
+        <li>Role</li>
+        <li class="actions">Actions</li>
+      </ul>
+    </div>
+    <ng-container *ngIf="staff.length > 0; else emptyStaffList">
+      <app-staff-member
+        *ngFor="
+          let member of staff | paginate : { itemsPerPage: 6, currentPage: p }
+        "
+        [staffMember]="member"
+      ></app-staff-member>
+    </ng-container>
+    <ng-template #emptyStaffList>
+      <div class="empty-staff-wrp">
+        <h1>Staff list empty!</h1>
+      </div>
+    </ng-template>
   </div>
-</ng-template>
+</div>
+
 <pagination-controls
   class="pagination"
   [responsive]="true"
