@@ -40,6 +40,10 @@ export class DashboardNavComponent implements OnInit {
   }
 
   closeDashNav() {
-    this.store.dispatch(closeDashboardNav());
+    if (window.innerWidth < 900) {
+      this.store.dispatch(closeDashboardNav());
+    }
+
+    return;
   }
 }
