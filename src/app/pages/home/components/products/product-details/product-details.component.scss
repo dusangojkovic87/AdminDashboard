@@ -94,7 +94,7 @@ h1 {
   }
 
   button {
-    width: 30%;
+    width: 200px;
     height: 40px;
     background-color: var(--primary-green);
     color: white;
@@ -148,6 +148,18 @@ p {
 
     .details-info-wrp {
       width: 100%;
+
+      button {
+        width: 200px;
+      }
+
+      .qt-wrp {
+        width: 200px;
+        p {
+          width: 50%;
+          text-align: center;
+        }
+      }
     }
   }
 }
