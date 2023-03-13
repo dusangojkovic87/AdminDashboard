@@ -3,11 +3,9 @@
   position: relative;
   width: auto;
   height: 30px;
-  margin-left: 1rem;
-  margin-right: 1rem;
   @include light-grey-border;
   ul {
-    width: 100%;
+    width: auto;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -28,5 +26,11 @@
       color: var(--primary-green);
       font-weight: bold;
     }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .invoice-product-item-container {
+    width: 900px;
   }
 }

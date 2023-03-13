@@ -1,13 +1,13 @@
-<div class="invoice-product-list-header">
-  <ul>
-    <li>Sr.</li>
-    <li>product name</li>
-    <li>quantity</li>
-    <li>item price</li>
-    <li>amount</li>
-  </ul>
-</div>
 <div class="invoice-product-list-container">
+  <div class="invoice-product-list-header">
+    <ul>
+      <li>Sr.</li>
+      <li>product name</li>
+      <li>quantity</li>
+      <li>item price</li>
+      <li>amount</li>
+    </ul>
+  </div>
   <app-invoice-product-item
     *ngFor="let invoiceItem of invoices"
     [invoiceItem]="invoiceItem"
