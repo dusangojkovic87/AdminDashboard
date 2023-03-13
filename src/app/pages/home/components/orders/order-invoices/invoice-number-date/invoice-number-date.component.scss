@@ -1,3 +1,5 @@
+@import "~/src/styles.scss";
+
 .invoice-number-date-container {
   position: relative;
   width: auto;
@@ -40,4 +42,22 @@
 
 .flex--column--end {
   align-items: flex-end;
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .invoice-number-date-container {
+    flex-direction: column;
+    height: 300px;
+
+    .inner-wrp {
+      justify-content: flex-start;
+      width: auto;
+    }
+  }
+
+  .flex--column--center,
+  .flex--column--end,
+  .flex--column--start {
+    align-items: flex-start;
+  }
 }
