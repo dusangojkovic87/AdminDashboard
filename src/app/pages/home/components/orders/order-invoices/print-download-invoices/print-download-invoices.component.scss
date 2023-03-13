@@ -1,3 +1,4 @@
+@import "~/src/styles.scss";
 .print-download-invoices-container {
   position: relative;
   margin-top: 70px;
@@ -15,5 +16,12 @@
     width: auto;
     padding: 10px;
     cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .print-download-invoices-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
