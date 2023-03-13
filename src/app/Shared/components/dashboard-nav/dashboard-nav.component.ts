@@ -38,4 +38,8 @@ export class DashboardNavComponent implements OnInit {
       this.store.dispatch(openDashboardNav());
     }
   }
+
+  closeDashNav() {
+    this.store.dispatch(closeDashboardNav());
+  }
 }
