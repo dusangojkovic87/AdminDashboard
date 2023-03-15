@@ -15,6 +15,14 @@
     <div class="modal-form-wrp">
       <form>
         <div class="form-column-wrp">
+          <p>Image upload</p>
+          <div class="drop-image-wrp">
+            <app-upload-user-image
+              (imageEvent)="uploadedImage($event)"
+            ></app-upload-user-image>
+          </div>
+        </div>
+        <div class="form-column-wrp">
           <label for="email">Email</label>
           <input type="email" name="email" />
         </div>
@@ -40,8 +48,8 @@
   </div>
   <!--modal btn-->
   <div class="modal-btn-wrp">
-    <button>cancel</button>
-    <button>add staff</button>
+    <button class="cancel__btn">cancel</button>
+    <button class="add_staff_btn">add staff</button>
   </div>
   <!--modal btn end-->
 </div>

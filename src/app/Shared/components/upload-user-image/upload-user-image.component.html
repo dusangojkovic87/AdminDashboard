@@ -1,0 +1,24 @@
+<div class="upload-container">
+  <div
+    [ngClass]="
+      isFileOverInput
+        ? 'file-drop-zone green--border'
+        : 'file-drop-zone grey--border'
+    "
+  >
+    <span class="upload-icon"></span>
+    <span *ngIf="imageName === ''">drop image here</span>
+    <p class="image__name" *ngIf="imageName">{{ imageName }}</p>
+    <p class="upload__err" *ngIf="fileNotSupported">File type not supported!</p>
+    <input
+      id="profileImage"
+      type="file"
+      name="image"
+      (dragover)="onFileOver($event)"
+      (dragleave)="onFileLeave($event)"
+      (drop)="imageDroped($event)"
+      (onFileOverEvent)="onFileOver($event)"
+      (change)="imageSelected($event)"
+    />
+  </div>
+</div>

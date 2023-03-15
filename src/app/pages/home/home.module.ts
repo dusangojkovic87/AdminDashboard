@@ -158,6 +158,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule,
     EditProfileModule,
+    DirectivesModule,
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,

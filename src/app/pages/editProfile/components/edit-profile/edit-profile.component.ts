@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -54,6 +53,8 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   }
 
   onFileOver($event: any) {
+    console.log($event);
+
     this.isFileOverInput = $event;
   }
 
