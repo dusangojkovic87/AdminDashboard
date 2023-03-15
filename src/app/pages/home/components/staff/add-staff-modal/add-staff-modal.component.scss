@@ -88,7 +88,7 @@
 
           .drop-image-wrp {
             width: 40%;
-            height: 100px;
+            height: 100%;
           }
 
           input,
@@ -139,4 +139,8 @@
   background: url("~/src/assets/icons/close.svg");
   background-repeat: no-repeat;
   display: block;
+}
+
+.height--100px {
+  height: 100px !important;
 }
