@@ -5,6 +5,8 @@
   height: 70px;
   display: flex;
   justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   button {
     background-color: var(--primary-green);
@@ -16,12 +18,5 @@
     width: auto;
     padding: 10px;
     cursor: pointer;
-  }
-}
-
-@media only screen and (max-width: $breakpoint-tablet) {
-  .print-download-invoices-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 }
