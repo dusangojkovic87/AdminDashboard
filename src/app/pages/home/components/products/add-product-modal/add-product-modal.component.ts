@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
@@ -19,6 +19,9 @@ export class AddProductModalComponent implements OnInit {
   public productImageName: string | null = null;
   public fileNotSupported: boolean | null = null;
   public isImageOverInput?: boolean;
+  @ViewChild('preview') preview?: ElementRef;
+
+  imagePreview: string = '';
 
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     this.store
@@ -40,6 +43,14 @@ export class AddProductModalComponent implements OnInit {
     });
   }
 
+  imageDropped($event: File) {
+    //TODO add dispact action and file upload
+    this.addProductForm.patchValue({ productImage: $event.name });
+    this.imagePreview = URL.createObjectURL($event);
+    let image = this.preview?.nativeElement as HTMLImageElement;
+    image.src = this.imagePreview;
+  }
+
   AddProduct() {
     if (this.addProductForm.valid) {
       //dispatch store action to post product here
@@ -48,20 +59,6 @@ export class AddProductModalComponent implements OnInit {
       );
       this.addProductForm.reset();
     }
-  }
-
-  productImageDropped($event: { file: File | null; fileSupported: boolean }) {
-    if ($event.file != null && $event.fileSupported) {
-      this.fileNotSupported = false;
-      this.productImageName = $event.file.name;
-      this.addProductForm.patchValue({ productImage: $event });
-    } else {
-      this.fileNotSupported = true;
-    }
-  }
-
-  imageOverInput($event: boolean) {
-    this.isImageOverInput = $event;
   }
 
   closeAddProductModal() {
