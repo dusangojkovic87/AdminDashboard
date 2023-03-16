@@ -10,6 +10,7 @@
   align-items: flex-end;
   justify-content: space-between;
   z-index: 2;
+  right: 0;
 
   .inner-wrp {
     position: relative;
@@ -102,11 +103,11 @@
           label {
             width: 40%;
             height: 100%;
+            color: var(--primary-grey);
           }
 
           input {
             background-color: transparent;
-            color: var(--primary-grey);
             @include light-grey-border;
           }
         }
@@ -156,4 +157,21 @@
 
 .height--100px {
   height: 100px !important;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .add-staff-modal-container {
+    width: 100%;
+
+    .modal-btn-wrp {
+      width: 80%;
+    }
+
+    .inner-wrp {
+      width: 80%;
+      .modal-header {
+        width: 80%;
+      }
+    }
+  }
 }

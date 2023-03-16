@@ -4,4 +4,6 @@ export enum staffActionTypes {
   GET_STAFF_FAIL = '[Staff] Get staff fail',
   FILTER_STAFF_BY_NAME = '[Add and Search Staff] Filter staff by name',
   FILTER_STAFF_BY_ROLE = '[Add and Search Staff] Filter staff by role',
+  OPEN_ADD_STAFF_MODAL = '[Add Staff Modal] Add staff modal',
+  CLOSE_STAFF_MODAL = '[Close Staff Modal] Close staff modal',
 }

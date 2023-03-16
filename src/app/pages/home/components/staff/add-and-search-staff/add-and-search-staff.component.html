@@ -16,6 +16,6 @@
       <option value="">Role</option>
       <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
     </select>
-    <button>add staff</button>
+    <button (click)="openAddStaffModal()">add staff</button>
   </form>
 </div>

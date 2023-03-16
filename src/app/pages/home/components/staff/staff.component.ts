@@ -11,17 +11,27 @@ import { StaffMember } from './types/StaffMember';
 })
 export class StaffComponent implements OnInit {
   staff: StaffMember[] = [];
+  isModalOpen: boolean = false;
   p: number = 1;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.getStaffAction();
+    this.isAddStaffModalOpen();
   }
 
   getStaffAction() {
     this.store.dispatch(getStaff());
     this.getStaffFromStore();
+  }
+
+  isAddStaffModalOpen() {
+    this.store
+      .select((state) => state.staffState.isAddStaffModalOpen)
+      .subscribe((data) => {
+        this.isModalOpen = data;
+      });
   }
 
   getStaffFromStore() {
