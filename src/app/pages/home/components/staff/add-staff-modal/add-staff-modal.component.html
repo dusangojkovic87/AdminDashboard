@@ -14,6 +14,12 @@
     <!--modal form fields-->
     <div class="modal-form-wrp">
       <form>
+        <input
+          autocomplete="false"
+          name="hidden"
+          type="text"
+          style="display: none"
+        />
         <div class="form-column-wrp height--100px">
           <label>Image upload</label>
           <div class="drop-image-wrp">
@@ -28,7 +34,7 @@
         </div>
         <div class="form-column-wrp">
           <label for="password" name="password">Password</label>
-          <input type="password" />
+          <input type="password" autoComplete="new-password" />
         </div>
         <div class="form-column-wrp">
           <label for="contact">Contact</label>
@@ -44,6 +50,7 @@
         </div>
       </form>
     </div>
+
     <!--modal form fields end-->
   </div>
   <!--modal btn-->
