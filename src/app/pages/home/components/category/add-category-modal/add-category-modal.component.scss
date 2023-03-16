@@ -4,6 +4,7 @@
   height: 100%;
   z-index: 2;
   background-color: rgba($color: #000000, $alpha: 0.5);
+  overflow-y: hidden;
 
   .inner-modal-wrp {
     position: relative;
@@ -11,7 +12,7 @@
     height: 100vh;
     display: flex;
     justify-content: flex-end;
-    overflow-y: scroll;
+    overflow-y: hidden;
   }
 
   .add-product-modal-content-wrp {
@@ -26,7 +27,7 @@
 
     .modal-btn-wrp {
       position: fixed;
-      width: calc(80% - 215px);
+      width: calc(80% - 200px);
       height: 100px;
       background-color: var(--primary-black);
       bottom: 0;
@@ -53,7 +54,7 @@
 
     .product-modal-heading {
       position: fixed;
-      width: calc(80% - 215px);
+      width: calc(80% - 200px);
       height: 60px;
       display: flex;
       align-items: center;
@@ -77,11 +78,38 @@
 
         .add-product-column-wrp {
           position: relative;
-          width: 100%;
+          width: auto;
           display: flex;
           align-items: center;
           justify-content: space-around;
           margin: 1rem;
+
+          .preview-img-wrp {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            border: 2px solid white;
+            border-radius: 5px;
+
+            img {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              left: 0;
+              top: 0;
+            }
+          }
+
+          .drop-image-wrp {
+            position: relative;
+            width: 80%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+          }
 
           div {
             position: relative;

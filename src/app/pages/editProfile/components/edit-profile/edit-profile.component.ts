@@ -56,6 +56,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     //TODO add upload image to disk
     this.updateUserForm.patchValue({ image: $event });
     //preview image
+
     this.imagePreview = URL.createObjectURL($event);
     let image = this.preview?.nativeElement as HTMLImageElement;
     image.src = this.imagePreview;
