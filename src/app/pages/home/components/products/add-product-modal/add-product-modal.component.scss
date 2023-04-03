@@ -1,3 +1,5 @@
+@import "~/src/styles.scss";
+
 .add-product-modal-container {
   position: fixed;
   width: 100%;
@@ -185,4 +187,64 @@
 
 .green--border {
   border: 1px solid var(--primary-green) !important;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .add-product-modal-container {
+    width: 100%;
+    .inner-modal-wrp {
+      width: 100%;
+    }
+
+    .add-product-modal-content-wrp {
+      width: 100%;
+
+      .product-modal-heading {
+        width: 100%;
+      }
+
+      .modal-btn-wrp {
+        width: 100%;
+
+        button {
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .add-product-modal-container {
+    .inner-modal-wrp {
+      .add-product-modal-content-wrp {
+        .add-product-wrp {
+          #addProductForm {
+            .add-product-column-wrp {
+              width: 100%;
+              flex-direction: column;
+              align-items: flex-start;
+
+              div {
+                width: 80%;
+                input {
+                  width: 80%;
+                  height: 50px;
+                }
+
+                .drop-image-wrp {
+                  width: 80%;
+                  height: 100px;
+                }
+              }
+
+              .label-wrp {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
