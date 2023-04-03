@@ -219,3 +219,37 @@
     }
   }
 }
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .add-staff-modal-container {
+    .inner-wrp {
+      .modal-form-wrp {
+        form {
+          height: 1100px;
+          .form-column-wrp {
+            height: 120px;
+            flex-direction: column;
+
+            .drop-image-wrp {
+              width: 80%;
+              margin-top: 1rem;
+            }
+
+            label,
+            input {
+              width: 80%;
+            }
+
+            label {
+              height: 30px;
+            }
+
+            input {
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
