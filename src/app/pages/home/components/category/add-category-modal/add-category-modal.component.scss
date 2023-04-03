@@ -35,6 +35,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+      z-index: 2;
 
       button {
         width: 20%;
@@ -228,9 +229,6 @@
     left: 0;
     .inner-modal-wrp {
       width: 100%;
-      .add-product-modal-content-wrp {
-        width: 100%;
-      }
 
       .add-product-modal-content-wrp {
         width: 100%;
@@ -243,6 +241,50 @@
         width: 100%;
         button {
           width: 40%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .add-product-modal-container {
+    .inner-modal-wrp {
+      .add-product-modal-content-wrp {
+        overflow-y: scroll;
+        .add-product-wrp {
+          #addProductForm {
+            .add-product-column-wrp {
+              flex-direction: column;
+              .drop-image-wrp {
+                width: 80%;
+                height: 100px;
+              }
+
+              .preview-img-wrp {
+                margin-top: 1rem;
+                width: 100px;
+                height: 100px;
+                display: flex;
+                justify-content: flex-start;
+              }
+
+              .label-wrp {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+              }
+
+              div {
+                width: 100%;
+
+                input,
+                select {
+                  height: 50px !important;
+                }
+              }
+            }
+          }
         }
       }
     }
