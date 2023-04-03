@@ -5,6 +5,7 @@ import { AppState } from 'src/app/appReducer/appReducer';
 import {
   filterStaffByName,
   filterStaffByRole,
+  openAddStaffModal,
 } from '../staffActions/staffActions';
 
 @Component({
@@ -40,5 +41,11 @@ export class AddAndSearchStaffComponent implements OnInit {
 
   filterStaffByRole() {
     this.store.dispatch(filterStaffByRole({ role: this.roleSelected }));
+  }
+
+  openAddStaffModal() {
+    console.log('radi');
+
+    this.store.dispatch(openAddStaffModal());
   }
 }

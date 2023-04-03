@@ -5,51 +5,69 @@ h1 {
   padding-left: 1rem;
 }
 
-.staff-header-container {
+.staff-container {
   position: relative;
   width: auto;
-  height: 40px;
-  background-color: var(--primary-light-black);
+  overflow-y: hidden;
   margin-left: 1rem;
   margin-right: 1rem;
-  @include light-grey-border;
 
-  ul {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
+  .inner-container {
+    width: auto;
 
-    li {
-      width: 20%;
-      height: 100%;
-      color: var(--primary-grey);
-      list-style: none;
+    .staff-header-container {
+      position: relative;
+      width: auto;
+      height: 40px;
+      background-color: var(--primary-light-black);
+      @include light-grey-border;
+
+      ul {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        li {
+          width: 20%;
+          height: 100%;
+          color: var(--primary-grey);
+          list-style: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 14px;
+        }
+
+        .actions {
+          width: 15%;
+        }
+      }
+    }
+
+    .empty-staff-wrp {
+      position: relative;
+      width: 100%;
+      height: 40px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-weight: bold;
-      font-size: 14px;
-    }
 
-    .actions {
-      width: 15%;
+      h1 {
+        color: white;
+        font-size: 1.3rem;
+      }
     }
   }
 }
-
-.empty-staff-wrp {
-  position: relative;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-
-  h1 {
-    color: white;
-    font-size: 1.3rem;
-  }
-}
-
 @include pagination-style;
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .staff-container {
+    overflow-x: scroll;
+    .inner-container {
+      width: 1200px;
+    }
+  }
+}

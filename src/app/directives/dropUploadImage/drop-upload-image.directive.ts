@@ -11,9 +11,16 @@ export class DropUploadImageDirective {
 
   @Output() onFileOverEvent = new EventEmitter<boolean>(false);
 
+  @HostListener('window:dragenter', ['$event'])
+  onWindowDragEnter(event: any): void {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
   @HostListener('dragover', ['$event']) dragOverHandler($event: Event) {
     $event.preventDefault();
     $event.stopPropagation();
+
     this.onFileOverEvent.emit(true);
   }
 

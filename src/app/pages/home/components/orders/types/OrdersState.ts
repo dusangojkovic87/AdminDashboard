@@ -4,4 +4,5 @@ export interface OrdersState {
   orders: CustomerOrder[];
   errors: string[] | null;
   filteredOrders: CustomerOrder[];
+  isOrderStatusChanged: boolean;
 }

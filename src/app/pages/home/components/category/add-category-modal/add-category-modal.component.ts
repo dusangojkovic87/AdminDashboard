@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
@@ -13,9 +13,9 @@ export class AddCategoryModalComponent implements OnInit {
   constructor(private fb: FormBuilder, private store: Store<AppState>) {}
   public isImageOverInput: boolean = false;
   addCategoryForm!: FormGroup;
-  fileNotSupported = false;
-  categoryImageName: string | null = null;
   isModalOpen: boolean = false;
+  @ViewChild('preview') preview?: ElementRef;
+  previewImage: string = '/assets/images/default.jpg';
 
   ngOnInit(): void {
     this.store
@@ -31,28 +31,19 @@ export class AddCategoryModalComponent implements OnInit {
     });
   }
 
-  categoryImageDropped($event: { file: File | null; fileSupported: boolean }) {
-    console.log($event);
-
-    if ($event.file != null && $event.fileSupported) {
-      this.fileNotSupported = false;
-      this.categoryImageName = $event.file.name;
-      this.addCategoryForm.patchValue({ categoryImage: $event });
-    } else {
-      this.fileNotSupported = true;
-    }
-  }
-
-  imageOverInput($event: boolean) {
-    this.isImageOverInput = $event;
+  imageDropped($event: File) {
+    this.addCategoryForm.patchValue({ categoryImage: $event.name });
+    this.previewImage = URL.createObjectURL($event);
+    let image = this.preview?.nativeElement as HTMLImageElement;
+    image.src = this.previewImage;
   }
 
   AddCategory() {
     if (this.addCategoryForm.valid) {
-      console.log(this.addCategoryForm.value);
+      //TODO ADD DISPATCH ACTION TO STORE CATEGORY
 
+      console.log(this.addCategoryForm.value);
       this.addCategoryForm.reset();
-      this.isImageOverInput = false;
     }
   }
 

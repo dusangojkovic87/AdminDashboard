@@ -1,11 +1,13 @@
 import moment from 'moment';
 import { createReducer, on } from '@ngrx/store';
 import {
+  customerOrderStatusChangedSuccess,
   filterByOrderStatus,
   filterOrdersByDate,
   filterOrdersByPhone,
   getOrdersFail,
   getOrdersSuccess,
+  setOrderStatusToDefault,
 } from '../ordersActions/ordersActions';
 import { OrdersState } from '../types/OrdersState';
 
@@ -13,6 +15,7 @@ const OrdersState: OrdersState = {
   orders: [],
   errors: null,
   filteredOrders: [],
+  isOrderStatusChanged: false,
 };
 
 export const ordersReducer = createReducer(
@@ -37,6 +40,14 @@ export const ordersReducer = createReducer(
   on(filterByOrderStatus, (state: OrdersState, action) => ({
     ...state,
     filteredOrders: FilterByOrderStatus(state, action.status),
+  })),
+  on(customerOrderStatusChangedSuccess, (state: OrdersState, action) => ({
+    ...state,
+    isOrderStatusChanged: action.isStatusChanged,
+  })),
+  on(setOrderStatusToDefault, (state: OrdersState, action) => ({
+    ...state,
+    isOrderStatusChanged: false,
   }))
 );
 

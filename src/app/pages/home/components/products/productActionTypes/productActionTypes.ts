@@ -15,4 +15,8 @@ export enum productActionTypes {
   FILTER_PRODUCTS_BY_NAME = '[Product Filter] Filter products by name',
   FILTER_PRODUCTS_BY_CATEGORY = '[Product Filter] Filter products by category',
   FILTER_BY_ORDER = '[Product Filter]Filter products by order',
+  TOOGLE_PUBLISH_PRODUCT = '[Product Item] Toggle publish product',
+  TOOGLE_PUBLISH_PRODUCT_SUCCESS = '[Product Item] Toggle publish product success',
+  TOOGLE_PUBLISH_PRODUCT_FAIL = '[Product Item] Toggle publish product fail',
+  SET_PUBLISH_PRODUCT_STATUS_TO_DEFAULT = '[Product Item] Set publish product status to default',
 }

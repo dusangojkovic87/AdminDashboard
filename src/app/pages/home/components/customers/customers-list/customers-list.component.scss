@@ -3,6 +3,11 @@
   position: relative;
   width: auto;
   margin: 1rem;
+  overflow-x: hidden;
+
+  .inner-container {
+    width: auto;
+  }
 
   .empty-list-wrp {
     position: relative;
@@ -47,6 +52,15 @@
       .actions {
         width: 200px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .customer-list-container {
+    overflow-x: scroll;
+    .inner-container {
+      width: 1200px;
     }
   }
 }

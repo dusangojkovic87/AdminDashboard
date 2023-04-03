@@ -23,3 +23,9 @@ export const filterStaffByRole = createAction(
   staffActionTypes.FILTER_STAFF_BY_ROLE,
   props<{ role: string }>()
 );
+
+export const openAddStaffModal = createAction(
+  staffActionTypes.OPEN_ADD_STAFF_MODAL
+);
+
+export const closeStaffModal = createAction(staffActionTypes.CLOSE_STAFF_MODAL);

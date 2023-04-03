@@ -9,4 +9,5 @@ export interface CategoryState {
   categoryToDelete: number | null;
   errors: string | null;
   filteredCategories: CategoryData[];
+  isCategoryPublishedStatusChanged: boolean;
 }

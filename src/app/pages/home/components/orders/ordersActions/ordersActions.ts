@@ -28,3 +28,22 @@ export const filterByOrderStatus = createAction(
   ordersActionTypes.FILTER_BY_ORDER_STATUS,
   props<{ status: string }>()
 );
+
+export const customerOrderStatusChanged = createAction(
+  ordersActionTypes.ORDER_STATUS_CHANGED,
+  props<{ order: CustomerOrder; newStatus: string }>()
+);
+
+export const customerOrderStatusChangedSuccess = createAction(
+  ordersActionTypes.ORDER_STATUS_CHANGED_SUCCESS,
+  props<{ isStatusChanged: boolean }>()
+);
+
+export const customerOrderStatusChangedFail = createAction(
+  ordersActionTypes.ORDER_STATUS_CHANGE_FAIL,
+  props<{ error: any }>()
+);
+
+export const setOrderStatusToDefault = createAction(
+  ordersActionTypes.SET_ORDER_STATUS_TO_DEFAULT
+);

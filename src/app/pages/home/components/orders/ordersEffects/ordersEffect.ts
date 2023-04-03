@@ -4,6 +4,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { CustomerOrder } from '../../customer-order-list/types/CustomerOrder';
 import {
+  customerOrderStatusChangedFail,
+  customerOrderStatusChangedSuccess,
   getOrders,
   getOrdersFail,
   getOrdersSuccess,
@@ -28,6 +30,23 @@ export class OrdersEffect {
       }),
       catchError((error) => {
         return of(getOrdersFail({ errors: error }));
+      })
+    )
+  );
+
+  $orderStatusChanged = createEffect(() =>
+    this.$actions.pipe(
+      ofType(ordersActionTypes.ORDER_STATUS_CHANGED),
+      switchMap(({ order, newStatus }) => {
+        return this.ordersService.changeOrderStatus(order, newStatus);
+      }),
+      map(({ orderStatusChanged }) => {
+        return customerOrderStatusChangedSuccess({
+          isStatusChanged: orderStatusChanged,
+        });
+      }),
+      catchError((error) => {
+        return of(customerOrderStatusChangedFail({ error: error }));
       })
     )
   );

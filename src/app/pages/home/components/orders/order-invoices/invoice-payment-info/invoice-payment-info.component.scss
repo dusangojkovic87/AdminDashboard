@@ -1,3 +1,5 @@
+@import "~/src/styles.scss";
+
 .invoice-payment-info-container {
   position: relative;
   width: auto;
@@ -37,6 +39,23 @@
     .total__amount {
       color: var(--primary-green);
       font-weight: bold;
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .invoice-payment-info-container {
+    flex-direction: column;
+    height: 350px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    .inner-wrp {
+      width: 80%;
+      align-items: flex-start;
+      p {
+        padding-left: 1rem;
+      }
     }
   }
 }

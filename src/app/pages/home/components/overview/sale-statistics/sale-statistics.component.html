@@ -1,13 +1,6 @@
-<div class="chart-text-header">
-  <div>
-    <h6>weekly sales</h6>
-  </div>
-  <div>
-    <h6>best selling products</h6>
-  </div>
-</div>
 <div class="sale-statistics-container" *ngIf="isWeeklySaleChartDataReady">
-  <div class="weekly-sales-container">
+  <div class="chart-container">
+    <div><h6>weekly sales</h6></div>
     <canvas
       baseChart
       [labels]="doughnutChartLabels"
@@ -18,8 +11,8 @@
     >
     </canvas>
   </div>
-
-  <div class="best-sales-container" *ngIf="isBestSellingChartDataReady">
+  <div class="chart-container" *ngIf="isBestSellingChartDataReady">
+    <div class="chart-heading-wrp"><h6>best selling products</h6></div>
     <canvas
       baseChart
       [labels]="bestSellingProductLabels"

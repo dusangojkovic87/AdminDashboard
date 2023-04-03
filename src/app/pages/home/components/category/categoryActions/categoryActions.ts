@@ -61,3 +61,21 @@ export const filterByCategorySelect = createAction(
   categoryActionTypes.FILTER_BY_CATEGORY_FROM_SELECT,
   props<{ productType: string }>()
 );
+
+export const toggleCategoryPublishedStatus = createAction(
+  categoryActionTypes.TOGGLE_CATEGORY_PUBLISHED_STATUS,
+  props<{ categoryId: number; published: boolean }>()
+);
+
+export const toggleCategoryPublishedStatusSuccess = createAction(
+  categoryActionTypes.TOGGLE_CATEGORY_PUBLISHED_STATUS_SUCCESS
+);
+
+export const toggleCategoryPublishedStatusFailed = createAction(
+  categoryActionTypes.TOGGLE_CATEGORY_PUBLISHED_STATUS_FAIL,
+  props<{ errors: any }>()
+);
+
+export const setPublishedStatusNotificationToDefault = createAction(
+  categoryActionTypes.SET_PUBLISHED_NOTIFICATION_TO_DEFAULT
+);

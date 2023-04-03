@@ -1,9 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  closeStaffModal,
   filterStaffByName,
   filterStaffByRole,
   getStaffFail,
   getStaffSuccess,
+  openAddStaffModal,
 } from '../staffActions/staffActions';
 import { StaffState } from '../types/StaffState';
 
@@ -11,6 +13,7 @@ const StaffState: StaffState = {
   staff: [],
   errors: null,
   filteredStaff: [],
+  isAddStaffModalOpen: false,
 };
 
 export const staffReducer = createReducer(
@@ -31,6 +34,14 @@ export const staffReducer = createReducer(
   on(filterStaffByRole, (state: StaffState, action) => ({
     ...state,
     filteredStaff: FilterStaffByRole(state, action.role),
+  })),
+  on(openAddStaffModal, (state: StaffState, action) => ({
+    ...state,
+    isAddStaffModalOpen: true,
+  })),
+  on(closeStaffModal, (state: StaffState, action) => ({
+    ...state,
+    isAddStaffModalOpen: false,
   }))
 );
 

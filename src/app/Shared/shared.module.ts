@@ -9,6 +9,7 @@ import { EditProfileComponent } from '../pages/editProfile/components/edit-profi
 import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
 import { MessageTooltipComponent } from './components/message-tooltip/message-tooltip.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { UploadUserImageComponent } from './components/upload-user-image/upload-user-image.component';
 const routes: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
 ];
@@ -18,6 +19,7 @@ const routes: Routes = [
     DashboardNavComponent,
     MessageTooltipComponent,
     LoadingSpinnerComponent,
+    UploadUserImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ const routes: Routes = [
     DashboardNavComponent,
     MessageTooltipComponent,
     LoadingSpinnerComponent,
+    UploadUserImageComponent,
   ],
 })
 export class SharedModule {}

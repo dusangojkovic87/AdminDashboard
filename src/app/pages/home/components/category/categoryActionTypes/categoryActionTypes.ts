@@ -13,4 +13,8 @@ export enum categoryActionTypes {
   CLOSE_EDIT_CATEGORY_MODAL = '[Edit Category Modal] Close edit category modal',
   FILTER_BY_CATEGORY_FROM_INPUT = '[Add Category Form] Filter by category from input',
   FILTER_BY_CATEGORY_FROM_SELECT = '[Add Category Form] Filter by category from select',
+  TOGGLE_CATEGORY_PUBLISHED_STATUS = '[Category Item] Toggle category published status',
+  TOGGLE_CATEGORY_PUBLISHED_STATUS_SUCCESS = '[Category Item] Toggle category published status success',
+  TOGGLE_CATEGORY_PUBLISHED_STATUS_FAIL = '[Category Item] Toggle category published status fail',
+  SET_PUBLISHED_NOTIFICATION_TO_DEFAULT = '[Category List] Set Published notification to default',
 }

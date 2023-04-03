@@ -71,6 +71,7 @@ import { InvoiceProductListComponent } from './components/orders/order-invoices/
 import { InvoiceProductItemComponent } from './components/orders/order-invoices/invoice-product-list/invoice-product-item/invoice-product-item.component';
 import { InvoicePaymentInfoComponent } from './components/orders/order-invoices/invoice-payment-info/invoice-payment-info.component';
 import { PrintDownloadInvoicesComponent } from './components/orders/order-invoices/print-download-invoices/print-download-invoices.component';
+import { AddStaffModalComponent } from './components/staff/add-staff-modal/add-staff-modal.component';
 
 const routes: Routes = [
   {
@@ -143,6 +144,7 @@ const routes: Routes = [
     InvoiceProductItemComponent,
     InvoicePaymentInfoComponent,
     PrintDownloadInvoicesComponent,
+    AddStaffModalComponent,
   ],
   imports: [
     TableModule,
@@ -156,6 +158,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule,
     EditProfileModule,
+    DirectivesModule,
     /*  StoreModule.forFeature('home', reducers), */
     RouterModule.forChild(routes),
     ReactiveFormsModule,

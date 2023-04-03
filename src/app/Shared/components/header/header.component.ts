@@ -7,6 +7,7 @@ import {
 } from '../../sharedActions/header.actions';
 import { logOutAction } from '../../../pages/auth/authActions/auth.actions';
 import { HeaderInterfaceState } from '../../types/headerInterfaceState';
+import { toggleDashboardNav } from '../dashboard-nav/dashboardNavActions/dashboardNavActions';
 
 @Component({
   selector: 'app-header',
@@ -28,6 +29,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   toggleModal() {
     this.store.dispatch(toggleProfileModalAction());
+  }
+  toggleDashboardNav() {
+    console.log('test');
+
+    this.store.dispatch(toggleDashboardNav());
   }
 
   logOut() {

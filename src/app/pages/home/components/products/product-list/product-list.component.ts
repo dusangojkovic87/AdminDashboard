@@ -1,8 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { NotifierService } from 'angular-notifier';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { getProducts } from '../productActions/productActions';
+import {
+  getProducts,
+  setPublishProductStatusToDefault,
+} from '../productActions/productActions';
 import { Product } from '../types/Product';
 
 @Component({
@@ -13,17 +17,18 @@ import { Product } from '../types/Product';
 export class ProductListComponent implements OnInit, OnDestroy {
   p: number = 0;
   productSub?: Subscription;
+  notificationStoreSub!: Subscription;
 
   productList: Array<Product> = [];
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private notifer: NotifierService
+  ) {}
 
   ngOnInit(): void {
     this.getProductsFromStore();
-  }
-
-  ngOnDestroy(): void {
-    this.productSub?.unsubscribe();
+    this.publishProductChangedNotification();
   }
 
   getProductsFromStore() {
@@ -33,5 +38,21 @@ export class ProductListComponent implements OnInit, OnDestroy {
       .subscribe((data: Product[]) => {
         this.productList = data;
       });
+  }
+
+  publishProductChangedNotification() {
+    this.notificationStoreSub = this.store
+      .select((state) => state.productsState.isProductPublishingChanged)
+      .subscribe((isPublishedChanged) => {
+        if (isPublishedChanged) {
+          this.notifer.notify('success', 'publish product status changed');
+          this.store.dispatch(setPublishProductStatusToDefault());
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.productSub?.unsubscribe();
+    this.notificationStoreSub.unsubscribe();
   }
 }

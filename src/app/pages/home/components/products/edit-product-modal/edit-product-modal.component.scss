@@ -1,3 +1,4 @@
+@import "~/src/styles.scss";
 .add-product-modal-container {
   position: fixed;
   width: 100%;
@@ -181,4 +182,55 @@
 
 .green--border {
   border: 1px solid var(--primary-green) !important;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .add-product-modal-container {
+    width: 100%;
+    .inner-modal-wrp {
+      width: 100%;
+
+      .add-product-modal-content-wrp {
+        width: 80%;
+        .product-modal-heading {
+          width: calc(100% - 20%);
+        }
+
+        .modal-btn-wrp {
+          width: calc(100% - 20%);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .add-product-modal-container {
+    .inner-modal-wrp {
+      .add-product-modal-content-wrp {
+        .modal-btn-wrp {
+          button {
+            width: 40%;
+          }
+        }
+
+        height: 1100px;
+        .add-product-wrp {
+          #addProductForm {
+            .add-product-column-wrp {
+              flex-direction: column;
+              margin-right: 0;
+              margin-left: 0;
+              div {
+                width: 90%;
+                input {
+                  width: 90%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

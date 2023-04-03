@@ -4,48 +4,65 @@ h1 {
   padding-left: 1rem;
   font-size: 1.3rem;
 }
-
-.orders-header-container {
-  position: relative;
+.orders-container {
   width: auto;
-  height: 40px;
-  background-color: var(--primary-light-black);
+  overflow-x: hidden;
   margin-left: 1rem;
   margin-right: 1rem;
 
-  ul {
-    position: relative;
-    padding: 0;
+  .inner-container {
     width: auto;
-    height: 100%;
-    display: flex;
-    margin: 0;
-    @include light-grey-border;
+  }
+  .orders-header-container {
+    position: relative;
+    width: auto;
+    height: 40px;
+    background-color: var(--primary-light-black);
 
-    li {
-      list-style: none;
-      width: 20%;
+    ul {
+      position: relative;
+      padding: 0;
+      width: auto;
       height: 100%;
-      color: var(--primary-grey);
       display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-      font-weight: bold;
+      margin: 0;
+      @include light-grey-border;
+
+      li {
+        list-style: none;
+        width: 20%;
+        height: 100%;
+        color: var(--primary-grey);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .empty-orders-wrp {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      color: white;
+      font-size: 1.3rem;
     }
   }
 }
 
-.empty-orders-wrp {
-  position: relative;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
+@media only screen and (max-width: 1200px) {
+  .orders-container {
+    overflow-x: scroll;
 
-  h1 {
-    color: white;
-    font-size: 1.3rem;
+    .inner-container {
+      width: 1200px;
+    }
   }
 }
 

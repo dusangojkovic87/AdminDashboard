@@ -9,13 +9,22 @@ h1 {
   position: relative;
   width: auto;
   height: 100%;
-  display: flex;
-  justify-content: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  /*  display: flex;
+  justify-content: center; */
   margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  .inner-container {
+    position: relative;
+    width: auto;
+  }
 
   .customer-orders-list-wrp {
     position: relative;
-    width: 100%;
+    width: auto;
     height: 100%;
     margin: 1rem;
 
@@ -51,3 +60,14 @@ h1 {
 }
 
 @include pagination-style;
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .customer-orders-list-container {
+    .inner-container {
+      overflow-x: scroll;
+      .customer-orders-list-wrp {
+        width: 1200px;
+      }
+    }
+  }
+}

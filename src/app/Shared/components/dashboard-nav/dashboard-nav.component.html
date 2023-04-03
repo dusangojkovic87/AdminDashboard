@@ -1,5 +1,6 @@
-<div class="dashboard-nav-container">
-  <ul>
+<div class="dashboard-nav-container" *ngIf="isDashboardOpen">
+  <div class="overlay" (click)="closeDashboardNav()"></div>
+  <ul (click)="closeDashNav()">
     <li
       routerLink="overview"
       routerLinkActive="activeDashLink dashboardLink"

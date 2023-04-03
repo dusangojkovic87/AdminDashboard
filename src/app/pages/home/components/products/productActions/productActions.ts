@@ -72,3 +72,22 @@ export const filterProductsByOrder = createAction(
   productActionTypes.FILTER_BY_ORDER,
   props<{ productOrder: string }>()
 );
+
+export const togglePublishProduct = createAction(
+  productActionTypes.TOOGLE_PUBLISH_PRODUCT,
+  props<{ productId: number; isPublished: boolean }>()
+);
+
+export const tooglePublishProductSuccess = createAction(
+  productActionTypes.TOOGLE_PUBLISH_PRODUCT_SUCCESS,
+  props<{ isProductPublishingChanged: boolean }>()
+);
+
+export const tooglePublishProductFail = createAction(
+  productActionTypes.TOOGLE_PUBLISH_PRODUCT_FAIL,
+  props<{ errors: any }>()
+);
+
+export const setPublishProductStatusToDefault = createAction(
+  productActionTypes.SET_PUBLISH_PRODUCT_STATUS_TO_DEFAULT
+);

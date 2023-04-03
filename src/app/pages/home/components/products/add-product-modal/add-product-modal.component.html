@@ -23,37 +23,27 @@
               <p>Product image:</p>
             </div>
             <div>
-              <div
-                [ngClass]="
-                  isImageOverInput === true
-                    ? 'product-img-wrp green--border'
-                    : 'product-img-wrp'
-                "
-              >
-                <span class="upload-icon"></span>
-                <p *ngIf="!this.addProductForm.controls['productImage'].value">
-                  drop image here
-                </p>
-                <p
-                  *ngIf="
-                    this.addProductForm.controls['productImage'].value != null
-                  "
-                >
-                  {{ productImageName }}
-                </p>
-                <p class="upload__err" *ngIf="fileNotSupported">
-                  File type not supported
-                </p>
-                <input
-                  type="file"
-                  name="productImage"
-                  (onImageDropped)="productImageDropped($event)"
-                  (onFileOverEvent)="imageOverInput($event)"
-                  appDropUploadImage
-                />
+              <!--upload image-->
+              <div class="drop-image-wrp">
+                <app-upload-user-image
+                  (imageEvent)="imageDropped($event)"
+                ></app-upload-user-image>
+              </div>
+              <!--upload image end-->
+            </div>
+          </div>
+          <!--image preview-->
+          <div class="add-product-column-wrp">
+            <div class="label-wrp">
+              <p>image preview:</p>
+            </div>
+            <div>
+              <div class="image-preview">
+                <img #preview src="/assets/images/defaultProduct.png" />
               </div>
             </div>
           </div>
+          <!--image preview end-->
           <div class="add-product-column-wrp">
             <div class="label-wrp">
               <p>Product Title/Name::</p>

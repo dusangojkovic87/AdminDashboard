@@ -1,3 +1,4 @@
+@import "~/src/styles.scss";
 h1 {
   color: white;
   padding-left: 1rem;
@@ -7,9 +8,15 @@ h1 {
 .invoice-container {
   position: relative;
   width: auto;
-  height: 600px;
+  height: 700px;
   background-color: var(--primary-light-black);
   margin-left: 1rem;
   margin-right: 1rem;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .invoice-container {
+    height: 1200px;
+  }
 }

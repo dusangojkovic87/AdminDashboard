@@ -7,52 +7,36 @@
       (ngSubmit)="updateUser()"
     >
       <div class="form-el-wrp height--100px">
+        <!--upload image-->
         <div>
           <label for="image">Profile image:</label>
         </div>
-        <div>
-          <div
-            [ngClass]="
-              isFileOverInput
-                ? 'file-drop-zone green--border'
-                : 'file-drop-zone grey--border'
-            "
-          >
-            <span class="upload-icon"></span>
-            <span>drop image here</span>
-            <p class="image__name" *ngIf="this.imageName">{{ imageName }}</p>
-            <p class="upload__err" *ngIf="fileNotSupported">
-              File type not supported!
-            </p>
-            <input
-              id="profileImage"
-              type="file"
-              name="image"
-              appDropUploadImage
-              (onImageDropped)="imageDroped($event)"
-              (onFileOverEvent)="onFileOver($event)"
-            />
-          </div>
+        <div class="drop-image-wrp">
+          <app-upload-user-image
+            (imageEvent)="imageAdded($event)"
+          ></app-upload-user-image>
         </div>
+        <!--upload image end-->
       </div>
       <div class="form-el-wrp height--100px">
+        <!--preview upload image-->
         <div></div>
         <div>
           <div class="preview-img-wrp">
             <img
+              #preview
               [src]="
                 this.currentUser?.image === null
                   ? '/assets/images/default.jpg'
-                  : this.currentUser?.image
+                  : imagePreview
               "
               [alt]="
-                this.currentUser?.image === null
-                  ? 'default.jpg'
-                  : this.currentUser?.image
+                this.currentUser?.image === null ? 'default.jpg' : imagePreview
               "
             />
           </div>
         </div>
+        <!--preview upload image end-->
       </div>
       <div class="form-el-wrp">
         <div><label for="name">Name:</label></div>

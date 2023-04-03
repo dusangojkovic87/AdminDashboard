@@ -11,6 +11,9 @@ import {
   getProducts,
   getProductsFail,
   getProductsSuccess,
+  togglePublishProduct,
+  tooglePublishProductFail,
+  tooglePublishProductSuccess,
 } from '../productActions/productActions';
 import { productActionTypes } from '../productActionTypes/productActionTypes';
 import { ProductsService } from '../services/products.service';
@@ -65,6 +68,26 @@ export class ProductsEffect {
       }),
       catchError((err) => {
         return of(editProductFail({ error: err }));
+      })
+    )
+  );
+
+  $togglePublishedProductStatus = createEffect(() =>
+    this.actions.pipe(
+      ofType(togglePublishProduct),
+      switchMap(({ productId, isPublished }) => {
+        return this.productService.togglePublishProductStatus(
+          productId,
+          isPublished
+        );
+      }),
+      map(() => {
+        return tooglePublishProductSuccess({
+          isProductPublishingChanged: true,
+        });
+      }),
+      catchError((error) => {
+        return of(tooglePublishProductFail({ errors: error }));
       })
     )
   );

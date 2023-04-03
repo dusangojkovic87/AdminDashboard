@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
+import { SharedModule } from 'src/app/Shared/shared.module';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { EditProfileEffect } from './editProfileEffects/editProfileEffect';
 
@@ -18,6 +19,7 @@ const routes = [{ path: 'edit-profile', component: EditProfileComponent }];
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     EffectsModule.forFeature([EditProfileEffect]),

@@ -7,11 +7,14 @@
     <li>{{ category.productType }}</li>
     <li>{{ category.parentCategory }}</li>
     <li>
-      <input
-        type="checkbox"
-        value="{{ category.published }}"
-        checked="checked"
-      />
+      <form [formGroup]="categoryFormGroup">
+        <input
+          type="checkbox"
+          name="published"
+          formControlName="published"
+          (change)="togglePublishCategory(category)"
+        />
+      </form>
     </li>
     <li class="actions-wrp">
       <span class="edit-icon" (click)="openEditCategoryModal(category)">

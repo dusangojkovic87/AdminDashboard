@@ -1,9 +1,12 @@
+@import "~/src/styles.scss";
 .print-download-invoices-container {
   position: relative;
   margin-top: 70px;
   height: 70px;
   display: flex;
   justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   button {
     background-color: var(--primary-green);

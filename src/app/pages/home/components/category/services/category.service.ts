@@ -20,7 +20,11 @@ export class CategoryService {
 
   deleteCategoryById(id: number): Observable<number> {
     //fake delete to server
-    console.log(`category with ${id} deleted! `);
     return of(id);
+  }
+
+  togglePublishCategory(categoryId: number, isPublished: boolean) {
+    //fake post to server
+    return of(categoryId);
   }
 }

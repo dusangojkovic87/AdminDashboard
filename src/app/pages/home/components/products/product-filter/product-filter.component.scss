@@ -20,13 +20,14 @@
 
   .product-filter__item {
     position: relative;
-    width: 20%;
+    width: 22%;
     height: 30px;
     border-radius: 5px;
     outline: none;
   }
 
   #price__filter,
+  #search__product,
   #category__filter,
   #add__product {
     height: 36px;
@@ -56,5 +57,18 @@
 
   #search__product::placeholder {
     padding-left: 1rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .product-filter-container {
+    height: 300px;
+
+    form {
+      flex-direction: column;
+      .product-filter__item {
+        width: 80%;
+      }
+    }
   }
 }

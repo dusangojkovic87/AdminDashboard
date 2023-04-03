@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+//responsive breakpoint variables
+$breakpoint-tablet: 900px;
+$breakpoint-mobile: 600px;
+
 html,
 body {
   font-family: "Roboto";
