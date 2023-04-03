@@ -198,11 +198,22 @@
 
     .add-product-modal-content-wrp {
       width: 100%;
-
       .product-modal-heading {
         width: 100%;
       }
 
+      .add-product-wrp {
+        #addProductForm {
+          .add-product-column-wrp {
+            div {
+              .image-preview {
+                width: 100px !important;
+                height: 90px;
+              }
+            }
+          }
+        }
+      }
       .modal-btn-wrp {
         width: 100%;
 
