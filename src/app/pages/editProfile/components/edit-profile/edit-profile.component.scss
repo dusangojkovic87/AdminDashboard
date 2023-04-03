@@ -159,6 +159,15 @@ select option {
           margin-top: 3rem;
           margin-bottom: 3rem;
 
+          .drop-image-wrp {
+            width: auto;
+            justify-content: center;
+            display: flex;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            height: 200px;
+          }
+
           div {
             width: 100%;
             justify-content: center !important;
