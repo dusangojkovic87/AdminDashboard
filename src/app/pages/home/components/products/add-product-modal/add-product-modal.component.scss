@@ -234,7 +234,7 @@
             .add-product-column-wrp {
               width: 100%;
               flex-direction: column;
-              align-items: flex-start;
+              align-items: center;
 
               div {
                 width: 80%;
@@ -250,7 +250,8 @@
               }
 
               .label-wrp {
-                width: 100%;
+                width: 80%;
+                padding-left: 1rem;
               }
             }
           }
