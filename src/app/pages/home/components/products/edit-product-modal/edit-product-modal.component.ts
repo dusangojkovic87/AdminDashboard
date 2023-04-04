@@ -19,8 +19,6 @@ export class EditProductModalComponent implements OnInit {
   public isEditProductModalOpen: boolean = false;
 
   public productImageName: string | null = null;
-  public fileNotSupported: boolean | null = null;
-  public isImageOverInput: boolean = false;
 
   constructor(private store: Store<AppState>, private fb: FormBuilder) {
     this.isModalOpened();
@@ -47,18 +45,8 @@ export class EditProductModalComponent implements OnInit {
     }
   }
 
-  productImageDropped($event: { file: File | null; fileSupported: boolean }) {
-    if ($event.file != null && $event.fileSupported) {
-      this.fileNotSupported = false;
-      this.productImageName = $event.file.name;
-      this.editProductForm.patchValue({ productImage: $event });
-    } else {
-      this.fileNotSupported = true;
-    }
-  }
-
-  imageOverInput($event: boolean) {
-    this.isImageOverInput = $event;
+  productImageDropped($event: File) {
+    this.editProductForm.patchValue({ productImage: $event.name });
   }
 
   closeEditProductModal() {
