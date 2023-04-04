@@ -1,4 +1,5 @@
 <app-modal-wrapper *ngIf="isProductModalOpen">
+  <!--content projection-->
   <h6 modalHeading>Add product</h6>
   <p modalSubheading>Add product information here</p>
   <span (click)="closeAddProductModal()" closeIcon class="close-icon"></span>
@@ -8,6 +9,8 @@
   <button (click)="AddProduct()" class="submit__btn" submitModal>
     Add product
   </button>
+  <!--end content projection-->
+  <!-- main form-->
   <form
     id="addProductForm"
     [formGroup]="addProductForm"
@@ -93,4 +96,5 @@
       </div>
     </div>
   </form>
+  <!--end main form-->
 </app-modal-wrapper>
