@@ -18,3 +18,11 @@ export const filterCouponsByName = createAction(
   couponsActionTypes.FILTER_COUPONS_BY_NAME,
   props<{ campaignsName: string }>()
 );
+
+export const closeCouponModal = createAction(
+  couponsActionTypes.CLOSE_ADD_COUPON_MODAL
+);
+
+export const openCouponModal = createAction(
+  couponsActionTypes.OPEN_ADD_COUPON_MODAL
+);

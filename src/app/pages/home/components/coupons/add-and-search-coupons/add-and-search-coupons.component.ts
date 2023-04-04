@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { filterCouponsByName } from '../couponsActions/couponActions';
+import {
+  filterCouponsByName,
+  openCouponModal,
+} from '../couponsActions/couponActions';
 
 @Component({
   selector: 'app-add-and-search-coupons',
@@ -19,5 +22,9 @@ export class AddAndSearchCouponsComponent implements OnInit {
     this.store.dispatch(
       filterCouponsByName({ campaignsName: this.couponName })
     );
+  }
+
+  openCouponModal() {
+    this.store.dispatch(openCouponModal());
   }
 }

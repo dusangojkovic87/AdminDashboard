@@ -4,4 +4,5 @@ export interface CouponsState {
   coupons: Coupon[];
   errors: string[] | null;
   filteredCoupons: Coupon[];
+  isModalOpen: boolean;
 }

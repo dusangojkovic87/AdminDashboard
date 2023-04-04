@@ -1,8 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  closeCouponModal,
   filterCouponsByName,
   getCouponsFail,
   getCouponsSuccess,
+  openCouponModal,
 } from '../couponsActions/couponActions';
 import { CouponsState } from '../types/CouponsState';
 
@@ -10,6 +12,7 @@ const CouponsState: CouponsState = {
   coupons: [],
   errors: null,
   filteredCoupons: [],
+  isModalOpen: false,
 };
 
 export const couponsReducer = createReducer(
@@ -26,6 +29,14 @@ export const couponsReducer = createReducer(
   on(filterCouponsByName, (state: CouponsState, action) => ({
     ...state,
     filteredCoupons: FilterCouponsByName(state, action.campaignsName),
+  })),
+  on(closeCouponModal, (state: CouponsState, action) => ({
+    ...state,
+    isModalOpen: false,
+  })),
+  on(openCouponModal, (state: CouponsState, action) => ({
+    ...state,
+    isModalOpen: true,
   }))
 );
 
