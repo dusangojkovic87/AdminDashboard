@@ -1,254 +1,63 @@
 @import "~/src/styles.scss";
-.add-staff-modal-container {
-  position: fixed;
-  width: calc(100% - 250px);
-  height: 100%;
-  z-index: 2;
-  background-color: rgba($color: #000000, $alpha: 0.5);
+@include modal-header-style;
+@include modal-btns-style;
+
+.drop--image {
+  height: 150px !important;
+}
+
+form {
+  position: relative;
+  width: 100%;
+  height: 800px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  z-index: 2;
-  right: 0;
+  top: 80px;
 
-  .inner-wrp {
+  .form-column-wrp {
     position: relative;
-    width: 80%;
-    height: 1200px;
-    background-color: var(--primary-light-black);
-    overflow-y: scroll;
-    top: 4rem;
-    z-index: 2;
-
-    .modal-header {
-      position: fixed;
-      top: 40px;
-      right: 0;
-      width: calc(80% - 200px);
-      height: 70px;
-      background-color: var(--primary-black);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 4;
-
-      .header-text-wrp {
-        width: 250px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 1rem;
-        h6,
-        p {
-          margin: 0;
-          color: white;
-        }
-
-        h6 {
-          font-size: 1.1rem;
-        }
-
-        p {
-          font-size: 1rem;
-        }
-      }
-
-      .header-logo-wrp {
-        position: relative;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        border-radius: 50%;
-        right: 1rem;
-        cursor: pointer;
-      }
-    }
-
-    .modal-form-wrp {
-      position: relative;
-      width: 100%;
-      height: 700px;
-      display: flex;
-      justify-content: center;
-      top: 50px;
-
-      form {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-
-        .form-column-wrp {
-          position: relative;
-          width: 100%;
-          height: 40px;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          margin: 1rem;
-
-          .drop-image-wrp {
-            position: relative;
-            width: 40%;
-            height: 100%;
-          }
-
-          input,
-          label {
-            width: 40%;
-            height: 100%;
-            color: var(--primary-grey);
-          }
-
-          input {
-            background-color: transparent;
-            @include light-grey-border;
-          }
-        }
-      }
-    }
-  }
-  .modal-btn-wrp {
-    position: fixed;
-    width: calc(80% - 200px);
+    width: 100%;
+    height: 40px;
     display: flex;
     justify-content: space-around;
-    bottom: 0;
-    right: 0;
-    background-color: var(--primary-black);
-    z-index: 2;
-    height: 50px;
     align-items: center;
+    margin: 1rem;
 
-    button {
-      width: 20%;
-      height: 40px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
+    .drop-image-wrp {
+      position: relative;
+      width: 40%;
+      height: 150px;
     }
 
-    .cancel__btn {
-      color: var(--primary-warning);
+    input,
+    label {
+      width: 40%;
+      height: 100%;
+      color: var(--primary-grey);
     }
 
-    .add_staff_btn {
-      background-color: var(--primary-green);
-      color: white;
-    }
-  }
-}
-
-.close-icon {
-  position: relative;
-  width: 25px;
-  height: 25px;
-  background: url("~/src/assets/icons/close.svg");
-  background-repeat: no-repeat;
-  display: block;
-}
-
-.height--100px {
-  height: 100px !important;
-}
-
-@media only screen and (max-width: $breakpoint-tablet) {
-  .add-staff-modal-container {
-    width: 100%;
-
-    .modal-btn-wrp {
-      width: 80%;
-    }
-
-    .inner-wrp {
-      width: 80%;
-      .modal-header {
-        width: 80%;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: $breakpoint-tablet) {
-  .add-staff-modal-container {
-    width: 100%;
-    left: 0;
-
-    .inner-wrp {
-      width: 100%;
-
-      .modal-header {
-        width: 100%;
-      }
-
-      .modal-form-wrp {
-        form {
-          width: 100%;
-          .form-column-wrp {
-            width: 100%;
-
-            .drop-image-wrp {
-              width: 50%;
-            }
-
-            label {
-              width: 30%;
-            }
-
-            input {
-              width: 50%;
-            }
-          }
-        }
-      }
-    }
-
-    .modal-btn-wrp {
-      width: 100%;
-      height: 60px;
-      button {
-        width: 35%;
-      }
+    input {
+      background-color: transparent;
+      @include light-grey-border;
     }
   }
 }
 
 @media only screen and (max-width: $breakpoint-mobile) {
-  .add-staff-modal-container {
-    .inner-wrp {
-      .modal-form-wrp {
-        form {
-          height: 1100px;
-          .form-column-wrp {
-            height: 120px;
-            flex-direction: column;
+  form {
+    height: 900px;
+    .form-column-wrp {
+      width: 100%;
+      flex-direction: column;
+      height: 80px;
 
-            .drop-image-wrp {
-              width: 80%;
-              margin-top: 1rem;
-            }
+      .drop-image-wrp {
+        width: 80%;
+      }
 
-            label,
-            input {
-              width: 80%;
-            }
-
-            label {
-              height: 30px;
-            }
-
-            input {
-              height: 40px;
-            }
-          }
-        }
+      input,
+      label {
+        width: 80%;
       }
     }
   }
