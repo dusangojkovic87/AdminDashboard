@@ -1,120 +1,96 @@
-<div class="add-product-modal-container" *ngIf="isProductModalOpen">
-  <div class="inner-modal-wrp">
-    <div class="add-product-modal-content-wrp">
-      <div class="product-modal-heading">
-        <div class="heading-text-wrp">
-          <h5 class="heading__text">Add Product</h5>
-          <h6 class="heading__text">
-            add your product and nessesary information here
-          </h6>
-        </div>
-        <div class="close-modal-wrp" (click)="closeAddProductModal()">
-          <span class="close-icon-red"></span>
-        </div>
+<app-modal-wrapper *ngIf="isProductModalOpen">
+  <h6 modalHeading>Add product</h6>
+  <p modalSubheading>Add product information here</p>
+  <span (click)="closeAddProductModal()" closeIcon class="close-icon"></span>
+  <button class="cancel__btn" (click)="closeAddProductModal()" cancelModal>
+    Cancel
+  </button>
+  <button (click)="AddProduct()" class="submit__btn" submitModal>
+    Add product
+  </button>
+  <form
+    id="addProductForm"
+    [formGroup]="addProductForm"
+    (ngSubmit)="AddProduct()"
+    modalForm
+  >
+    <div class="add-product-column-wrp drop--image">
+      <div class="label-wrp">
+        <p>Product image:</p>
       </div>
-      <div class="add-product-wrp">
-        <form
-          id="addProductForm"
-          [formGroup]="addProductForm"
-          (ngSubmit)="AddProduct()"
-        >
-          <div class="add-product-column-wrp height-100px">
-            <div class="label-wrp">
-              <p>Product image:</p>
-            </div>
-            <div>
-              <!--upload image-->
-              <div class="drop-image-wrp">
-                <app-upload-user-image
-                  (imageEvent)="imageDropped($event)"
-                ></app-upload-user-image>
-              </div>
-              <!--upload image end-->
-            </div>
-          </div>
-          <!--image preview-->
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>image preview:</p>
-            </div>
-            <div>
-              <div class="image-preview">
-                <img #preview src="/assets/images/defaultProduct.png" />
-              </div>
-            </div>
-          </div>
-          <!--image preview end-->
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product Title/Name::</p>
-            </div>
-            <div>
-              <input
-                type="text"
-                name="productName"
-                formControlName="productName"
-              />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product details:</p>
-            </div>
-            <div>
-              <textarea
-                id="productDetails"
-                name="productDetails"
-                cols="30"
-                rows="10"
-                formControlName="productDetails"
-              ></textarea>
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product category:</p>
-            </div>
-            <div>
-              <input type="text" name="category" formControlName="category" />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Unit (kg/pc/lb/ml/g...etc):</p>
-            </div>
-            <div>
-              <input type="text" name="unit" formControlName="unit" />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product quantity:</p>
-            </div>
-            <div>
-              <input type="text" name="quantity" formControlName="quantity" />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product price:</p>
-            </div>
-            <div>
-              <input type="text" name="price" formControlName="price" />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-btn-wrp">
-        <button (click)="closeAddProductModal()">cancel</button>
-        <button
-          form="addProductForm"
-          type="submit"
-          class="add__product__btn"
-          [disabled]="!addProductForm.valid"
-        >
-          add product
-        </button>
+      <div>
+        <div class="drop-image-wrp">
+          <app-upload-user-image
+            (imageEvent)="imageDropped($event)"
+          ></app-upload-user-image>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>image preview:</p>
+      </div>
+      <div>
+        <div class="image-preview">
+          <img #preview src="/assets/images/defaultProduct.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product Title/Name::</p>
+      </div>
+      <div>
+        <input type="text" name="productName" formControlName="productName" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product details:</p>
+      </div>
+      <div>
+        <textarea
+          id="productDetails"
+          name="productDetails"
+          cols="30"
+          rows="10"
+          formControlName="productDetails"
+        ></textarea>
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product category:</p>
+      </div>
+      <div>
+        <input type="text" name="category" formControlName="category" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Unit (kg/pc/lb/ml/g...etc):</p>
+      </div>
+      <div>
+        <input type="text" name="unit" formControlName="unit" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product quantity:</p>
+      </div>
+      <div>
+        <input type="text" name="quantity" formControlName="quantity" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product price:</p>
+      </div>
+      <div>
+        <input type="text" name="price" formControlName="price" />
+      </div>
+    </div>
+  </form>
+</app-modal-wrapper>

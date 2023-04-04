@@ -288,6 +288,49 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+@mixin modal-header-style {
+  h6,
+  p {
+    margin: 0;
+    color: white;
+    font-family: "Roboto";
+  }
+
+  h6 {
+    font-size: 1.1rem;
+  }
+
+  .close-icon {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: url("~/src/assets/icons/close.svg");
+    background-repeat: no-repeat;
+    display: block;
+  }
+}
+
+@mixin modal-btns-style {
+  .cancel__btn,
+  .submit__btn {
+    width: 20%;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cancel__btn {
+    color: var(--primary-warning);
+  }
+
+  .submit__btn {
+    background-color: var(--primary-green);
+    color: white;
+  }
+}
+
 @mixin light-grey-border {
   border: 1px solid rgba($color: #f1efef, $alpha: 0.1);
 }
