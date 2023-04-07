@@ -27,4 +27,9 @@ export class CategoryService {
     //fake post to server
     return of(categoryId);
   }
+
+  addCategory(category: CategoryData) {
+    //fake post to server
+    return of(category);
+  }
 }

@@ -79,3 +79,18 @@ export const toggleCategoryPublishedStatusFailed = createAction(
 export const setPublishedStatusNotificationToDefault = createAction(
   categoryActionTypes.SET_PUBLISHED_NOTIFICATION_TO_DEFAULT
 );
+
+export const addCategory = createAction(
+  categoryActionTypes.ADD_CATEGORY,
+  props<{ category: CategoryData }>()
+);
+
+export const addCategorySuccess = createAction(
+  categoryActionTypes.ADD_CATEGORY_SUCCESS,
+  props<{ category: CategoryData }>()
+);
+
+export const addCategoryFail = createAction(
+  categoryActionTypes.ADD_CATEGORY_FAIL,
+  props<{ error: any }>()
+);

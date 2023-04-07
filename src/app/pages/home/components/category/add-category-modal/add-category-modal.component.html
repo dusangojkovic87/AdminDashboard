@@ -6,7 +6,12 @@
   <button class="cancel__btn" (click)="closeCategoryModal()" cancelModal>
     Cancel
   </button>
-  <button (click)="AddCategory()" class="submit__btn" submitModal>
+  <button
+    [disabled]="!addCategoryForm.valid"
+    (click)="AddCategory()"
+    class="submit__btn"
+    submitModal
+  >
     Add category
   </button>
   <!--end content projection-->
@@ -61,7 +66,7 @@
         <input
           type="text"
           name="productCategory"
-          formControlName="productCategory"
+          formControlName="parentCategory"
         />
       </div>
     </div>

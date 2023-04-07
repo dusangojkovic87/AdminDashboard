@@ -3,10 +3,12 @@ import { Store } from '@ngrx/store';
 import { distinct, map, Subscription, switchMap } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
+  addCategory,
   filterByCategoryInput,
   filterByCategorySelect,
   openAddCategoryModal,
 } from '../categoryActions/categoryActions';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-category-form',
@@ -18,8 +20,9 @@ export class AddCategoryFormComponent implements OnInit, OnDestroy {
   productType: string = 'all';
   productTypeInput: string = '';
   productTypeList: string[] = [];
+  categoryForm!: FormGroup;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.getListOfCategoriesFromStore();
