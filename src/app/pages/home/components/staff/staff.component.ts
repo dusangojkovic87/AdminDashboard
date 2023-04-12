@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { getStaff } from './staffActions/staffActions';
+import {
+  closeDeleteStaffModal,
+  deleteStaff,
+  getStaff,
+} from './staffActions/staffActions';
 import { StaffMember } from './types/StaffMember';
 
 @Component({
@@ -12,6 +16,7 @@ import { StaffMember } from './types/StaffMember';
 export class StaffComponent implements OnInit {
   staff: StaffMember[] = [];
   isModalOpen: boolean = false;
+  isDeleteStaffModalOpen: boolean = false;
   p: number = 1;
 
   constructor(private store: Store<AppState>) {}
@@ -19,6 +24,11 @@ export class StaffComponent implements OnInit {
   ngOnInit(): void {
     this.getStaffAction();
     this.isAddStaffModalOpen();
+    this.isDeleteModalOpen();
+  }
+
+  closeDeleteStaffModal() {
+    this.store.dispatch(closeDeleteStaffModal());
   }
 
   getStaffAction() {
@@ -40,6 +50,24 @@ export class StaffComponent implements OnInit {
       .subscribe((data) => {
         if (data) {
           this.staff = data;
+        }
+      });
+  }
+
+  isDeleteModalOpen() {
+    this.store
+      .select((state) => state.staffState.isDeleteStaffModalOpen)
+      .subscribe((data) => {
+        this.isDeleteStaffModalOpen = data;
+      });
+  }
+
+  deleteStaff() {
+    this.store
+      .select((state) => state.staffState.staffIdToDelete)
+      .subscribe((id) => {
+        if (id) {
+          this.store.dispatch(deleteStaff({ id: id }));
         }
       });
   }

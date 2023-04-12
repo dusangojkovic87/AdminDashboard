@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StaffMember } from '../types/StaffMember';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/appReducer/appReducer';
+import { openDeleteStaffModal } from '../staffActions/staffActions';
 
 @Component({
   selector: 'app-staff-member',
@@ -9,7 +12,13 @@ import { StaffMember } from '../types/StaffMember';
 export class StaffMemberComponent implements OnInit {
   @Input('staffMember') staffMember?: StaffMember;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {}
+
+  openDeleteStaffModal(id: number) {
+    if (id) {
+      this.store.dispatch(openDeleteStaffModal({ id: id }));
+    }
+  }
 }

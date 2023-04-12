@@ -29,3 +29,26 @@ export const openAddStaffModal = createAction(
 );
 
 export const closeStaffModal = createAction(staffActionTypes.CLOSE_STAFF_MODAL);
+
+export const openDeleteStaffModal = createAction(
+  staffActionTypes.OPEN_DELETE_STAFF_MODAL,
+  props<{ id: number }>()
+);
+
+export const closeDeleteStaffModal = createAction(
+  staffActionTypes.CLOSE_DELETE_STAFF_MODAL
+);
+
+export const deleteStaff = createAction(
+  staffActionTypes.DELETE_STAFF_RECORD,
+  props<{ id: number }>()
+);
+
+export const deleteStaffSuccess = createAction(
+  staffActionTypes.DELETE_STAFF_SUCCESS
+);
+
+export const deleteStaffFail = createAction(
+  staffActionTypes.DELETE_STAFF_FAIL,
+  props<{ error: any }>()
+);

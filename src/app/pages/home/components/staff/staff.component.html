@@ -1,4 +1,10 @@
 <app-add-staff-modal *ngIf="isModalOpen"></app-add-staff-modal>
+<app-delete-record-modal-wrrapper *ngIf="isDeleteStaffModalOpen">
+  <button class="cancel__btn" (click)="closeDeleteStaffModal()" cancelBtn>
+    cancel
+  </button>
+  <button class="delete__btn" (click)="deleteStaff()" deleteBtn>delete</button>
+</app-delete-record-modal-wrrapper>
 <h1>All staff</h1>
 <app-add-and-search-staff></app-add-and-search-staff>
 <div class="staff-container">

@@ -5,4 +5,6 @@ export interface StaffState {
   errors: string[] | null;
   filteredStaff: StaffMember[];
   isAddStaffModalOpen: boolean;
+  isDeleteStaffModalOpen: boolean;
+  staffIdToDelete: number;
 }

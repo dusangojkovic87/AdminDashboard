@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { StaffService } from '../services/staff.service';
-import { getStaffFail, getStaffSuccess } from '../staffActions/staffActions';
+import {
+  deleteStaffFail,
+  deleteStaffSuccess,
+  getStaffFail,
+  getStaffSuccess,
+} from '../staffActions/staffActions';
 import { staffActionTypes } from '../staffActionTypes/staffActionTypes';
 import { StaffMember } from '../types/StaffMember';
 
@@ -21,6 +26,21 @@ export class StaffEffect {
       }),
       catchError((error) => {
         return of(getStaffFail({ errors: error }));
+      })
+    )
+  );
+
+  $deleteStaff = createEffect(() =>
+    this.$actions.pipe(
+      ofType(staffActionTypes.DELETE_STAFF_RECORD),
+      switchMap((id) => {
+        return this.staffService.deleteStaff(id);
+      }),
+      map((id) => {
+        return deleteStaffSuccess();
+      }),
+      catchError((error) => {
+        return of(deleteStaffFail({ error: error }));
       })
     )
   );

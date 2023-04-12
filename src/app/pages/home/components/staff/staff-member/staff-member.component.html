@@ -15,7 +15,7 @@
       <span class="edit-icon">
         <app-message-tooltip [tooltipText]="'edit'"></app-message-tooltip>
       </span>
-      <span class="delete-icon">
+      <span class="delete-icon" (click)="openDeleteStaffModal(staffMember.id)">
         <app-message-tooltip
           [tooltipText]="'delete'"
           [tooltipColor]="'#df4759'"
