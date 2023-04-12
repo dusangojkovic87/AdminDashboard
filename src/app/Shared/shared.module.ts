@@ -11,6 +11,7 @@ import { MessageTooltipComponent } from './components/message-tooltip/message-to
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { UploadUserImageComponent } from './components/upload-user-image/upload-user-image.component';
 import { ModalWrapperComponent } from './components/modal-wrapper/modal-wrapper.component';
+import { DeleteRecordModalWrrapperComponent } from './components/delete-record-modal-wrrapper/delete-record-modal-wrrapper.component';
 const routes: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
 ];
@@ -22,6 +23,7 @@ const routes: Routes = [
     LoadingSpinnerComponent,
     UploadUserImageComponent,
     ModalWrapperComponent,
+    DeleteRecordModalWrrapperComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ const routes: Routes = [
     LoadingSpinnerComponent,
     UploadUserImageComponent,
     ModalWrapperComponent,
+    DeleteRecordModalWrrapperComponent,
   ],
 })
 export class SharedModule {}

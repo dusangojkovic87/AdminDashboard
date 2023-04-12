@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Coupon } from '../types/Coupon';
 
@@ -15,5 +15,10 @@ export class CouponsService {
     return this.http.get<Coupon[]>(
       baseUrl + '/assets/fakeBackend/coupons/coupons.json'
     );
+  }
+
+  deleteCoupon(couponId: number) {
+    //fake delete to server
+    return of(couponId);
   }
 }

@@ -16,7 +16,7 @@
       <span class="edit-icon" (click)="openEditCouponModal(coupon.id)">
         <app-message-tooltip [tooltipText]="'edit'"></app-message-tooltip>
       </span>
-      <span class="delete-icon">
+      <span class="delete-icon" (click)="openDeleteCouponModal(coupon.id)">
         <app-message-tooltip
           [tooltipText]="'delete'"
           [tooltipColor]="'#df4759'"

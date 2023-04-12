@@ -35,3 +35,25 @@ export const openEditCouponModal = createAction(
   couponsActionTypes.OPEN_EDIT_COUPON_MODAL,
   props<{ couponId: number }>()
 );
+
+export const openDeleteCouponModal = createAction(
+  couponsActionTypes.OPEN_DELETE_COUPON_MODAL,
+  props<{ couponId: number }>()
+);
+
+export const closeDeleteCouponModal = createAction(
+  couponsActionTypes.CLOSE_DELETE_COUPON_MODAL
+);
+
+export const deleteCoupon = createAction(
+  couponsActionTypes.DELETE_COUPON,
+  props<{ id: number }>()
+);
+
+export const deleteCouponSuccess = createAction(
+  couponsActionTypes.DELETE_COUPON_SUCCESS
+);
+
+export const deleteCouponFailed = createAction(
+  couponsActionTypes.DELETE_COUPON_FAILED
+);

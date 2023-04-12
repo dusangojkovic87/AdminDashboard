@@ -7,4 +7,6 @@ export interface CouponsState {
   isModalOpen: boolean;
   isEditCouponModalOpen: boolean;
   editCouponId: number | null;
+  isDeleteCouponModalOpen: boolean;
+  couponToDeleteId: number;
 }

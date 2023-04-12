@@ -1,11 +1,15 @@
 import { createReducer, on } from '@ngrx/store';
 import {
   closeCouponModal,
+  closeDeleteCouponModal,
   closeEditCouponModal,
+  deleteCouponFailed,
+  deleteCouponSuccess,
   filterCouponsByName,
   getCouponsFail,
   getCouponsSuccess,
   openCouponModal,
+  openDeleteCouponModal,
   openEditCouponModal,
 } from '../couponsActions/couponActions';
 import { CouponsState } from '../types/CouponsState';
@@ -17,6 +21,8 @@ const CouponsState: CouponsState = {
   isModalOpen: false,
   isEditCouponModalOpen: false,
   editCouponId: null,
+  isDeleteCouponModalOpen: false,
+  couponToDeleteId: 0,
 };
 
 export const couponsReducer = createReducer(
@@ -51,6 +57,29 @@ export const couponsReducer = createReducer(
     ...state,
     isEditCouponModalOpen: false,
     editCouponId: null,
+  })),
+  on(openDeleteCouponModal, (state: CouponsState, action) => ({
+    ...state,
+    isDeleteCouponModalOpen: true,
+    couponToDeleteId: action.couponId,
+  })),
+  on(closeDeleteCouponModal, (state: CouponsState, action) => ({
+    ...state,
+    isDeleteCouponModalOpen: false,
+    couponToDeleteId: 0,
+    errors: null,
+  })),
+  on(deleteCouponSuccess, (state: CouponsState, action) => ({
+    ...state,
+    isDeleteCouponModalOpen: false,
+    couponToDeleteId: 0,
+    errors: null,
+  })),
+  on(deleteCouponFailed, (state: CouponsState, action) => ({
+    ...state,
+    isDeleteCouponModalOpen: false,
+    couponToDeleteId: 0,
+    errors: ['failed to delete coupon'],
   }))
 );
 

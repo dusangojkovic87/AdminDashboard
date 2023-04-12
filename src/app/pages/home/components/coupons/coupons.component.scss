@@ -6,6 +6,25 @@ h1 {
   padding-left: 1rem;
 }
 
+.cancel__delete__btn,
+.delete__btn {
+  width: 40%;
+  height: 30px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel__delete__btn {
+  background-color: var(--primary-grey);
+}
+
+.delete__btn {
+  background-color: var(--primary-warning);
+}
+
 .coupons-container {
   position: relative;
   width: auto;

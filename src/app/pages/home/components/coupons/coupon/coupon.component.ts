@@ -2,7 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Coupon } from '../types/Coupon';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { openEditCouponModal } from '../couponsActions/couponActions';
+import {
+  openDeleteCouponModal,
+  openEditCouponModal,
+} from '../couponsActions/couponActions';
 
 @Component({
   selector: 'app-coupon',
@@ -19,5 +22,9 @@ export class CouponComponent implements OnInit {
   openEditCouponModal(id: string) {
     let couponId = +id;
     this.store.dispatch(openEditCouponModal({ couponId: couponId }));
+  }
+
+  openDeleteCouponModal(couponId: string) {
+    this.store.dispatch(openDeleteCouponModal({ couponId: +couponId }));
   }
 }

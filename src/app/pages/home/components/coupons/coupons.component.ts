@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { getCoupons } from './couponsActions/couponActions';
+import {
+  closeDeleteCouponModal,
+  deleteCoupon,
+  getCoupons,
+} from './couponsActions/couponActions';
 import { Coupon } from './types/Coupon';
 
 @Component({
@@ -14,6 +18,7 @@ export class CouponsComponent implements OnInit {
   p: number = 1;
   isModalOpen: boolean = false;
   isEditCouponModalOpen: boolean = false;
+  isDeleteCouponModalOpen: boolean = false;
 
   constructor(private store: Store<AppState>) {}
 
@@ -21,6 +26,7 @@ export class CouponsComponent implements OnInit {
     this.getCouponsAction();
     this.isCouponModalOpen();
     this.isEditCoupnModalOpen();
+    this.isDelteCouponModalOpen();
   }
 
   getCouponsAction() {
@@ -51,6 +57,28 @@ export class CouponsComponent implements OnInit {
       .select((state) => state.couponsState.isEditCouponModalOpen)
       .subscribe((data) => {
         this.isEditCouponModalOpen = data;
+      });
+  }
+
+  isDelteCouponModalOpen() {
+    this.store
+      .select((state) => state.couponsState.isDeleteCouponModalOpen)
+      .subscribe((data) => {
+        this.isDeleteCouponModalOpen = data;
+      });
+  }
+
+  closeDeleteCouponModal() {
+    this.store.dispatch(closeDeleteCouponModal());
+  }
+
+  deleteCoupon() {
+    this.store
+      .select((state) => state.couponsState.couponToDeleteId)
+      .subscribe((id) => {
+        if (id) {
+          this.store.dispatch(deleteCoupon({ id: id }));
+        }
       });
   }
 }
