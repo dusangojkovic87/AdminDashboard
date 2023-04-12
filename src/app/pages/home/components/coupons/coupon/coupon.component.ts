@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Coupon } from '../types/Coupon';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/appReducer/appReducer';
+import { openEditCouponModal } from '../couponsActions/couponActions';
 
 @Component({
   selector: 'app-coupon',
@@ -9,7 +12,12 @@ import { Coupon } from '../types/Coupon';
 export class CouponComponent implements OnInit {
   @Input('coupon') coupon?: Coupon;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {}
+
+  openEditCouponModal(id: string) {
+    let couponId = +id;
+    this.store.dispatch(openEditCouponModal({ couponId: couponId }));
+  }
 }

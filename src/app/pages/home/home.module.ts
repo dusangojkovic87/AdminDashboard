@@ -73,6 +73,7 @@ import { InvoicePaymentInfoComponent } from './components/orders/order-invoices/
 import { PrintDownloadInvoicesComponent } from './components/orders/order-invoices/print-download-invoices/print-download-invoices.component';
 import { AddStaffModalComponent } from './components/staff/add-staff-modal/add-staff-modal.component';
 import { AddCouponModalComponent } from './components/coupons/add-coupon-modal/add-coupon-modal.component';
+import { EditCouponModalComponent } from './components/coupons/edit-coupon-modal/edit-coupon-modal.component';
 
 const routes: Routes = [
   {
@@ -147,6 +148,7 @@ const routes: Routes = [
     PrintDownloadInvoicesComponent,
     AddStaffModalComponent,
     AddCouponModalComponent,
+    EditCouponModalComponent,
   ],
   imports: [
     TableModule,

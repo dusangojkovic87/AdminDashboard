@@ -1,5 +1,6 @@
 <h1>Coupons</h1>
 <app-add-coupon-modal *ngIf="isModalOpen"></app-add-coupon-modal>
+<app-edit-coupon-modal *ngIf="isEditCouponModalOpen"></app-edit-coupon-modal>
 <app-add-and-search-coupons></app-add-and-search-coupons>
 <div class="coupons-container" *ngIf="coupons.length > 0">
   <div class="inner-container">

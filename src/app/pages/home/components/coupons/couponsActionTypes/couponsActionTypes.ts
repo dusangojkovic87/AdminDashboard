@@ -5,4 +5,6 @@ export enum couponsActionTypes {
   FILTER_COUPONS_BY_NAME = '[Add and Search Coupons] Filter coupns by name',
   CLOSE_ADD_COUPON_MODAL = '[Add coupon modal] Close add coupon modal',
   OPEN_ADD_COUPON_MODAL = '[Add coupon modal] Open add coupon modal',
+  CLOSE_EDIT_COUPON_MODAL = '[Edit coupon modal] Close edit coupon modal',
+  OPEN_EDIT_COUPON_MODAL = '[Edit coupon modal] Open edit coupon modal',
 }

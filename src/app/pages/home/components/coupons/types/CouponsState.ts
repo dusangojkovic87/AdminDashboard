@@ -5,4 +5,6 @@ export interface CouponsState {
   errors: string[] | null;
   filteredCoupons: Coupon[];
   isModalOpen: boolean;
+  isEditCouponModalOpen: boolean;
+  editCouponId: number | null;
 }

@@ -13,12 +13,14 @@ export class CouponsComponent implements OnInit {
   coupons: Coupon[] = [];
   p: number = 1;
   isModalOpen: boolean = false;
+  isEditCouponModalOpen: boolean = false;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.getCouponsAction();
     this.isCouponModalOpen();
+    this.isEditCoupnModalOpen();
   }
 
   getCouponsAction() {
@@ -41,6 +43,14 @@ export class CouponsComponent implements OnInit {
       .select((state) => state.couponsState.isModalOpen)
       .subscribe((data) => {
         this.isModalOpen = data;
+      });
+  }
+
+  isEditCoupnModalOpen() {
+    this.store
+      .select((state) => state.couponsState.isEditCouponModalOpen)
+      .subscribe((data) => {
+        this.isEditCouponModalOpen = data;
       });
   }
 }
