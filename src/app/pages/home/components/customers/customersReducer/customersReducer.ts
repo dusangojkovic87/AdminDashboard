@@ -7,6 +7,7 @@ import {
   openDeleteCustomersModal,
 } from '../customersActions/customersActions';
 import { CustomersState } from '../types/CustomersState';
+import { deleteCategorySuccess } from '../../category/categoryActions/categoryActions';
 
 const CustomersState: CustomersState = {
   customers: [],
@@ -37,6 +38,11 @@ export const customersReducer = createReducer(
     isDeleteCustomerModalOpen: true,
   })),
   on(closeDeleteCustomersModal, (state: CustomersState, action) => ({
+    ...state,
+    customerToDelete: 0,
+    isDeleteCustomerModalOpen: false,
+  })),
+  on(deleteCategorySuccess, (state: CustomersState, action) => ({
     ...state,
     customerToDelete: 0,
     isDeleteCustomerModalOpen: false,

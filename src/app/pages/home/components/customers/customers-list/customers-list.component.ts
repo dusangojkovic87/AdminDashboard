@@ -57,6 +57,7 @@ export class CustomersListComponent implements OnInit {
       .subscribe((id) => {
         if (id) {
           this.store.dispatch(deleteCustomer({ id: id }));
+          this.store.dispatch(closeDeleteCustomersModal());
         }
       });
 
