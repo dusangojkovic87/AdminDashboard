@@ -6,4 +6,5 @@ export interface OrdersState {
   filteredOrders: CustomerOrder[];
   isOrderStatusChanged: boolean;
   downloadInvoices: boolean;
+  printInvoices: boolean;
 }

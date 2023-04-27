@@ -53,3 +53,9 @@ export const downloadPdf = createAction(ordersActionTypes.DOWNLOAD_PDF);
 export const setDownloadPdfToFalse = createAction(
   ordersActionTypes.SET_DOWNLOAD_PDF_TO_DEFAULT
 );
+
+export const printInvoices = createAction(ordersActionTypes.PRINT_INVOICES);
+
+export const setPrintToDefault = createAction(
+  ordersActionTypes.SET_PRINT_TO_DEFAULT
+);

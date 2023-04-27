@@ -8,8 +8,10 @@ import {
   filterOrdersByPhone,
   getOrdersFail,
   getOrdersSuccess,
+  printInvoices,
   setDownloadPdfToFalse,
   setOrderStatusToDefault,
+  setPrintToDefault,
 } from '../ordersActions/ordersActions';
 import { OrdersState } from '../types/OrdersState';
 
@@ -19,6 +21,7 @@ const OrdersState: OrdersState = {
   filteredOrders: [],
   isOrderStatusChanged: false,
   downloadInvoices: false,
+  printInvoices: false,
 };
 
 export const ordersReducer = createReducer(
@@ -59,6 +62,14 @@ export const ordersReducer = createReducer(
   on(setDownloadPdfToFalse, (state: OrdersState, action) => ({
     ...state,
     downloadInvoices: false,
+  })),
+  on(printInvoices, (state: OrdersState, action) => ({
+    ...state,
+    printInvoices: true,
+  })),
+  on(setPrintToDefault, (state: OrdersState, action) => ({
+    ...state,
+    printInvoices: false,
   }))
 );
 

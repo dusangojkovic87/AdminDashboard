@@ -11,4 +11,6 @@ export enum ordersActionTypes {
   SET_ORDER_STATUS_TO_DEFAULT = '[Order Item] Set order Status to Default',
   DOWNLOAD_PDF = '[Print download invoices] Download pdf',
   SET_DOWNLOAD_PDF_TO_DEFAULT = '[Print download invoices] Set download pdf to default',
+  PRINT_INVOICES = '[Print download invoices] Print invoices',
+  SET_PRINT_TO_DEFAULT = '[Print download invoices] Set print to default',
 }

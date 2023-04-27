@@ -1,7 +1,8 @@
+import { bestSellingStatReducer } from './../../../overview/overviewReducer/bestSellingStatReducer';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { downloadPdf } from '../../ordersActions/ordersActions';
+import { downloadPdf, printInvoices } from '../../ordersActions/ordersActions';
 
 @Component({
   selector: 'app-print-download-invoices',
@@ -15,5 +16,9 @@ export class PrintDownloadInvoicesComponent implements OnInit {
 
   downloadPdf() {
     this.store.dispatch(downloadPdf());
+  }
+
+  printInvoices() {
+    this.store.dispatch(printInvoices());
   }
 }

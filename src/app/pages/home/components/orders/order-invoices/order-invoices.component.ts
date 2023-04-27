@@ -14,6 +14,7 @@ import { CustomerOrder } from '../../customer-order-list/types/CustomerOrder';
 import {
   getOrders,
   setDownloadPdfToFalse,
+  setPrintToDefault,
 } from '../ordersActions/ordersActions';
 import { jsPDF } from 'jspdf';
 
@@ -40,6 +41,7 @@ export class OrderInvoicesComponent
 
   ngAfterViewInit(): void {
     this.isDownloadPdfPressed();
+    this.isPrintInvoicesPressed();
   }
 
   getOrderById() {
@@ -102,5 +104,21 @@ export class OrderInvoicesComponent
           this.store.dispatch(setDownloadPdfToFalse());
         }
       });
+  }
+
+  isPrintInvoicesPressed() {
+    this.store
+      .select((state) => state.ordersState.printInvoices)
+      .subscribe((isPrintInvoicesPressed) => {
+        if (isPrintInvoicesPressed) {
+          this.printInvoices();
+        }
+
+        this.store.dispatch(setPrintToDefault());
+      });
+  }
+
+  printInvoices() {
+    window.print();
   }
 }
