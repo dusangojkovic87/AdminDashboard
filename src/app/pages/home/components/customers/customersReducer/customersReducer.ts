@@ -10,6 +10,8 @@ const CustomersState: CustomersState = {
   customers: [],
   errors: null,
   filteredCustomers: [],
+  customerToDelete: 0,
+  isDeleteCustomerModalOpen: false,
 };
 
 export const customersReducer = createReducer(

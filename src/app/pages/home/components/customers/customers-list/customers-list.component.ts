@@ -14,11 +14,13 @@ export class CustomersListComponent implements OnInit {
   customers: CustomersData[] = [];
   p: number = 1;
   storeSub?: Subscription;
+  isDeleteModalOpen: boolean = false;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.getCustomersFromStore();
+    this.isDeleteCustomerModalOpen();
   }
 
   getCustomersFromStore() {
@@ -29,6 +31,14 @@ export class CustomersListComponent implements OnInit {
         if (data != null) {
           this.customers = data;
         }
+      });
+  }
+
+  isDeleteCustomerModalOpen() {
+    this.store
+      .select((state) => state.customersState.isDeleteCustomerModalOpen)
+      .subscribe((data) => {
+        this.isDeleteModalOpen = data;
       });
   }
 
