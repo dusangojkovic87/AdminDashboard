@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CustomersData } from '../../types/CustomersData';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/appReducer/appReducer';
+import { openDeleteCustomersModal } from '../../customersActions/customersActions';
 
 @Component({
   selector: 'app-customer',
@@ -9,7 +12,11 @@ import { CustomersData } from '../../types/CustomersData';
 export class CustomerComponent implements OnInit {
   @Input('customer') customer?: CustomersData;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
+
+  openDeleteCustomerModal(id: number) {
+    this.store.dispatch(openDeleteCustomersModal({ id: id }));
+  }
 
   ngOnInit(): void {}
 }

@@ -1,6 +1,10 @@
 <app-delete-record-modal-wrrapper *ngIf="isDeleteModalOpen">
-  <button class="cancel__btn" cancelBtn>cancel</button>
-  <button class="delete__btn" deleteBtn>delete</button>
+  <button class="cancel__btn" cancelBtn (click)="closeDeleteModal()">
+    cancel
+  </button>
+  <button class="delete__btn" deleteBtn (click)="deleteCustomerRecord()">
+    delete
+  </button>
 </app-delete-record-modal-wrrapper>
 <div class="customer-list-container">
   <div class="inner-container">

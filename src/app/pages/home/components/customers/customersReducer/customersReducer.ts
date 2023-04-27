@@ -1,8 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  closeDeleteCustomersModal,
   filterCustomersByName,
   getCustomersFail,
   getCustomersSuccess,
+  openDeleteCustomersModal,
 } from '../customersActions/customersActions';
 import { CustomersState } from '../types/CustomersState';
 
@@ -28,6 +30,16 @@ export const customersReducer = createReducer(
   on(filterCustomersByName, (state: CustomersState, action) => ({
     ...state,
     filteredCustomers: FilterByName(state, action.name),
+  })),
+  on(openDeleteCustomersModal, (state: CustomersState, action) => ({
+    ...state,
+    customerToDelete: action.id,
+    isDeleteCustomerModalOpen: true,
+  })),
+  on(closeDeleteCustomersModal, (state: CustomersState, action) => ({
+    ...state,
+    customerToDelete: 0,
+    isDeleteCustomerModalOpen: false,
   }))
 );
 

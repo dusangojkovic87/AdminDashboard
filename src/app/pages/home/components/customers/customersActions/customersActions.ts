@@ -28,7 +28,8 @@ export const closeDeleteCustomersModal = createAction(
 );
 
 export const deleteCustomer = createAction(
-  customersActionTypes.DELETE_CUSTOMER
+  customersActionTypes.DELETE_CUSTOMER,
+  props<{ id: number }>()
 );
 
 export const deleteCustomerFail = createAction(
