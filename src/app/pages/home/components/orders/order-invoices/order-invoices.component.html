@@ -1,5 +1,5 @@
 <h1>Invoices</h1>
-<div class="invoice-container" *ngIf="order">
+<div class="invoice-container" *ngIf="order" #invoice>
   <app-invoice-header></app-invoice-header>
   <app-invoice-number-date></app-invoice-number-date>
   <app-invoice-product-list
