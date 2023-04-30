@@ -74,6 +74,7 @@ import { PrintDownloadInvoicesComponent } from './components/orders/order-invoic
 import { AddStaffModalComponent } from './components/staff/add-staff-modal/add-staff-modal.component';
 import { AddCouponModalComponent } from './components/coupons/add-coupon-modal/add-coupon-modal.component';
 import { EditCouponModalComponent } from './components/coupons/edit-coupon-modal/edit-coupon-modal.component';
+import { EditStaffModalComponent } from './components/staff/edit-staff-modal/edit-staff-modal.component';
 
 const routes: Routes = [
   {
@@ -149,6 +150,7 @@ const routes: Routes = [
     AddStaffModalComponent,
     AddCouponModalComponent,
     EditCouponModalComponent,
+    EditStaffModalComponent,
   ],
   imports: [
     TableModule,
