@@ -1,4 +1,7 @@
-import { closeEditStaffModal } from './../staffActions/staffActions';
+import {
+  closeEditStaffModal,
+  editStaffMemberSuccess,
+} from './../staffActions/staffActions';
 import { createReducer, on } from '@ngrx/store';
 import {
   closeDeleteStaffModal,
@@ -14,6 +17,7 @@ import {
   openEditStaffModal,
 } from '../staffActions/staffActions';
 import { StaffState } from '../types/StaffState';
+import { editProductFail } from '../../products/productActions/productActions';
 
 const StaffState: StaffState = {
   staff: [],
@@ -84,6 +88,17 @@ export const staffReducer = createReducer(
     ...state,
     isEditStaffModalOpen: false,
     staffMemberToEdit: null,
+  })),
+  on(editStaffMemberSuccess, (state: StaffState, action) => ({
+    ...state,
+    isEditStaffModalOpen: false,
+    staffMemberToEdit: null,
+  })),
+  on(editProductFail, (state: StaffState, action) => ({
+    ...state,
+    isEditStaffModalOpen: false,
+    staffMemberToEdit: null,
+    errors: ['Edit memeber failed'],
   }))
 );
 

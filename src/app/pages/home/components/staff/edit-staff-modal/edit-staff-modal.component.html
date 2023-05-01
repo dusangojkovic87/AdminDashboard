@@ -5,7 +5,9 @@
   <button class="cancel__btn" (click)="closeEditStaffModal()" cancelModal>
     Cancel
   </button>
-  <button class="submit__btn" submitModal>Edit staff</button>
+  <button class="submit__btn" (click)="editStaffMember()" submitModal>
+    Edit staff
+  </button>
   <form [formGroup]="editStaffForm" modalForm>
     <input
       autocomplete="false"

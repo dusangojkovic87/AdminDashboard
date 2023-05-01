@@ -5,6 +5,9 @@ import { StaffService } from '../services/staff.service';
 import {
   deleteStaffFail,
   deleteStaffSuccess,
+  editStaffMember,
+  editStaffMemberFail,
+  editStaffMemberSuccess,
   getStaffFail,
   getStaffSuccess,
 } from '../staffActions/staffActions';
@@ -41,6 +44,22 @@ export class StaffEffect {
       }),
       catchError((error) => {
         return of(deleteStaffFail({ error: error }));
+      })
+    )
+  );
+
+  $editMember = createEffect(() =>
+    this.$actions.pipe(
+      ofType(editStaffMember),
+      switchMap(({ member }) => {
+        return this.staffService.editStaffMember(member);
+      }),
+      map(() => {
+        return editStaffMemberSuccess();
+      }),
+      catchError((error) => {
+        console.log(error);
+        return of(editStaffMemberFail({ error: error }));
       })
     )
   );

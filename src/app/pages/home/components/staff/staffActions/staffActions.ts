@@ -61,3 +61,17 @@ export const openEditStaffModal = createAction(
 export const closeEditStaffModal = createAction(
   staffActionTypes.CLOSE_EDIT_STAFF_MODAL
 );
+
+export const editStaffMember = createAction(
+  staffActionTypes.EDIT_STAFF_MEMBER,
+  props<{ member: StaffMember }>()
+);
+
+export const editStaffMemberSuccess = createAction(
+  staffActionTypes.EDIT_STAFF_MEMBER_SUCCESS
+);
+
+export const editStaffMemberFail = createAction(
+  staffActionTypes.EDIT_STAFF_MEMBER_FAIL,
+  props<{ error: any }>()
+);

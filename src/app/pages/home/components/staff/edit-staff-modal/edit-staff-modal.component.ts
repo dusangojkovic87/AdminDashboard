@@ -3,7 +3,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { closeEditStaffModal } from '../staffActions/staffActions';
+import {
+  closeEditStaffModal,
+  editStaffMember,
+} from '../staffActions/staffActions';
 import { StaffMember } from '../types/StaffMember';
 
 @Component({
@@ -13,6 +16,7 @@ import { StaffMember } from '../types/StaffMember';
 })
 export class EditStaffModalComponent implements OnInit, OnDestroy {
   editStaffForm!: FormGroup;
+  editMemberSub?: Subscription;
   memberStoreSub?: Subscription;
 
   constructor(private fb: FormBuilder, private store: Store<AppState>) {}
@@ -55,9 +59,22 @@ export class EditStaffModalComponent implements OnInit, OnDestroy {
       });
   }
 
+  editStaffMember() {
+    this.editMemberSub = this.store
+      .select((state) => state.staffState.staffMemberToEdit)
+      .subscribe((member) => {
+        if (member) {
+          this.store.dispatch(editStaffMember({ member: member }));
+        }
+
+        return;
+      });
+  }
+
   ngOnDestroy(): void {
-    if (this.memberStoreSub) {
+    if (this.memberStoreSub && this.editMemberSub) {
       this.memberStoreSub.unsubscribe();
+      this.editMemberSub.unsubscribe();
     }
   }
 }

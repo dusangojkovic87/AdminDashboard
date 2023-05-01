@@ -21,4 +21,9 @@ export class StaffService {
     //fake delete to server
     return of(id);
   }
+
+  editStaffMember(member: StaffMember) {
+    //fake edit to server
+    return of(member);
+  }
 }
