@@ -4,6 +4,7 @@ export interface StaffMember {
   image: string;
   email: string;
   contact: number;
+  password: number;
   joiningDate: string;
   role: string;
 }
