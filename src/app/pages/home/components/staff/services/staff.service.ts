@@ -26,4 +26,9 @@ export class StaffService {
     //fake edit to server
     return of(member);
   }
+
+  addStaffMember(member: StaffMember) {
+    //fake post to server
+    return of(member);
+  }
 }

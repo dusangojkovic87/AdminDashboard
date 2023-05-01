@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { closeStaffModal } from '../staffActions/staffActions';
+import { addStaffMember, closeStaffModal } from '../staffActions/staffActions';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -16,6 +16,7 @@ export class AddStaffModalComponent implements OnInit {
   ngOnInit(): void {
     this.addStaffForm = this.fb.group({
       image: null,
+      name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       contact: ['', Validators.required],
@@ -30,5 +31,10 @@ export class AddStaffModalComponent implements OnInit {
 
   closeStaffModal() {
     this.store.dispatch(closeStaffModal());
+  }
+
+  addStaffMember() {
+    this.store.dispatch(addStaffMember({ member: this.addStaffForm.value }));
+    this.addStaffForm.reset();
   }
 }

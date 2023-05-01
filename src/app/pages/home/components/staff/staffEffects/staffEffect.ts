@@ -3,6 +3,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { StaffService } from '../services/staff.service';
 import {
+  addStaffMember,
+  addStaffMemberFail,
+  addStaffMemberSuccess,
   deleteStaffFail,
   deleteStaffSuccess,
   editStaffMember,
@@ -60,6 +63,21 @@ export class StaffEffect {
       catchError((error) => {
         console.log(error);
         return of(editStaffMemberFail({ error: error }));
+      })
+    )
+  );
+
+  $addStaffMember = createEffect(() =>
+    this.$actions.pipe(
+      ofType(addStaffMember),
+      switchMap(({ member }) => {
+        return this.staffService.addStaffMember(member);
+      }),
+      map(() => {
+        return addStaffMemberSuccess();
+      }),
+      catchError((error) => {
+        return of(addStaffMemberFail({ error: error }));
       })
     )
   );

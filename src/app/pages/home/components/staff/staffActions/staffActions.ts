@@ -75,3 +75,17 @@ export const editStaffMemberFail = createAction(
   staffActionTypes.EDIT_STAFF_MEMBER_FAIL,
   props<{ error: any }>()
 );
+
+export const addStaffMember = createAction(
+  staffActionTypes.ADD_STAFF_MEMBER,
+  props<{ member: StaffMember }>()
+);
+
+export const addStaffMemberSuccess = createAction(
+  staffActionTypes.ADD_STAFF_MEMBER_SUCCESS
+);
+
+export const addStaffMemberFail = createAction(
+  staffActionTypes.DELETE_STAFF_FAIL,
+  props<{ error: any }>()
+);
