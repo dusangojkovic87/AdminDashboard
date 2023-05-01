@@ -11,4 +11,6 @@ export enum staffActionTypes {
   DELETE_STAFF_RECORD = '[Staff] Delete staff record',
   DELETE_STAFF_SUCCESS = '[Staff] delete staff success',
   DELETE_STAFF_FAIL = '[Staff] Delete staff fail',
+  OPEN_EDIT_STAFF_MODAL = '[Staff Member] Open edit staff modal',
+  CLOSE_EDIT_STAFF_MODAL = '[Edit Staff] Close edit staff modal',
 }

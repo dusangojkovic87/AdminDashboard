@@ -17,6 +17,7 @@ export class StaffComponent implements OnInit {
   staff: StaffMember[] = [];
   isModalOpen: boolean = false;
   isDeleteStaffModalOpen: boolean = false;
+  isEditStaffModalOpened: boolean = false;
   p: number = 1;
 
   constructor(private store: Store<AppState>) {}
@@ -25,6 +26,7 @@ export class StaffComponent implements OnInit {
     this.getStaffAction();
     this.isAddStaffModalOpen();
     this.isDeleteModalOpen();
+    this.isEditStaffModalOpen();
   }
 
   closeDeleteStaffModal() {
@@ -69,6 +71,14 @@ export class StaffComponent implements OnInit {
         if (id) {
           this.store.dispatch(deleteStaff({ id: id }));
         }
+      });
+  }
+
+  isEditStaffModalOpen() {
+    this.store
+      .select((state) => state.staffState.isEditStaffModalOpen)
+      .subscribe((data) => {
+        this.isEditStaffModalOpened = data;
       });
   }
 }

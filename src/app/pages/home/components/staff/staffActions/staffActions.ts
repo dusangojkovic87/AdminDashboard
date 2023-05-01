@@ -52,3 +52,12 @@ export const deleteStaffFail = createAction(
   staffActionTypes.DELETE_STAFF_FAIL,
   props<{ error: any }>()
 );
+
+export const openEditStaffModal = createAction(
+  staffActionTypes.OPEN_EDIT_STAFF_MODAL,
+  props<{ member: StaffMember }>()
+);
+
+export const closeEditStaffModal = createAction(
+  staffActionTypes.CLOSE_EDIT_STAFF_MODAL
+);

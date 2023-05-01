@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { closeStaffModal } from '../staffActions/staffActions';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-staff-modal',
@@ -9,12 +10,22 @@ import { closeStaffModal } from '../staffActions/staffActions';
   styleUrls: ['./add-staff-modal.component.scss'],
 })
 export class AddStaffModalComponent implements OnInit {
-  constructor(private store: Store<AppState>) {}
+  addStaffForm!: FormGroup;
+  constructor(private store: Store<AppState>, private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.addStaffForm = this.fb.group({
+      image: null,
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      contact: ['', Validators.required],
+      date: ['', Validators.required],
+      role: ['', Validators.required],
+    });
+  }
 
-  uploadedImage(event: any) {
-    console.log('slika', event);
+  uploadedImage($event: File) {
+    this.addStaffForm.patchValue({ image: $event.name });
   }
 
   closeStaffModal() {

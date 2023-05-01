@@ -7,4 +7,6 @@ export interface StaffState {
   isAddStaffModalOpen: boolean;
   isDeleteStaffModalOpen: boolean;
   staffIdToDelete: number;
+  isEditStaffModalOpen: boolean;
+  staffMemberToEdit: StaffMember | null;
 }

@@ -1,8 +1,10 @@
 <app-modal-wrapper>
   <h6 modalHeading>Edit staff</h6>
   <p modalSubheading>Add staff information here</p>
-  <span class="close-icon" closeIcon></span>
-  <button class="cancel__btn" cancelModal>Cancel</button>
+  <span class="close-icon" (click)="closeEditStaffModal()" closeIcon></span>
+  <button class="cancel__btn" (click)="closeEditStaffModal()" cancelModal>
+    Cancel
+  </button>
   <button class="submit__btn" submitModal>Edit staff</button>
   <form modalForm>
     <input

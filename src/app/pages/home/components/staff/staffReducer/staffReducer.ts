@@ -1,3 +1,4 @@
+import { closeEditStaffModal } from './../staffActions/staffActions';
 import { createReducer, on } from '@ngrx/store';
 import {
   closeDeleteStaffModal,
@@ -10,6 +11,7 @@ import {
   getStaffSuccess,
   openAddStaffModal,
   openDeleteStaffModal,
+  openEditStaffModal,
 } from '../staffActions/staffActions';
 import { StaffState } from '../types/StaffState';
 
@@ -20,6 +22,8 @@ const StaffState: StaffState = {
   isAddStaffModalOpen: false,
   isDeleteStaffModalOpen: false,
   staffIdToDelete: 0,
+  isEditStaffModalOpen: false,
+  staffMemberToEdit: null,
 };
 
 export const staffReducer = createReducer(
@@ -70,6 +74,16 @@ export const staffReducer = createReducer(
     isDeleteStaffModalOpen: false,
     staffIdToDelete: 0,
     errors: null,
+  })),
+  on(openEditStaffModal, (state: StaffState, action) => ({
+    ...state,
+    isEditStaffModalOpen: true,
+    staffMemberToEdit: action.member,
+  })),
+  on(closeEditStaffModal, (state: StaffState, action) => ({
+    ...state,
+    isEditStaffModalOpen: false,
+    staffMemberToEdit: null,
   }))
 );
 

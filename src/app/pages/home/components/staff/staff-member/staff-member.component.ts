@@ -2,7 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { StaffMember } from '../types/StaffMember';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { openDeleteStaffModal } from '../staffActions/staffActions';
+import {
+  openDeleteStaffModal,
+  openEditStaffModal,
+} from '../staffActions/staffActions';
 
 @Component({
   selector: 'app-staff-member',
@@ -20,5 +23,9 @@ export class StaffMemberComponent implements OnInit {
     if (id) {
       this.store.dispatch(openDeleteStaffModal({ id: id }));
     }
+  }
+
+  openEditStaffModal(member: StaffMember) {
+    this.store.dispatch(openEditStaffModal({ member: member }));
   }
 }
