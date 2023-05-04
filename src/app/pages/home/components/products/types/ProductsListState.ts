@@ -7,4 +7,5 @@ export interface ProductListState {
   productToEdit: Product | null;
   filteredProducts: Product[];
   isProductPublishingChanged: boolean;
+  errors: string[] | null;
 }

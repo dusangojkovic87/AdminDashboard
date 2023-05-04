@@ -1,3 +1,7 @@
+import {
+  uploadCsvFail,
+  uploadCsvSuccess,
+} from './../productActions/productActions';
 import { state } from '@angular/animations';
 import { act } from '@ngrx/effects';
 import { createReducer, on } from '@ngrx/store';
@@ -23,6 +27,7 @@ const ProductState: ProductListState = {
   productToEdit: null,
   filteredProducts: [],
   isProductPublishingChanged: false,
+  errors: null,
 };
 
 export const productsReducer = createReducer(
@@ -69,6 +74,14 @@ export const productsReducer = createReducer(
   on(setPublishProductStatusToDefault, (state: ProductListState, action) => ({
     ...state,
     isProductPublishingChanged: false,
+  })),
+  on(uploadCsvFail, (state: ProductListState, action) => ({
+    ...state,
+    errors: ['file upload failed'],
+  })),
+  on(uploadCsvSuccess, (state: ProductListState, action) => ({
+    ...state,
+    errors: null,
   }))
 );
 

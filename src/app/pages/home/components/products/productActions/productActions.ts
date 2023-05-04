@@ -91,3 +91,17 @@ export const tooglePublishProductFail = createAction(
 export const setPublishProductStatusToDefault = createAction(
   productActionTypes.SET_PUBLISH_PRODUCT_STATUS_TO_DEFAULT
 );
+
+export const uploadCsv = createAction(
+  productActionTypes.UPLOAD_CSV,
+  props<{ file: FormData }>()
+);
+
+export const uploadCsvSuccess = createAction(
+  productActionTypes.UPLOAD_CSV_SUCCESS
+);
+
+export const uploadCsvFail = createAction(
+  productActionTypes.UPLOAD_CSV_FAIL,
+  props<{ error: any }>()
+);
