@@ -1,130 +1,87 @@
-<div class="add-product-modal-container" *ngIf="isEditProductModalOpen">
-  <div class="inner-modal-wrp">
-    <div class="add-product-modal-content-wrp">
-      <div class="product-modal-heading">
-        <div class="heading-text-wrp">
-          <h5 class="heading__text">Edit Product</h5>
-          <h6 class="heading__text">
-            add your product and nessesary information here
-          </h6>
-        </div>
-        <div class="close-modal-wrp" (click)="closeEditProductModal()">
-          <span class="close-icon-red"></span>
-        </div>
+<app-modal-wrapper *ngIf="isEditProductModalOpen">
+  <!--content projection-->
+  <h6 modalHeading>Edit product</h6>
+  <p modalSubheading>Add product information here</p>
+  <span class="close-icon" (click)="closeEditProductModal()" closeIcon></span>
+  <button class="cancel__btn" (click)="closeEditProductModal()" cancelModal>
+    Cancel
+  </button>
+  <button class="submit__btn" (click)="EditProduct()" submitModal>
+    Edit product
+  </button>
+  <!--end content projection-->
+  <!--main form-->
+  <form
+    id="addProductForm"
+    [formGroup]="editProductForm"
+    (ngSubmit)="EditProduct()"
+    modalForm
+  >
+    <div class="add-product-column-wrp drop--image">
+      <div class="label-wrp">
+        <p>Product image:</p>
       </div>
-      <div class="add-product-wrp">
-        <form
-          id="addProductForm"
-          [formGroup]="editProductForm"
-          (ngSubmit)="EditProduct()"
-        >
-          <div class="add-product-column-wrp height-100px">
-            <div class="label-wrp">
-              <p>Product image:</p>
-            </div>
-            <div>
-              <div
-                [ngClass]="
-                  isImageOverInput === true
-                    ? 'product-img-wrp green--border'
-                    : 'product-img-wrp'
-                "
-              >
-                <span class="upload-icon"></span>
-                <p *ngIf="!this.editProductForm.controls['productImage'].value">
-                  drop image here
-                </p>
-                <p
-                  *ngIf="
-                    this.editProductForm.controls['productImage'].value != null
-                  "
-                >
-                  {{ productImageName }}
-                </p>
-                <p class="upload__err" *ngIf="fileNotSupported">
-                  File type not supported
-                </p>
-                <input
-                  type="file"
-                  name="productImage"
-                  (onImageDropped)="productImageDropped($event)"
-                  (onFileOverEvent)="imageOverInput($event)"
-                  appDropUploadImage
-                />
-              </div>
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product Title/Name::</p>
-            </div>
-            <div>
-              <input
-                type="text"
-                name="productName"
-                formControlName="productName"
-              />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product details:</p>
-            </div>
-            <div>
-              <textarea
-                id="productDetails"
-                name="productDetails"
-                cols="30"
-                rows="10"
-                formControlName="productDetails"
-              ></textarea>
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product category:</p>
-            </div>
-            <div>
-              <input type="text" name="category" formControlName="category" />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Unit (kg/pc/lb/ml/g...etc):</p>
-            </div>
-            <div>
-              <input type="text" name="unit" formControlName="unit" />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product quantity:</p>
-            </div>
-            <div>
-              <input type="text" name="quantity" formControlName="quantity" />
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product price:</p>
-            </div>
-            <div>
-              <input type="text" name="price" formControlName="price" />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-btn-wrp">
-        <button (click)="closeEditProductModal()">cancel</button>
-        <button
-          form="addProductForm"
-          type="submit"
-          class="add__product__btn"
-          [disabled]="!editProductForm.valid"
-        >
-          update product
-        </button>
+      <div>
+        <div class="drop-image-wrp">
+          <app-upload-user-image (imageEvent)="productImageDropped($event)">
+          </app-upload-user-image>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product Title/Name::</p>
+      </div>
+      <div>
+        <input type="text" name="productName" formControlName="productName" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product details:</p>
+      </div>
+      <div>
+        <textarea
+          id="productDetails"
+          name="productDetails"
+          cols="30"
+          rows="10"
+          formControlName="productDetails"
+        ></textarea>
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product category:</p>
+      </div>
+      <div>
+        <input type="text" name="category" formControlName="category" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Unit (kg/pc/lb/ml/g...etc):</p>
+      </div>
+      <div>
+        <input type="text" name="unit" formControlName="unit" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product quantity:</p>
+      </div>
+      <div>
+        <input type="text" name="quantity" formControlName="quantity" />
+      </div>
+    </div>
+    <div class="add-product-column-wrp">
+      <div class="label-wrp">
+        <p>Product price:</p>
+      </div>
+      <div>
+        <input type="text" name="price" formControlName="price" />
+      </div>
+    </div>
+  </form>
+  <!--end main form-->
+</app-modal-wrapper>

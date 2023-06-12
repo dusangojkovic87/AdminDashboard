@@ -1,0 +1,49 @@
+<app-modal-wrapper>
+  <!--content projection-->
+  <h6 modalHeading>Add Coupon</h6>
+  <p modalSubheading>add nessesary information here</p>
+  <span class="close-icon" (click)="closeCouponModal()" closeIcon></span>
+  <button class="cancel__btn" (click)="closeCouponModal()" cancelModal>
+    Cancel
+  </button>
+  <button class="submit__btn" submitModal>Add coupon</button>
+  <!--end content projection-->
+  <!--main form-->
+  <form modalForm>
+    <div class="form-column-wrp drop--image">
+      <label>Coupon banner image:</label>
+      <div class="drop-image-wrp">
+        <app-upload-user-image
+          (imageEvent)="imageUploaded($event)"
+        ></app-upload-user-image>
+      </div>
+    </div>
+    <div class="form-column-wrp">
+      <label for="campaign">Campaign name:</label>
+      <input type="text" name="campaign" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="code">Campaign code:</label>
+      <input type="text" name="code" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="validity">Coupon validity:</label>
+      <input type="date" name="validity" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="percentage">Coupon discount:</label>
+      <input type="number" name="percentage" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="minimumAmount">minimum amount required:</label>
+      <input type="number" name="minimumAmount" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="productType">minimum amount required:</label>
+      <select name="productType" id="productType">
+        <option value="Grocery">Grocery</option>
+      </select>
+    </div>
+  </form>
+  <!--end main form-->
+</app-modal-wrapper>

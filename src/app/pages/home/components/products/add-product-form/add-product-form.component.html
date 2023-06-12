@@ -2,10 +2,10 @@
   <form>
     <div class="upload__btn__wrp">
       <button class="add__csv__btn">Add csv</button>
-      <input type="file" name="product__csv" />
+      <input type="file" name="product__csv" (change)="csvFileAdded($event)" />
     </div>
     <div class="btn-wrp">
-      <button class="upload__btn">Upload</button>
+      <button class="upload__btn" (click)="uploadCsv()">Upload</button>
       <button class="download__btn">Download</button>
     </div>
   </form>

@@ -29,3 +29,63 @@ export const openAddStaffModal = createAction(
 );
 
 export const closeStaffModal = createAction(staffActionTypes.CLOSE_STAFF_MODAL);
+
+export const openDeleteStaffModal = createAction(
+  staffActionTypes.OPEN_DELETE_STAFF_MODAL,
+  props<{ id: number }>()
+);
+
+export const closeDeleteStaffModal = createAction(
+  staffActionTypes.CLOSE_DELETE_STAFF_MODAL
+);
+
+export const deleteStaff = createAction(
+  staffActionTypes.DELETE_STAFF_RECORD,
+  props<{ id: number }>()
+);
+
+export const deleteStaffSuccess = createAction(
+  staffActionTypes.DELETE_STAFF_SUCCESS
+);
+
+export const deleteStaffFail = createAction(
+  staffActionTypes.DELETE_STAFF_FAIL,
+  props<{ error: any }>()
+);
+
+export const openEditStaffModal = createAction(
+  staffActionTypes.OPEN_EDIT_STAFF_MODAL,
+  props<{ member: StaffMember }>()
+);
+
+export const closeEditStaffModal = createAction(
+  staffActionTypes.CLOSE_EDIT_STAFF_MODAL
+);
+
+export const editStaffMember = createAction(
+  staffActionTypes.EDIT_STAFF_MEMBER,
+  props<{ member: StaffMember }>()
+);
+
+export const editStaffMemberSuccess = createAction(
+  staffActionTypes.EDIT_STAFF_MEMBER_SUCCESS
+);
+
+export const editStaffMemberFail = createAction(
+  staffActionTypes.EDIT_STAFF_MEMBER_FAIL,
+  props<{ error: any }>()
+);
+
+export const addStaffMember = createAction(
+  staffActionTypes.ADD_STAFF_MEMBER,
+  props<{ member: StaffMember }>()
+);
+
+export const addStaffMemberSuccess = createAction(
+  staffActionTypes.ADD_STAFF_MEMBER_SUCCESS
+);
+
+export const addStaffMemberFail = createAction(
+  staffActionTypes.DELETE_STAFF_FAIL,
+  props<{ error: any }>()
+);

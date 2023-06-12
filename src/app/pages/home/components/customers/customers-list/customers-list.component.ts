@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { getCustomers } from '../customersActions/customersActions';
+import {
+  closeDeleteCustomersModal,
+  deleteCustomer,
+  getCustomers,
+} from '../customersActions/customersActions';
 import { CustomersData } from '../types/CustomersData';
 
 @Component({
@@ -14,11 +18,14 @@ export class CustomersListComponent implements OnInit {
   customers: CustomersData[] = [];
   p: number = 1;
   storeSub?: Subscription;
+  customerStoreSub?: Subscription;
+  isDeleteModalOpen: boolean = false;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.getCustomersFromStore();
+    this.isDeleteCustomerModalOpen();
   }
 
   getCustomersFromStore() {
@@ -32,7 +39,34 @@ export class CustomersListComponent implements OnInit {
       });
   }
 
+  isDeleteCustomerModalOpen() {
+    this.store
+      .select((state) => state.customersState.isDeleteCustomerModalOpen)
+      .subscribe((data) => {
+        this.isDeleteModalOpen = data;
+      });
+  }
+
+  closeDeleteModal() {
+    this.store.dispatch(closeDeleteCustomersModal());
+  }
+
+  deleteCustomerRecord() {
+    this.customerStoreSub = this.store
+      .select((state) => state.customersState.customerToDelete)
+      .subscribe((id) => {
+        if (id) {
+          this.store.dispatch(deleteCustomer({ id: id }));
+          this.store.dispatch(closeDeleteCustomersModal());
+        }
+      });
+
+    this.customerStoreSub.unsubscribe();
+  }
+
   ngOnDestroy() {
-    if (this.storeSub) this.storeSub?.unsubscribe();
+    if (this.storeSub) {
+      this.storeSub?.unsubscribe();
+    }
   }
 }

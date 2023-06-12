@@ -1,15 +1,20 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  closeDeleteCustomersModal,
   filterCustomersByName,
   getCustomersFail,
   getCustomersSuccess,
+  openDeleteCustomersModal,
 } from '../customersActions/customersActions';
 import { CustomersState } from '../types/CustomersState';
+import { deleteCategorySuccess } from '../../category/categoryActions/categoryActions';
 
 const CustomersState: CustomersState = {
   customers: [],
   errors: null,
   filteredCustomers: [],
+  customerToDelete: 0,
+  isDeleteCustomerModalOpen: false,
 };
 
 export const customersReducer = createReducer(
@@ -26,6 +31,21 @@ export const customersReducer = createReducer(
   on(filterCustomersByName, (state: CustomersState, action) => ({
     ...state,
     filteredCustomers: FilterByName(state, action.name),
+  })),
+  on(openDeleteCustomersModal, (state: CustomersState, action) => ({
+    ...state,
+    customerToDelete: action.id,
+    isDeleteCustomerModalOpen: true,
+  })),
+  on(closeDeleteCustomersModal, (state: CustomersState, action) => ({
+    ...state,
+    customerToDelete: 0,
+    isDeleteCustomerModalOpen: false,
+  })),
+  on(deleteCategorySuccess, (state: CustomersState, action) => ({
+    ...state,
+    customerToDelete: 0,
+    isDeleteCustomerModalOpen: false,
   }))
 );
 

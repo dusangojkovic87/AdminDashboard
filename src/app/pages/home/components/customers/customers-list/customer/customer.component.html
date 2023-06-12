@@ -1,18 +1,18 @@
-<div class="customer-container">
+<div class="customer-container" *ngIf="customer">
   <ul>
-    <li>{{ customer?.id }}</li>
-    <li>{{ customer?.joiningDate }}</li>
-    <li>{{ customer?.name }}</li>
-    <li>{{ customer?.email }}</li>
-    <li>{{ customer?.phone }}</li>
+    <li>{{ customer.id }}</li>
+    <li>{{ customer.joiningDate }}</li>
+    <li>{{ customer.name }}</li>
+    <li>{{ customer.email }}</li>
+    <li>{{ customer.phone }}</li>
     <li class="actions">
       <span
         class="details-icon"
-        routerLink="customer-order-list/{{ customer?.id }}"
+        routerLink="customer-order-list/{{ customer.id }}"
       >
         <app-message-tooltip [tooltipText]="'details'"></app-message-tooltip>
       </span>
-      <span class="trash-icon">
+      <span class="trash-icon" (click)="openDeleteCustomerModal(customer.id)">
         <app-message-tooltip
           [tooltipColor]="'#df4759'"
           [tooltipText]="'delete'"

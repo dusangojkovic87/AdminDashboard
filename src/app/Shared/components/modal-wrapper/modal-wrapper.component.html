@@ -1,0 +1,32 @@
+<div class="modal-container">
+  <div class="inner-wrp">
+    <!--modal header-->
+    <div class="modal-header">
+      <div class="modal-txt-wrp">
+        <ng-content
+          class="header__heading"
+          select="[modalHeading]"
+        ></ng-content>
+        <ng-content
+          class="header__subheading"
+          select="[modalSubheading]"
+        ></ng-content>
+      </div>
+      <div class="modal-close-icon-wrp">
+        <ng-content sellect="[closeIcon]"></ng-content>
+      </div>
+    </div>
+    <!--modal header end-->
+    <!--modal-form-->
+    <div class="modal-form-wrp">
+      <ng-content select="[modalForm]"></ng-content>
+    </div>
+    <!--modal form end-->
+  </div>
+  <!--modal btns-->
+  <div class="modal-btn-wrp">
+    <ng-content class="cancel__btn" select="[cancelModal]"></ng-content>
+    <ng-content class="submit__btn" select="[submitModal]"></ng-content>
+  </div>
+  <!--end modal btns-->
+</div>

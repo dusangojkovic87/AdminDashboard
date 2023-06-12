@@ -1,5 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  addCategoryFail,
+  addCategorySuccess,
   closeAddCategoryModal,
   closeDeleteCategoryModal,
   closeEditCategoryModal,
@@ -90,7 +92,11 @@ export const categoryReducer = createReducer(
       ...state,
       isCategoryPublishedStatusChanged: false,
     })
-  )
+  ),
+  on(addCategoryFail, (state: CategoryState, action) => ({
+    ...state,
+    errors: action.error,
+  }))
 );
 
 function CategorySelectOrder(state: CategoryState, action: string) {

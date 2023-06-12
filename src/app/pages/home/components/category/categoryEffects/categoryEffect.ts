@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
+  addCategory,
+  addCategoryFail,
+  addCategorySuccess,
   deleteCategoryFail,
   deleteCategorySuccess,
   getCategoriesFail,
@@ -68,6 +71,21 @@ export class CategoryEffect {
       }),
       catchError((error) => {
         return of(toggleCategoryPublishedStatusFailed({ errors: error }));
+      })
+    )
+  );
+
+  $addCategory = createEffect(() =>
+    this.actions.pipe(
+      ofType(addCategory),
+      switchMap(({ category }) => {
+        return this.categoriesServise.addCategory(category);
+      }),
+      map((data) => {
+        return addCategorySuccess({ category: data });
+      }),
+      catchError((error) => {
+        return of(addCategoryFail({ error: 'Something went wrong' }));
       })
     )
   );

@@ -2,7 +2,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { closeAddCategoryModal } from '../categoryActions/categoryActions';
+import {
+  addCategory,
+  closeAddCategoryModal,
+} from '../categoryActions/categoryActions';
 
 @Component({
   selector: 'app-add-category-modal',
@@ -25,9 +28,9 @@ export class AddCategoryModalComponent implements OnInit {
       });
 
     this.addCategoryForm = this.fb.group({
-      categoryImage: [null],
+      image: [null],
       productType: ['', Validators.required],
-      productCategory: ['', Validators.required],
+      parentCategory: ['', Validators.required],
     });
   }
 
@@ -40,9 +43,9 @@ export class AddCategoryModalComponent implements OnInit {
 
   AddCategory() {
     if (this.addCategoryForm.valid) {
-      //TODO ADD DISPATCH ACTION TO STORE CATEGORY
-
-      console.log(this.addCategoryForm.value);
+      this.store.dispatch(
+        addCategory({ category: this.addCategoryForm.value })
+      );
       this.addCategoryForm.reset();
     }
   }

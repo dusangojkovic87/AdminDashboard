@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "startDate": "Sep 25, 2022",
-    "endDate": "Jan 31, 2023",
+    "startDate": "2023-06-12",
+    "endDate": "2023-01-31",
     "campaignsName": "October Gift Voucher",
     "code": "October21",
     "percentage": 20,
@@ -11,8 +11,8 @@
   },
   {
     "id": 2,
-    "startDate": "Sep 25, 2022",
-    "endDate": "Feb 28, 2023",
+    "startDate": "2023-06-12",
+    "endDate": "2023-01-31",
     "campaignsName": "Winter Gift Voucher",
     "code": "WINTER21",
     "percentage": 15,

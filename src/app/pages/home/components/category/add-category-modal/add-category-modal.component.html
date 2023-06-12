@@ -1,79 +1,75 @@
-<div class="add-product-modal-container" *ngIf="isModalOpen">
-  <div class="inner-modal-wrp">
-    <div class="add-product-modal-content-wrp">
-      <div class="product-modal-heading">
-        <div class="heading-text-wrp">
-          <h5 class="heading__text">Add Category</h5>
-          <h6 class="heading__text">
-            add your product and nessesary information here
-          </h6>
-        </div>
-        <div class="close-modal-wrp" (click)="closeCategoryModal()">
-          <span class="close-icon-red"></span>
-        </div>
+<app-modal-wrapper *ngIf="isModalOpen">
+  <!--content projection-->
+  <h6 modalHeading>Add Category</h6>
+  <p modalSubheading>add nessesary information here</p>
+  <span class="close-icon" (click)="closeCategoryModal()" closeIcon></span>
+  <button class="cancel__btn" (click)="closeCategoryModal()" cancelModal>
+    Cancel
+  </button>
+  <button
+    [disabled]="!addCategoryForm.valid"
+    (click)="AddCategory()"
+    class="submit__btn"
+    submitModal
+  >
+    Add category
+  </button>
+  <!--end content projection-->
+  <!--main form-->
+  <form
+    id="addProductForm"
+    [formGroup]="addCategoryForm"
+    (ngSubmit)="AddCategory()"
+    modalForm
+  >
+    <div class="add-category-column-wrp drop--image">
+      <div class="label-wrp">
+        <p>Category image:</p>
       </div>
-      <div class="add-product-wrp">
-        <form
-          id="addProductForm"
-          [formGroup]="addCategoryForm"
-          (ngSubmit)="AddCategory()"
-        >
-          <div class="add-product-column-wrp height-100px">
-            <div class="label-wrp">
-              <p>Category image:</p>
-            </div>
-            <div>
-              <div class="drop-image-wrp">
-                <app-upload-user-image
-                  (imageEvent)="imageDropped($event)"
-                ></app-upload-user-image>
-              </div>
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp"></div>
-            <div class="preview-image">
-              <div class="preview-img-wrp">
-                <img #preview src="/assets/images/default.jpg" />
-              </div>
-            </div>
-          </div>
-
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Product Type:</p>
-            </div>
-            <div>
-              <select
-                name="productType"
-                id="productType"
-                formControlName="productType"
-              >
-                <option value="fruits">Fruits</option>
-                <option value="vegetables">Vegetables</option>
-              </select>
-            </div>
-          </div>
-          <div class="add-product-column-wrp">
-            <div class="label-wrp">
-              <p>Parent Category:</p>
-            </div>
-            <div>
-              <input
-                type="text"
-                name="productCategory"
-                formControlName="productCategory"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-btn-wrp">
-        <button>cancel</button>
-        <button form="addProductForm" type="submit" class="add__product__btn">
-          add category
-        </button>
+      <div>
+        <div class="drop-image-wrp">
+          <app-upload-user-image
+            (imageEvent)="imageDropped($event)"
+          ></app-upload-user-image>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="add-category-column-wrp">
+      <div class="label-wrp"></div>
+      <div class="preview-image">
+        <div class="preview-img-wrp">
+          <img #preview src="/assets/images/default.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <div class="add-category-column-wrp">
+      <div class="label-wrp">
+        <p>Product Type:</p>
+      </div>
+      <div>
+        <select
+          name="productType"
+          id="productType"
+          formControlName="productType"
+        >
+          <option value="fruits">Fruits</option>
+          <option value="vegetables">Vegetables</option>
+        </select>
+      </div>
+    </div>
+    <div class="add-category-column-wrp">
+      <div class="label-wrp">
+        <p>Parent Category:</p>
+      </div>
+      <div>
+        <input
+          type="text"
+          name="productCategory"
+          formControlName="parentCategory"
+        />
+      </div>
+    </div>
+  </form>
+  <!--end main form-->
+</app-modal-wrapper>

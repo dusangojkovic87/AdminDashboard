@@ -1,4 +1,6 @@
 @import "../../../../../../styles.scss";
+@include delete-modal-btn-style;
+
 .customer-list-container {
   position: relative;
   width: auto;

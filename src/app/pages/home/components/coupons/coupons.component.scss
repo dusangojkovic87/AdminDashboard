@@ -6,6 +6,8 @@ h1 {
   padding-left: 1rem;
 }
 
+@include delete-modal-btn-style;
+
 .coupons-container {
   position: relative;
   width: auto;

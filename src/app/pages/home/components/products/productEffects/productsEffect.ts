@@ -14,6 +14,9 @@ import {
   togglePublishProduct,
   tooglePublishProductFail,
   tooglePublishProductSuccess,
+  uploadCsv,
+  uploadCsvFail,
+  uploadCsvSuccess,
 } from '../productActions/productActions';
 import { productActionTypes } from '../productActionTypes/productActionTypes';
 import { ProductsService } from '../services/products.service';
@@ -88,6 +91,21 @@ export class ProductsEffect {
       }),
       catchError((error) => {
         return of(tooglePublishProductFail({ errors: error }));
+      })
+    )
+  );
+
+  $uploadCsv = createEffect(() =>
+    this.actions.pipe(
+      ofType(uploadCsv),
+      switchMap(({ file }) => {
+        return this.productService.uploadCsvFile(file);
+      }),
+      map(() => {
+        return uploadCsvSuccess();
+      }),
+      catchError((error) => {
+        return of(uploadCsvFail({ error: error }));
       })
     )
   );

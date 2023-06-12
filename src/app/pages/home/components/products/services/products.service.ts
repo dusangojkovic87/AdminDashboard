@@ -30,4 +30,9 @@ export class ProductsService {
     //fake post to server
     return of(true);
   }
+
+  uploadCsvFile(csvFile: FormData) {
+    //fake upload to server
+    return of(csvFile);
+  }
 }

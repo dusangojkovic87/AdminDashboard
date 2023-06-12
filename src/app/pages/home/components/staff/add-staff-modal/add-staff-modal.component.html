@@ -1,62 +1,59 @@
-<div class="add-staff-modal-container">
-  <div class="inner-wrp">
-    <!--modal header-->
-    <div class="modal-header">
-      <div class="header-text-wrp">
-        <h6>Add Staff</h6>
-        <p>add staff information here</p>
-      </div>
-      <div class="header-logo-wrp">
-        <span class="close-icon" (click)="closeStaffModal()"></span>
+<app-modal-wrapper>
+  <!--content projection-->
+  <h6 modalHeading>Add Staff</h6>
+  <p modalSubheading>add nessesary information here</p>
+  <span class="close-icon" (click)="closeStaffModal()" closeIcon></span>
+  <button class="cancel__btn" (click)="closeStaffModal()" cancelModal>
+    Cancel
+  </button>
+  <button class="submit__btn" (click)="addStaffMember()" submitModal>
+    Add staff
+  </button>
+  <!--end content projection-->
+  <!--main form-->
+  <form [formGroup]="addStaffForm" modalForm>
+    <input
+      autocomplete="false"
+      name="hidden"
+      type="text"
+      style="display: none"
+    />
+    <div class="form-column-wrp drop--image">
+      <label>Image upload</label>
+      <div class="drop-image-wrp">
+        <app-upload-user-image
+          (imageEvent)="uploadedImage($event)"
+        ></app-upload-user-image>
       </div>
     </div>
-    <!--end modal header-->
-    <!--modal form fields-->
-    <div class="modal-form-wrp">
-      <form>
-        <input
-          autocomplete="false"
-          name="hidden"
-          type="text"
-          style="display: none"
-        />
-        <div class="form-column-wrp height--100px">
-          <label>Image upload</label>
-          <div class="drop-image-wrp">
-            <app-upload-user-image
-              (imageEvent)="uploadedImage($event)"
-            ></app-upload-user-image>
-          </div>
-        </div>
-        <div class="form-column-wrp">
-          <label for="email">Email</label>
-          <input type="email" name="email" />
-        </div>
-        <div class="form-column-wrp">
-          <label for="password" name="password">Password</label>
-          <input type="password" autoComplete="new-password" />
-        </div>
-        <div class="form-column-wrp">
-          <label for="contact">Contact</label>
-          <input type="text" name="contact" />
-        </div>
-        <div class="form-column-wrp">
-          <label for="date">Joining date</label>
-          <input type="date" name="date" />
-        </div>
-        <div class="form-column-wrp">
-          <label for="role">Staff role</label>
-          <input type="text" name="role" />
-        </div>
-      </form>
+    <div class="form-column-wrp">
+      <label for="email">Name</label>
+      <input type="text" name="name" formControlName="name" />
     </div>
-
-    <!--modal form fields end-->
-  </div>
-  <!--modal btn-->
-  <div class="modal-btn-wrp">
-    <button class="cancel__btn">cancel</button>
-    <button class="add_staff_btn">add staff</button>
-  </div>
-  <!--modal btn end-->
-</div>
+    <div class="form-column-wrp">
+      <label for="email">Email</label>
+      <input type="email" name="email" formControlName="email" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="password" name="password">Password</label>
+      <input
+        type="password"
+        autoComplete="new-password"
+        formControlName="password"
+      />
+    </div>
+    <div class="form-column-wrp">
+      <label for="contact">Contact</label>
+      <input type="text" name="contact" formControlName="contact" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="date">Joining date</label>
+      <input type="date" name="date" formControlName="date" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="role">Staff role</label>
+      <input type="text" name="role" formControlName="role" />
+    </div>
+  </form>
+  <!--end main form-->
+</app-modal-wrapper>

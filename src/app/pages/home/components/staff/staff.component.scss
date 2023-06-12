@@ -1,4 +1,7 @@
 @import "../../../../../styles.scss";
+
+@include delete-modal-btn-style;
+@include pagination-style;
 h1 {
   color: white;
   font-size: 1.3rem;
@@ -61,7 +64,6 @@ h1 {
     }
   }
 }
-@include pagination-style;
 
 @media only screen and (max-width: $breakpoint-tablet) {
   .staff-container {

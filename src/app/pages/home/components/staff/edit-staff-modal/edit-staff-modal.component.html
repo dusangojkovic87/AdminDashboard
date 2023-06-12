@@ -1,0 +1,55 @@
+<app-modal-wrapper>
+  <h6 modalHeading>Edit staff</h6>
+  <p modalSubheading>Add staff information here</p>
+  <span class="close-icon" (click)="closeEditStaffModal()" closeIcon></span>
+  <button class="cancel__btn" (click)="closeEditStaffModal()" cancelModal>
+    Cancel
+  </button>
+  <button class="submit__btn" (click)="editStaffMember()" submitModal>
+    Edit staff
+  </button>
+  <form [formGroup]="editStaffForm" modalForm>
+    <input
+      autocomplete="false"
+      name="hidden"
+      type="text"
+      style="display: none"
+    />
+    <div class="form-column-wrp drop--image">
+      <label>Image upload</label>
+      <div class="drop-image-wrp">
+        <app-upload-user-image
+          (imageEvent)="uploadedImage($event)"
+        ></app-upload-user-image>
+      </div>
+    </div>
+    <div class="form-column-wrp">
+      <label for="email">Name</label>
+      <input type="text" name="name" formControlName="name" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="email">Email</label>
+      <input type="email" name="email" formControlName="email" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="password" name="password">Password</label>
+      <input
+        type="password"
+        autoComplete="new-password"
+        formControlName="password"
+      />
+    </div>
+    <div class="form-column-wrp">
+      <label for="contact">Contact</label>
+      <input type="text" name="contact" formControlName="contact" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="date">Joining date</label>
+      <input type="date" name="date" formControlName="date" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="role">Staff role</label>
+      <input type="text" name="role" formControlName="role" />
+    </div>
+  </form>
+</app-modal-wrapper>

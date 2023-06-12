@@ -1,4 +1,14 @@
 <h1>Coupons</h1>
+<app-add-coupon-modal *ngIf="isModalOpen"></app-add-coupon-modal>
+<app-edit-coupon-modal *ngIf="isEditCouponModalOpen"></app-edit-coupon-modal>
+<app-delete-record-modal-wrrapper *ngIf="isDeleteCouponModalOpen">
+  <button class="cancel__btn" (click)="closeDeleteCouponModal()" cancelBtn>
+    cancel
+  </button>
+  <button class="delete__btn" (click)="deleteCoupon()" deleteBtn>
+    delete record
+  </button>
+</app-delete-record-modal-wrrapper>
 <app-add-and-search-coupons></app-add-and-search-coupons>
 <div class="coupons-container" *ngIf="coupons.length > 0">
   <div class="inner-container">

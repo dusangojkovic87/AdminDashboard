@@ -1,0 +1,52 @@
+<app-modal-wrapper>
+  <!--content projection-->
+  <h6 modalHeading>Edit Coupon</h6>
+  <p modalSubheading>update coupon information here</p>
+  <span class="close-icon" (click)="closeEditCouponModal()" closeIcon></span>
+  <button class="cancel__btn" (click)="closeEditCouponModal()" cancelModal>
+    Cancel
+  </button>
+  <button class="submit__btn" (click)="updateCoupon()" submitModal>
+    Update coupon
+  </button>
+  <!--end content projection-->
+  <!--main form-->
+  <form [formGroup]="editCouponForm" (ngSubmit)="updateCoupon()" modalForm>
+    <div class="form-column-wrp drop--image">
+      <label>Coupon banner image:</label>
+      <div class="drop-image-wrp">
+        <app-upload-user-image
+          (imageEvent)="imageDropped($event)"
+        ></app-upload-user-image>
+      </div>
+    </div>
+    <div class="form-column-wrp">
+      <label for="campaign">Campaign name:</label>
+      <input type="text" formControlName="campaignsName" name="campaign" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="code">Campaign code:</label>
+      <input type="text" formControlName="code" name="code" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="validity">Coupon validity:</label>
+      <input
+        type="date"
+        format="dd-mm-yyyy"
+        formControlName="endDate"
+        name="endDate"
+      />
+    </div>
+    <div class="form-column-wrp">
+      <label for="percentage">Coupon discount:</label>
+      <input type="number" formControlName="percentage" name="percentage" />
+    </div>
+    <div class="form-column-wrp">
+      <label for="productType">Product Type:</label>
+      <select name="productType" formControlName="productType" id="productType">
+        <option value="Grocery">Grocery</option>
+      </select>
+    </div>
+  </form>
+  <!--end main form-->
+</app-modal-wrapper>

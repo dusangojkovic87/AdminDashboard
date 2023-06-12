@@ -19,4 +19,7 @@ export enum productActionTypes {
   TOOGLE_PUBLISH_PRODUCT_SUCCESS = '[Product Item] Toggle publish product success',
   TOOGLE_PUBLISH_PRODUCT_FAIL = '[Product Item] Toggle publish product fail',
   SET_PUBLISH_PRODUCT_STATUS_TO_DEFAULT = '[Product Item] Set publish product status to default',
+  UPLOAD_CSV = '[Add product form] upload csv',
+  UPLOAD_CSV_SUCCESS = '[Add product form] upload csv success',
+  UPLOAD_CSV_FAIL = '[Add product form] upload csv fail',
 }

@@ -17,4 +17,7 @@ export enum categoryActionTypes {
   TOGGLE_CATEGORY_PUBLISHED_STATUS_SUCCESS = '[Category Item] Toggle category published status success',
   TOGGLE_CATEGORY_PUBLISHED_STATUS_FAIL = '[Category Item] Toggle category published status fail',
   SET_PUBLISHED_NOTIFICATION_TO_DEFAULT = '[Category List] Set Published notification to default',
+  ADD_CATEGORY = '[Add category Form] Add Category',
+  ADD_CATEGORY_SUCCESS = '[Add category Form] Add Category success',
+  ADD_CATEGORY_FAIL = '[Add category Form] Add Category fail',
 }
