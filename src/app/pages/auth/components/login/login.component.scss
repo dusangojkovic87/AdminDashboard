@@ -1,3 +1,5 @@
+@import "~src/styles.scss";
+
 .login-container {
   position: relative;
   width: 100%;
@@ -9,7 +11,7 @@
   .login-form-wrp {
     position: relative;
     width: 80%;
-    height: 600px;
+    height: auto;
     display: flex;
     background-color: var(--primary-light-black);
     margin-top: 1rem;
@@ -62,7 +64,7 @@
       .login-input-wrp {
         position: relative;
         width: 100%;
-        height: auto;
+        height: 90px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -74,21 +76,23 @@
           font-size: 1rem;
           justify-self: flex-start;
           width: 80%;
+          height: 40px;
         }
 
         input {
           width: 80%;
-          height: 25px;
+          height: 40px;
           border-radius: 5px;
           outline-width: 1px;
           outline-color: var(--primary-grey);
+          text-indent: 10px;
         }
       }
 
       .login__btn {
         position: relative;
         width: 80%;
-        height: 30px;
+        height: 40px;
         background-color: var(--primary-green);
         color: white;
         border-radius: 5px;
@@ -129,6 +133,28 @@
           text-decoration: none;
           font-size: 1rem;
           margin-bottom: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .login-container {
+    padding-bottom: 1rem;
+    .login-form-wrp {
+      flex-direction: column;
+      .login-img-wrp {
+        width: 100%;
+        img {
+          object-fit: cover;
+        }
+      }
+
+      form {
+        width: 100%;
+        .login-input-wrp {
+          width: 100%;
         }
       }
     }
