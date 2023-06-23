@@ -1,3 +1,5 @@
+@import "~src/styles.scss";
+
 :host ::ng-deep .ngx-table__header-title {
   font-family: "Roboto";
   color: white;
@@ -39,5 +41,13 @@
     background-color: var(--primary-light-black);
     border-radius: 5px;
     padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .recent-orders-list-container {
+    .recent-orders-wrp {
+      overflow-x: scroll;
+    }
   }
 }
