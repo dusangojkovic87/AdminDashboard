@@ -42,15 +42,15 @@
         <p *ngIf="email.invalid && (email.dirty || email.touched)">
           *Email is not valid
         </p>
-        <p *ngIf="email.hasError('required') && email.touched && email.dirty">
+        <p *ngIf="email.hasError('required') && (email.touched || email.dirty)">
           *Email is required
         </p>
-        <p *ngIf="name.hasError('required') && name.touched && name.dirty">
+        <p *ngIf="name.hasError('required') && (name.touched || name.dirty)">
           *Name is required
         </p>
         <p
           *ngIf="
-            contact.hasError('required') && contact.touched && contact.dirty
+            contact.hasError('required') && (contact.touched || contact.dirty)
           "
         >
           *Contact is required
