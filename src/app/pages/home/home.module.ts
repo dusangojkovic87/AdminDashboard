@@ -14,7 +14,6 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { CouponsComponent } from './components/coupons/coupons.component';
 import { StaffComponent } from './components/staff/staff.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { PagesComponent } from './components/pages/pages.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { OrdersAmountOverviewComponent } from './components/overview/orders-amount-overview/orders-amount-overview.component';
 import { AmountDetailsEffect } from './components/overview/overviewEffects/amountDetailsEffect';
@@ -96,7 +95,6 @@ const routes: Routes = [
       { path: 'coupons', component: CouponsComponent },
       { path: 'staff', component: StaffComponent },
       { path: 'settings', component: SettingsComponent },
-      { path: 'pages', component: PagesComponent },
     ],
   },
 ];
@@ -110,7 +108,6 @@ const routes: Routes = [
     CouponsComponent,
     StaffComponent,
     SettingsComponent,
-    PagesComponent,
     OverviewComponent,
     OrdersAmountOverviewComponent,
     OrdersCountInfoComponent,

@@ -2,50 +2,15 @@
   {
     "id": 1,
     "image": "/assets/images/categories/banana.jpg",
-    "productType": "Fruits",
-    "parentCategory": "Grocery",
+    "name": "Fruits",
+    "description": "Fresh fruits",
     "published": true
   },
   {
     "id": 2,
-    "image": "/assets/images/categories/mango.jpg",
-    "productType": "Fruits",
-    "parentCategory": "Grocery",
-    "published": true
-  },
-  {
-    "id": 3,
     "image": "/assets/images/categories/onion.jpg",
-    "productType": "Veggetables",
-    "parentCategory": "Grocery",
-    "published": true
-  },
-  {
-    "id": 4,
-    "image": "/assets/images/categories/cabbage.jpg",
-    "productType": "Veggetables",
-    "parentCategory": "Grocery",
-    "published": true
-  },
-  {
-    "id": 5,
-    "image": "/assets/images/categories/kiwi.jpg",
-    "productType": "Fruits",
-    "parentCategory": "Grocery",
-    "published": true
-  },
-  {
-    "id": 6,
-    "image": "/assets/images/categories/broccoli.jpg",
-    "productType": "Veggetables",
-    "parentCategory": "Grocery",
-    "published": true
-  },
-  {
-    "id": 7,
-    "image": "/assets/images/categories/papaya.jpg",
-    "productType": "Fruits",
-    "parentCategory": "Grocery",
+    "name": "Veggetables",
+    "description": "Grocery",
     "published": true
   }
 ]

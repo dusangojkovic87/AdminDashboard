@@ -21,7 +21,7 @@ import { CategoryData } from '../types/CategoryData';
   templateUrl: './edit-category.component.html',
   styleUrls: ['./edit-category.component.scss'],
 })
-export class EditCategoryComponent implements OnInit, AfterViewInit, OnDestroy {
+export class EditCategoryComponent implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder, private store: Store<AppState>) {}
 
   @ViewChild('productTypeSelect') productTypeSelectElementRef?: ElementRef;
@@ -30,28 +30,23 @@ export class EditCategoryComponent implements OnInit, AfterViewInit, OnDestroy {
   editCategoryForm!: FormGroup;
   fileNotSupported = false;
   categoryImageName: string | null = null;
-  categoryToEdit!: CategoryData;
   storeSub!: Subscription;
 
   ngOnInit(): void {
-    this.storeSub = this.store
-      .select((state) => state.categoryState.categoryToEdit)
-      .subscribe((data) => {
-        console.log(data);
-
-        if (data) {
-          this.categoryToEdit = data;
-        }
-      });
-
     this.editCategoryForm = this.fb.group({
       categoryImage: [null],
-      productType: [this.categoryToEdit.productType, Validators.required],
-      productCategory: [
-        this.categoryToEdit.parentCategory,
-        Validators.required,
-      ],
+      name: ['', Validators.required],
+      description: ['', Validators.required],
     });
+
+    this.storeSub = this.store
+      .select((state) => state.categoryState.categoryToEdit)
+      .subscribe((data: CategoryData | null) => {
+        if (data) {
+          this.editCategoryForm.patchValue({ name: data.name });
+          this.editCategoryForm.patchValue({ description: data.description });
+        }
+      });
   }
 
   categoryImageDropped($event: { file: File | null; fileSupported: boolean }) {
@@ -79,12 +74,6 @@ export class EditCategoryComponent implements OnInit, AfterViewInit, OnDestroy {
 
   closeEditCategoryModal() {
     this.store.dispatch(closeEditCategoryModal());
-  }
-
-  ngAfterViewInit() {
-    let productTypeHtml = this.productTypeSelectElementRef
-      ?.nativeElement as HTMLSelectElement;
-    productTypeHtml.value = this.categoryToEdit.productType;
   }
 
   ngOnDestroy() {

@@ -29,8 +29,8 @@ export class AddCategoryModalComponent implements OnInit {
 
     this.addCategoryForm = this.fb.group({
       image: [null],
-      productType: ['', Validators.required],
-      parentCategory: ['', Validators.required],
+      name: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 

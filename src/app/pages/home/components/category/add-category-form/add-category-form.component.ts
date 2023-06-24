@@ -36,7 +36,7 @@ export class AddCategoryFormComponent implements OnInit, OnDestroy {
     this.storeSub = this.store
       .select((state) => state.categoryState)
       .pipe(
-        switchMap((c) => c.categories.map((s) => s.productType)),
+        switchMap((c) => c.categories.map((s) => s.name)),
         distinct()
       )
       .subscribe((data: string) => {

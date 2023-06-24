@@ -45,29 +45,18 @@
 
     <div class="add-category-column-wrp">
       <div class="label-wrp">
-        <p>Product Type:</p>
+        <p>Name:</p>
       </div>
       <div>
-        <select
-          name="productType"
-          id="productType"
-          formControlName="productType"
-        >
-          <option value="fruits">Fruits</option>
-          <option value="vegetables">Vegetables</option>
-        </select>
+        <input type="text" name="name" formControlName="name" />
       </div>
     </div>
     <div class="add-category-column-wrp">
       <div class="label-wrp">
-        <p>Parent Category:</p>
+        <p>Description:</p>
       </div>
       <div>
-        <input
-          type="text"
-          name="productCategory"
-          formControlName="parentCategory"
-        />
+        <input type="text" name="description" formControlName="description" />
       </div>
     </div>
   </form>

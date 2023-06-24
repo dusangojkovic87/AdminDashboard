@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NotifierService } from 'angular-notifier';
 import { AppState } from 'src/app/appReducer/appReducer';
@@ -7,18 +7,20 @@ import {
   setPublishedStatusNotificationToDefault,
 } from '../categoryActions/categoryActions';
 import { CategoryData } from '../types/CategoryData';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.scss'],
 })
-export class CategoryListComponent implements OnInit {
+export class CategoryListComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<AppState>,
     private notifier: NotifierService
   ) {}
   categories!: CategoryData[];
+  categoryPublishedChangedSub!: Subscription;
   p: number = 1;
 
   ngOnInit(): void {
@@ -38,7 +40,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   publishCategoryNotification() {
-    this.store
+    this.categoryPublishedChangedSub = this.store
       .select((state) => state.categoryState.isCategoryPublishedStatusChanged)
       .subscribe((isPublishedStatusChanged) => {
         if (isPublishedStatusChanged) {
@@ -46,5 +48,11 @@ export class CategoryListComponent implements OnInit {
           this.store.dispatch(setPublishedStatusNotificationToDefault());
         }
       });
+  }
+
+  ngOnDestroy(): void {
+    if (this.categoryPublishedChangedSub) {
+      this.categoryPublishedChangedSub.unsubscribe();
+    }
   }
 }

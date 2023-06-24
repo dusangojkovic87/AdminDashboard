@@ -4,8 +4,8 @@
     <li class="icon-list-item">
       <img src="{{ category.image }}" alt="{{ category.image }}" />
     </li>
-    <li>{{ category.productType }}</li>
-    <li>{{ category.parentCategory }}</li>
+    <li>{{ category.name }}</li>
+    <li>{{ category.description }}</li>
     <li>
       <form [formGroup]="categoryFormGroup">
         <input

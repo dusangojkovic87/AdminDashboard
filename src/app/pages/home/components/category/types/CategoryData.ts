@@ -1,7 +1,7 @@
 export interface CategoryData {
   id: number;
   image: string;
-  productType: string;
-  parentCategory: string;
+  name: string;
+  description: string;
   published: boolean;
 }

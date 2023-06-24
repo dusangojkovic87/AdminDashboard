@@ -101,7 +101,7 @@ export const categoryReducer = createReducer(
 
 function CategorySelectOrder(state: CategoryState, action: string) {
   return state.categories.filter(
-    (x) => x.productType.toLowerCase() === action.toLowerCase()
+    (x) => x.name.toLowerCase() === action.toLowerCase()
   );
 }
 
@@ -111,6 +111,6 @@ function CategoryInputOrder(state: CategoryState, action: string) {
   }
 
   return state.categories.filter((x) =>
-    x.productType.toLowerCase().includes(action.toLowerCase())
+    x.name.toLowerCase().includes(action.toLowerCase())
   );
 }
