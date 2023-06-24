@@ -62,6 +62,18 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     image.src = this.imagePreview;
   }
 
+  get email() {
+    return this.updateUserForm.get('email');
+  }
+
+  get name() {
+    return this.updateUserForm.get('name');
+  }
+
+  get contact() {
+    return this.updateUserForm.get('contact');
+  }
+
   ngOnDestroy() {
     this.$userSub?.unsubscribe();
   }
