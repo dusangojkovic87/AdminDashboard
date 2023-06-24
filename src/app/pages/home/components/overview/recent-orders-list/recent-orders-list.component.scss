@@ -47,6 +47,7 @@
 @media only screen and (max-width: $breakpoint-tablet) {
   .recent-orders-list-container {
     .recent-orders-wrp {
+      overflow-y: hidden;
       overflow-x: scroll;
     }
   }
