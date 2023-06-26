@@ -39,6 +39,21 @@ export const deleteCategorySuccess = createAction(
   categoryActionTypes.DELETE_CATEGORY_SUCCESS
 );
 
+export const getCategoryById = createAction(
+  categoryActionTypes.GET_CATEGORY_BY_ID,
+  props<{ id: number }>()
+);
+
+export const getCategoryByIdSuccess = createAction(
+  categoryActionTypes.GET_CATEGORY_BY_ID_SUCCESS,
+  props<{ category: CategoryData }>()
+);
+
+export const getCategoryByIdFail = createAction(
+  categoryActionTypes.GET_CATEGORY_BY_ID_FAIL,
+  props<{ error: any }>()
+);
+
 export const deleteCategoryFail = createAction(
   categoryActionTypes.DELETE_CATEGORY_FAIL,
   props<{ error: any }>()

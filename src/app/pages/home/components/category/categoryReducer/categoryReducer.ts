@@ -10,6 +10,8 @@ import {
   filterByCategorySelect,
   getCategoriesFail,
   getCategoriesSucces,
+  getCategoryByIdFail,
+  getCategoryByIdSuccess,
   openAddCategoryModal,
   openDeleteCategoryModal,
   openEditCategoryModal,
@@ -28,6 +30,7 @@ const CategoryState: CategoryState = {
   errors: null,
   filteredCategories: [],
   isCategoryPublishedStatusChanged: false,
+  categoryById: null,
 };
 
 export const categoryReducer = createReducer(
@@ -94,6 +97,14 @@ export const categoryReducer = createReducer(
     })
   ),
   on(addCategoryFail, (state: CategoryState, action) => ({
+    ...state,
+    errors: action.error,
+  })),
+  on(getCategoryByIdSuccess, (state: CategoryState, action) => ({
+    ...state,
+    categoryById: action.category,
+  })),
+  on(getCategoryByIdFail, (state: CategoryState, action) => ({
     ...state,
     errors: action.error,
   }))

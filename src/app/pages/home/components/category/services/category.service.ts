@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, filter, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CategoryData } from '../types/CategoryData';
 
@@ -11,7 +11,7 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<CategoryData[]> {
-    let baseUrl = environment.baseUrl;
+    const baseUrl = 'http://localhost:4200';
 
     return this.http.get<CategoryData[]>(
       baseUrl + '/assets/fakeBackend/categories/categories.json'
@@ -31,5 +31,12 @@ export class CategoryService {
   addCategory(category: CategoryData) {
     //fake post to server
     return of(category);
+  }
+
+  getCategoryById(): Observable<CategoryData[]> {
+    const baseUrl = 'http://localhost:4200';
+    return this.http.get<CategoryData[]>(
+      baseUrl + '/assets/fakeBackend/categories/categories.json'
+    );
   }
 }

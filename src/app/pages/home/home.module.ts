@@ -74,6 +74,7 @@ import { AddStaffModalComponent } from './components/staff/add-staff-modal/add-s
 import { AddCouponModalComponent } from './components/coupons/add-coupon-modal/add-coupon-modal.component';
 import { EditCouponModalComponent } from './components/coupons/edit-coupon-modal/edit-coupon-modal.component';
 import { EditStaffModalComponent } from './components/staff/edit-staff-modal/edit-staff-modal.component';
+import { CategoryDetailsComponent } from './components/category/category-details/category-details.component';
 
 const routes: Routes = [
   {
@@ -85,6 +86,7 @@ const routes: Routes = [
       { path: 'products', component: ProductsComponent },
       { path: 'products/:id', component: ProductDetailsComponent },
       { path: 'category', component: CategoryComponent },
+      { path: 'categoryDetails/:id', component: CategoryDetailsComponent },
       { path: 'customers', component: CustomersComponent },
       {
         path: 'customers/customer-order-list/:id',
@@ -148,6 +150,7 @@ const routes: Routes = [
     AddCouponModalComponent,
     EditCouponModalComponent,
     EditStaffModalComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     TableModule,

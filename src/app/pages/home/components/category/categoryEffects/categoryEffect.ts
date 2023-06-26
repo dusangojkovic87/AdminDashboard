@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, filter, map, of, switchMap, tap } from 'rxjs';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
   addCategory,
@@ -11,6 +11,9 @@ import {
   deleteCategorySuccess,
   getCategoriesFail,
   getCategoriesSucces,
+  getCategoryById,
+  getCategoryByIdFail,
+  getCategoryByIdSuccess,
   toggleCategoryPublishedStatus,
   toggleCategoryPublishedStatusFailed,
   toggleCategoryPublishedStatusSuccess,
@@ -86,6 +89,32 @@ export class CategoryEffect {
       }),
       catchError((error) => {
         return of(addCategoryFail({ error: 'Something went wrong' }));
+      })
+    )
+  );
+
+  $getCategoryById = createEffect(() =>
+    this.actions.pipe(
+      ofType(getCategoryById),
+      switchMap(({ id }) => {
+        return this.categoriesServise
+          .getCategoryById() // Passing 'id' to the getCategoryById() method
+          .pipe(
+            map((categories: CategoryData[]) => {
+              const category = categories.find((x) => x.id === id);
+              if (category) {
+                return category;
+              } else {
+                throw new Error('Category not found');
+              }
+            }),
+            map((category) => {
+              return getCategoryByIdSuccess({ category: category });
+            }),
+            catchError((err) => {
+              return of(getCategoryByIdFail({ error: err }));
+            })
+          );
       })
     )
   );

@@ -20,4 +20,7 @@ export enum categoryActionTypes {
   ADD_CATEGORY = '[Add category Form] Add Category',
   ADD_CATEGORY_SUCCESS = '[Add category Form] Add Category success',
   ADD_CATEGORY_FAIL = '[Add category Form] Add Category fail',
+  GET_CATEGORY_BY_ID = '[Category Details] Get category by id',
+  GET_CATEGORY_BY_ID_SUCCESS = '[Category Details] Get category by id success',
+  GET_CATEGORY_BY_ID_FAIL = '[Category Details] Get category by id fail',
 }

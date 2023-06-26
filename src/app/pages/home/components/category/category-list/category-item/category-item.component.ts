@@ -9,6 +9,7 @@ import {
   toggleCategoryPublishedStatus,
 } from '../../categoryActions/categoryActions';
 import { CategoryData } from '../../types/CategoryData';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-item',
@@ -19,7 +20,11 @@ export class CategoryItemComponent implements OnInit {
   @Input() category!: CategoryData;
   categoryFormGroup!: FormGroup;
 
-  constructor(private store: Store<AppState>, private fb: FormBuilder) {}
+  constructor(
+    private store: Store<AppState>,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.categoryFormGroup = this.fb.group({
@@ -42,5 +47,9 @@ export class CategoryItemComponent implements OnInit {
         published: this.categoryFormGroup.value,
       })
     );
+  }
+
+  redirectToCategoryData(categoryId: number) {
+    this.router.navigate(['categoryDetails', categoryId]);
   }
 }
