@@ -1,1 +1,4 @@
-<p>category-details works!</p>
+<div *ngFor="let product of category?.products">
+  <p>{{ product.productName }}</p>
+  <p>{{ product.price }}</p>
+</div>

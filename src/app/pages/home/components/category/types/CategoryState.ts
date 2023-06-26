@@ -10,5 +10,5 @@ export interface CategoryState {
   errors: string | null;
   filteredCategories: CategoryData[];
   isCategoryPublishedStatusChanged: boolean;
-  categoryById: CategoryData | null;
+  categoryById: CategoryData;
 }

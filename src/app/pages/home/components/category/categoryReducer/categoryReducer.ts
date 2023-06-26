@@ -19,6 +19,7 @@ import {
   toggleCategoryPublishedStatusSuccess,
 } from '../categoryActions/categoryActions';
 import { CategoryState } from '../types/CategoryState';
+import { CategoryData } from '../types/CategoryData';
 
 const CategoryState: CategoryState = {
   categories: [],
@@ -30,7 +31,7 @@ const CategoryState: CategoryState = {
   errors: null,
   filteredCategories: [],
   isCategoryPublishedStatusChanged: false,
-  categoryById: null,
+  categoryById: {} as CategoryData,
 };
 
 export const categoryReducer = createReducer(
