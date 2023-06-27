@@ -24,7 +24,7 @@ import { Product } from '../../types/Product';
   styleUrls: ['./product-list-item.component.scss'],
 })
 export class ProductListItemComponent implements OnInit, OnDestroy {
-  @Input('product') product?: Product;
+  @Input('product') product!: any;
   publishProductFormGroup!: FormGroup;
   storeSub!: Subscription;
 

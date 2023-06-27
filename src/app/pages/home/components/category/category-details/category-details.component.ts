@@ -5,6 +5,7 @@ import { AppState } from 'src/app/appReducer/appReducer';
 import { getCategoryById } from '../categoryActions/categoryActions';
 import { Observable, Subscription } from 'rxjs';
 import { CategoryData } from '../types/CategoryData';
+import { Product } from '../../overview/types/Product';
 
 @Component({
   selector: 'app-category-details',
@@ -12,7 +13,7 @@ import { CategoryData } from '../types/CategoryData';
   styleUrls: ['./category-details.component.scss'],
 })
 export class CategoryDetailsComponent implements OnInit, OnDestroy {
-  category?: CategoryData;
+  products?: Product[];
   categorySub!: Subscription;
   constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
 
@@ -31,7 +32,7 @@ export class CategoryDetailsComponent implements OnInit, OnDestroy {
     this.categorySub = this.store
       .select((state) => state.categoryState.categoryById)
       .subscribe((category) => {
-        this.category = category;
+        this.products = category.products;
       });
   }
 

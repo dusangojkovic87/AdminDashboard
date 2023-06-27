@@ -1,0 +1,35 @@
+@import "~/src/styles.scss";
+.category-products-container {
+  position: relative;
+  height: 30px;
+  width: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  top: 2rem;
+  .product-header-container {
+    width: 100%;
+    height: 30px;
+
+    ul {
+      @include light-grey-border;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      height: 30px;
+      width: 100%;
+
+      li {
+        width: 10%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        color: var(--primary-grey);
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}

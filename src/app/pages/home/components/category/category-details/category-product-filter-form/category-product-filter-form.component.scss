@@ -1,0 +1,41 @@
+@import "~/src/styles.scss";
+.category-product-filter-form-container {
+  position: relative;
+  width: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 100px;
+  background-color: var(--primary-light-black);
+  top: 1rem;
+  border-radius: 10px;
+
+  form {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    input,
+    select,
+    button {
+      height: 40px;
+      width: 30%;
+      font-size: 0.9rem;
+      background-color: var(--primary-light-black);
+      border: 1px solid grey;
+      color: grey;
+      text-indent: 10px;
+    }
+
+    button {
+      width: 20%;
+      background-color: var(--primary-green);
+      color: white;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

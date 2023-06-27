@@ -1,4 +1,26 @@
-<div *ngFor="let product of category?.products">
-  <p>{{ product.productName }}</p>
-  <p>{{ product.price }}</p>
+<app-edit-product-modal *ngIf="products"></app-edit-product-modal>
+<app-category-product-filter-form></app-category-product-filter-form>
+<div class="category-products-container">
+  <div class="product-header-container">
+    <ul>
+      <li>id</li>
+      <li>Product Name</li>
+      <li>Category</li>
+      <li>Price</li>
+      <li>Stock</li>
+      <li>Status</li>
+      <li>Discount</li>
+      <li>Published</li>
+      <li>Details</li>
+      <li>Action</li>
+    </ul>
+  </div>
+  <ng-container *ngIf="products">
+    <div class="products">
+      <app-product-list-item
+        *ngFor="let product of products"
+        [product]="product"
+      ></app-product-list-item>
+    </div>
+  </ng-container>
 </div>

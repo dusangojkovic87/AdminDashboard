@@ -75,6 +75,7 @@ import { AddCouponModalComponent } from './components/coupons/add-coupon-modal/a
 import { EditCouponModalComponent } from './components/coupons/edit-coupon-modal/edit-coupon-modal.component';
 import { EditStaffModalComponent } from './components/staff/edit-staff-modal/edit-staff-modal.component';
 import { CategoryDetailsComponent } from './components/category/category-details/category-details.component';
+import { CategoryProductFilterFormComponent } from './components/category/category-details/category-product-filter-form/category-product-filter-form.component';
 
 const routes: Routes = [
   {
@@ -151,6 +152,7 @@ const routes: Routes = [
     EditCouponModalComponent,
     EditStaffModalComponent,
     CategoryDetailsComponent,
+    CategoryProductFilterFormComponent,
   ],
   imports: [
     TableModule,
