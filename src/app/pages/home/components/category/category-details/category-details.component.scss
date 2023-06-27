@@ -18,6 +18,11 @@
       height: 30px;
       width: 100%;
 
+      .actions-wrp {
+        width: 15%;
+        height: 100%;
+      }
+
       li {
         width: 10%;
         height: 100%;
@@ -33,3 +38,5 @@
     }
   }
 }
+
+@include pagination-style;

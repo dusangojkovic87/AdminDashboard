@@ -1,0 +1,45 @@
+<div class="product-item-container" appDropProductImage *ngIf="product">
+  <ul>
+    <li>{{ product.id }}</li>
+    <li class="flex-between">
+      <img
+        class="product__image"
+        src="{{ product.image }}"
+        alt="{{ product.image }}"
+      />
+      {{ product.productName }}
+    </li>
+    <li>{{ product.category }}</li>
+    <li>{{ product.price | currency : "EUR" }}</li>
+    <li>{{ product.stock }}</li>
+    <li appStatusStyle [text]="product.status">{{ product.status }}</li>
+    <li>{{ product.discount }}</li>
+    <li>
+      <form [formGroup]="publishProductFormGroup">
+        <input
+          type="checkbox"
+          value="{{ product.published }}"
+          checked="{{ product.published | isChecked }}"
+          (change)="togglePublishProduct(product)"
+          formControlName="isPublished"
+        />
+      </form>
+    </li>
+    <li>
+      <span routerLink="/products/{{ product.id }}" class="details-icon">
+        <app-message-tooltip [tooltipText]="'details'"></app-message-tooltip>
+      </span>
+    </li>
+    <li class="actions-wrp">
+      <span class="edit-icon" (click)="openEditProductModal(product)">
+        <app-message-tooltip [tooltipText]="'edit'"></app-message-tooltip>
+      </span>
+      <span class="delete-icon">
+        <app-message-tooltip
+          [tooltipColor]="'#df4759'"
+          [tooltipText]="'delete'"
+        ></app-message-tooltip>
+      </span>
+    </li>
+  </ul>
+</div>

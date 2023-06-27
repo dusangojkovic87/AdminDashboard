@@ -1,21 +1,21 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AppState } from 'src/app/appReducer/appReducer';
 import {
   openEditProductModal,
   togglePublishProduct,
-} from '../../productActions/productActions';
-import { Product } from '../../types/Product';
+} from '../../../products/productActions/productActions';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/appReducer/appReducer';
+import { Product } from '../../../products/types/Product';
 
 @Component({
-  selector: 'app-product-list-item',
-  templateUrl: './product-list-item.component.html',
-  styleUrls: ['./product-list-item.component.scss'],
+  selector: 'app-category-product',
+  templateUrl: './category-product.component.html',
+  styleUrls: ['./category-product.component.scss'],
 })
-export class ProductListItemComponent implements OnInit, OnDestroy {
-  @Input('product') product!: Product;
+export class CategoryProductComponent implements OnInit {
+  @Input('product') product?: any;
   publishProductFormGroup!: FormGroup;
   storeSub!: Subscription;
 

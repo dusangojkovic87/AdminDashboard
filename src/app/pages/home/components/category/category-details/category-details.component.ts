@@ -3,8 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { getCategoryById } from '../categoryActions/categoryActions';
-import { Observable, Subscription } from 'rxjs';
-import { CategoryData } from '../types/CategoryData';
+import { Subscription } from 'rxjs';
 import { Product } from '../../overview/types/Product';
 
 @Component({
@@ -15,6 +14,7 @@ import { Product } from '../../overview/types/Product';
 export class CategoryDetailsComponent implements OnInit, OnDestroy {
   products?: Product[];
   categorySub!: Subscription;
+  p: number = 1;
   constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
 
   ngOnInit(): void {

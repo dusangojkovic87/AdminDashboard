@@ -12,15 +12,23 @@
       <li>Discount</li>
       <li>Published</li>
       <li>Details</li>
-      <li>Action</li>
+      <li class="actions-wrp">Actions</li>
     </ul>
   </div>
   <ng-container *ngIf="products">
     <div class="products">
-      <app-product-list-item
-        *ngFor="let product of products"
+      <app-category-product
+        *ngFor="
+          let product of products
+            | paginate : { itemsPerPage: 6, currentPage: p }
+        "
         [product]="product"
-      ></app-product-list-item>
+      ></app-category-product>
     </div>
   </ng-container>
+  <pagination-controls
+    class="pagination"
+    [responsive]="true"
+    (pageChange)="p = $event"
+  ></pagination-controls>
 </div>
