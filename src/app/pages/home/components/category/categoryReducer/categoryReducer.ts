@@ -9,6 +9,7 @@ import {
   deleteCategorySuccess,
   filterByCategoryInput,
   filterByCategorySelect,
+  filterCategoryProductsByName,
   getCategoriesFail,
   getCategoriesSucces,
   getCategoryByIdFail,
@@ -21,7 +22,6 @@ import {
   toggleCategoryPublishedStatusSuccess,
 } from '../categoryActions/categoryActions';
 import { CategoryState } from '../types/CategoryState';
-import { CategoryData } from '../types/CategoryData';
 
 const CategoryState: CategoryState = {
   categories: [],
@@ -36,6 +36,7 @@ const CategoryState: CategoryState = {
   productsByCategoryId: [],
   isDeleteProductModalOpen: false,
   productToDeleteId: 0,
+  filteredProductsByCategoryId: [],
 };
 
 export const categoryReducer = createReducer(
@@ -108,6 +109,7 @@ export const categoryReducer = createReducer(
   on(getCategoryByIdSuccess, (state: CategoryState, action) => ({
     ...state,
     productsByCategoryId: action.category.products,
+    filteredProductsByCategoryId: action.category.products,
   })),
   on(getCategoryByIdFail, (state: CategoryState, action) => ({
     ...state,
@@ -122,6 +124,13 @@ export const categoryReducer = createReducer(
     ...state,
     productToDeleteId: 0,
     isDeleteProductModalOpen: false,
+  })),
+  on(filterCategoryProductsByName, (state: CategoryState, action) => ({
+    ...state,
+    filteredProductsByCategoryId: FilterCategoryProductsByName(
+      state,
+      action.name
+    ),
   }))
 );
 
@@ -138,5 +147,16 @@ function CategoryInputOrder(state: CategoryState, action: string) {
 
   return state.categories.filter((x) =>
     x.name.toLowerCase().includes(action.toLowerCase())
+  );
+}
+
+function FilterCategoryProductsByName(state: CategoryState, action: string) {
+  console.log(action);
+
+  if (action === '') {
+    return state.productsByCategoryId;
+  }
+  return state.filteredProductsByCategoryId.filter((product) =>
+    product.productName.toLowerCase().includes(action.toLowerCase())
   );
 }

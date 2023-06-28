@@ -28,4 +28,6 @@ export enum categoryActionTypes {
   DELETE_PRODUCT_BY_ID = '[Category Details] Delete product by id',
   DELETE_PRODUCT_BY_ID_SUCCESS = '[Category Details] Delete product by id success',
   DELETE_PRODUCT_BY_ID_FAIL = '[Category Details] Delete product by id fail',
+  FILTER_CATEGORY_PRODUCTS_BY_NAME = '[Category Product filter form] Filter Category products by name',
+  FILTER_CATEGORY_PRODUCTS_BY_PRICE = '[Category Product filter form] Filter Category products by price',
 }

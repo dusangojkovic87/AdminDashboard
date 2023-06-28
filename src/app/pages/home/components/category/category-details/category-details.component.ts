@@ -37,7 +37,7 @@ export class CategoryDetailsComponent implements OnInit, OnDestroy {
 
   getCategoryByIdFromStore() {
     this.categorySub = this.store
-      .select((state) => state.categoryState.productsByCategoryId)
+      .select((state) => state.categoryState.filteredProductsByCategoryId)
       .subscribe((products) => {
         this.products = products;
       });

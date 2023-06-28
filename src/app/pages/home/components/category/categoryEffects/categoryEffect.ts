@@ -100,24 +100,22 @@ export class CategoryEffect {
     this.actions.pipe(
       ofType(getCategoryById),
       switchMap(({ id }) => {
-        return this.categoriesServise
-          .getCategoryById() // Passing 'id' to the getCategoryById() method
-          .pipe(
-            map((categories: CategoryData[]) => {
-              const category = categories.find((x) => x.id === id);
-              if (category) {
-                return category;
-              } else {
-                throw new Error('Category not found');
-              }
-            }),
-            map((category) => {
-              return getCategoryByIdSuccess({ category: category });
-            }),
-            catchError((err) => {
-              return of(getCategoryByIdFail({ error: err }));
-            })
-          );
+        return this.categoriesServise.getCategoryById().pipe(
+          map((categories: CategoryData[]) => {
+            const category = categories.find((x) => x.id === id);
+            if (category) {
+              return category;
+            } else {
+              throw new Error('Category not found');
+            }
+          }),
+          map((category) => {
+            return getCategoryByIdSuccess({ category: category });
+          }),
+          catchError((err) => {
+            return of(getCategoryByIdFail({ error: err }));
+          })
+        );
       })
     )
   );

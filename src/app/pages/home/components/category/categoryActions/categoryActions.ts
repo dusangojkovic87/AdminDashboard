@@ -136,3 +136,14 @@ export const deleteProductByIdFail = createAction(
   categoryActionTypes.DELETE_PRODUCT_BY_ID_FAIL,
   props<{ error: any }>()
 );
+
+//category product filter form
+export const filterCategoryProductsByName = createAction(
+  categoryActionTypes.FILTER_CATEGORY_PRODUCTS_BY_NAME,
+  props<{ name: string }>()
+);
+
+export const filterCategoryProductsByPrice = createAction(
+  categoryActionTypes.FILTER_CATEGORY_PRODUCTS_BY_PRICE,
+  props<{ price: string }>()
+);

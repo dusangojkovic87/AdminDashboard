@@ -3,8 +3,10 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import {
   closeProductsModal,
+  filterProductsByCategory,
   openProductsModal,
 } from '../../../products/productActions/productActions';
+import { filterCategoryProductsByName } from '../../categoryActions/categoryActions';
 
 @Component({
   selector: 'app-category-product-filter-form',
@@ -21,7 +23,8 @@ export class CategoryProductFilterFormComponent implements OnInit, OnDestroy {
   }
 
   searchByName($event: any) {
-    console.log($event.target.value);
+    let name = $event.target.value;
+    this.store.dispatch(filterCategoryProductsByName({ name: name }));
   }
 
   ngOnDestroy(): void {

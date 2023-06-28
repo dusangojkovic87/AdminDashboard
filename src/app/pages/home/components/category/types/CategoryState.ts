@@ -14,4 +14,5 @@ export interface CategoryState {
   productsByCategoryId: Product[];
   isDeleteProductModalOpen: boolean;
   productToDeleteId: number;
+  filteredProductsByCategoryId: Product[];
 }
