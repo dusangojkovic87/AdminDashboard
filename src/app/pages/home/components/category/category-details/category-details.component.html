@@ -1,3 +1,4 @@
+<app-add-product-modal></app-add-product-modal>
 <app-edit-product-modal *ngIf="products"></app-edit-product-modal>
 <app-delete-record-modal-wrrapper *ngIf="isDeleteProductModalOpen">
   <button class="cancel__btn" (click)="closeProductModal()" cancelBtn>
@@ -9,34 +10,36 @@
 </app-delete-record-modal-wrrapper>
 <app-category-product-filter-form></app-category-product-filter-form>
 <div class="category-products-container">
-  <div class="product-header-container">
-    <ul>
-      <li>id</li>
-      <li>Product Name</li>
-      <li>Category</li>
-      <li>Price</li>
-      <li>Stock</li>
-      <li>Status</li>
-      <li>Discount</li>
-      <li>Published</li>
-      <li>Details</li>
-      <li class="actions-wrp">Actions</li>
-    </ul>
-  </div>
-  <ng-container *ngIf="products">
-    <div class="products">
-      <app-category-product
-        *ngFor="
-          let product of products
-            | paginate : { itemsPerPage: 6, currentPage: p }
-        "
-        [product]="product"
-      ></app-category-product>
+  <div class="inner-wrp">
+    <div class="product-header-container">
+      <ul>
+        <li>id</li>
+        <li>Product Name</li>
+        <li>Category</li>
+        <li>Price</li>
+        <li>Stock</li>
+        <li>Status</li>
+        <li>Discount</li>
+        <li>Published</li>
+        <li>Details</li>
+        <li class="actions-wrp">Actions</li>
+      </ul>
     </div>
-  </ng-container>
-  <pagination-controls
-    class="pagination"
-    [responsive]="true"
-    (pageChange)="p = $event"
-  ></pagination-controls>
+    <ng-container *ngIf="products">
+      <div class="products">
+        <app-category-product
+          *ngFor="
+            let product of products
+              | paginate : { itemsPerPage: 6, currentPage: p }
+          "
+          [product]="product"
+        ></app-category-product>
+      </div>
+    </ng-container>
+    <pagination-controls
+      class="pagination"
+      [responsive]="true"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+  </div>
 </div>
