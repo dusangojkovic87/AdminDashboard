@@ -1,3 +1,4 @@
+import { Product } from '../../overview/types/Product';
 import { CategoryData } from './CategoryData';
 
 export interface CategoryState {
@@ -10,7 +11,7 @@ export interface CategoryState {
   errors: string | null;
   filteredCategories: CategoryData[];
   isCategoryPublishedStatusChanged: boolean;
-  categoryById: CategoryData;
+  productsByCategoryId: Product[];
   isDeleteProductModalOpen: boolean;
   productToDeleteId: number;
 }

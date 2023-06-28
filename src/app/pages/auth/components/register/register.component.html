@@ -40,7 +40,11 @@
         <option value="delivery">Delivery Person</option>
       </select>
       <div class="policy-wrp">
-        <input type="checkbox" name="policy" />
+        <input
+          type="checkbox"
+          name="policy"
+          (input)="policyAcception($event)"
+        />
         <label for="policy"
           >I agree to the
           <a class="policy__link" href="policy">privacy policy</a></label

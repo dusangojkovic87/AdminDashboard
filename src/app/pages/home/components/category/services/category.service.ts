@@ -43,8 +43,6 @@ export class CategoryService {
 
   deleteProductFromCategoryById(id: number) {
     //fake delete to server
-    console.log('deleted product', id);
-
     return of(id);
   }
 }

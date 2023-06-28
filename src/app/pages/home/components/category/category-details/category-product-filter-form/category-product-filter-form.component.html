@@ -1,6 +1,11 @@
 <div class="category-product-filter-form-container">
   <form>
-    <input type="text" name="name" placeholder="Name" />
+    <input
+      type="text"
+      name="name"
+      placeholder="Name"
+      (input)="searchByName($event)"
+    />
     <select name="price" id="price">
       <option value="low">low to high</option>
       <option value="high">high to low</option>

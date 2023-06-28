@@ -20,6 +20,10 @@ export class CategoryProductFilterFormComponent implements OnInit, OnDestroy {
     this.store.dispatch(openProductsModal());
   }
 
+  searchByName($event: any) {
+    console.log($event.target.value);
+  }
+
   ngOnDestroy(): void {
     this.store.dispatch(closeProductsModal());
   }

@@ -33,7 +33,7 @@ const CategoryState: CategoryState = {
   errors: null,
   filteredCategories: [],
   isCategoryPublishedStatusChanged: false,
-  categoryById: {} as CategoryData,
+  productsByCategoryId: [],
   isDeleteProductModalOpen: false,
   productToDeleteId: 0,
 };
@@ -107,7 +107,7 @@ export const categoryReducer = createReducer(
   })),
   on(getCategoryByIdSuccess, (state: CategoryState, action) => ({
     ...state,
-    categoryById: action.category,
+    productsByCategoryId: action.category.products,
   })),
   on(getCategoryByIdFail, (state: CategoryState, action) => ({
     ...state,
