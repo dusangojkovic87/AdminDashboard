@@ -23,4 +23,9 @@ export enum categoryActionTypes {
   GET_CATEGORY_BY_ID = '[Category Details] Get category by id',
   GET_CATEGORY_BY_ID_SUCCESS = '[Category Details] Get category by id success',
   GET_CATEGORY_BY_ID_FAIL = '[Category Details] Get category by id fail',
+  OPEN_DELETE_PRODUCT_MODAL = '[Category Details] Open delete product modal',
+  CLOSE_DELETE_PRODUCT_MODAL = '[Category Details] Close delete product modal',
+  DELETE_PRODUCT_BY_ID = '[Category Details] Delete product by id',
+  DELETE_PRODUCT_BY_ID_SUCCESS = '[Category Details] Delete product by id success',
+  DELETE_PRODUCT_BY_ID_FAIL = '[Category Details] Delete product by id fail',
 }

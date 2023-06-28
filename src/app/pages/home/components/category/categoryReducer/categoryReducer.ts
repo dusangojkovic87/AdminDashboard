@@ -4,6 +4,7 @@ import {
   addCategorySuccess,
   closeAddCategoryModal,
   closeDeleteCategoryModal,
+  closeDeleteProductModal,
   closeEditCategoryModal,
   deleteCategorySuccess,
   filterByCategoryInput,
@@ -14,6 +15,7 @@ import {
   getCategoryByIdSuccess,
   openAddCategoryModal,
   openDeleteCategoryModal,
+  openDeleteProductModal,
   openEditCategoryModal,
   setPublishedStatusNotificationToDefault,
   toggleCategoryPublishedStatusSuccess,
@@ -32,6 +34,8 @@ const CategoryState: CategoryState = {
   filteredCategories: [],
   isCategoryPublishedStatusChanged: false,
   categoryById: {} as CategoryData,
+  isDeleteProductModalOpen: false,
+  productToDeleteId: 0,
 };
 
 export const categoryReducer = createReducer(
@@ -108,6 +112,16 @@ export const categoryReducer = createReducer(
   on(getCategoryByIdFail, (state: CategoryState, action) => ({
     ...state,
     errors: action.error,
+  })),
+  on(openDeleteProductModal, (state: CategoryState, action) => ({
+    ...state,
+    productToDeleteId: action.id,
+    isDeleteProductModalOpen: true,
+  })),
+  on(closeDeleteProductModal, (state: CategoryState, action) => ({
+    ...state,
+    productToDeleteId: 0,
+    isDeleteProductModalOpen: false,
   }))
 );
 

@@ -9,6 +9,9 @@ import {
   addCategorySuccess,
   deleteCategoryFail,
   deleteCategorySuccess,
+  deleteProductById,
+  deleteProductByIdFail,
+  deleteProductByIdSuccess,
   getCategoriesFail,
   getCategoriesSucces,
   getCategoryById,
@@ -115,6 +118,21 @@ export class CategoryEffect {
               return of(getCategoryByIdFail({ error: err }));
             })
           );
+      })
+    )
+  );
+
+  $deleteProductById = createEffect(() =>
+    this.actions.pipe(
+      ofType(deleteProductById),
+      switchMap(({ id }) => {
+        return this.categoriesServise.deleteProductFromCategoryById(id);
+      }),
+      map(() => {
+        return deleteProductByIdSuccess();
+      }),
+      catchError((err) => {
+        return of(deleteProductByIdFail({ error: err }));
       })
     )
   );

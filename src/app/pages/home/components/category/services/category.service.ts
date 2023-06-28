@@ -1,3 +1,4 @@
+import { bestSellingStatReducer } from './../../overview/overviewReducer/bestSellingStatReducer';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, filter, of } from 'rxjs';
@@ -38,5 +39,12 @@ export class CategoryService {
     return this.http.get<CategoryData[]>(
       baseUrl + '/assets/fakeBackend/categories/categories.json'
     );
+  }
+
+  deleteProductFromCategoryById(id: number) {
+    //fake delete to server
+    console.log('deleted product', id);
+
+    return of(id);
   }
 }

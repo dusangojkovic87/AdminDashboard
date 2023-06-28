@@ -11,4 +11,6 @@ export interface CategoryState {
   filteredCategories: CategoryData[];
   isCategoryPublishedStatusChanged: boolean;
   categoryById: CategoryData;
+  isDeleteProductModalOpen: boolean;
+  productToDeleteId: number;
 }

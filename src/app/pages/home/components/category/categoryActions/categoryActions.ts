@@ -39,21 +39,6 @@ export const deleteCategorySuccess = createAction(
   categoryActionTypes.DELETE_CATEGORY_SUCCESS
 );
 
-export const getCategoryById = createAction(
-  categoryActionTypes.GET_CATEGORY_BY_ID,
-  props<{ id: number }>()
-);
-
-export const getCategoryByIdSuccess = createAction(
-  categoryActionTypes.GET_CATEGORY_BY_ID_SUCCESS,
-  props<{ category: CategoryData }>()
-);
-
-export const getCategoryByIdFail = createAction(
-  categoryActionTypes.GET_CATEGORY_BY_ID_FAIL,
-  props<{ error: any }>()
-);
-
 export const deleteCategoryFail = createAction(
   categoryActionTypes.DELETE_CATEGORY_FAIL,
   props<{ error: any }>()
@@ -107,5 +92,47 @@ export const addCategorySuccess = createAction(
 
 export const addCategoryFail = createAction(
   categoryActionTypes.ADD_CATEGORY_FAIL,
+  props<{ error: any }>()
+);
+
+//category details
+
+export const getCategoryById = createAction(
+  categoryActionTypes.GET_CATEGORY_BY_ID,
+  props<{ id: number }>()
+);
+
+export const getCategoryByIdSuccess = createAction(
+  categoryActionTypes.GET_CATEGORY_BY_ID_SUCCESS,
+  props<{ category: CategoryData }>()
+);
+
+export const getCategoryByIdFail = createAction(
+  categoryActionTypes.GET_CATEGORY_BY_ID_FAIL,
+  props<{ error: any }>()
+);
+
+//category details delete modal
+
+export const openDeleteProductModal = createAction(
+  categoryActionTypes.OPEN_DELETE_PRODUCT_MODAL,
+  props<{ id: number }>()
+);
+
+export const closeDeleteProductModal = createAction(
+  categoryActionTypes.CLOSE_DELETE_PRODUCT_MODAL
+);
+
+export const deleteProductById = createAction(
+  categoryActionTypes.DELETE_PRODUCT_BY_ID,
+  props<{ id: number }>()
+);
+
+export const deleteProductByIdSuccess = createAction(
+  categoryActionTypes.DELETE_PRODUCT_BY_ID_SUCCESS
+);
+
+export const deleteProductByIdFail = createAction(
+  categoryActionTypes.DELETE_PRODUCT_BY_ID_FAIL,
   props<{ error: any }>()
 );

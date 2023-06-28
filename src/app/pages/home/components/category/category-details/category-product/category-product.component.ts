@@ -8,6 +8,7 @@ import {
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
 import { Product } from '../../../products/types/Product';
+import { openDeleteProductModal } from '../../categoryActions/categoryActions';
 
 @Component({
   selector: 'app-category-product',
@@ -38,6 +39,10 @@ export class CategoryProductComponent implements OnInit {
         isPublished: this.publishProductFormGroup.value,
       })
     );
+  }
+
+  openDeleteProductModal(id: number) {
+    this.store.dispatch(openDeleteProductModal({ id: id }));
   }
 
   ngOnDestroy() {

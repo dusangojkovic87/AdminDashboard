@@ -1,4 +1,12 @@
 <app-edit-product-modal *ngIf="products"></app-edit-product-modal>
+<app-delete-record-modal-wrrapper *ngIf="isDeleteProductModalOpen">
+  <button class="cancel__btn" (click)="closeProductModal()" cancelBtn>
+    Cancel
+  </button>
+  <button class="submit__btn" (click)="deleteProductById()" deleteBtn>
+    Delete
+  </button>
+</app-delete-record-modal-wrrapper>
 <app-category-product-filter-form></app-category-product-filter-form>
 <div class="category-products-container">
   <div class="product-header-container">

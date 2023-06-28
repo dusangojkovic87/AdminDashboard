@@ -16,8 +16,8 @@
         />
       </form>
     </li>
-    <li class="actions-wrp" (click)="redirectToCategoryData(category.id)">
-      <span class="view-icon">
+    <li class="actions-wrp">
+      <span class="view-icon" (click)="redirectToCategoryData(category.id)">
         <app-message-tooltip [tooltipText]="'view'"> </app-message-tooltip>
       </span>
       <span class="edit-icon" (click)="openEditCategoryModal(category)">

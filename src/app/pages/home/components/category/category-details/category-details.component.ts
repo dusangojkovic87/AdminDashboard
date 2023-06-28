@@ -2,7 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/appReducer/appReducer';
-import { getCategoryById } from '../categoryActions/categoryActions';
+import {
+  closeDeleteProductModal,
+  deleteProductById,
+  getCategoryById,
+} from '../categoryActions/categoryActions';
 import { Subscription } from 'rxjs';
 import { Product } from '../../overview/types/Product';
 
@@ -14,6 +18,8 @@ import { Product } from '../../overview/types/Product';
 export class CategoryDetailsComponent implements OnInit, OnDestroy {
   products?: Product[];
   categorySub!: Subscription;
+  isModalOpenSub!: Subscription;
+  isDeleteProductModalOpen: boolean = false;
   p: number = 1;
   constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
 
@@ -26,6 +32,7 @@ export class CategoryDetailsComponent implements OnInit, OnDestroy {
     });
 
     this.getCategoryByIdFromStore();
+    this.isDeleteProductModalOpenFromStore();
   }
 
   getCategoryByIdFromStore() {
@@ -36,9 +43,33 @@ export class CategoryDetailsComponent implements OnInit, OnDestroy {
       });
   }
 
+  isDeleteProductModalOpenFromStore() {
+    this.isModalOpenSub = this.store
+      .select((state) => state.categoryState.isDeleteProductModalOpen)
+      .subscribe((isOpen) => {
+        this.isDeleteProductModalOpen = isOpen;
+      });
+  }
+
+  closeProductModal() {
+    this.store.dispatch(closeDeleteProductModal());
+  }
+
+  deleteProductById() {
+    this.store
+      .select((state) => state.categoryState.productToDeleteId)
+      .subscribe((id) => {
+        if (id) {
+          this.store.dispatch(deleteProductById({ id: id }));
+          this.store.dispatch(closeDeleteProductModal());
+        }
+      });
+  }
+
   ngOnDestroy() {
-    if (this.categorySub) {
+    if (this.categorySub && this.isModalOpenSub) {
       this.categorySub.unsubscribe();
+      this.isModalOpenSub.unsubscribe();
     }
   }
 }
