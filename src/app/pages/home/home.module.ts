@@ -81,7 +81,8 @@ import { CategoryProductComponent } from './components/category/category-details
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent /*canActivate: [AuthGuard] */,
+    component: HomeComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent },
