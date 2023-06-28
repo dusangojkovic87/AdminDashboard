@@ -10,6 +10,7 @@ import {
   filterByCategoryInput,
   filterByCategorySelect,
   filterCategoryProductsByName,
+  filterCategoryProductsByPrice,
   getCategoriesFail,
   getCategoriesSucces,
   getCategoryByIdFail,
@@ -131,6 +132,13 @@ export const categoryReducer = createReducer(
       state,
       action.name
     ),
+  })),
+  on(filterCategoryProductsByPrice, (state: CategoryState, action) => ({
+    ...state,
+    filteredProductsByCategoryId: FilterCategoryProductsByPrice(
+      state,
+      action.price
+    ),
   }))
 );
 
@@ -151,12 +159,19 @@ function CategoryInputOrder(state: CategoryState, action: string) {
 }
 
 function FilterCategoryProductsByName(state: CategoryState, action: string) {
-  console.log(action);
-
   if (action === '') {
     return state.productsByCategoryId;
   }
   return state.filteredProductsByCategoryId.filter((product) =>
     product.productName.toLowerCase().includes(action.toLowerCase())
   );
+}
+
+function FilterCategoryProductsByPrice(state: CategoryState, action: string) {
+  const sortedProducts = [...state.filteredProductsByCategoryId];
+  if (action.toLowerCase() === 'asc') {
+    return sortedProducts.sort((a, b) => a.price - b.price);
+  } else {
+    return sortedProducts.sort((a, b) => b.price - a.price);
+  }
 }

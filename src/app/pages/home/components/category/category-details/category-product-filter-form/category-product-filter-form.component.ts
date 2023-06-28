@@ -6,7 +6,10 @@ import {
   filterProductsByCategory,
   openProductsModal,
 } from '../../../products/productActions/productActions';
-import { filterCategoryProductsByName } from '../../categoryActions/categoryActions';
+import {
+  filterCategoryProductsByName,
+  filterCategoryProductsByPrice,
+} from '../../categoryActions/categoryActions';
 
 @Component({
   selector: 'app-category-product-filter-form',
@@ -25,6 +28,11 @@ export class CategoryProductFilterFormComponent implements OnInit, OnDestroy {
   searchByName($event: any) {
     let name = $event.target.value;
     this.store.dispatch(filterCategoryProductsByName({ name: name }));
+  }
+
+  orderProductsByPrice($event: any) {
+    let price = $event.target.value;
+    this.store.dispatch(filterCategoryProductsByPrice({ price: price }));
   }
 
   ngOnDestroy(): void {

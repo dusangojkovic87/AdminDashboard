@@ -6,9 +6,9 @@
       placeholder="Name"
       (input)="searchByName($event)"
     />
-    <select name="price" id="price">
-      <option value="low">low to high</option>
-      <option value="high">high to low</option>
+    <select name="price" id="price" (change)="orderProductsByPrice($event)">
+      <option value="asc">low to high</option>
+      <option value="desc">high to low</option>
     </select>
     <button (click)="openAddProductModal()">add product</button>
   </form>
